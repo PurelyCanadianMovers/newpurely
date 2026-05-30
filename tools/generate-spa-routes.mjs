@@ -7,6 +7,50 @@ const bundle = await readFile(join(outDir, "assets", "index-CNBNs70h.js"), "utf8
 const siteOrigin = "https://purelycanadianmovers.com";
 const privateRoutePrefixes = ["/admin/", "/404/"];
 const routeHeadOverrides = {
+  "/local-movers-burnaby-bc/": {
+    title: "Local Movers in Burnaby, BC | Purely Canadian Movers",
+    description:
+      "Local movers in Burnaby, BC for condos, townhomes, houses, and apartments. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    canonical: "https://purelycanadianmovers.com/local-movers-burnaby-bc/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How much do local movers in Burnaby cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Local moving costs in Burnaby depend on home size, crew size, access, stairs or elevator bookings, packing, and the time required. Purely Canadian Movers provides a free estimate before booking.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you move Burnaby condos and high-rises?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Purely Canadian Movers handles Burnaby condo, apartment, townhouse, and house moves, including elevator booking requirements, loading zones, and building access planning.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Which Burnaby neighbourhoods do you serve?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Purely Canadian Movers serves Burnaby neighbourhoods including Metrotown, Brentwood, Edmonds, Lougheed, Deer Lake, Capitol Hill, South Slope, and nearby Metro Vancouver communities.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you use subcontractors for Burnaby local moves?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Purely Canadian Movers is family-owned and does not use subcontractors. Burnaby moves are handled by trained moving crews with local Metro Vancouver experience.",
+          },
+        },
+      ],
+    },
+  },
   "/valuation-coverage-protection/": {
     title: "Moving Valuation Coverage in Vancouver & Canada",
     description:
