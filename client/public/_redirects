@@ -1,0 +1,93 @@
+# Canonical trailing-slash redirects for indexed public URLs.
+/about /about/ 301
+/blog /blog/ 301
+/burnaby /burnaby/ 301
+/canada-usa /canada-usa/ 301
+/contact /contact/ 301
+/coquitlam /coquitlam/ 301
+/cross-country-movers /cross-country-movers/ 301
+/cross-country-moving-guide /cross-country-moving-guide/ 301
+/delta /delta/ 301
+/abbotsford /abbotsford/ 301
+/maple-ridge /maple-ridge/ 301
+/pitt-meadows /pitt-meadows/ 301
+/long-distance /long-distance/ 301
+/distance /long-distance/ 301
+/distance/ /long-distance/ 301
+/langley /langley/ 301
+/local-movers-in-coquitlam-bc /local-movers-in-coquitlam-bc/ 301
+/local-movers-in-vancouver-bc /local-movers-in-vancouver-bc/ 301
+/local /local/ 301
+/long-distance-movers-calgary /long-distance-movers-calgary/ 301
+/long-distance-movers-edmonton /long-distance-movers-edmonton/ 301
+/long-distance-movers-halifax /long-distance-movers-halifax/ 301
+/long-distance-movers-montreal /long-distance-movers-montreal/ 301
+/long-distance-movers-ottawa /long-distance-movers-ottawa/ 301
+/long-distance-movers-toronto /long-distance-movers-toronto/ 301
+/long-distance-movers-victoria /long-distance-movers-victoria/ 301
+/movers-calgary-to-edmonton /movers-calgary-to-edmonton/ 301
+/movers-calgary-to-toronto /movers-calgary-to-toronto/ 301
+/movers-calgary-to-vancouver /movers-calgary-to-vancouver/ 301
+/movers-edmonton-to-calgary /movers-edmonton-to-calgary/ 301
+/movers-edmonton-to-toronto /movers-edmonton-to-toronto/ 301
+/movers-edmonton-to-vancouver /movers-edmonton-to-vancouver/ 301
+/movers-montreal-to-calgary /movers-montreal-to-calgary/ 301
+/movers-montreal-to-vancouver /movers-montreal-to-vancouver/ 301
+/movers-ottawa-to-calgary /movers-ottawa-to-calgary/ 301
+/movers-ottawa-to-toronto /movers-ottawa-to-toronto/ 301
+/movers-ottawa-to-vancouver /movers-ottawa-to-vancouver/ 301
+/movers-toronto-to-calgary /movers-toronto-to-calgary/ 301
+/movers-toronto-to-edmonton /movers-toronto-to-edmonton/ 301
+/movers-toronto-to-montreal /movers-toronto-to-montreal/ 301
+/movers-toronto-to-vancouver /movers-toronto-to-vancouver/ 301
+/movers-vancouver-to-calgary /movers-vancouver-to-calgary/ 301
+/movers-vancouver-to-montreal /movers-vancouver-to-montreal/ 301
+/movers-vancouver-to-toronto /movers-vancouver-to-toronto/ 301
+/new-westminster /new-westminster/ 301
+/north-vancouver /north-vancouver/ 301
+/office /office/ 301
+/overseas /overseas/ 301
+/packing /packing/ 301
+/port-moody /port-moody/ 301
+/richmond /richmond/ 301
+/services /services/ 301
+/storage /storage/ 301
+/surrey /surrey/ 301
+/testimonials /testimonials/ 301
+/vancouver /vancouver/ 301
+/white-rock /white-rock/ 301
+/bc-to-washington-movers /bc-to-washington-movers/ 301
+/calgary-long-distance-movers /calgary-long-distance-movers/ 301
+/calgary-to-toronto-movers /calgary-to-toronto-movers/ 301
+/calgary-to-vancouver-movers /calgary-to-vancouver-movers/ 301
+/edmonton-long-distance-movers /edmonton-long-distance-movers/ 301
+/edmonton-to-toronto-movers /edmonton-to-toronto-movers/ 301
+/edmonton-to-vancouver-movers /edmonton-to-vancouver-movers/ 301
+/great-canadian-vanlines-agent /great-canadian-vanlines-agent/ 301
+/halifax-long-distance-movers /halifax-long-distance-movers/ 301
+/halifax-to-toronto-movers /halifax-to-toronto-movers/ 301
+/long-distance-moving-cost-canada /long-distance-moving-cost-canada/ 301
+/montreal-long-distance-movers /montreal-long-distance-movers/ 301
+/montreal-to-calgary-movers /montreal-to-calgary-movers/ 301
+/montreal-to-edmonton-movers /montreal-to-edmonton-movers/ 301
+/montreal-to-toronto-movers /montreal-to-toronto-movers/ 301
+/montreal-to-victoria-movers /montreal-to-victoria-movers/ 301
+/ottawa-to-calgary-movers /ottawa-to-calgary-movers/ 301
+/ottawa-to-edmonton-movers /ottawa-to-edmonton-movers/ 301
+/ottawa-to-victoria-movers /ottawa-to-victoria-movers/ 301
+/toronto-to-victoria-movers /toronto-to-victoria-movers/ 301
+/valuation-coverage-protection /valuation-coverage-protection/ 301
+/vancouver-long-distance-movers /vancouver-long-distance-movers/ 301
+/victoria-long-distance-movers /victoria-long-distance-movers/ 301
+/victoria-to-vancouver-movers /victoria-to-vancouver-movers/ 301
+/our-network /our-network/ 301
+
+# Static admin route canonicalization.
+/admin /admin/login/ 301
+
+# If Cloudflare Pages is used without a Pages Function, API calls must not
+# be swallowed by the SPA fallback. The contact form will fall back to email.
+/api/* /404 404
+
+# SPA fallback for preserved React routes.
+/* /index.html 200
