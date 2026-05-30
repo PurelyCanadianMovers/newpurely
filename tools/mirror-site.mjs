@@ -180,7 +180,6 @@ async function mirrorAsset(raw, currentUrl) {
       body = Buffer.from(rewriteText(buffer.toString("utf8"), localPath, href));
       for (const nested of collectUrls(body.toString("utf8"))) await mirrorAsset(nested, href);
     } else if (/javascript|json/i.test(contentType)) {
-      body = Buffer.from(rewriteText(buffer.toString("utf8"), localPath, href));
       for (const nested of buffer.toString("utf8").matchAll(/https?:\/\/[^"' )]+/gi)) {
         await mirrorAsset(nested[0], href);
       }
