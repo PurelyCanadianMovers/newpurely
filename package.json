@@ -1,0 +1,11 @@
+{
+  "name": "purely-canadian-movers-static-copy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node tools/serve-static.mjs site-copy 4174",
+    "mirror": "node tools/mirror-site.mjs https://purelycanadianmovers.com/ site-copy 20",
+    "routes": "node tools/generate-spa-routes.mjs site-copy"
+  }
+}
