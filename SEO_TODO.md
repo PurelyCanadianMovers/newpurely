@@ -32,3 +32,18 @@ Notes:
 - Use the same price ranges in title/meta, page body, FAQ answers, route tables, and schema.
 - Include estimate disclaimers: final price depends on shipment weight or volume, route distance, access conditions, season, packing, storage, and specialty items.
 - Prioritize clear, factual answer blocks over generic marketing copy.
+
+## Sitewide Local SEO Audit To-Do
+
+Source report: `LOCAL_SEO_AUDIT.md`
+
+- [ ] Remove duplicate brand text from title tags where it appears, especially titles ending with `Purely Canadian Movers | Purely Canadian Movers`.
+- [ ] Shorten long title tags that may truncate in search results.
+- [ ] Keep city + service intent in every title, H1, and meta description.
+- [ ] Add or standardize `FAQPage` schema on service, city, route, and cost-guide pages where visible FAQs exist.
+- [ ] Add richer route/city proof sections: estimated cost, transit time, access notes, elevator/building considerations, nearby service areas, and common move scenarios.
+- [ ] Strengthen E-E-A-T on money pages with proof points: since 1991, BBB Accredited, no subcontractors, insured/valuation coverage, and Great Canadian Van Lines agent.
+- [ ] Add or confirm `BreadcrumbList` schema and consistent internal links between service, city, route, cost, packing, storage, testimonials, and quote pages.
+- [ ] Add `noindex` handling for utility pages such as `/admin/login/`, `/admin/blog/`, and `/404/`.
+- [ ] Prioritize lower-scoring pages from the audit: `/valuation-coverage-protection/`, `/contact/`, `/local/`, `/coquitlam-bc/`, `/local-movers-in-vancouver-bc/`, `/local-movers-in-coquitlam-bc/`, `/packing-service-in-coquitlam-bc/`, and `/testimonials/`.
+- [ ] Re-run `npm run audit:seo` after improvements and update `LOCAL_SEO_AUDIT.md`.
