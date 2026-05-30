@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /404/
+
+Sitemap: https://purelycanadianmovers.com/sitemap.xml

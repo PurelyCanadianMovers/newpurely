@@ -19,6 +19,17 @@ npm run serve
 
 Then open http://127.0.0.1:4174/.
 
+## Private Admin Routes
+
+The static copy keeps `/admin/login/` and `/admin/blog/` available for blog/content access, but treats them as private utility routes:
+
+- Admin routes get `noindex, nofollow, noarchive` meta tags.
+- The local preview server sends an `X-Robots-Tag` header for `/admin/` and `/404/`.
+- Generated `sitemap.xml` excludes `/admin/` and `/404/`.
+- Generated `robots.txt` disallows `/admin/` and `/404/`.
+
+For a live/CMS deployment, protect `/admin/` with real server-side authentication. `robots.txt` and `noindex` help SEO, but they do not secure an admin area.
+
 ## Refresh From The Live Site
 
 ```bash

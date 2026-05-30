@@ -30,7 +30,8 @@ function safePath(pathname) {
 }
 
 const server = createServer(async (request, response) => {
-  let filePath = safePath(new URL(request.url, `http://localhost:${port}`).pathname);
+  const pathname = new URL(request.url, `http://localhost:${port}`).pathname;
+  let filePath = safePath(pathname);
   try {
     const info = await stat(filePath);
     if (info.isDirectory()) filePath = join(filePath, "index.html");
@@ -41,6 +42,9 @@ const server = createServer(async (request, response) => {
   try {
     await stat(filePath);
     response.setHeader("content-type", types[extname(filePath).toLowerCase()] ?? "application/octet-stream");
+    if (pathname.startsWith("/admin/") || pathname.startsWith("/404/")) {
+      response.setHeader("x-robots-tag", "noindex, nofollow, noarchive");
+    }
     createReadStream(filePath).pipe(response);
   } catch {
     response.statusCode = 404;
