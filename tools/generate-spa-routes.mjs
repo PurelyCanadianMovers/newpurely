@@ -6,6 +6,52 @@ const index = await readFile(join(outDir, "index.html"), "utf8");
 const bundle = await readFile(join(outDir, "assets", "index-CNBNs70h.js"), "utf8");
 const siteOrigin = "https://purelycanadianmovers.com";
 const privateRoutePrefixes = ["/admin/", "/404/"];
+const routeHeadOverrides = {
+  "/valuation-coverage-protection/": {
+    title: "Moving Valuation Coverage in Vancouver & Canada",
+    description:
+      "Learn how moving valuation coverage works for Vancouver local, long-distance, and cross-country moves. See protection options, claims basics, and high-value item tips.",
+    canonical: "https://purelycanadianmovers.com/valuation-coverage-protection/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is moving valuation coverage the same as insurance?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Moving valuation coverage is not the same as a separate insurance policy. It is the carrier protection level applied to your shipment, and Purely Canadian Movers explains available options before Vancouver, local, or long-distance moves.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is valuation coverage included with my move?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Basic carrier liability is included with moves, while higher protection levels may be available depending on the move type, shipment details, and declared value.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do I need extra coverage for a long-distance move across Canada?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Extra valuation coverage is worth discussing for long-distance and cross-country moves, especially when moving antiques, electronics, artwork, fragile items, or a large household shipment from Vancouver or Metro Vancouver to another province.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I file a moving damage claim?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Document any damage at delivery, keep packing materials, take photos, and contact Purely Canadian Movers promptly with item details and proof of value. Claims are reviewed according to the selected coverage level.",
+          },
+        },
+      ],
+    },
+  },
+};
 
 const routes = new Set(["/"]);
 const routePatterns = [
@@ -22,6 +68,62 @@ for (const pattern of routePatterns) {
 
 function isPrivateRoute(route) {
   return privateRoutePrefixes.some((prefix) => route.startsWith(prefix));
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char];
+  });
+}
+
+function applyHeadOverride(html, route) {
+  const override = routeHeadOverrides[route];
+  if (!override) return html;
+
+  let next = html
+    .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(override.title)}</title>`)
+    .replace(
+      /<meta name="description" content="[^"]*" \/>/,
+      `<meta name="description" content="${escapeHtml(override.description)}" />`,
+    )
+    .replace(
+      /<meta property="og:title" content="[^"]*" \/>/,
+      `<meta property="og:title" content="${escapeHtml(override.title)}" />`,
+    )
+    .replace(
+      /<meta property="og:description" content="[^"]*" \/>/,
+      `<meta property="og:description" content="${escapeHtml(override.description)}" />`,
+    )
+    .replace(
+      /<meta property="og:url" content="[^"]*" \/>/,
+      `<meta property="og:url" content="${escapeHtml(override.canonical)}" />`,
+    )
+    .replace(
+      /<meta name="twitter:title" content="[^"]*" \/>/,
+      `<meta name="twitter:title" content="${escapeHtml(override.title)}" />`,
+    )
+    .replace(
+      /<meta name="twitter:description" content="[^"]*" \/>/,
+      `<meta name="twitter:description" content="${escapeHtml(override.description)}" />`,
+    );
+
+  if (override.jsonLd) {
+    const script = `<script type="application/ld+json">${JSON.stringify(override.jsonLd)}</script>`;
+    next = next.replace("</head>", `  ${script}\n</head>`);
+  }
+
+  if (override.canonical) {
+    next = next.replace(
+      /<link rel="canonical" id="canonical-tag" href="[^"]*" \/>/,
+      `<link rel="canonical" id="canonical-tag" href="${escapeHtml(override.canonical)}" />`,
+    );
+    next = next.replace(
+      /<link rel="canonical" href="[^"]*" \/>/,
+      `<link rel="canonical" href="${escapeHtml(override.canonical)}" />`,
+    );
+  }
+
+  return next;
 }
 
 function routeFile(route) {
@@ -47,6 +149,7 @@ for (const route of routes) {
       '<meta name="robots" content="noindex, nofollow, noarchive" />',
     );
   }
+  html = applyHeadOverride(html, route);
 
   const target = join(outDir, file);
   await mkdir(dirname(target), { recursive: true });
