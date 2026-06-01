@@ -1,5 +1,7 @@
 const MANUS_BLOG_LOGIN =
   "https://manus.im/app-auth?appId=FhisZ7WXCdcqNnJdX5VyAC&redirectUri=https%3A%2F%2Fpurelycanada-fhisz7wx.manus.space%2Fapi%2Foauth%2Fcallback&state=eyJyZWRpcmVjdFVyaSI6Imh0dHBzOi8vcHVyZWx5Y2FuYWRhLWZoaXN6N3d4Lm1hbnVzLnNwYWNlL2FwaS9vYXV0aC9jYWxsYmFjayIsInJldHVyblBhdGgiOiIvYWRtaW4vYmxvZyJ9&type=signIn";
+const MANUS_OAUTH_CALLBACK =
+  "https://purelycanada-fhisz7wx.manus.space/api/oauth/callback";
 
 const REDIRECTS = new Map([
   ["/admin/blog", MANUS_BLOG_LOGIN],
@@ -62,9 +64,19 @@ function redirectLocation(requestUrl, destination) {
   return url.toString();
 }
 
+function manusCallbackLocation(requestUrl) {
+  const url = new URL(requestUrl);
+  return `${MANUS_OAUTH_CALLBACK}${url.search}`;
+}
+
 export default {
   fetch(request, env) {
     const { pathname } = new URL(request.url);
+
+    if (pathname === "/api/oauth/callback" || pathname === "/api/oauth/callback/") {
+      return Response.redirect(manusCallbackLocation(request.url), 302);
+    }
+
     const destination = REDIRECTS.get(pathname);
 
     if (destination) {
