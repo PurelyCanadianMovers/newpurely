@@ -18,7 +18,30 @@ const REDIRECTS = new Map([
   ],
   ["/category/news/index.html", "/blog/"],
   ["/blog/page/2/index.html", "/blog/"],
+  ["/blog/page/3/", "/blog/"],
+  ["/blog/page/3/index.html", "/blog/"],
   ["/siteblog/comments/feed/", "/blog/"],
+  [
+    "/2025/06/10/why-purely-canadian-movers-is-a-top-rated-choice-for-long-distance-moves-from-burnaby/",
+    "/long-distance/",
+  ],
+  [
+    "/2025/07/10/why-purely-canadian-movers-is-the-cheapest-choice-for-long-distance-moves/",
+    "/long-distance-moving-cost-canada/",
+  ],
+  [
+    "/2025/07/07/purely-canadian-movers-coquitlams-oldest-most-reputable-moving-company/",
+    "/local-movers-in-coquitlam-bc/",
+  ],
+  [
+    "/2025/07/21/purely-canadian-movers-trusted-long-distance-movers-in-canada-with-honest-quotes/",
+    "/long-distance-moving-cost-canada/",
+  ],
+  [
+    "/2025/07/23/purely-canadian-best-long-distance-movers-in-canada/",
+    "/long-distance/",
+  ],
+  ["/tag/best-mover-in-burnaby/", "/local-movers-burnaby-bc/"],
 ]);
 
 function redirectLocation(requestUrl, destination) {
