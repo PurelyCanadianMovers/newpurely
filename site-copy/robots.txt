@@ -1,5 +1,10 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /404/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-*.php
+Disallow: /siteblog/comments/feed/
 
 Sitemap: https://purelycanadianmovers.com/sitemap.xml
