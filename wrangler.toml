@@ -1,5 +1,8 @@
 name = "newpurely"
+main = "src/index.js"
 compatibility_date = "2026-06-01"
 
 [assets]
 directory = "./site-copy"
+binding = "ASSETS"
+run_worker_first = true
