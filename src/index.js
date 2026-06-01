@@ -1,4 +1,11 @@
+const MANUS_BLOG_LOGIN =
+  "https://manus.im/app-auth?appId=FhisZ7WXCdcqNnJdX5VyAC&redirectUri=https%3A%2F%2Fpurelycanada-fhisz7wx.manus.space%2Fapi%2Foauth%2Fcallback&state=eyJyZWRpcmVjdFVyaSI6Imh0dHBzOi8vcHVyZWx5Y2FuYWRhLWZoaXN6N3d4Lm1hbnVzLnNwYWNlL2FwaS9vYXV0aC9jYWxsYmFjayIsInJldHVyblBhdGgiOiIvYWRtaW4vYmxvZyJ9&type=signIn";
+
 const REDIRECTS = new Map([
+  ["/admin/blog", MANUS_BLOG_LOGIN],
+  ["/admin/blog/", MANUS_BLOG_LOGIN],
+  ["/admin/login", MANUS_BLOG_LOGIN],
+  ["/admin/login/", MANUS_BLOG_LOGIN],
   ["/index.htm", "/"],
   ["/index.htm/", "/"],
   ["/index.html", "/"],
@@ -45,6 +52,10 @@ const REDIRECTS = new Map([
 ]);
 
 function redirectLocation(requestUrl, destination) {
+  if (destination.startsWith("https://")) {
+    return destination;
+  }
+
   const url = new URL(requestUrl);
   url.pathname = destination;
   url.search = "";
