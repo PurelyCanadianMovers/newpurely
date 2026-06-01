@@ -45,7 +45,8 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [ ] Strengthen E-E-A-T on money pages with proof points: since 1991, BBB Accredited, no subcontractors, insured/valuation coverage, and Great Canadian Van Lines agent.
 - [ ] Add or confirm `BreadcrumbList` schema and consistent internal links between service, city, route, cost, packing, storage, testimonials, and quote pages.
 - [x] Add `noindex` handling for utility pages such as `/admin/login/`, `/admin/blog/`, and `/404/`.
-- [ ] Prioritize lower-scoring pages from the audit: `/contact/`, `/local/`, `/coquitlam-bc/`, `/local-movers-in-vancouver-bc/`, `/local-movers-in-coquitlam-bc/`, `/packing-service-in-coquitlam-bc/`, and `/testimonials/`.
+- [ ] Prioritize lower-scoring pages from the audit: `/local/`, `/coquitlam-bc/`, `/local-movers-in-vancouver-bc/`, `/local-movers-in-coquitlam-bc/`, `/packing-service-in-coquitlam-bc/`, and `/testimonials/`.
+- [x] Improve `/contact/` with cleaner title/meta, local estimate answer content, service-area sections, trust proof, and FAQ schema.
 - [ ] Re-run `npm run audit:seo` after improvements and update `LOCAL_SEO_AUDIT.md`.
 
 Admin/blog access note:
