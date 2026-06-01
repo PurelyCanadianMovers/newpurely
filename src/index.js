@@ -70,10 +70,78 @@ function manusCallbackLocation(requestUrl) {
   return `${MANUS_OAUTH_CALLBACK}${url.search}`;
 }
 
-function proxyToManus(request) {
+function isCostQuestion(inputText) {
+  return (
+    /\b(cost|price|pricing|quote|estimate|how much|rate|rates)\b/i.test(inputText) &&
+    /\b(move|moving|mover|movers|relocat|ship|long[-\s]?distance|toronto|calgary|vancouver|canada)\b/i.test(inputText)
+  );
+}
+
+function appendCostGuideLink(payload) {
+  if (!payload || typeof payload !== "object") {
+    return false;
+  }
+
+  let updated = false;
+
+  if (typeof payload.reply === "string") {
+    const costGuideLink =
+      "[Long-Distance Moving Cost Canada](https://purelycanadianmovers.com/long-distance-moving-cost-canada/)";
+
+    if (!payload.reply.includes("/long-distance-moving-cost-canada/")) {
+      payload.reply += `\n\nFor pricing ranges by home size and route, see our detailed guide: ${costGuideLink}.`;
+      updated = true;
+    }
+  }
+
+  for (const value of Object.values(payload)) {
+    if (value && typeof value === "object") {
+      updated = appendCostGuideLink(value) || updated;
+    }
+  }
+
+  return updated;
+}
+
+async function proxyChatToManus(request) {
   const url = new URL(request.url);
   const upstream = new URL(url.pathname + url.search, MANUS_ORIGIN);
-  return fetch(new Request(upstream.toString(), request));
+  const body = await request.text();
+  const shouldAddCostGuide = isCostQuestion(body);
+  const headers = new Headers(request.headers);
+
+  const response = await fetch(upstream.toString(), {
+    method: request.method,
+    headers,
+    body: request.method === "GET" || request.method === "HEAD" ? undefined : body,
+    redirect: "manual",
+  });
+
+  if (!shouldAddCostGuide || !response.ok) {
+    return response;
+  }
+
+  const responseText = await response.text();
+
+  try {
+    const payload = JSON.parse(responseText);
+
+    if (!appendCostGuideLink(payload)) {
+      return new Response(responseText, response);
+    }
+
+    const responseHeaders = new Headers(response.headers);
+    responseHeaders.delete("content-length");
+    responseHeaders.set("content-type", "application/json");
+
+    return new Response(JSON.stringify(payload), {
+      status: response.status,
+      statusText: response.statusText,
+      headers: responseHeaders,
+    });
+  } catch {
+    return new Response(responseText, response);
+  }
 }
 
 export default {
@@ -85,7 +153,7 @@ export default {
     }
 
     if (pathname === "/api/trpc/chat.message" || pathname === "/api/trpc/chat.message/") {
-      return proxyToManus(request);
+      return proxyChatToManus(request);
     }
 
     const destination = REDIRECTS.get(pathname);
