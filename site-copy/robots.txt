@@ -1,4 +1,5 @@
 User-agent: *
+Allow: /llms.txt
 Disallow: /admin/
 Disallow: /404/
 Disallow: /wp-admin/
