@@ -234,6 +234,128 @@
     return input;
   }
 
+  function cleanEstimateDetails(details) {
+    var cleaned = {};
+    ["from", "to", "homeSize", "moveDate", "sourcePage", "savedAt"].forEach(function (key) {
+      if (details && typeof details[key] === "string" && details[key].trim()) {
+        cleaned[key] = details[key].trim();
+      }
+    });
+    return cleaned;
+  }
+
+  function hasEstimateDetails(details) {
+    return !!(details && (details.from || details.to || details.homeSize || details.moveDate));
+  }
+
+  function getEstimateDetailsFromUrl() {
+    var params = new URLSearchParams(window.location.search || "");
+    return cleanEstimateDetails({
+      from: params.get("from") || "",
+      to: params.get("to") || "",
+      homeSize: params.get("homeSize") || "",
+      moveDate: params.get("moveDate") || "",
+    });
+  }
+
+  function getSavedEstimateDetails() {
+    var saved = null;
+    try {
+      saved = JSON.parse(sessionStorage.getItem("pcmEstimateIntent") || "{}");
+    } catch (error) {
+      saved = {};
+    }
+
+    return cleanEstimateDetails(Object.assign({}, saved, getEstimateDetailsFromUrl()));
+  }
+
+  function setNativeValue(field, value) {
+    if (!field || !value || field.value === value) return false;
+
+    var proto = field.tagName === "TEXTAREA" ? window.HTMLTextAreaElement.prototype : window.HTMLInputElement.prototype;
+    if (field.tagName === "SELECT") proto = window.HTMLSelectElement.prototype;
+    var descriptor = Object.getOwnPropertyDescriptor(proto, "value");
+
+    if (descriptor && descriptor.set) {
+      descriptor.set.call(field, value);
+    } else {
+      field.value = value;
+    }
+
+    field.dispatchEvent(new Event("input", { bubbles: true }));
+    field.dispatchEvent(new Event("change", { bubbles: true }));
+    return true;
+  }
+
+  function labelTextFor(field) {
+    var parts = [field.name, field.id, field.placeholder, field.getAttribute("aria-label")];
+    var label = field.closest("label");
+    if (label) parts.push(label.textContent);
+    if (field.id) {
+      var explicit = document.querySelector('label[for="' + CSS.escape(field.id) + '"]');
+      if (explicit) parts.push(explicit.textContent);
+    }
+    return parts.filter(Boolean).join(" ").toLowerCase();
+  }
+
+  function findContactField(patterns, tagName) {
+    var selector = tagName || "input, textarea, select";
+    return Array.prototype.find.call(document.querySelectorAll(selector), function (field) {
+      if (field.type === "hidden" || field.disabled || field.readOnly) return false;
+      var text = labelTextFor(field);
+      return patterns.some(function (pattern) {
+        return pattern.test(text);
+      });
+    });
+  }
+
+  function estimateDetailsText(details) {
+    return [
+      details.from && "Moving from: " + details.from,
+      details.to && "Moving to: " + details.to,
+      details.homeSize && "Home size: " + details.homeSize,
+      details.moveDate && "Move date: " + details.moveDate,
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
+
+  function prefillContactForm(details) {
+    if (normalizePath() !== "/contact/" || !hasEstimateDetails(details)) return false;
+
+    var changed = false;
+    var fromField = findContactField([/\bfrom\b/, /moving from/, /origin/, /pickup/, /current address/], "input, textarea");
+    var toField = findContactField([/\bto\b/, /moving to/, /destination/, /delivery/, /new address/], "input, textarea");
+    var sizeField = findContactField([/home size/, /move size/, /shipment size/, /\bsize\b/, /bedroom/]);
+    var dateField = findContactField([/move date/, /moving date/, /preferred date/, /\bdate\b/], "input");
+    var messageField = findContactField([/message/, /comments?/, /details?/, /notes?/, /tell us/], "textarea");
+
+    changed = setNativeValue(fromField, details.from) || changed;
+    changed = setNativeValue(toField, details.to) || changed;
+    changed = setNativeValue(sizeField, details.homeSize) || changed;
+    changed = setNativeValue(dateField, details.moveDate) || changed;
+
+    if (messageField) {
+      var summaryText = estimateDetailsText(details);
+      if (summaryText && !messageField.value.includes(summaryText)) {
+        var nextValue = messageField.value ? messageField.value + "\n\n" + summaryText : summaryText;
+        changed = setNativeValue(messageField, nextValue) || changed;
+      }
+    }
+
+    var form = (fromField || toField || sizeField || dateField || messageField || document.querySelector("form"))?.closest("form") || document.querySelector("form");
+    if (form && !form.querySelector('input[name="estimateDetails"]')) {
+      var hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = "estimateDetails";
+      hidden.value = estimateDetailsText(details);
+      form.appendChild(hidden);
+      changed = true;
+    }
+
+    return changed;
+  }
+
   function createSizeSelect() {
     var select = document.createElement("select");
     select.name = "homeSize";
@@ -256,19 +378,27 @@
 
   function saveEstimateIntent(form) {
     var data = new FormData(form);
-    var details = {
+    var details = cleanEstimateDetails({
       from: data.get("from") || "",
       to: data.get("to") || "",
       homeSize: data.get("homeSize") || "",
       moveDate: data.get("moveDate") || "",
       sourcePage: window.location.pathname,
       savedAt: new Date().toISOString(),
-    };
+    });
     try {
       sessionStorage.setItem("pcmEstimateIntent", JSON.stringify(details));
     } catch (error) {
       // Ignore storage errors; the contact page remains available.
     }
+  }
+
+  function removeBlankEstimateFields(form) {
+    Array.prototype.forEach.call(form.querySelectorAll("input, select"), function (field) {
+      if (!field.value || !field.value.trim()) {
+        field.disabled = true;
+      }
+    });
   }
 
   function createLeadPanel(config) {
@@ -308,7 +438,7 @@
     var buttonRow = document.createElement("div");
     buttonRow.className = "pcm-button-row";
     buttonRow.innerHTML =
-      '<button class="pcm-primary-button" type="submit">Start Free Estimate</button>' +
+      '<button class="pcm-primary-button" type="submit">Continue Estimate</button>' +
       '<a class="pcm-secondary-button" href="' +
       PHONE_LINK +
       '">Call ' +
@@ -318,6 +448,7 @@
 
     form.addEventListener("submit", function () {
       saveEstimateIntent(form);
+      removeBlankEstimateFields(form);
     });
 
     return section;
@@ -533,28 +664,26 @@
 
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
-    var raw = null;
-    try {
-      raw = sessionStorage.getItem("pcmEstimateIntent");
-    } catch (error) {
-      return;
-    }
-    if (!raw || document.querySelector(".pcm-contact-summary")) return;
+    var details = getSavedEstimateDetails();
+    if (!hasEstimateDetails(details)) return;
 
     try {
-      var details = JSON.parse(raw);
-      var summary = document.createElement("div");
-      summary.className = "pcm-contact-summary";
-      summary.innerHTML =
-        "<strong>Estimate details saved</strong>" +
-        "<div>" +
-        [details.from && "From: " + details.from, details.to && "To: " + details.to, details.homeSize && "Size: " + details.homeSize, details.moveDate && "Date: " + details.moveDate]
-          .filter(Boolean)
-          .join(" | ") +
-        "</div>";
+      if (!document.querySelector(".pcm-contact-summary")) {
+        var summary = document.createElement("div");
+        summary.className = "pcm-contact-summary";
+        summary.innerHTML =
+          "<strong>Estimate details saved</strong>" +
+          "<div>" +
+          [details.from && "From: " + details.from, details.to && "To: " + details.to, details.homeSize && "Size: " + details.homeSize, details.moveDate && "Date: " + details.moveDate]
+            .filter(Boolean)
+            .join(" | ") +
+          "</div>";
 
-      var root = document.getElementById("root");
-      if (root && root.firstChild) root.insertBefore(summary, root.firstChild);
+        var root = document.getElementById("root");
+        if (root && root.firstChild) root.insertBefore(summary, root.firstChild);
+      }
+
+      prefillContactForm(details);
     } catch (error) {
       // Ignore malformed saved data.
     }
@@ -566,7 +695,18 @@
     applyTitleOverride(path);
 
     if (!config) {
-      showContactSummary();
+      if (path === "/contact/") {
+        var contactAttempts = 0;
+        var contactTimer = window.setInterval(function () {
+          contactAttempts += 1;
+          showContactSummary();
+          if (contactAttempts > 30) {
+            window.clearInterval(contactTimer);
+          }
+        }, 250);
+      } else {
+        showContactSummary();
+      }
       return;
     }
 
