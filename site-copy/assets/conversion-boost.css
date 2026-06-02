@@ -255,6 +255,110 @@
   top: 0;
 }
 
+.pcm-local-seo {
+  max-width: 1120px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.pcm-local-seo__inner {
+  background: #ffffff;
+  border: 1px solid var(--pcm-line);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  padding: 28px;
+}
+
+.pcm-local-seo h2 {
+  color: var(--pcm-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.pcm-local-seo h3 {
+  color: var(--pcm-ink);
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.pcm-local-seo p {
+  color: var(--pcm-muted);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.pcm-local-seo__cards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.pcm-local-seo__cards article {
+  background: var(--pcm-soft);
+  border: 1px solid var(--pcm-line);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.pcm-local-seo__links,
+.pcm-local-seo__faqs {
+  border-top: 1px solid var(--pcm-line);
+  margin-top: 22px;
+  padding-top: 22px;
+}
+
+.pcm-local-seo__links div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pcm-local-seo__links a {
+  background: #fff7f7;
+  border: 1px solid rgba(204, 26, 26, 0.24);
+  border-radius: 999px;
+  color: var(--pcm-red);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.pcm-local-seo__links a:hover {
+  background: var(--pcm-red);
+  color: #ffffff;
+}
+
+.pcm-local-seo__faqs {
+  display: grid;
+  gap: 10px;
+}
+
+.pcm-local-seo__faqs h3 {
+  margin-bottom: 4px;
+}
+
+.pcm-local-seo__faqs details {
+  border: 1px solid var(--pcm-line);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.pcm-local-seo__faqs summary {
+  color: var(--pcm-ink);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.pcm-local-seo__faqs details p {
+  margin-top: 8px;
+}
+
 @media (max-width: 820px) {
   .pcm-lead-panel {
     margin: 16px auto;
@@ -301,6 +405,23 @@
   }
 
   .pcm-compare-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pcm-local-seo {
+    margin: 16px auto;
+    padding: 0 14px;
+  }
+
+  .pcm-local-seo__inner {
+    padding: 20px;
+  }
+
+  .pcm-local-seo h2 {
+    font-size: 26px;
+  }
+
+  .pcm-local-seo__cards {
     grid-template-columns: 1fr;
   }
 }

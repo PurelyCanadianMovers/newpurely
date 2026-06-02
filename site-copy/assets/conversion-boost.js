@@ -23,6 +23,121 @@
       title: "Get a local moving estimate for Metro Vancouver.",
       body: "Book a direct mover with no subcontractors for apartments, condos, houses, offices, and furniture moves.",
     },
+    "/maple-ridge/": {
+      eyebrow: "Maple Ridge movers",
+      title: "Get a Maple Ridge moving estimate from a direct local mover.",
+      body: "Plan a house, condo, apartment, or long-distance move in Maple Ridge with a family-owned mover serving the Lower Mainland since 1991.",
+    },
+    "/local-movers-in-coquitlam-bc/": {
+      eyebrow: "Coquitlam local movers",
+      title: "Get a local moving estimate in Coquitlam.",
+      body: "Move within Coquitlam, Port Coquitlam, Port Moody, Burnaby, New Westminster, or the Tri-Cities with no subcontractors and direct accountability.",
+    },
+    "/coquitlam-bc/": {
+      eyebrow: "Coquitlam movers",
+      title: "Get a Coquitlam moving estimate from a local team.",
+      body: "Purely Canadian Movers is based in Coquitlam and helps with local, packing, office, storage, and long-distance moves.",
+    },
+    "/coquitlam/": {
+      eyebrow: "Coquitlam movers",
+      title: "Plan your Coquitlam move with a local moving company.",
+      body: "Get help with Coquitlam apartments, condos, houses, office moves, packing, storage, and long-distance relocation.",
+    },
+  };
+
+  var LOCAL_SEO_BLOCKS = {
+    "/maple-ridge/": {
+      title: "Maple Ridge movers for local and long-distance moves",
+      intro:
+        "Purely Canadian Movers helps Maple Ridge families and businesses move within the Lower Mainland, across BC, and across Canada. The page now gives Google and customers clearer Maple Ridge intent, nearby service links, and quote-focused answers.",
+      highlights: [
+        ["Local move scenarios", "Apartments, townhomes, detached homes, seniors moves, furniture moves, and storage-assisted moves in Maple Ridge."],
+        ["Nearby areas", "Pitt Meadows, Port Coquitlam, Coquitlam, Langley, Mission, and the rest of Metro Vancouver."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
+      ],
+      links: [
+        ["Local Moving", "/local/"],
+        ["Pitt Meadows Movers", "/pitt-meadows/"],
+        ["Port Coquitlam Movers", "/port-coquitlam/"],
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Langley Movers", "/local-movers-langley-bc/"],
+        ["Long-Distance Moving", "/long-distance/"],
+      ],
+      faqs: [
+        ["Do you move homes within Maple Ridge?", "Yes. Purely Canadian Movers handles local Maple Ridge moves for apartments, condos, townhomes, detached homes, seniors moves, and furniture-only moves."],
+        ["Do you serve Pitt Meadows and nearby communities?", "Yes. We serve Maple Ridge, Pitt Meadows, Port Coquitlam, Coquitlam, Langley, Mission, and surrounding Lower Mainland communities."],
+        ["How much do Maple Ridge movers cost?", "Local moving cost depends on crew size, truck time, access, stairs, elevators, packing, storage, and the amount being moved. A written estimate is the best way to price the move accurately."],
+        ["Do you use subcontractors for Maple Ridge moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+      ],
+    },
+    "/local-movers-in-coquitlam-bc/": {
+      title: "Local movers in Coquitlam with direct accountability",
+      intro:
+        "Coquitlam is a core service area for Purely Canadian Movers. This page reinforces the local moving cluster for Coquitlam, Port Coquitlam, Port Moody, Burnaby, New Westminster, and nearby Metro Vancouver communities.",
+      highlights: [
+        ["Coquitlam move types", "Apartment moves, condo moves, detached homes, seniors moves, furniture moves, packing help, and short-notice local relocations."],
+        ["Tri-Cities coverage", "Coquitlam, Port Coquitlam, Port Moody, Burke Mountain, Maillardville, Austin Heights, and nearby Lower Mainland areas."],
+        ["Why this matters", "These are core local-money keywords, so the page needs clear Coquitlam language, service proof, internal links, FAQs, and trust signals."],
+      ],
+      links: [
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Packing in Coquitlam", "/packing-service-in-coquitlam-bc/"],
+        ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
+        ["Corporate Relocation Coquitlam", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+        ["Port Moody Movers", "/local-movers-port-moody-bc/"],
+        ["New Westminster Movers", "/local-movers-new-westminster-bc/"],
+      ],
+      faqs: [
+        ["Do you provide local movers in Coquitlam?", "Yes. Purely Canadian Movers provides local moving services in Coquitlam for apartments, condos, houses, furniture moves, offices, and packing-supported moves."],
+        ["What areas near Coquitlam do you serve?", "We serve Coquitlam, Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Vancouver, and the wider Lower Mainland."],
+        ["How much does a local move in Coquitlam cost?", "The cost depends on the size of the move, crew size, access, elevators, stairs, packing, storage, and travel time. Request an estimate for a specific Coquitlam moving quote."],
+        ["Are you a direct moving company or a broker?", "Purely Canadian Movers is a direct moving company with no subcontractors, giving customers one accountable team from estimate to moving day."],
+      ],
+    },
+    "/coquitlam-bc/": {
+      title: "Coquitlam moving company for local, packing, office, and long-distance moves",
+      intro:
+        "This Coquitlam hub connects the local moving, packing, office moving, corporate relocation, and long-distance services that matter most for Coquitlam searches.",
+      highlights: [
+        ["Local base", "Purely Canadian Movers is based in Coquitlam and has served Metro Vancouver since 1991."],
+        ["Service cluster", "Local moves, packing, storage, office moves, corporate relocations, cross-border moves, and long-distance moving."],
+        ["Nearby coverage", "Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Langley, Maple Ridge, and Vancouver."],
+      ],
+      links: [
+        ["Local Movers in Coquitlam", "/local-movers-in-coquitlam-bc/"],
+        ["Packing Service in Coquitlam", "/packing-service-in-coquitlam-bc/"],
+        ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
+        ["Corporate Moves Coquitlam", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+        ["Storage", "/storage/"],
+        ["Long-Distance Moving", "/long-distance/"],
+      ],
+      faqs: [
+        ["Is Purely Canadian Movers based in Coquitlam?", "Yes. Purely Canadian Movers is based in Coquitlam and serves Metro Vancouver, the Lower Mainland, BC, Canada, and international routes."],
+        ["What moving services do you offer in Coquitlam?", "Services include local moving, long-distance moving, packing, storage, office moving, corporate relocation, cross-border moving, and valuation coverage options."],
+        ["Do you serve Port Coquitlam and Port Moody?", "Yes. The Coquitlam team also serves Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Langley, Maple Ridge, and surrounding areas."],
+      ],
+    },
+    "/coquitlam/": {
+      title: "Coquitlam movers and nearby Tri-Cities moving services",
+      intro:
+        "This page supports the broader Coquitlam moving cluster and points customers toward the most relevant service pages for local, packing, office, storage, and long-distance moves.",
+      highlights: [
+        ["Best next page", "Customers looking for a local move should visit the local movers in Coquitlam page for the strongest match."],
+        ["Service proof", "Family-owned since 1991, BBB Accredited, no subcontractors, and direct moving support."],
+        ["Internal cluster", "Coquitlam service pages should link together so Google understands the full local moving topic."],
+      ],
+      links: [
+        ["Local Movers in Coquitlam", "/local-movers-in-coquitlam-bc/"],
+        ["Coquitlam BC Moving Page", "/coquitlam-bc/"],
+        ["Packing Service in Coquitlam", "/packing-service-in-coquitlam-bc/"],
+        ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
+        ["Contact for Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Which Coquitlam moving page should I use?", "For a local household move, use the local movers in Coquitlam page. For a broader overview, use the Coquitlam BC moving page."],
+        ["Can I get packing and storage with my Coquitlam move?", "Yes. Packing support and storage options can be included with a Coquitlam moving estimate."],
+      ],
+    },
   };
 
   function normalizePath() {
@@ -201,6 +316,83 @@
     return section;
   }
 
+  function createLocalSeoBlock(config, path) {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-local-seo";
+    section.setAttribute("aria-label", config.title);
+
+    section.innerHTML =
+      '<div class="pcm-local-seo__inner">' +
+      "<h2></h2>" +
+      "<p></p>" +
+      '<div class="pcm-local-seo__cards"></div>' +
+      '<div class="pcm-local-seo__links"><h3>Related moving services</h3><div></div></div>' +
+      '<div class="pcm-local-seo__faqs"><h3>Local moving questions</h3></div>' +
+      "</div>";
+
+    section.querySelector("h2").textContent = config.title;
+    section.querySelector("p").textContent = config.intro;
+
+    var cards = section.querySelector(".pcm-local-seo__cards");
+    config.highlights.forEach(function (item) {
+      var card = document.createElement("article");
+      card.innerHTML = "<h3></h3><p></p>";
+      card.querySelector("h3").textContent = item[0];
+      card.querySelector("p").textContent = item[1];
+      cards.appendChild(card);
+    });
+
+    var links = section.querySelector(".pcm-local-seo__links div");
+    config.links.forEach(function (item) {
+      var link = document.createElement("a");
+      link.href = item[1];
+      link.textContent = item[0];
+      links.appendChild(link);
+    });
+
+    var faqs = section.querySelector(".pcm-local-seo__faqs");
+    config.faqs.forEach(function (item) {
+      var detail = document.createElement("details");
+      detail.innerHTML = "<summary></summary><p></p>";
+      detail.querySelector("summary").textContent = item[0];
+      detail.querySelector("p").textContent = item[1];
+      faqs.appendChild(detail);
+    });
+
+    addFaqSchema(config, path);
+    return section;
+  }
+
+  function addFaqSchema(config, path) {
+    if (document.querySelector('script[data-pcm-faq-schema="' + path + '"]')) return;
+    var script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-pcm-faq-schema", path);
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: config.faqs.map(function (item) {
+        return {
+          "@type": "Question",
+          name: item[0],
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item[1],
+          },
+        };
+      }),
+    });
+    document.head.appendChild(script);
+  }
+
+  function insertLocalSeoBlock(path) {
+    var config = LOCAL_SEO_BLOCKS[path];
+    if (!config || document.querySelector(".pcm-local-seo")) return;
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    if (!leadPanel || !leadPanel.parentNode) return;
+    leadPanel.parentNode.insertBefore(createLocalSeoBlock(config, path), leadPanel.nextSibling);
+  }
+
   function insertBrokerComparison(path) {
     if (path !== "/toronto-to-calgary-movers/" || document.querySelector(".pcm-broker-compare")) {
       return;
@@ -224,6 +416,7 @@
     } else {
       root.insertBefore(panel, root.firstChild);
     }
+    insertLocalSeoBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     return true;
   }
