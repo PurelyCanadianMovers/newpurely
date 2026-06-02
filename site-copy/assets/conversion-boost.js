@@ -53,6 +53,16 @@
       title: "Plan your Burnaby move with a Metro Vancouver moving team.",
       body: "Get help with Burnaby local moves, condo towers, apartment moves, packing, storage, office moving, and long-distance relocation.",
     },
+    "/local-movers-north-vancouver-bc/": {
+      eyebrow: "North Vancouver local movers",
+      title: "Get a North Vancouver moving estimate for condos, apartments, and houses.",
+      body: "Plan a North Shore move with a direct moving company experienced with elevator bookings, loading access, strata rules, and Metro Vancouver routes.",
+    },
+    "/north-vancouver/": {
+      eyebrow: "North Vancouver movers",
+      title: "Plan your North Vancouver move with a Metro Vancouver moving team.",
+      body: "Get help with North Vancouver local moves, condo towers, apartment moves, packing, storage, office moving, and long-distance relocation.",
+    },
   };
 
   var LOCAL_SEO_BLOCKS = {
