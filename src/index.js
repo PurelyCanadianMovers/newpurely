@@ -215,6 +215,12 @@ export default {
       });
     }
 
+    if (pathname === "/blog/avoid-cheap-long-distance-moving-quotes-fake-reviews-1779301349239/") {
+      return fetchStaticAsset(request, env, "/blog/avoid-cheap-long-distance-moving-quotes-fake-reviews-1779301349239/index.html", {
+        "Cache-Control": "no-cache, max-age=0, must-revalidate",
+      });
+    }
+
     const destination = REDIRECTS.get(pathname);
 
     if (destination) {
