@@ -65,6 +65,39 @@
     },
   };
 
+  var TITLE_OVERRIDES = {
+    "/long-distance-moving-cost-canada/": "Long-Distance Moving Costs in Canada | Pricing Guide",
+    "/long-distance/": "Long-Distance Movers Across Canada | Cross-Canada Moving",
+    "/toronto-to-calgary-movers/": "Toronto to Calgary Movers | Costs, Transit & Quotes",
+    "/toronto-long-distance-movers/": "Toronto Long-Distance Movers | Cross-Canada Moving",
+    "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers | Cross-Canada Moving",
+    "/calgary-long-distance-movers/": "Calgary Long-Distance Movers | Cross-Canada Moving",
+  };
+
+  var TRUST_PROOF_BLOCKS = {
+    "/long-distance-moving-cost-canada/": {
+      title: "Why these long-distance moving cost ranges are reliable",
+      intro:
+        "Long-distance moving prices can vary widely, so the guide explains the factors behind each range instead of promising a one-size-fits-all price. Use it as a planning range, then request a written estimate based on your route, shipment size, access, and service needs.",
+      proof: [
+        ["Experience since 1991", "Purely Canadian Movers has helped Canadian families and businesses plan local and long-distance moves for more than three decades."],
+        ["Direct moving accountability", "No subcontractors. Your estimate, planning, pickup, and delivery are handled through one accountable moving team."],
+        ["National network support", "As a Great Canadian Van Lines agent, we combine local service with cross-Canada route support and long-distance coordination."],
+        ["BBB Accredited", "Trust signals matter on pricing pages. BBB accreditation, written estimates, and clear terms help customers compare movers more safely."],
+        ["Valuation options", "Basic valuation coverage is included, and additional protection options can be reviewed before booking."],
+        ["Pricing variables shown", "Final cost depends on weight or volume, distance, access, stairs, elevators, season, packing, storage, and specialty items."],
+      ],
+      links: [
+        ["Get a written estimate", "/contact/"],
+        ["Valuation coverage", "/valuation-coverage-protection/"],
+        ["Packing services", "/packing/"],
+        ["Storage options", "/storage/"],
+        ["Long-distance movers", "/long-distance/"],
+        ["Great Canadian Van Lines agent", "/great-canadian-vanlines-agent/"],
+      ],
+    },
+  };
+
   var LOCAL_SEO_BLOCKS = {
     "/maple-ridge/": {
       title: "Maple Ridge movers for local and long-distance moves",
@@ -405,6 +438,62 @@
     document.head.appendChild(script);
   }
 
+  function applyTitleOverride(path) {
+    var title = TITLE_OVERRIDES[path];
+    if (!title) return;
+
+    document.title = title;
+    setTimeout(function () {
+      document.title = title;
+    }, 800);
+  }
+
+  function createTrustProofBlock(config) {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-trust-proof";
+    section.innerHTML =
+      '<div class="pcm-trust-proof__inner">' +
+      "<h2></h2>" +
+      "<p></p>" +
+      '<div class="pcm-trust-proof__grid"></div>' +
+      '<div class="pcm-trust-proof__links"><h3>Estimate support and related resources</h3><div></div></div>' +
+      "</div>";
+
+    section.querySelector("h2").textContent = config.title;
+    section.querySelector("p").textContent = config.intro;
+
+    var grid = section.querySelector(".pcm-trust-proof__grid");
+    config.proof.forEach(function (item) {
+      var article = document.createElement("article");
+      article.innerHTML = "<h3></h3><p></p>";
+      article.querySelector("h3").textContent = item[0];
+      article.querySelector("p").textContent = item[1];
+      grid.appendChild(article);
+    });
+
+    var links = section.querySelector(".pcm-trust-proof__links div");
+    config.links.forEach(function (item) {
+      var link = document.createElement("a");
+      link.href = item[1];
+      link.textContent = item[0];
+      links.appendChild(link);
+    });
+
+    return section;
+  }
+
+  function insertTrustProofBlock(path) {
+    var config = TRUST_PROOF_BLOCKS[path];
+    if (!config || document.querySelector(".pcm-trust-proof")) return;
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    var root = document.getElementById("root");
+    var anchor = leadPanel || (root && root.querySelector("section"));
+    if (!anchor || !anchor.parentNode) return;
+
+    anchor.parentNode.insertBefore(createTrustProofBlock(config), anchor.nextSibling);
+  }
+
   function insertLocalSeoBlock(path) {
     var config = LOCAL_SEO_BLOCKS[path];
     if (!config || document.querySelector(".pcm-local-seo")) return;
@@ -437,6 +526,7 @@
       root.insertBefore(panel, root.firstChild);
     }
     insertLocalSeoBlock(normalizePath());
+    insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     return true;
   }
@@ -473,6 +563,7 @@
   function init() {
     var path = normalizePath();
     var config = getConfig(path);
+    applyTitleOverride(path);
 
     if (!config) {
       showContactSummary();

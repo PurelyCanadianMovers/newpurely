@@ -12,8 +12,8 @@ Remaining:
 - [x] Add concise AI-answer blocks near the top, including "How much does a long-distance move cost in Canada?"
 - [x] Add `FAQPage` JSON-LD for the visible FAQ questions and answers.
 - [x] Add route-specific mini-answer sections before the large pricing table.
-- [ ] Strengthen trust and expertise signals in the pricing methodology section.
-- [ ] Clean the title tag to avoid duplicate brand text.
+- [x] Strengthen trust and expertise signals in the pricing methodology section.
+- [x] Clean the title tag to avoid duplicate brand text.
 - [ ] Add a downloadable or copy-friendly pricing table summary for route costs.
 
 Checked June 2, 2026:
@@ -22,6 +22,7 @@ Checked June 2, 2026:
 - `/long-distance/` has strong hub content, city links, quote CTA, pricing/transit language, but no `FAQPage` schema.
 - Long-distance city pages such as Toronto, Calgary, Edmonton, Montreal, Ottawa, Victoria, and Halifax render cost/quote language, transit language, and `FAQPage` schema.
 - Remaining priority in this cluster is title cleanup and deeper trust/proof around pricing methodology, not the first three AI-answer tasks.
+- Completed title cleanup and trust/proof strengthening for the priority long-distance pages on June 2, 2026. Rendered titles were verified for `/long-distance-moving-cost-canada/`, `/long-distance/`, `/toronto-to-calgary-movers/`, `/toronto-long-distance-movers/`, `/vancouver-long-distance-movers/`, and `/calgary-long-distance-movers/`.
 
 Suggested route mini-answers:
 
