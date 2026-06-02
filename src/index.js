@@ -146,7 +146,13 @@ async function proxyChatToManus(request) {
 
 export default {
   fetch(request, env) {
-    const { pathname } = new URL(request.url);
+    const url = new URL(request.url);
+    const { pathname } = url;
+
+    if (url.hostname === "www.purelycanadianmovers.com") {
+      url.hostname = "purelycanadianmovers.com";
+      return Response.redirect(url.toString(), 301);
+    }
 
     if (pathname === "/api/oauth/callback" || pathname === "/api/oauth/callback/") {
       return Response.redirect(manusCallbackLocation(request.url), 302);
