@@ -169,6 +169,49 @@
     document.body.appendChild(bar);
   }
 
+  function createBrokerComparison() {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-broker-compare";
+    section.setAttribute("aria-label", "Direct mover versus broker comparison");
+    section.innerHTML =
+      '<div class="pcm-broker-compare__inner">' +
+      "<h2>Direct Toronto to Calgary mover, not a moving broker</h2>" +
+      "<p>For a long-distance move from Ontario to Alberta, who handles your shipment matters. Purely Canadian Movers gives you direct accountability from estimate to delivery.</p>" +
+      '<div class="pcm-compare-grid">' +
+      '<div class="pcm-compare-column">' +
+      "<h3>Purely Canadian Movers</h3>" +
+      "<ul>" +
+      "<li>Direct moving team with no subcontractors</li>" +
+      "<li>Family-owned since 1991</li>" +
+      "<li>Agents of Great Canadian Van Lines</li>" +
+      "<li>Clear estimate process and route-specific planning</li>" +
+      "</ul>" +
+      "</div>" +
+      '<div class="pcm-compare-column">' +
+      "<h3>Typical moving broker</h3>" +
+      "<ul>" +
+      "<li>May sell the job to another carrier</li>" +
+      "<li>Pickup and delivery crews may change</li>" +
+      "<li>Accountability can be split between companies</li>" +
+      "<li>Low upfront quotes can turn into added charges</li>" +
+      "</ul>" +
+      "</div>" +
+      "</div>" +
+      "</div>";
+    return section;
+  }
+
+  function insertBrokerComparison(path) {
+    if (path !== "/toronto-to-calgary-movers/" || document.querySelector(".pcm-broker-compare")) {
+      return;
+    }
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    if (!leadPanel || !leadPanel.parentNode) return;
+
+    leadPanel.parentNode.insertBefore(createBrokerComparison(), leadPanel.nextSibling);
+  }
+
   function insertLeadPanel(config) {
     if (document.querySelector(".pcm-lead-panel")) return true;
     var root = document.getElementById("root");
@@ -181,6 +224,7 @@
     } else {
       root.insertBefore(panel, root.firstChild);
     }
+    insertBrokerComparison(normalizePath());
     return true;
   }
 
