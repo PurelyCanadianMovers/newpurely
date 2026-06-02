@@ -87,6 +87,26 @@ function withSecurityHeaders(response) {
   });
 }
 
+async function fetchStaticAsset(request, env, assetPath, extraHeaders = {}) {
+  const assetUrl = new URL(request.url);
+  assetUrl.pathname = assetPath;
+  assetUrl.search = "";
+
+  const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+  const secured = withSecurityHeaders(response);
+  const headers = new Headers(secured.headers);
+
+  for (const [name, value] of Object.entries(extraHeaders)) {
+    headers.set(name, value);
+  }
+
+  return new Response(secured.body, {
+    status: secured.status,
+    statusText: secured.statusText,
+    headers,
+  });
+}
+
 function redirectWithSecurityHeaders(location, status = 301) {
   return withSecurityHeaders(Response.redirect(location, status));
 }
@@ -181,6 +201,18 @@ export default {
 
     if (pathname === "/api/trpc/chat.message" || pathname === "/api/trpc/chat.message/") {
       return proxyChatToManus(request);
+    }
+
+    if (pathname === "/blog" || pathname === "/blog/") {
+      return fetchStaticAsset(request, env, "/blog/index.html", {
+        "Cache-Control": "no-cache, max-age=0, must-revalidate",
+      });
+    }
+
+    if (pathname === "/blog/toronto-to-western-canada-purely-canadian-movers/") {
+      return fetchStaticAsset(request, env, "/blog/toronto-to-western-canada-purely-canadian-movers/index.html", {
+        "Cache-Control": "no-cache, max-age=0, must-revalidate",
+      });
     }
 
     const destination = REDIRECTS.get(pathname);
