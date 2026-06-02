@@ -3,6 +3,9 @@ const MANUS_BLOG_LOGIN =
 const MANUS_ORIGIN = "https://purelycanada-fhisz7wx.manus.space";
 const MANUS_OAUTH_CALLBACK =
   `${MANUS_ORIGIN}/api/oauth/callback`;
+const SECURITY_HEADERS = {
+  "Strict-Transport-Security": "max-age=31536000",
+};
 
 const REDIRECTS = new Map([
   ["/admin/blog", MANUS_BLOG_LOGIN],
@@ -70,6 +73,24 @@ function manusCallbackLocation(requestUrl) {
   return `${MANUS_OAUTH_CALLBACK}${url.search}`;
 }
 
+function withSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
+    headers.set(name, value);
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
+function redirectWithSecurityHeaders(location, status = 301) {
+  return withSecurityHeaders(Response.redirect(location, status));
+}
+
 function isCostQuestion(inputText) {
   return (
     /\b(cost|price|pricing|quote|estimate|how much|rate|rates)\b/i.test(inputText) &&
@@ -118,7 +139,7 @@ async function proxyChatToManus(request) {
   });
 
   if (!shouldAddCostGuide || !response.ok) {
-    return response;
+    return withSecurityHeaders(response);
   }
 
   const responseText = await response.text();
@@ -127,20 +148,20 @@ async function proxyChatToManus(request) {
     const payload = JSON.parse(responseText);
 
     if (!appendCostGuideLink(payload)) {
-      return new Response(responseText, response);
+      return withSecurityHeaders(new Response(responseText, response));
     }
 
     const responseHeaders = new Headers(response.headers);
     responseHeaders.delete("content-length");
     responseHeaders.set("content-type", "application/json");
 
-    return new Response(JSON.stringify(payload), {
+    return withSecurityHeaders(new Response(JSON.stringify(payload), {
       status: response.status,
       statusText: response.statusText,
       headers: responseHeaders,
-    });
+    }));
   } catch {
-    return new Response(responseText, response);
+    return withSecurityHeaders(new Response(responseText, response));
   }
 }
 
@@ -151,11 +172,11 @@ export default {
 
     if (url.hostname === "www.purelycanadianmovers.com") {
       url.hostname = "purelycanadianmovers.com";
-      return Response.redirect(url.toString(), 301);
+      return redirectWithSecurityHeaders(url.toString(), 301);
     }
 
     if (pathname === "/api/oauth/callback" || pathname === "/api/oauth/callback/") {
-      return Response.redirect(manusCallbackLocation(request.url), 302);
+      return redirectWithSecurityHeaders(manusCallbackLocation(request.url), 302);
     }
 
     if (pathname === "/api/trpc/chat.message" || pathname === "/api/trpc/chat.message/") {
@@ -165,9 +186,9 @@ export default {
     const destination = REDIRECTS.get(pathname);
 
     if (destination) {
-      return Response.redirect(redirectLocation(request.url, destination), 301);
+      return redirectWithSecurityHeaders(redirectLocation(request.url, destination), 301);
     }
 
-    return env.ASSETS.fetch(request);
+    return env.ASSETS.fetch(request).then(withSecurityHeaders);
   },
 };
