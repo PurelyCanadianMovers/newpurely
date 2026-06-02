@@ -48,6 +48,7 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [ ] Prioritize lower-scoring pages from the audit: `/coquitlam-bc/`, `/local-movers-in-vancouver-bc/`, `/local-movers-in-coquitlam-bc/`, `/packing-service-in-coquitlam-bc/`, and `/testimonials/`.
 - [x] Improve `/contact/` with cleaner title/meta, local estimate answer content, service-area sections, trust proof, and FAQ schema.
 - [x] Improve `/local/` with a Metro Vancouver cost guide, expanded city links, direct mover vs broker comparison, trust CTA, and FAQ schema.
+- [x] Re-strengthen `/local-movers-burnaby-bc/` because the report shows Burnaby dropped from position 22 in April to 100 in May.
 - [ ] Strengthen `/local-movers-white-rock-bc/` after Maple Ridge and Coquitlam cluster work.
 - [ ] Strengthen the Port Coquitlam page/cluster after Maple Ridge and Coquitlam cluster work.
 - [ ] Continue expanding city/service internal links across the local moving cluster.

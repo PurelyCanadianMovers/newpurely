@@ -43,6 +43,16 @@
       title: "Plan your Coquitlam move with a local moving company.",
       body: "Get help with Coquitlam apartments, condos, houses, office moves, packing, storage, and long-distance relocation.",
     },
+    "/local-movers-burnaby-bc/": {
+      eyebrow: "Burnaby local movers",
+      title: "Get a Burnaby moving estimate for condos, apartments, and houses.",
+      body: "Plan a Burnaby move with a direct moving company experienced with elevator bookings, loading zones, strata rules, and Metro Vancouver building access.",
+    },
+    "/burnaby/": {
+      eyebrow: "Burnaby movers",
+      title: "Plan your Burnaby move with a Metro Vancouver moving team.",
+      body: "Get help with Burnaby local moves, condo towers, apartment moves, packing, storage, office moving, and long-distance relocation.",
+    },
   };
 
   var LOCAL_SEO_BLOCKS = {
