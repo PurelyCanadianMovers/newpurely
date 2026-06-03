@@ -144,11 +144,12 @@ function appendCostGuideLink(payload) {
   return updated;
 }
 
-async function proxyChatToManus(request) {
+async function proxyTrpcToManus(request) {
   const url = new URL(request.url);
   const upstream = new URL(url.pathname + url.search, MANUS_ORIGIN);
-  const body = await request.text();
-  const shouldAddCostGuide = isCostQuestion(body);
+  const isChatMessage = url.pathname === "/api/trpc/chat.message" || url.pathname === "/api/trpc/chat.message/";
+  const body = request.method === "GET" || request.method === "HEAD" ? "" : await request.text();
+  const shouldAddCostGuide = isChatMessage && isCostQuestion(body);
   const headers = new Headers(request.headers);
 
   const response = await fetch(upstream.toString(), {
@@ -199,8 +200,8 @@ export default {
       return redirectWithSecurityHeaders(manusCallbackLocation(request.url), 302);
     }
 
-    if (pathname === "/api/trpc/chat.message" || pathname === "/api/trpc/chat.message/") {
-      return proxyChatToManus(request);
+    if (pathname === "/api/trpc" || pathname === "/api/trpc/" || pathname.startsWith("/api/trpc/")) {
+      return proxyTrpcToManus(request);
     }
 
     if (pathname === "/blog" || pathname === "/blog/") {
