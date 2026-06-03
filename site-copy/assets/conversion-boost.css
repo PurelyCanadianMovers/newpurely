@@ -178,6 +178,17 @@
   margin-bottom: 6px;
 }
 
+.pcm-footer-map-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pcm-footer-map-link:hover,
+.pcm-footer-map-link:focus {
+  color: var(--pcm-red);
+}
+
 .pcm-broker-compare {
   max-width: 1120px;
   margin: 24px auto;

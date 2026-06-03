@@ -2,6 +2,8 @@
   var PHONE_DISPLAY = "1-877-485-6683";
   var PHONE_LINK = "tel:18774856683";
   var CONTACT_URL = "/contact/";
+  var GOOGLE_MAPS_ADDRESS_URL =
+    "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
   var TARGETS = {
     "/": {
       eyebrow: "Free moving estimate",
@@ -819,6 +821,28 @@
     return true;
   }
 
+  function enhanceFooterAddress() {
+    if (document.querySelector(".pcm-footer-map-link")) return true;
+
+    var addressSpan = Array.prototype.find.call(document.querySelectorAll("footer span"), function (span) {
+      return /91\s+Golden\s+Dr/i.test(span.textContent || "");
+    });
+
+    if (!addressSpan) return false;
+
+    var link = document.createElement("a");
+    link.className = "pcm-footer-map-link";
+    link.href = GOOGLE_MAPS_ADDRESS_URL;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.setAttribute("aria-label", "Open Purely Canadian Movers address in Google Maps");
+    link.innerHTML = "Unit 16-91 Golden Dr.<br>Coquitlam, BC V3K 6R2";
+
+    addressSpan.textContent = "";
+    addressSpan.appendChild(link);
+    return true;
+  }
+
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
     var details = getSavedEstimateDetails();
@@ -850,6 +874,14 @@
     var path = normalizePath();
     var config = getConfig(path);
     applyTitleOverride(path);
+
+    var footerAttempts = 0;
+    var footerTimer = window.setInterval(function () {
+      footerAttempts += 1;
+      if (enhanceFooterAddress() || footerAttempts > 30) {
+        window.clearInterval(footerTimer);
+      }
+    }, 250);
 
     if (!config) {
       if (path === "/contact/") {
