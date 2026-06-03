@@ -194,18 +194,24 @@ function scorePage(page) {
 
 async function render(route) {
   const url = `${baseUrl}${route}`;
-  const { stdout } = await execFileAsync(
-    edgePath,
-    [
-      "--headless=new",
-      "--disable-gpu",
-      `--user-data-dir=${process.env.TEMP ?? "."}\\codex-local-seo-audit`,
-      "--virtual-time-budget=3500",
-      "--dump-dom",
-      url,
-    ],
-    { maxBuffer: 20 * 1024 * 1024 },
-  );
+  const args = [
+    "--headless=new",
+    "--disable-gpu",
+    "--disable-software-rasterizer",
+    "--disable-dev-shm-usage",
+    "--no-sandbox",
+    `--user-data-dir=${process.env.TEMP ?? "."}\\codex-local-seo-audit`,
+    "--virtual-time-budget=3500",
+    "--dump-dom",
+    url,
+  ];
+  let stdout;
+  try {
+    ({ stdout } = await execFileAsync(edgePath, args, { maxBuffer: 20 * 1024 * 1024 }));
+  } catch (error) {
+    if (!error.stdout) throw error;
+    stdout = error.stdout;
+  }
   if (!stdout.includes("<html") && !stdout.includes("<!DOCTYPE")) {
     throw new Error(stdout.slice(0, 500) || "No HTML returned");
   }
@@ -235,13 +241,13 @@ function parse(route, html) {
 }
 
 function category(route) {
-  if (route.includes("long-distance") || route.includes("-to-") || route.includes("movers-")) return "Long-distance";
-  if (route.includes("local") || /\/(vancouver|coquitlam|surrey|burnaby|langley|richmond|delta|white-rock|north-vancouver|new-westminster|port-moody|maple-ridge|pitt-meadows|abbotsford)\//.test(route)) return "Local";
+  if (route.includes("admin") || route.includes("404")) return "Utility";
+  if (route.includes("blog") || route.includes("guide")) return "Content";
   if (route.includes("office")) return "Office";
   if (route.includes("packing")) return "Packing";
   if (route.includes("storage")) return "Storage";
-  if (route.includes("blog") || route.includes("guide")) return "Content";
-  if (route.includes("admin") || route.includes("404")) return "Utility";
+  if (route.includes("local") || /\/(vancouver|coquitlam|surrey|burnaby|langley|richmond|delta|white-rock|north-vancouver|new-westminster|port-coquitlam|port-moody|maple-ridge|pitt-meadows|abbotsford)\//.test(route)) return "Local";
+  if (route.includes("long-distance") || route.includes("-to-") || route.includes("movers-")) return "Long-distance";
   return "Core";
 }
 
