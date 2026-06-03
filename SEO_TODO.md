@@ -61,6 +61,7 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [x] Strengthen `/local-movers-white-rock-bc/` after Maple Ridge and Coquitlam cluster work.
 - [x] Strengthen the Port Coquitlam page/cluster after Maple Ridge and Coquitlam cluster work.
 - [ ] Continue expanding city/service internal links across the local moving cluster.
+- [ ] Monitor Google Search Console validation while it is still running; no new redirect/indexing changes unless Soft 404, Page with redirect, Not found 404, Redirect error, or Crawled currently not indexed shows new failed examples with recent crawl dates.
 - [ ] Monitor GBP calls, website clicks, and direction clicks after each local SEO update.
 - [ ] Re-run `npm run audit:seo` after improvements and update `LOCAL_SEO_AUDIT.md`.
 
