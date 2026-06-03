@@ -60,10 +60,20 @@
       title: "Get a North Vancouver moving estimate for condos, apartments, and houses.",
       body: "Plan a North Shore move with a direct moving company experienced with elevator bookings, loading access, strata rules, and Metro Vancouver routes.",
     },
+    "/local-movers-white-rock-bc/": {
+      eyebrow: "White Rock local movers",
+      title: "Get a White Rock moving estimate for condos, houses, and seniors moves.",
+      body: "Plan a White Rock move with help for beach-area access, condo elevators, parking, packing, storage, and Lower Mainland routes.",
+    },
     "/north-vancouver/": {
       eyebrow: "North Vancouver movers",
       title: "Plan your North Vancouver move with a Metro Vancouver moving team.",
       body: "Get help with North Vancouver local moves, condo towers, apartment moves, packing, storage, office moving, and long-distance relocation.",
+    },
+    "/white-rock/": {
+      eyebrow: "White Rock movers",
+      title: "Plan your White Rock move with a Lower Mainland moving team.",
+      body: "Get help with White Rock local moves, condos, seniors moves, packing, storage, office moving, and long-distance relocation.",
     },
     "/port-moody/": {
       eyebrow: "Port Moody movers",
@@ -80,11 +90,14 @@
     "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers | Cross-Canada Moving",
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers | Cross-Canada Moving",
     "/port-moody/": "Port Moody Movers | Local Moving Company in Port Moody BC",
+    "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
   };
 
   var META_DESCRIPTION_OVERRIDES = {
     "/port-moody/":
       "Port Moody movers for apartments, condos, townhomes, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/white-rock/":
+      "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
   };
 
   var PRICING_SUMMARY_ROWS = [
@@ -239,6 +252,54 @@
         ["Do you use subcontractors for Port Moody moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
       ],
     },
+    "/local-movers-white-rock-bc/": {
+      title: "White Rock local movers for condos, houses, seniors moves, and careful access planning",
+      intro:
+        "Purely Canadian Movers helps White Rock residents plan local moves, seniors moves, condo moves, packing, storage, and long-distance relocation. This page reinforces White Rock intent with service details, nearby-area links, and quote-focused answers.",
+      highlights: [
+        ["White Rock move scenarios", "Condos, apartments, detached homes, seniors downsizing moves, furniture-only moves, packing-supported moves, and storage-assisted moves."],
+        ["Access and neighbourhood notes", "White Rock beach-area streets, hills, parking limits, condo elevators, strata rules, Marine Drive access, and nearby South Surrey communities often need advance planning."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
+      ],
+      links: [
+        ["White Rock Movers", "/white-rock/"],
+        ["Surrey Movers", "/surrey/"],
+        ["Local Moving", "/local/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Long-Distance Moving", "/long-distance/"],
+      ],
+      faqs: [
+        ["Do you provide local movers in White Rock?", "Yes. Purely Canadian Movers handles local White Rock moves for condos, apartments, detached homes, seniors moves, office moves, and furniture-only moves."],
+        ["Can you help with White Rock condo and strata moves?", "Yes. We help plan elevator bookings, loading access, parking, strata requirements, and timing for White Rock condo and apartment moves."],
+        ["Do you serve South Surrey and nearby areas?", "Yes. We serve White Rock, South Surrey, Surrey, Delta, Langley, and the wider Lower Mainland."],
+        ["How much do White Rock movers cost?", "Local moving cost depends on crew size, truck time, access, stairs, elevators, packing, storage, travel time, and the amount being moved. A written estimate is the best way to price the move accurately."],
+        ["Do you use subcontractors for White Rock moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
+      ],
+    },
+    "/white-rock/": {
+      title: "White Rock movers and nearby South Surrey moving services",
+      intro:
+        "This White Rock hub supports the local moving page and points customers toward the most relevant services for condos, homes, seniors moves, packing, storage, and long-distance relocation.",
+      highlights: [
+        ["Best next page", "Customers looking for a local household move should visit the local movers in White Rock page for the strongest service match."],
+        ["Nearby coverage", "White Rock, South Surrey, Ocean Park, Crescent Beach, Morgan Creek, Surrey, Delta, and Langley."],
+        ["Service proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct moving support."],
+      ],
+      links: [
+        ["Local Movers in White Rock", "/local-movers-white-rock-bc/"],
+        ["Surrey Movers", "/surrey/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Contact for Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Which White Rock moving page should I use?", "For a local household move, use the local movers in White Rock page. For a broader overview, use this White Rock city hub."],
+        ["Can I get packing and storage with my White Rock move?", "Yes. Packing support and storage options can be included with a White Rock moving estimate."],
+        ["Do you handle seniors moves in White Rock?", "Yes. Purely Canadian Movers can help with White Rock seniors moves, downsizing, packing, furniture moves, and storage-supported transitions."],
+      ],
+    },
   };
 
   function normalizePath() {
@@ -249,7 +310,7 @@
 
   function isCityOrRoutePage(path) {
     return (
-      /movers|moving|coquitlam|surrey|burnaby|vancouver|calgary|edmonton|toronto|ottawa|montreal|victoria|winnipeg|halifax|langley|maple-ridge|north-vancouver|new-westminster/i.test(
+      /movers|moving|coquitlam|surrey|burnaby|vancouver|calgary|edmonton|toronto|ottawa|montreal|victoria|winnipeg|halifax|langley|maple-ridge|north-vancouver|new-westminster|white-rock|port-coquitlam/i.test(
         path
       ) && !path.startsWith("/admin/")
     );
