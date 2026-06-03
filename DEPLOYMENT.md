@@ -24,7 +24,7 @@ The contact form posts to `/api/contact` by default. On Vercel, that route is ha
 Recommendations:
 
 - Vercel: use the included `/api/contact` serverless function with SMTP environment variables. This keeps the form in-repo and avoids relying on the old Manus backend.
-- Cloudflare Pages: use a trusted hosted form service such as Formspree, Basin, or Getform and set `VITE_CONTACT_FORM_ENDPOINT`. This is safer than trying to send SMTP directly from a static Cloudflare Pages deployment.
+- Cloudflare Pages: use a Pages Function or Worker for `/api/contact` before launch. A static-only Cloudflare Pages deployment cannot send SMTP directly from the browser.
 
 Set these environment variables in Vercel:
 
@@ -44,13 +44,9 @@ SMTP_SECURE=true
 
 If the API endpoint is unavailable or email delivery is not configured, the form falls back to opening a prefilled email to `esales@pcmovers.ca`.
 
-For Cloudflare Pages static hosting without a Pages Function, use a trusted form endpoint such as Formspree, Basin, or Getform and set:
+For Vercel, no `VITE_CONTACT_FORM_ENDPOINT` is needed because the form uses `/api/contact` by default.
 
-```bash
-VITE_CONTACT_FORM_ENDPOINT=https://your-form-endpoint.example.com
-```
-
-The endpoint should accept a JSON `POST`. Without that variable, Cloudflare will reject `/api/*` requests and the form will use the email fallback.
+For Cloudflare Pages, deploy an equivalent Pages Function at `/api/contact` or set `VITE_CONTACT_FORM_ENDPOINT` to a secure server endpoint that accepts a JSON `POST`. Without one of those, Cloudflare will reject `/api/*` requests and the form will use the email fallback.
 
 ## Before Launch
 
