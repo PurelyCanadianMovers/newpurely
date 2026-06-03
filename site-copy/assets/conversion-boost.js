@@ -85,6 +85,16 @@
       "Port Moody movers for apartments, condos, townhomes, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
   };
 
+  var PRICING_SUMMARY_ROWS = [
+    ["Vancouver to Toronto", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
+    ["Toronto to Vancouver", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
+    ["Vancouver to Calgary", "$1,100+", "$1,500-$2,000+", "$2,800+", "2-5 days"],
+    ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
+    ["Montreal to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
+    ["Ottawa to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
+    ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
+  ];
+
   var TRUST_PROOF_BLOCKS = {
     "/long-distance-moving-cost-canada/": {
       title: "Why these long-distance moving cost ranges are reliable",
@@ -662,6 +672,103 @@
     return section;
   }
 
+  function pricingSummaryText() {
+    return [
+      "Long-Distance Moving Cost Summary (CAD)",
+      "Route | Small Move | 1-2 Bedroom | 3+ Bedroom | Typical Transit",
+    ]
+      .concat(
+        PRICING_SUMMARY_ROWS.map(function (row) {
+          return row.join(" | ");
+        })
+      )
+      .concat(["Prices are estimates in CAD. Final cost depends on shipment weight or volume, route distance, access, stairs, elevators, season, packing, storage, and specialty items."])
+      .join("\n");
+  }
+
+  function pricingSummaryCsv() {
+    return ["Route,Small Move,1-2 Bedroom,3+ Bedroom,Typical Transit"]
+      .concat(
+        PRICING_SUMMARY_ROWS.map(function (row) {
+          return row
+            .map(function (cell) {
+              return '"' + String(cell).replace(/"/g, '""') + '"';
+            })
+            .join(",");
+        })
+      )
+      .join("\n");
+  }
+
+  function createPricingSummaryBlock() {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-pricing-summary";
+    section.setAttribute("aria-label", "Downloadable long-distance moving cost summary");
+    section.innerHTML =
+      '<div class="pcm-pricing-summary__inner">' +
+      '<div class="pcm-pricing-summary__header">' +
+      '<div><div class="pcm-pricing-summary__eyebrow">Copy-friendly pricing summary</div><h2>Long-distance moving cost summary</h2><p>Use this quick table to compare common Canadian moving routes. Copy it for planning or download it as a CSV.</p></div>' +
+      '<div class="pcm-pricing-summary__actions"><button type="button" data-action="copy">Copy summary</button><button type="button" data-action="csv">Download CSV</button></div>' +
+      "</div>" +
+      '<div class="pcm-pricing-summary__table-wrap"><table><thead><tr><th>Route</th><th>Small move</th><th>1-2 bedroom</th><th>3+ bedroom</th><th>Typical transit</th></tr></thead><tbody></tbody></table></div>' +
+      '<p class="pcm-pricing-summary__note">Prices are estimates in CAD. Final cost depends on shipment weight or volume, route distance, access, stairs, elevators, season, packing, storage, and specialty items.</p>' +
+      "</div>";
+
+    var body = section.querySelector("tbody");
+    PRICING_SUMMARY_ROWS.forEach(function (row) {
+      var tr = document.createElement("tr");
+      row.forEach(function (cell) {
+        var td = document.createElement("td");
+        td.textContent = cell;
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+
+    var copyButton = section.querySelector('[data-action="copy"]');
+    copyButton.addEventListener("click", function () {
+      navigator.clipboard.writeText(pricingSummaryText()).then(
+        function () {
+          copyButton.textContent = "Copied";
+          window.setTimeout(function () {
+            copyButton.textContent = "Copy summary";
+          }, 1800);
+        },
+        function () {
+          copyButton.textContent = "Copy failed";
+          window.setTimeout(function () {
+            copyButton.textContent = "Copy summary";
+          }, 1800);
+        }
+      );
+    });
+
+    section.querySelector('[data-action="csv"]').addEventListener("click", function () {
+      var blob = new Blob([pricingSummaryCsv()], { type: "text/csv;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement("a");
+      link.href = url;
+      link.download = "purely-canadian-movers-long-distance-cost-summary.csv";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    return section;
+  }
+
+  function insertPricingSummaryBlock(path) {
+    if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-pricing-summary")) {
+      return;
+    }
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    if (!leadPanel || !leadPanel.parentNode) return;
+
+    leadPanel.parentNode.insertBefore(createPricingSummaryBlock(), leadPanel.nextSibling);
+  }
+
   function insertTrustProofBlock(path) {
     var config = TRUST_PROOF_BLOCKS[path];
     if (!config || document.querySelector(".pcm-trust-proof")) return;
@@ -706,6 +813,7 @@
       root.insertBefore(panel, root.firstChild);
     }
     insertLocalSeoBlock(normalizePath());
+    insertPricingSummaryBlock(normalizePath());
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     return true;

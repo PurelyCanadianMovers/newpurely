@@ -14,7 +14,7 @@ Remaining:
 - [x] Add route-specific mini-answer sections before the large pricing table.
 - [x] Strengthen trust and expertise signals in the pricing methodology section.
 - [x] Clean the title tag to avoid duplicate brand text.
-- [ ] Add a downloadable or copy-friendly pricing table summary for route costs.
+- [x] Add a downloadable or copy-friendly pricing table summary for route costs.
 
 Checked June 2, 2026:
 
