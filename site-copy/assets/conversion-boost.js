@@ -3,7 +3,7 @@
   var PHONE_LINK = "tel:18774856683";
   var CONTACT_URL = "/contact/";
   var GOOGLE_MAPS_ADDRESS_URL =
-    "https://www.google.com/maps/place/Purely+Canadian+Movers+Inc/@49.2324076,-122.8226241,3a,29.9y,104.37h,83.36t/data=!3m7!1e1!3m5!1sO94gPfWXJV75XqAQAtFP1A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D6.638376046428959%26panoid%3DO94gPfWXJV75XqAQAtFP1A%26yaw%3D104.37180563020098!7i16384!8i8192!4m16!1m9!3m8!1s0x5485d7d28d9ceacd:0xa794aca089a6a3d0!2s91+Golden+Dr+%2316,+Coquitlam,+BC+V3K+6R2!3b1!8m2!3d49.2323579!4d-122.8229483!10e5!16s%2Fg%2F11mtdl5k4m!3m5!1s0x5485d7f7087ce257:0x3499abdc4bfa3112!8m2!3d49.2323499!4d-122.8223778!16s%2Fg%2F1tpc7nml?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D";
+    "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
   var TARGETS = {
     "/": {
       eyebrow: "Free moving estimate",
