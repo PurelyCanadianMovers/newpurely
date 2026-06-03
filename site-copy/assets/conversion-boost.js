@@ -63,6 +63,11 @@
       title: "Plan your North Vancouver move with a Metro Vancouver moving team.",
       body: "Get help with North Vancouver local moves, condo towers, apartment moves, packing, storage, office moving, and long-distance relocation.",
     },
+    "/port-moody/": {
+      eyebrow: "Port Moody movers",
+      title: "Plan your Port Moody move with a Tri-Cities moving team.",
+      body: "Get help with Port Moody apartments, condos, townhomes, packing, storage, office moves, and long-distance relocation.",
+    },
   };
 
   var TITLE_OVERRIDES = {
@@ -72,6 +77,12 @@
     "/toronto-long-distance-movers/": "Toronto Long-Distance Movers | Cross-Canada Moving",
     "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers | Cross-Canada Moving",
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers | Cross-Canada Moving",
+    "/port-moody/": "Port Moody Movers | Local Moving Company in Port Moody BC",
+  };
+
+  var META_DESCRIPTION_OVERRIDES = {
+    "/port-moody/":
+      "Port Moody movers for apartments, condos, townhomes, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
   };
 
   var TRUST_PROOF_BLOCKS = {
@@ -189,6 +200,31 @@
       faqs: [
         ["Which Coquitlam moving page should I use?", "For a local household move, use the local movers in Coquitlam page. For a broader overview, use the Coquitlam BC moving page."],
         ["Can I get packing and storage with my Coquitlam move?", "Yes. Packing support and storage options can be included with a Coquitlam moving estimate."],
+      ],
+    },
+    "/port-moody/": {
+      title: "Port Moody movers for condos, apartments, townhomes, and long-distance moves",
+      intro:
+        "Purely Canadian Movers serves Port Moody as part of the Tri-Cities and Metro Vancouver moving network. This Port Moody hub supports customers comparing local movers, packing, storage, and long-distance relocation help.",
+      highlights: [
+        ["Port Moody move scenarios", "Apartment moves, condo moves, townhomes, detached homes, seniors moves, office moves, furniture moves, and packing-supported moves."],
+        ["Neighbourhood and access notes", "Moody Centre, Newport Village, Suter Brook, Heritage Mountain, Ioco, Anmore, Belcarra, and nearby Tri-Cities communities often require elevator bookings, loading access planning, and strata coordination."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
+      ],
+      links: [
+        ["Local Movers in Port Moody", "/local-movers-port-moody-bc/"],
+        ["Coquitlam Movers", "/local-movers-in-coquitlam-bc/"],
+        ["Port Coquitlam Movers", "/port-coquitlam/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Long-Distance Moving", "/long-distance/"],
+      ],
+      faqs: [
+        ["Do you provide local movers in Port Moody?", "Yes. Purely Canadian Movers handles local Port Moody moves for apartments, condos, townhomes, detached homes, offices, seniors moves, and furniture-only moves."],
+        ["What areas near Port Moody do you serve?", "We serve Port Moody, Coquitlam, Port Coquitlam, Anmore, Belcarra, Burnaby, New Westminster, and the wider Metro Vancouver area."],
+        ["Can you help with Port Moody condo and strata moves?", "Yes. We help plan elevator bookings, loading access, parking, strata requirements, and timing for Port Moody condo and apartment moves."],
+        ["How much do Port Moody movers cost?", "The cost depends on crew size, truck time, access, stairs, elevators, packing, storage, travel time, and the amount being moved. A written estimate is the best way to price the move accurately."],
+        ["Do you use subcontractors for Port Moody moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
       ],
     },
   };
@@ -571,11 +607,24 @@
 
   function applyTitleOverride(path) {
     var title = TITLE_OVERRIDES[path];
-    if (!title) return;
+    var description = META_DESCRIPTION_OVERRIDES[path];
+    if (!title && !description) return;
 
-    document.title = title;
+    if (title) document.title = title;
+    if (description) {
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute("content", description);
+      var ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogDescription) ogDescription.setAttribute("content", description);
+      var twitterDescription = document.querySelector('meta[name="twitter:description"]');
+      if (twitterDescription) twitterDescription.setAttribute("content", description);
+    }
     setTimeout(function () {
-      document.title = title;
+      if (title) document.title = title;
+      if (description) {
+        var delayedMeta = document.querySelector('meta[name="description"]');
+        if (delayedMeta) delayedMeta.setAttribute("content", description);
+      }
     }, 800);
   }
 
