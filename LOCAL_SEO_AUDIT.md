@@ -1,7 +1,7 @@
 # Local SEO Audit
 
 Audited 128 rendered routes from http://127.0.0.1:4175.
-Average local SEO score: 97/100.
+Average local SEO score: 98/100.
 
 ## Highest Priority Pages
 
@@ -10,21 +10,21 @@ Average local SEO score: 97/100.
 - /admin/login/ (50/100): Local/geographic intent is weak in title/H1/meta. Meta description is short; add service area, trust signal, and CTA.
 - /blog/ (81/100): Local/geographic intent is weak in title/H1/meta. Add page-specific Service schema.
 - /blog/avoid-cheap-long-distance-moving-quotes-fake-reviews-1779301349239/ (86/100): Local/geographic intent is weak in title/H1/meta. Add page-specific Service schema.
-- /port-coquitlam/ (90/100): Meta description may truncate. Add page-specific Service schema.
 - /blog/toronto-to-western-canada-purely-canadian-movers/ (93/100): Add page-specific Service schema. Add local SEO FAQs and FAQPage schema.
-- /canada-usa/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /corporate-moves-employee-relocation-in-coquitlam-bc/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /cross-country-movers/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /local-movers-in-vancouver-bc/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /long-distance/ (93/100): Title is short; add service + location intent. Add local SEO FAQs and FAQPage schema.
-- /movers-calgary-to-edmonton/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /movers-edmonton-to-calgary/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /movers-vancouver-to-halifax/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /office-movers-in-vancouver-bc/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /office/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /overseas/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /packing/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /storage/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- /calgary-long-distance-movers/ (96/100): Title is short; add service + location intent.
+- /long-distance-moving-cost-canada/ (96/100): Title is short; add service + location intent.
+- /movers-calgary-to-toronto/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-calgary-to-vancouver/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-edmonton-to-toronto/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-edmonton-to-vancouver/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-montreal-to-calgary/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-montreal-to-vancouver/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-ottawa-to-calgary/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-ottawa-to-toronto/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-ottawa-to-vancouver/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-toronto-to-calgary/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-toronto-to-edmonton/ (96/100): Meta description is short; add service area, trust signal, and CTA.
+- /movers-toronto-to-montreal/ (96/100): Meta description is short; add service area, trust signal, and CTA.
 
 ## Global Opportunities
 
@@ -55,12 +55,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem
 - Top opportunities: Add local SEO FAQs and FAQPage schema.
 ### /canada-usa/
-- Score: 93/100
+- Score: 100/100
 - Category: Core
 - Title: Canada-USA Movers | Cross-Border Moving Services
 - H1: Canada–USA Moving Services
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /contact/
 - Score: 97/100
 - Category: Core
@@ -76,19 +76,19 @@ Average local SEO score: 97/100.
 - Schema: FAQPage, Question, Answer, MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /corporate-moves-employee-relocation-in-coquitlam-bc/
-- Score: 93/100
+- Score: 100/100
 - Category: Core
 - Title: Corporate Movers Coquitlam BC | Employee Relocation
 - H1: Office & Corporate Moving Services | Metro Vancouver | Purely Canadian Movers
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /cross-country-movers/
-- Score: 93/100
+- Score: 100/100
 - Category: Core
 - Title: Cross-Country Movers Canada | Coast-to-Coast Moving
 - H1: Cross-Country Movers Across Canada | Coast-to-Coast Moving Services
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /distance/
 - Score: 97/100
 - Category: Core
@@ -118,12 +118,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /overseas/
-- Score: 93/100
+- Score: 100/100
 - Category: Core
 - Title: Overseas Moving Services | International Movers Vancouver
 - H1: Overseas & International Moving Services | Vancouver BC
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /services/
 - Score: 97/100
 - Category: Core
@@ -136,7 +136,7 @@ Average local SEO score: 97/100.
 - Category: Core
 - Title: Customer Reviews | Purely Canadian Movers
 - H1: Customer Reviews
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /valuation-coverage-protection/
 - Score: 97/100
@@ -146,12 +146,12 @@ Average local SEO score: 97/100.
 - Schema: FAQPage, Question, Answer, MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service
 - Top opportunities: Meta description may truncate.
 ### /x-country/
-- Score: 93/100
+- Score: 100/100
 - Category: Core
 - Title: Cross-Country Moving Cost Guide | Canada Routes
 - H1: Cross-Country Moving Cost Guide
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
+- Top opportunities: Looks solid; monitor rankings and conversions.
 
 ## Utility
 
@@ -236,12 +236,12 @@ Average local SEO score: 97/100.
 - Schema: FAQPage, Question, Answer, MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /local-movers-in-vancouver-bc/
-- Score: 93/100
+- Score: 100/100
 - Category: Local
 - Title: Local Movers Vancouver BC | Homes, Condos & Apartments
 - H1: Local Movers in Vancouver, BC | Purely Canadian Movers
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /local-movers-langley-bc/
 - Score: 100/100
 - Category: Local
@@ -289,7 +289,7 @@ Average local SEO score: 97/100.
 - Category: Local
 - Title: Vancouver Movers | Local & Long-Distance Moving
 - H1: Local Moving in White Rock<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, BC</span>
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /local/
 - Score: 97/100
@@ -327,18 +327,18 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Meta description may truncate.
 ### /port-coquitlam/
-- Score: 90/100
+- Score: 100/100
 - Category: Local
 - Title: Port Coquitlam Movers | Local Moving Company in Port Coquitlam BC
 - H1: Port Coquitlam movers for local, packing, storage, and long-distance moves
-- Schema: BreadcrumbList, ListItem, FAQPage, Question, Answer
-- Top opportunities: Meta description may truncate. Add page-specific Service schema. Add local SEO FAQs and FAQPage schema.
+- Schema: BreadcrumbList, ListItem, Service, MovingCompany, City, AdministrativeArea, ServiceChannel, FAQPage, Question, Answer
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /port-moody/
 - Score: 100/100
 - Category: Local
 - Title: Port Moody Movers | Local Moving Company in Port Moody BC
 - H1: Local Movers in Port Moody, BC
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /richmond/
 - Score: 100/100
@@ -366,7 +366,7 @@ Average local SEO score: 97/100.
 - Category: Local
 - Title: White Rock Movers | Local Moving Company in White Rock BC
 - H1: Local Movers in White Rock, BC
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
 - Top opportunities: Looks solid; monitor rankings and conversions.
 
 ## Long-distance
@@ -498,12 +498,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Title is short; add service + location intent.
 ### /long-distance/
-- Score: 93/100
+- Score: 100/100
 - Category: Long-distance
-- Title: Long-Distance Movers Canada
+- Title: Long-Distance Movers Canada | Cross-Country Moving
 - H1: Best Long-Distance Movers in Canada
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Title is short; add service + location intent. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /montreal-long-distance-movers/
 - Score: 100/100
 - Category: Long-distance
@@ -547,12 +547,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /movers-calgary-to-edmonton/
-- Score: 93/100
+- Score: 100/100
 - Category: Long-distance
 - Title: Calgary to Edmonton Movers | Alberta Moving Route
 - H1: Page Not Found
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /movers-calgary-to-toronto/
 - Score: 96/100
 - Category: Long-distance
@@ -568,12 +568,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Meta description is short; add service area, trust signal, and CTA.
 ### /movers-edmonton-to-calgary/
-- Score: 93/100
+- Score: 100/100
 - Category: Long-distance
 - Title: Edmonton to Calgary Movers | Alberta Moving Route
 - H1: Page Not Found
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /movers-edmonton-to-toronto/
 - Score: 96/100
 - Category: Long-distance
@@ -659,12 +659,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Meta description is short; add service area, trust signal, and CTA.
 ### /movers-vancouver-to-halifax/
-- Score: 93/100
+- Score: 100/100
 - Category: Long-distance
 - Title: Vancouver to Halifax Movers | Coast-to-Coast Moving
 - H1: Page Not Found
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer, AdministrativeArea, Country, ServiceChannel
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /movers-vancouver-to-montreal/
 - Score: 96/100
 - Category: Long-distance
@@ -847,12 +847,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /office-movers-in-vancouver-bc/
-- Score: 93/100
+- Score: 100/100
 - Category: Office
 - Title: Office Movers Vancouver BC | Corporate Moving
 - H1: Office & Corporate Moving Services in Metro Vancouver
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /office-movers-langley-bc/
 - Score: 100/100
 - Category: Office
@@ -870,7 +870,7 @@ Average local SEO score: 97/100.
 ### /office-movers-surrey-bc/
 - Score: 100/100
 - Category: Office
-- Title: Vancouver Movers | Local & Long-Distance Moving
+- Title: Office & Corporate Moving in Surrey, BC | Purely Canadian Movers
 - H1: Office & Corporate Moving in Surrey<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, BC</span>
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
@@ -882,12 +882,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /office/
-- Score: 93/100
+- Score: 100/100
 - Category: Office
 - Title: Office Movers Metro Vancouver | Corporate Moving
 - H1: Office & Corporate Moving Services in Metro Vancouver
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 
 ## Packing
 
@@ -896,7 +896,7 @@ Average local SEO score: 97/100.
 - Category: Packing
 - Title: Packing Services Coquitlam BC | Moving & Unpacking
 - H1: Professional Packing & Unpacking Services | Metro Vancouver | Purely Canadian Movers
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /packing-services-burnaby-bc/
 - Score: 100/100
@@ -915,7 +915,7 @@ Average local SEO score: 97/100.
 ### /packing-services-langley-bc/
 - Score: 100/100
 - Category: Packing
-- Title: Packing & Unpacking in Langley, BC | Purely Canadian Movers
+- Title: Vancouver Movers | Local & Long-Distance Moving
 - H1: Packing & Unpacking in Langley<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, BC</span>
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
@@ -941,19 +941,19 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /packing/
-- Score: 93/100
+- Score: 100/100
 - Category: Packing
 - Title: Packing Services Metro Vancouver | Moving & Unpacking
 - H1: Professional Packing & Unpacking Services in Metro Vancouver
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.
 
 ## Storage
 
 ### /storage/
-- Score: 93/100
+- Score: 100/100
 - Category: Storage
 - Title: Vancouver Movers | Local & Long-Distance Moving
 - H1: Storage Solutions in Coquitlam, BC
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer, AdministrativeArea, Country
+- Top opportunities: Looks solid; monitor rankings and conversions.

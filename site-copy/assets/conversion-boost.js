@@ -55,6 +55,66 @@
       title: "Compare our moving company before you request an estimate.",
       body: "Review the proof behind Purely Canadian Movers: family-owned since 1991, BBB Accredited, no subcontractors, and local service from Coquitlam across Metro Vancouver.",
     },
+    "/local-movers-in-vancouver-bc/": {
+      eyebrow: "Vancouver local movers",
+      title: "Get a Vancouver local moving estimate from a direct mover.",
+      body: "Plan a condo, apartment, house, office, packing, or storage-supported move in Vancouver with no subcontractors and clear valuation options.",
+    },
+    "/port-coquitlam/": {
+      eyebrow: "Port Coquitlam movers",
+      title: "Plan a Port Coquitlam move with a Tri-Cities moving team.",
+      body: "Get help with Port Coquitlam homes, condos, townhomes, packing, storage, and long-distance moves from a Coquitlam-based mover.",
+    },
+    "/storage/": {
+      eyebrow: "Moving and storage",
+      title: "Add storage to your local or long-distance move.",
+      body: "Coordinate packing, pickup, storage timing, delivery, valuation coverage, and moving logistics with one accountable team.",
+    },
+    "/packing/": {
+      eyebrow: "Packing services",
+      title: "Get packing help for a local or long-distance move.",
+      body: "Plan full packing, partial packing, fragile-only packing, supplies, unpacking, storage timing, and moving day access.",
+    },
+    "/canada-usa/": {
+      eyebrow: "Canada-USA movers",
+      title: "Plan a cross-border move with direct moving accountability.",
+      body: "Get help with Canada-USA moving logistics, packing, valuation coverage, route timing, and customs-aware planning.",
+    },
+    "/cross-country-movers/": {
+      eyebrow: "Cross-country movers",
+      title: "Plan a coast-to-coast move with a trusted Canadian mover.",
+      body: "Compare route timing, shipment size, valuation coverage, packing, storage, and written estimate details before booking.",
+    },
+    "/long-distance/": {
+      eyebrow: "Long-distance moving estimate",
+      title: "Planning a move across Canada? Start your estimate here.",
+      body: "Get help with route timing, shipment size, packing, valuation coverage, and realistic long-distance pricing.",
+    },
+    "/overseas/": {
+      eyebrow: "Overseas moving",
+      title: "Plan an international move with careful packing and coordination.",
+      body: "Get help with overseas moving preparation, packing, documentation planning, valuation options, and destination coordination.",
+    },
+    "/x-country/": {
+      eyebrow: "Cross-country moving cost",
+      title: "Use the cost guide, then request a cross-country estimate.",
+      body: "Plan long-distance moving costs with better detail on route timing, shipment size, packing, storage, and valuation coverage.",
+    },
+    "/office/": {
+      eyebrow: "Office movers",
+      title: "Plan an office move with a direct Metro Vancouver mover.",
+      body: "Coordinate desks, equipment, files, elevators, building access, after-hours timing, storage, and valuation coverage.",
+    },
+    "/office-movers-in-vancouver-bc/": {
+      eyebrow: "Vancouver office movers",
+      title: "Plan a Vancouver office move with direct accountability.",
+      body: "Coordinate commercial moving, elevators, loading access, phased timing, furniture, equipment, storage, and valuation coverage.",
+    },
+    "/corporate-moves-employee-relocation-in-coquitlam-bc/": {
+      eyebrow: "Corporate relocation",
+      title: "Plan Coquitlam employee relocation with a direct moving company.",
+      body: "Support employee moves, office relocation, packing, storage, long-distance coordination, and clear accountability from one team.",
+    },
     "/local-movers-burnaby-bc/": {
       eyebrow: "Burnaby local movers",
       title: "Get a Burnaby moving estimate for condos, apartments, and houses.",
@@ -110,7 +170,7 @@
     "/local-movers-in-coquitlam-bc/": "Local Movers Coquitlam BC | Direct Moving Company",
     "/local-movers-in-vancouver-bc/": "Local Movers Vancouver BC | Homes, Condos & Apartments",
     "/long-distance-moving-cost-canada/": "Moving Cost Guide Canada",
-    "/long-distance/": "Long-Distance Movers Canada",
+    "/long-distance/": "Long-Distance Movers Canada | Cross-Country Moving",
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
@@ -159,14 +219,44 @@
   };
 
   var META_DESCRIPTION_OVERRIDES = {
+    "/canada-usa/":
+      "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
+    "/corporate-moves-employee-relocation-in-coquitlam-bc/":
+      "Corporate movers in Coquitlam for employee relocation, office moves, packing, storage, and long-distance support. Since 1991, BBB Accredited, no subcontractors.",
+    "/cross-country-movers/":
+      "Cross-country movers across Canada with packing, storage, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
+    "/local-movers-in-vancouver-bc/":
+      "Vancouver local movers for condos, apartments, houses, packing, storage, and office moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/long-distance/":
+      "Long-distance movers across Canada with direct accountability, valuation coverage, packing, storage, and GCVL agent support. Since 1991, BBB Accredited.",
+    "/movers-calgary-to-edmonton/":
+      "Calgary to Edmonton movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
+    "/movers-edmonton-to-calgary/":
+      "Edmonton to Calgary movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
+    "/movers-vancouver-to-halifax/":
+      "Vancouver to Halifax movers for coast-to-coast relocation, packing, storage, valuation coverage, and written estimates. Since 1991, BBB Accredited.",
+    "/office/":
+      "Office movers in Metro Vancouver for commercial moves, packing, storage, after-hours planning, and valuation coverage. Since 1991, BBB Accredited.",
+    "/office-movers-in-vancouver-bc/":
+      "Vancouver office movers for commercial relocation, packing, storage, equipment moves, and after-hours planning. Since 1991, BBB Accredited.",
+    "/overseas/":
+      "Overseas moving services from Vancouver with careful packing, planning, valuation options, and international coordination. Since 1991, BBB Accredited.",
     "/packing-service-in-coquitlam-bc/":
       "Coquitlam packing services for local and long-distance moves, fragile items, supplies, unpacking, and storage timing. Since 1991, BBB Accredited, no subcontractors.",
+    "/packing/":
+      "Packing services in Metro Vancouver for local and long-distance moves, fragile items, supplies, unpacking, and storage timing. Since 1991, BBB Accredited.",
     "/port-moody/":
       "Port Moody movers for apartments, condos, townhomes, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/port-coquitlam/":
+      "Port Coquitlam movers for condos, houses, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/storage/":
+      "Moving storage in Coquitlam and Metro Vancouver with packing, pickup, delivery, valuation options, and direct accountability. Since 1991, BBB Accredited.",
     "/testimonials/":
       "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/x-country/":
+      "Cross-country moving cost guide for Canada routes with packing, storage, valuation coverage, and written estimate planning. Since 1991, BBB Accredited.",
   };
 
   var PRICING_SUMMARY_ROWS = [
@@ -333,6 +423,390 @@
         ["Can packing be combined with storage?", "Yes. Packing can be coordinated with short-term storage, long-term storage, delivery timing, and access requirements for Coquitlam and Metro Vancouver moves."],
         ["How much do Coquitlam packing services cost?", "Packing cost depends on the number of rooms, amount of fragile items, supplies needed, crew time, unpacking needs, and whether storage or long-distance moving is included."],
         ["Do you use subcontractors for packing?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract packing or moving work."],
+      ],
+    },
+    "/local-movers-in-vancouver-bc/": {
+      title: "Vancouver local movers with direct accountability and trust proof",
+      intro:
+        "Purely Canadian Movers serves Vancouver apartments, condos, detached homes, offices, and furniture moves with clearer local proof: family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support for longer routes.",
+      highlights: [
+        ["Vancouver move types", "Apartment moves, condo moves, houses, seniors moves, furniture-only moves, office moves, packing-supported moves, and storage-assisted moves."],
+        ["Access planning", "Elevator bookings, loading zones, strata rules, parking, downtown access, laneways, stairs, and building move windows are reviewed before moving day."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct accountability from estimate to moving day."],
+      ],
+      links: [
+        ["Local Moving", "/local/"],
+        ["Vancouver Movers", "/vancouver/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Office Movers Vancouver", "/office-movers-in-vancouver-bc/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Vancouver Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you provide local movers in Vancouver?", "Yes. Purely Canadian Movers handles Vancouver local moves for apartments, condos, detached homes, seniors moves, offices, furniture moves, and packing-supported moves."],
+        ["Can you help with Vancouver condo and apartment moves?", "Yes. We help plan elevator bookings, loading zones, strata move windows, parking, stairs, and access for Vancouver condo and apartment moves."],
+        ["How much do Vancouver local movers cost?", "Cost depends on crew size, truck time, access, stairs, elevators, packing, storage, travel time, and the amount being moved. A written estimate is the best way to price the move accurately."],
+        ["Do you use subcontractors for Vancouver moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+        ["Can packing, storage, or valuation coverage be added?", "Yes. Packing, unpacking, storage, and valuation coverage options can be included in a Vancouver moving estimate."],
+      ],
+    },
+    "/port-coquitlam/": {
+      title: "Port Coquitlam movers for local, packing, storage, and long-distance moves",
+      intro:
+        "Purely Canadian Movers supports Port Coquitlam customers as part of the Tri-Cities moving cluster. This page now adds stronger service proof, nearby-area links, and trust signals for Port Coquitlam local moves, packing, storage, and long-distance relocation.",
+      highlights: [
+        ["Port Coquitlam move types", "Condos, townhomes, detached homes, apartments, seniors moves, packing-supported moves, office moves, and storage-assisted moves."],
+        ["Tri-Cities coverage", "Port Coquitlam, Coquitlam, Port Moody, Burke Mountain, Maillardville, Pitt Meadows, Maple Ridge, Burnaby, and New Westminster."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
+      ],
+      links: [
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Local Movers in Coquitlam", "/local-movers-in-coquitlam-bc/"],
+        ["Port Moody Movers", "/port-moody/"],
+        ["Pitt Meadows Movers", "/pitt-meadows/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Get an Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you provide movers in Port Coquitlam?", "Yes. Purely Canadian Movers provides Port Coquitlam moving services for apartments, condos, townhomes, houses, offices, packing, storage, and long-distance moves."],
+        ["Do you serve the wider Tri-Cities area?", "Yes. We serve Port Coquitlam, Coquitlam, Port Moody, Pitt Meadows, Maple Ridge, Burnaby, New Westminster, and nearby Lower Mainland areas."],
+        ["Can you help with packing and storage in Port Coquitlam?", "Yes. Packing, unpacking, short-term storage, long-term storage, and valuation coverage options can be included with a Port Coquitlam estimate."],
+        ["How much do Port Coquitlam movers cost?", "Cost depends on crew size, truck time, access, stairs, elevators, packing, storage, travel time, and the amount being moved. Request a written estimate for accurate pricing."],
+        ["Do you use subcontractors for Port Coquitlam moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
+      ],
+    },
+    "/storage/": {
+      title: "Moving storage with packing, pickup, delivery, and valuation options",
+      intro:
+        "Storage is a trust-heavy part of a move. Purely Canadian Movers helps coordinate storage timing, packing, pickup, delivery, access, and valuation coverage options with one accountable team serving Coquitlam, Metro Vancouver, and long-distance routes.",
+      highlights: [
+        ["Storage scenarios", "Short-term storage, long-term storage, downsizing, delayed possession dates, renovations, estate moves, office moves, and long-distance delivery timing."],
+        ["Handled with the move", "Packing, inventory notes, pickup access, delivery timing, valuation coverage options, and communication are planned with the same moving team."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct accountability from pickup to delivery."],
+      ],
+      links: [
+        ["Packing Services", "/packing/"],
+        ["Local Moving", "/local/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Get a Storage Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Can storage be added to a moving estimate?", "Yes. Storage can be coordinated with local moves, long-distance moves, packing, delayed possession dates, renovations, downsizing, and office moves."],
+        ["Do you help pack items before storage?", "Yes. Packing, labelling, fragile-item preparation, and supplies can be included before items go into storage."],
+        ["How much does moving storage cost?", "Storage cost depends on volume, storage duration, pickup and delivery access, packing needs, and whether the move is local or long-distance."],
+        ["Are valuation coverage options available for storage-supported moves?", "Yes. Valuation coverage options can be reviewed before booking so customers understand protection choices for eligible moves."],
+        ["Do you use subcontractors for storage-supported moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moving work."],
+      ],
+    },
+    "/packing/": {
+      title: "Metro Vancouver packing services with careful handling and trust proof",
+      intro:
+        "Purely Canadian Movers provides full packing, partial packing, fragile-only packing, unpacking, supplies, and storage coordination for Metro Vancouver and long-distance moves. This page now makes the trust proof clearer for customers comparing packing help.",
+      highlights: [
+        ["Packing options", "Full-home packing, kitchen packing, fragile-only packing, wardrobe boxes, unpacking, supplies, and packing support before storage or long-distance moving."],
+        ["Care planning", "Fragile items, artwork, dishes, electronics, office equipment, elevators, parking, storage timing, and delivery needs are reviewed before packing begins."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct accountability from packing plan to moving day."],
+      ],
+      links: [
+        ["Coquitlam Packing", "/packing-service-in-coquitlam-bc/"],
+        ["Storage Services", "/storage/"],
+        ["Local Moving", "/local/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Packing Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you provide packing services in Metro Vancouver?", "Yes. Purely Canadian Movers provides packing services for apartments, condos, houses, offices, local moves, storage-supported moves, and long-distance moves."],
+        ["Can I book partial packing?", "Yes. Customers can request full packing, partial packing, kitchen packing, fragile-only packing, wardrobe boxes, unpacking, or supplies."],
+        ["Can packing be combined with storage?", "Yes. Packing can be coordinated with short-term storage, long-term storage, delivery timing, and access requirements."],
+        ["How much do packing services cost?", "Packing cost depends on rooms, fragile items, supplies, crew time, unpacking needs, storage timing, and whether the move is local or long-distance."],
+        ["Do you use subcontractors for packing?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract packing or moving work."],
+      ],
+    },
+    "/long-distance/": {
+      title: "Long-distance movers in Canada with direct accountability",
+      intro:
+        "Long-distance moves carry more risk than short local moves, so customers need clear proof. Purely Canadian Movers supports cross-Canada moves with written estimates, packing, storage, valuation coverage options, no subcontractors, and Great Canadian Van Lines agent support.",
+      highlights: [
+        ["Long-distance planning", "Route timing, shipment size, access, stairs, elevators, packing, storage, seasonal timing, and specialty items are reviewed before booking."],
+        ["Direct accountability", "No subcontractors. Customers work with one accountable team for estimate details, planning, pickup, and delivery coordination."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, valuation coverage options, and Great Canadian Van Lines agent support for national moves."],
+      ],
+      links: [
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Cross-Country Movers", "/cross-country-movers/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Long-Distance Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["What makes a long-distance moving estimate accurate?", "An accurate estimate should consider route, shipment size, access, stairs, elevators, packing, storage, season, specialty items, and valuation coverage options."],
+        ["Do you use subcontractors for long-distance moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
+        ["Can packing and storage be added to a long-distance move?", "Yes. Packing, unpacking, short-term storage, long-term storage, and valuation coverage options can be included in a long-distance estimate."],
+        ["Are you connected to a national moving network?", "Yes. Purely Canadian Movers is a Great Canadian Van Lines agent, combining local service with cross-Canada route support."],
+        ["How do I compare long-distance movers safely?", "Compare written estimates, years in business, BBB accreditation, direct accountability, valuation coverage options, service areas, and whether the mover uses brokers or subcontractors."],
+      ],
+    },
+    "/cross-country-movers/": {
+      title: "Cross-country movers with route planning, valuation options, and national support",
+      intro:
+        "Cross-country moving across Canada needs stronger proof than a generic quote page. Purely Canadian Movers combines local accountability with Great Canadian Van Lines agent support, valuation coverage options, packing, storage, and route-specific planning.",
+      highlights: [
+        ["Coast-to-coast planning", "Shipment size, access, route timing, packing, storage, specialty items, and delivery windows are reviewed before the estimate is finalized."],
+        ["National support", "Great Canadian Van Lines agent support helps with cross-Canada coordination while keeping Purely Canadian Movers directly accountable."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, written estimates, and valuation coverage options."],
+      ],
+      links: [
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Cross-Country Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you handle cross-country moves across Canada?", "Yes. Purely Canadian Movers supports cross-country moves across Canada with route planning, packing, storage, and valuation coverage options."],
+        ["How much does a cross-country move cost?", "Cost depends on route, shipment size, access, weight or volume, season, packing, storage, specialty items, and delivery timing."],
+        ["Do you use subcontractors for cross-country moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+        ["Can storage be included in a cross-country move?", "Yes. Storage can be coordinated when pickup and delivery dates do not line up or when customers need temporary holding."],
+        ["What trust signals should I check before booking?", "Check years in business, BBB accreditation, written estimates, valuation coverage options, a real local address, and whether the mover uses brokers or subcontractors."],
+      ],
+    },
+    "/canada-usa/": {
+      title: "Canada-USA movers with cross-border planning and direct accountability",
+      intro:
+        "Cross-border moving requires careful planning, clear paperwork expectations, packing, route timing, and trust proof. Purely Canadian Movers supports Canada-USA moves with written estimates, valuation coverage options, no subcontractors, and experienced coordination.",
+      highlights: [
+        ["Cross-border planning", "Origin and destination access, shipment size, packing, inventory notes, documentation expectations, route timing, and delivery coordination are reviewed before booking."],
+        ["Risk reduction", "Written estimates, valuation coverage options, direct communication, and no subcontractors help customers avoid broker confusion."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and international moving experience."],
+      ],
+      links: [
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Overseas Moving", "/overseas/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Cross-Border Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you handle moves between Canada and the United States?", "Yes. Purely Canadian Movers helps customers plan Canada-USA moves with route planning, packing, valuation coverage options, and cross-border coordination."],
+        ["What information is needed for a Canada-USA moving estimate?", "Share the origin, destination, home size, access conditions, preferred date, packing needs, storage timing, specialty items, and any documentation questions."],
+        ["Can packing and storage be included?", "Yes. Packing, unpacking, storage, and valuation coverage options can be included in a Canada-USA moving estimate."],
+        ["Do you use subcontractors for cross-border moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+        ["How do I reduce risk on a cross-border move?", "Start with a written estimate, confirm valuation coverage options, provide clear inventory details, and work with a direct mover rather than a broker."],
+      ],
+    },
+    "/overseas/": {
+      title: "Overseas moving services with packing, planning, and trust proof",
+      intro:
+        "Overseas moves require more preparation than a standard local move. Purely Canadian Movers supports international moving preparation with careful packing, inventory planning, documentation expectations, valuation coverage options, storage timing, and direct accountability.",
+      highlights: [
+        ["International preparation", "Packing, fragile items, inventory notes, timing, access, storage, documentation expectations, and destination coordination are discussed before booking."],
+        ["Trust and handling", "International moves benefit from clear written estimates, careful packing, valuation coverage options, and one accountable moving team."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, international moving experience, and valuation coverage options."],
+      ],
+      links: [
+        ["Canada-USA Moving", "/canada-usa/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get an Overseas Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you help with overseas moves?", "Yes. Purely Canadian Movers helps customers prepare for overseas moves with packing, inventory planning, storage timing, valuation coverage options, and moving coordination."],
+        ["What should I prepare for an international moving estimate?", "Share origin, destination, shipment size, access details, packing needs, storage timing, preferred dates, and any specialty items."],
+        ["Can packing be included for overseas moves?", "Yes. Packing, fragile-item preparation, supplies, and unpacking support can be discussed as part of the estimate."],
+        ["Are valuation coverage options available?", "Yes. Valuation coverage options can be reviewed before booking so customers understand available protection choices."],
+        ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moving work."],
+      ],
+    },
+    "/x-country/": {
+      title: "Cross-country moving cost guide with trust proof and quote planning",
+      intro:
+        "A cross-country moving cost guide should explain more than a price range. Purely Canadian Movers helps customers compare route, shipment size, packing, storage, access, valuation coverage, and written estimate details before booking.",
+      highlights: [
+        ["Cost factors", "Route distance, shipment weight or volume, home size, access, stairs, elevators, season, packing, storage, specialty items, and delivery timing."],
+        ["Estimate proof", "Written estimates, direct accountability, no subcontractors, and valuation coverage options help customers compare cross-country movers safely."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, and cross-Canada moving experience."],
+      ],
+      links: [
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Cross-Country Movers", "/cross-country-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Written Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["What affects cross-country moving cost?", "Cost depends on route, shipment size, access, weight or volume, season, packing, storage, specialty items, and delivery timing."],
+        ["Are cross-country cost ranges guaranteed?", "No. Cost ranges are planning estimates. A written quote should be based on the specific route, inventory, access, dates, and services needed."],
+        ["Can packing and storage change the cost?", "Yes. Packing, unpacking, supplies, storage duration, pickup access, delivery access, and specialty items can affect the final estimate."],
+        ["Do you use subcontractors for cross-country moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+        ["What trust proof should I look for?", "Look for years in business, BBB accreditation, written estimates, valuation coverage options, direct accountability, and national route support."],
+      ],
+    },
+    "/office/": {
+      title: "Metro Vancouver office movers with business trust proof",
+      intro:
+        "Office moves need timing, access, and accountability. Purely Canadian Movers helps Metro Vancouver businesses plan desks, equipment, files, elevators, loading access, after-hours moves, storage, packing, and valuation coverage options.",
+      highlights: [
+        ["Office move planning", "Desks, chairs, files, equipment, meeting rooms, elevator bookings, loading zones, building rules, after-hours timing, and phased moves."],
+        ["Business continuity", "Clear planning, direct communication, packing support, storage timing, and valuation coverage options help reduce disruption."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct accountability for commercial moves."],
+      ],
+      links: [
+        ["Office Movers Vancouver", "/office-movers-in-vancouver-bc/"],
+        ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
+        ["Corporate Relocation", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get an Office Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you provide office movers in Metro Vancouver?", "Yes. Purely Canadian Movers helps with office moves, equipment moves, furniture moves, packing, storage, and phased commercial relocation."],
+        ["Can you move offices after hours?", "After-hours or phased timing can be discussed during the estimate so the move plan fits building rules and business needs."],
+        ["Can packing and storage be included?", "Yes. Packing, labelling, storage, delivery timing, and valuation coverage options can be included in an office moving estimate."],
+        ["Do you use subcontractors for office moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moving work."],
+        ["What affects office moving cost?", "Cost depends on inventory, crew size, access, elevators, stairs, packing, storage, distance, timing, and equipment or specialty items."],
+      ],
+    },
+    "/office-movers-in-vancouver-bc/": {
+      title: "Vancouver office movers for commercial moves, access planning, and storage",
+      intro:
+        "Purely Canadian Movers helps Vancouver businesses plan office moves with stronger trust proof: family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct communication from estimate to move day.",
+      highlights: [
+        ["Vancouver office access", "Downtown loading zones, elevators, building move windows, parking, strata or property rules, stairs, and phased timing are reviewed before moving day."],
+        ["Commercial move support", "Desks, furniture, files, equipment, packing, labelling, storage, delivery timing, and after-hours planning can be included."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct accountability for business moves."],
+      ],
+      links: [
+        ["Office Moving", "/office/"],
+        ["Corporate Relocation", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+        ["Local Movers Vancouver", "/local-movers-in-vancouver-bc/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Vancouver Office Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you provide office movers in Vancouver?", "Yes. Purely Canadian Movers provides Vancouver office moving support for furniture, files, equipment, packing, storage, and commercial relocation."],
+        ["Can you plan around building move windows?", "Yes. Elevator bookings, loading zones, parking, property rules, and after-hours timing can be reviewed before moving day."],
+        ["Can storage be included with a Vancouver office move?", "Yes. Storage can be coordinated for phased moves, renovations, delayed possession dates, or equipment that cannot move immediately."],
+        ["Do you use subcontractors for office moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moving work."],
+        ["How much does a Vancouver office move cost?", "Cost depends on inventory, crew size, access, elevators, stairs, packing, storage, distance, timing, and equipment or specialty items."],
+      ],
+    },
+    "/corporate-moves-employee-relocation-in-coquitlam-bc/": {
+      title: "Coquitlam corporate relocation with employee moving support and trust proof",
+      intro:
+        "Corporate and employee relocation needs clear accountability. Purely Canadian Movers supports Coquitlam businesses with employee moves, office relocation, packing, storage, long-distance coordination, valuation coverage options, and direct moving communication.",
+      highlights: [
+        ["Relocation support", "Employee household moves, office moves, packing, storage, long-distance routes, move timing, access planning, and valuation coverage options."],
+        ["Business trust", "Written estimates, direct communication, no subcontractors, and clear service links help HR teams and employees compare moving support."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and Coquitlam-based accountability."],
+      ],
+      links: [
+        ["Office Moving", "/office/"],
+        ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Get a Corporate Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you help with corporate employee relocation in Coquitlam?", "Yes. Purely Canadian Movers supports employee household moves, office relocation, packing, storage, and long-distance coordination for Coquitlam businesses."],
+        ["Can employee moves include packing and storage?", "Yes. Packing, unpacking, storage, valuation coverage options, and route planning can be included depending on employee needs."],
+        ["Do you support long-distance employee relocation?", "Yes. Long-distance routes can be planned with Great Canadian Van Lines agent support and direct communication from Purely Canadian Movers."],
+        ["Do you use subcontractors for corporate moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moving work."],
+        ["What should a business provide for an estimate?", "Share origin and destination details, employee move dates, home size, access conditions, packing needs, storage timing, and any office or HR requirements."],
+      ],
+    },
+    "/movers-calgary-to-edmonton/": {
+      title: "Calgary to Edmonton movers with Alberta route planning and trust proof",
+      intro:
+        "A Calgary to Edmonton move still needs a clear written plan. Purely Canadian Movers helps customers compare route timing, shipment size, access, packing, storage, valuation coverage options, and direct accountability before booking.",
+      highlights: [
+        ["Route details", "Calgary pickup access, Edmonton delivery access, stairs, elevators, packing, storage timing, season, shipment size, and specialty items affect the estimate."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and long-distance moving experience."],
+        ["Estimate clarity", "Written estimates and direct communication help customers compare Alberta movers and avoid broker confusion."],
+      ],
+      links: [
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Route Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you move from Calgary to Edmonton?", "Yes. Purely Canadian Movers can help plan Calgary to Edmonton moves with route planning, packing, storage, and valuation coverage options."],
+        ["How much does a Calgary to Edmonton move cost?", "Cost depends on shipment size, access, stairs, elevators, packing, storage, season, and the amount being moved."],
+        ["Can packing or storage be included?", "Yes. Packing, unpacking, storage, and valuation coverage options can be included in the estimate."],
+        ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+      ],
+    },
+    "/movers-edmonton-to-calgary/": {
+      title: "Edmonton to Calgary movers with Alberta route planning and direct accountability",
+      intro:
+        "An Edmonton to Calgary move should include more than a basic price. Purely Canadian Movers helps plan access, shipment size, packing, storage, valuation coverage options, and route timing with direct moving accountability.",
+      highlights: [
+        ["Route details", "Edmonton pickup access, Calgary delivery access, stairs, elevators, parking, packing, storage timing, season, shipment size, and specialty items affect the estimate."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and long-distance moving experience."],
+        ["Estimate clarity", "Written estimates and one accountable moving team help customers compare movers safely."],
+      ],
+      links: [
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Route Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you move from Edmonton to Calgary?", "Yes. Purely Canadian Movers can help plan Edmonton to Calgary moves with route planning, packing, storage, and valuation coverage options."],
+        ["How much does an Edmonton to Calgary move cost?", "Cost depends on shipment size, access, stairs, elevators, packing, storage, season, and the amount being moved."],
+        ["Can storage be included if dates do not line up?", "Yes. Storage can be coordinated when pickup and delivery dates do not align."],
+        ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+      ],
+    },
+    "/movers-vancouver-to-halifax/": {
+      title: "Vancouver to Halifax movers with coast-to-coast planning and trust proof",
+      intro:
+        "A Vancouver to Halifax move is a major coast-to-coast relocation. Purely Canadian Movers helps plan shipment size, packing, storage, route timing, valuation coverage options, and written estimates with direct accountability.",
+      highlights: [
+        ["Coast-to-coast details", "Route distance, pickup and delivery access, shipment weight or volume, stairs, elevators, packing, storage, season, and specialty items affect the estimate."],
+        ["National support", "Great Canadian Van Lines agent support helps with cross-Canada coordination while Purely Canadian Movers remains directly accountable."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and written estimate planning."],
+      ],
+      links: [
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Cross-Country Movers", "/cross-country-movers/"],
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Vancouver to Halifax Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you move from Vancouver to Halifax?", "Yes. Purely Canadian Movers helps plan Vancouver to Halifax and other coast-to-coast moves across Canada."],
+        ["How much does a Vancouver to Halifax move cost?", "Cost depends on shipment size, route distance, access, stairs, elevators, packing, storage, season, and specialty items."],
+        ["Can packing and storage be included?", "Yes. Packing, unpacking, storage, and valuation coverage options can be included in the estimate."],
+        ["Do you use subcontractors for coast-to-coast moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+        ["What should I compare before booking?", "Compare written estimates, years in business, BBB accreditation, valuation coverage options, direct accountability, and whether the mover is a broker or direct mover."],
       ],
     },
     "/port-moody/": {
@@ -753,8 +1227,8 @@
       "<h2></h2>" +
       "<p></p>" +
       '<div class="pcm-local-seo__cards"></div>' +
-      '<div class="pcm-local-seo__links"><h3>Related moving services</h3><div></div></div>' +
-      '<div class="pcm-local-seo__faqs"><h3>Frequently asked questions</h3></div>' +
+      '<div class="pcm-local-seo__links"><h2>Related moving services</h2><div></div></div>' +
+      '<div class="pcm-local-seo__faqs"><h2>Frequently asked questions</h2></div>' +
       "</div>";
 
     section.querySelector("h2").textContent = config.title;
@@ -787,6 +1261,7 @@
     });
 
     addFaqSchema(config, path);
+    addServiceSchema(config, path);
     return section;
   }
 
@@ -808,6 +1283,43 @@
           },
         };
       }),
+    });
+    document.head.appendChild(script);
+  }
+
+  function addServiceSchema(config, path) {
+    if (document.querySelector('script[data-pcm-service-schema="' + path + '"]')) return;
+    var script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-pcm-service-schema", path);
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: config.title,
+      serviceType: config.title,
+      url: "https://purelycanadianmovers.com" + path,
+      description: config.intro,
+      provider: {
+        "@type": "MovingCompany",
+        name: "Purely Canadian Movers",
+        telephone: "+1-877-485-6683",
+        url: "https://purelycanadianmovers.com/",
+      },
+      areaServed: [
+        {
+          "@type": "AdministrativeArea",
+          name: "British Columbia",
+        },
+        {
+          "@type": "Country",
+          name: "Canada",
+        },
+      ],
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://purelycanadianmovers.com/contact/",
+        servicePhone: "+1-877-485-6683",
+      },
     });
     document.head.appendChild(script);
   }

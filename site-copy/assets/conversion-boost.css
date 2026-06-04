@@ -295,6 +295,15 @@
   margin: 0 0 8px;
 }
 
+.pcm-local-seo__links h2,
+.pcm-local-seo__faqs h2 {
+  color: var(--pcm-ink);
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
 .pcm-local-seo p {
   color: var(--pcm-muted);
   font-size: 17px;
@@ -350,7 +359,7 @@
   gap: 10px;
 }
 
-.pcm-local-seo__faqs h3 {
+.pcm-local-seo__faqs h2 {
   margin-bottom: 4px;
 }
 
