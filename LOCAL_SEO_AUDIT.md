@@ -23,8 +23,8 @@ Average local SEO score: 97/100.
 - /office-movers-in-vancouver-bc/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
 - /office/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
 - /overseas/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
-- /packing-service-in-coquitlam-bc/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
 - /packing/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- /storage/ (93/100): Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
 
 ## Global Opportunities
 
@@ -132,12 +132,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem
 - Top opportunities: Add local SEO FAQs and FAQPage schema.
 ### /testimonials/
-- Score: 93/100
+- Score: 100/100
 - Category: Core
 - Title: Customer Reviews | Purely Canadian Movers
 - H1: Customer Reviews
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /valuation-coverage-protection/
 - Score: 97/100
 - Category: Core
@@ -892,12 +892,12 @@ Average local SEO score: 97/100.
 ## Packing
 
 ### /packing-service-in-coquitlam-bc/
-- Score: 93/100
+- Score: 100/100
 - Category: Packing
 - Title: Packing Services Coquitlam BC | Moving & Unpacking
 - H1: Professional Packing & Unpacking Services | Metro Vancouver | Purely Canadian Movers
-- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add more H2 sections covering cost, process, service area, FAQs, and trust. Add local SEO FAQs and FAQPage schema.
+- Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /packing-services-burnaby-bc/
 - Score: 100/100
 - Category: Packing
@@ -915,7 +915,7 @@ Average local SEO score: 97/100.
 ### /packing-services-langley-bc/
 - Score: 100/100
 - Category: Packing
-- Title: Vancouver Movers | Local & Long-Distance Moving
+- Title: Packing & Unpacking in Langley, BC | Purely Canadian Movers
 - H1: Packing & Unpacking in Langley<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, BC</span>
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.

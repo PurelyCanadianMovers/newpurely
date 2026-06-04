@@ -45,6 +45,16 @@
       title: "Plan your Coquitlam move with a local moving company.",
       body: "Get help with Coquitlam apartments, condos, houses, office moves, packing, storage, and long-distance relocation.",
     },
+    "/packing-service-in-coquitlam-bc/": {
+      eyebrow: "Coquitlam packing services",
+      title: "Get packing help for a Coquitlam move.",
+      body: "Plan full packing, partial packing, fragile-only packing, unpacking, supplies, storage timing, and moving day access with a direct Coquitlam mover.",
+    },
+    "/testimonials/": {
+      eyebrow: "Customer trust",
+      title: "Compare our moving company before you request an estimate.",
+      body: "Review the proof behind Purely Canadian Movers: family-owned since 1991, BBB Accredited, no subcontractors, and local service from Coquitlam across Metro Vancouver.",
+    },
     "/local-movers-burnaby-bc/": {
       eyebrow: "Burnaby local movers",
       title: "Get a Burnaby moving estimate for condos, apartments, and houses.",
@@ -149,8 +159,12 @@
   };
 
   var META_DESCRIPTION_OVERRIDES = {
+    "/packing-service-in-coquitlam-bc/":
+      "Coquitlam packing services for local and long-distance moves, fragile items, supplies, unpacking, and storage timing. Since 1991, BBB Accredited, no subcontractors.",
     "/port-moody/":
       "Port Moody movers for apartments, condos, townhomes, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/testimonials/":
+      "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
   };
@@ -293,6 +307,34 @@
         ["Can I get packing and storage with my Coquitlam move?", "Yes. Packing support and storage options can be included with a Coquitlam moving estimate."],
       ],
     },
+    "/packing-service-in-coquitlam-bc/": {
+      title: "Coquitlam packing services for local, storage, and long-distance moves",
+      intro:
+        "Purely Canadian Movers helps Coquitlam customers prepare for moving day with full packing, partial packing, fragile-only packing, unpacking, supplies, and storage coordination. This page now gives clearer local intent for Coquitlam packing searches and links into the broader Coquitlam moving cluster.",
+      highlights: [
+        ["Packing options", "Full-home packing, kitchen packing, fragile-only packing, wardrobe boxes, unpacking, and packing support before local or long-distance moves."],
+        ["Coquitlam access planning", "Crews plan around condo elevators, strata rules, loading zones, stairs, parking, storage dates, and neighbourhood access in Burke Mountain, Maillardville, Austin Heights, and Westwood Plateau."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and direct accountability from packing plan to moving day."],
+      ],
+      links: [
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Local Movers in Coquitlam", "/local-movers-in-coquitlam-bc/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Port Coquitlam Movers", "/port-coquitlam/"],
+        ["Port Moody Movers", "/port-moody/"],
+        ["Get a Packing Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["Do you provide packing services in Coquitlam?", "Yes. Purely Canadian Movers provides packing services in Coquitlam for apartments, condos, houses, offices, local moves, storage-supported moves, and long-distance moves."],
+        ["Can I book partial packing instead of full packing?", "Yes. Customers can request full packing, partial packing, kitchen packing, fragile-only packing, wardrobe boxes, unpacking, or packing supplies depending on the move."],
+        ["Do you pack fragile items for Coquitlam moves?", "Yes. Fragile items can be packed with appropriate materials, labelling, and handling instructions. Valuation coverage options can also be reviewed before moving day."],
+        ["Can packing be combined with storage?", "Yes. Packing can be coordinated with short-term storage, long-term storage, delivery timing, and access requirements for Coquitlam and Metro Vancouver moves."],
+        ["How much do Coquitlam packing services cost?", "Packing cost depends on the number of rooms, amount of fragile items, supplies needed, crew time, unpacking needs, and whether storage or long-distance moving is included."],
+        ["Do you use subcontractors for packing?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract packing or moving work."],
+      ],
+    },
     "/port-moody/": {
       title: "Port Moody movers for condos, apartments, townhomes, and long-distance moves",
       intro:
@@ -364,6 +406,32 @@
         ["Which White Rock moving page should I use?", "For a local household move, use the local movers in White Rock page. For a broader overview, use this White Rock city hub."],
         ["Can I get packing and storage with my White Rock move?", "Yes. Packing support and storage options can be included with a White Rock moving estimate."],
         ["Do you handle seniors moves in White Rock?", "Yes. Purely Canadian Movers can help with White Rock seniors moves, downsizing, packing, furniture moves, and storage-supported transitions."],
+      ],
+    },
+    "/testimonials/": {
+      title: "Customer reviews and trust signals for Metro Vancouver movers",
+      intro:
+        "Customer feedback is useful, but it should be supported by verifiable trust signals. This page now helps visitors evaluate Purely Canadian Movers through service-area proof, direct accountability, and clear next steps before requesting a moving estimate.",
+      highlights: [
+        ["How to compare reviews", "Look for details about route, crew communication, access challenges, estimate clarity, pickup timing, delivery, and how issues were handled."],
+        ["Service-area proof", "Based in Coquitlam and serving Metro Vancouver, the Lower Mainland, BC, Canada-wide routes, and international moves since 1991."],
+        ["Trust proof", "Family-owned, BBB Accredited, no subcontractors, Great Canadian Van Lines agent support, and valuation coverage options for eligible moves."],
+      ],
+      links: [
+        ["Get a Moving Estimate", "/contact/"],
+        ["About the Company", "/about/"],
+        ["Local Moving", "/local/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Coquitlam Movers", "/coquitlam-bc/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+      ],
+      faqs: [
+        ["Can I use testimonials to choose a mover?", "Yes, but reviews should be one part of the decision. Compare licensing, insurance, valuation coverage, written estimates, direct accountability, service area, and how the company handles communication."],
+        ["Why does direct accountability matter when reading moving reviews?", "If a mover uses subcontractors or brokers, the company in the review may not be the same crew handling your move. Purely Canadian Movers focuses on direct accountability and no subcontractors."],
+        ["What trust signals should I check before booking movers?", "Look for years in business, BBB accreditation, a real local address, clear contact details, valuation coverage options, written estimates, and service pages that match your move type."],
+        ["Do you serve customers outside Coquitlam?", "Yes. Purely Canadian Movers serves Coquitlam, Metro Vancouver, the Lower Mainland, BC, Canada-wide routes, cross-border routes, and international moves."],
+        ["Where should I go after reading customer reviews?", "Use the contact page to request a written estimate, or compare the local moving, long-distance moving, packing, storage, and valuation coverage pages for the service that fits your move."],
       ],
     },
   };

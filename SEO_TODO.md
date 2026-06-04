@@ -53,8 +53,9 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [ ] Strengthen E-E-A-T on money pages with proof points: since 1991, BBB Accredited, no subcontractors, insured/valuation coverage, and Great Canadian Van Lines agent.
 - [ ] Add or confirm `BreadcrumbList` schema and consistent internal links between service, city, route, cost, packing, storage, testimonials, and quote pages.
 - [x] Add `noindex` handling for utility pages such as `/admin/login/`, `/admin/blog/`, and `/404/`.
-- [ ] Prioritize remaining lower-scoring pages from the audit: `/local-movers-in-vancouver-bc/`, `/packing-service-in-coquitlam-bc/`, and `/testimonials/`.
+- [ ] Prioritize remaining lower-scoring page from this audit group: `/local-movers-in-vancouver-bc/`.
 - [x] Improve `/coquitlam-bc/` and `/local-movers-in-coquitlam-bc/` with stronger Coquitlam proof, internal links, visible FAQ wording, and expanded FAQ schema.
+- [x] Improve `/packing-service-in-coquitlam-bc/` and `/testimonials/` with stronger service-area proof, internal links, visible FAQ sections, and FAQ schema.
 - [x] Improve `/contact/` with cleaner title/meta, local estimate answer content, service-area sections, trust proof, and FAQ schema.
 - [x] Improve `/local/` with a Metro Vancouver cost guide, expanded city links, direct mover vs broker comparison, trust CTA, and FAQ schema.
 - [x] Re-strengthen `/local-movers-burnaby-bc/` because the report shows Burnaby dropped from position 22 in April to 100 in May.
