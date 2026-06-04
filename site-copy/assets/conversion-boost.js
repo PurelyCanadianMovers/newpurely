@@ -83,14 +83,69 @@
   };
 
   var TITLE_OVERRIDES = {
-    "/long-distance-moving-cost-canada/": "Long-Distance Moving Costs in Canada | Pricing Guide",
-    "/long-distance/": "Long-Distance Movers Across Canada | Cross-Canada Moving",
-    "/toronto-to-calgary-movers/": "Toronto to Calgary Movers | Costs, Transit & Quotes",
-    "/toronto-long-distance-movers/": "Toronto Long-Distance Movers | Cross-Canada Moving",
-    "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers | Cross-Canada Moving",
-    "/calgary-long-distance-movers/": "Calgary Long-Distance Movers | Cross-Canada Moving",
+    "/": "Vancouver Movers | Local & Long-Distance Moving",
+    "/about/": "About Purely Canadian Movers | Coquitlam Moving Company",
+    "/admin/blog/": "Blog Admin | Purely Canadian Movers",
+    "/admin/login/": "Admin Login | Purely Canadian Movers",
+    "/bc-to-washington-movers/": "BC to Washington Movers | Cross-Border Moving",
+    "/blog/": "Moving Tips Blog | Purely Canadian Movers",
+    "/canada-usa/": "Canada-USA Movers | Cross-Border Moving Services",
+    "/contact/": "Free Moving Estimate | Metro Vancouver Movers",
+    "/corporate-moves-employee-relocation-in-coquitlam-bc/": "Corporate Movers Coquitlam BC | Employee Relocation",
+    "/cross-country-movers/": "Cross-Country Movers Canada | Coast-to-Coast Moving",
+    "/cross-country-moving-guide/": "Cross-Country Moving Guide | Canada Moving Tips",
+    "/distance/": "Long-Distance Moving Services Canada | Free Estimates",
+    "/great-canadian-vanlines-agent/": "Great Canadian Van Lines Agent | Coquitlam Movers",
+    "/how-to-choose-a-mover/": "How to Choose a Mover in Canada | Moving Guide",
+    "/local-movers-in-coquitlam-bc/": "Local Movers Coquitlam BC | Direct Moving Company",
+    "/local-movers-in-vancouver-bc/": "Local Movers Vancouver BC | Homes, Condos & Apartments",
+    "/long-distance-moving-cost-canada/": "Moving Cost Guide Canada",
+    "/long-distance/": "Long-Distance Movers Canada",
+    "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
+    "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
+    "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
+    "/edmonton-long-distance-movers/": "Edmonton Long-Distance Movers | Cross-Canada Moving",
+    "/edmonton-to-toronto-movers/": "Edmonton to Toronto Movers | Long-Distance Moving",
+    "/edmonton-to-vancouver-movers/": "Edmonton to Vancouver Movers | Alberta to BC Moving",
+    "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
+    "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
+    "/long-distance-movers-montreal/": "Montreal Long-Distance Movers | Cross-Canada Moving",
+    "/montreal-to-calgary-movers/": "Montreal to Calgary Movers | Cross-Canada Moving",
+    "/montreal-to-edmonton-movers/": "Montreal to Edmonton Movers | Long-Distance Moving",
+    "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
+    "/montreal-to-vancouver-movers/": "Montreal to Vancouver Movers | Cross-Canada Moving",
+    "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
+    "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
+    "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
+    "/movers-vancouver-to-halifax/": "Vancouver to Halifax Movers | Coast-to-Coast Moving",
+    "/office-movers-in-vancouver-bc/": "Office Movers Vancouver BC | Corporate Moving",
+    "/office/": "Office Movers Metro Vancouver | Corporate Moving",
+    "/ottawa-long-distance-movers/": "Ottawa Long-Distance Movers | Cross-Canada Moving",
+    "/ottawa-to-calgary-movers/": "Ottawa to Calgary Movers | Cross-Canada Moving",
+    "/ottawa-to-edmonton-movers/": "Ottawa to Edmonton Movers | Long-Distance Moving",
+    "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Long-Distance Moving",
+    "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Movers | Cross-Canada Moving",
+    "/ottawa-to-victoria-movers/": "Ottawa to Victoria Movers | Long-Distance Moving",
+    "/our-network/": "Moving Network Across Canada | Purely Canadian Movers",
+    "/overseas/": "Overseas Moving Services | International Movers Vancouver",
+    "/packing-service-in-coquitlam-bc/": "Packing Services Coquitlam BC | Moving & Unpacking",
+    "/packing/": "Packing Services Metro Vancouver | Moving & Unpacking",
     "/port-moody/": "Port Moody Movers | Local Moving Company in Port Moody BC",
+    "/testimonials/": "Customer Reviews | Purely Canadian Movers",
+    "/toronto-long-distance-movers/": "Toronto Long-Distance Movers",
+    "/toronto-to-calgary-movers/": "Toronto to Calgary Movers",
+    "/toronto-to-edmonton-movers/": "Toronto to Edmonton Movers | Long-Distance Moving",
+    "/toronto-to-montreal-movers/": "Toronto to Montreal Movers | Long-Distance Moving",
+    "/toronto-to-vancouver-movers/": "Toronto to Vancouver Movers | Cross-Canada Moving",
+    "/toronto-to-victoria-movers/": "Toronto to Victoria Movers | Long-Distance Moving",
+    "/valuation-coverage-protection/": "Moving Valuation Coverage | Protection Options",
+    "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers",
+    "/vancouver-to-calgary-movers/": "Vancouver to Calgary Movers | Costs, Transit & Quotes",
+    "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
+    "/victoria-long-distance-movers/": "Victoria Long-Distance Movers | Cross-Canada Moving",
+    "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
+    "/x-country/": "Cross-Country Moving Cost Guide | Canada Routes",
   };
 
   var META_DESCRIPTION_OVERRIDES = {
@@ -678,9 +733,19 @@
     document.head.appendChild(script);
   }
 
+  function cleanupTitle(title) {
+    if (!title) return "";
+    return title
+      .replace(/\s*\|\s*Purely Canadian Movers\s*\|\s*Purely Canadian Movers\s*$/i, " | Purely Canadian Movers")
+      .replace(/^Purely Canadian Movers\s*\|\s*Professional Moving Company Vancouver BC Since 1991$/i, "Vancouver Movers | Local & Long-Distance Moving")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   function applyTitleOverride(path) {
-    var title = TITLE_OVERRIDES[path];
+    var title = TITLE_OVERRIDES[path] || cleanupTitle(document.title);
     var description = META_DESCRIPTION_OVERRIDES[path];
+    if (title === document.title) title = "";
     if (!title && !description) return;
 
     if (title) document.title = title;
@@ -699,6 +764,14 @@
         if (delayedMeta) delayedMeta.setAttribute("content", description);
       }
     }, 800);
+    if (title) {
+      var attempts = 0;
+      var titleTimer = window.setInterval(function () {
+        attempts += 1;
+        document.title = title;
+        if (attempts >= 8) window.clearInterval(titleTimer);
+      }, 500);
+    }
   }
 
   function createTrustProofBlock(config) {

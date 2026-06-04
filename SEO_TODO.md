@@ -45,8 +45,8 @@ Notes:
 
 Source report: `LOCAL_SEO_AUDIT.md`
 
-- [ ] Remove duplicate brand text from title tags where it appears, especially titles ending with `Purely Canadian Movers | Purely Canadian Movers`.
-- [ ] Shorten long title tags that may truncate in search results.
+- [x] Remove duplicate brand text from title tags where it appears, especially titles ending with `Purely Canadian Movers | Purely Canadian Movers`.
+- [x] Shorten long title tags that may truncate in search results.
 - [ ] Keep city + service intent in every title, H1, and meta description.
 - [ ] Add or standardize `FAQPage` schema on service, city, route, and cost-guide pages where visible FAQs exist.
 - [ ] Add richer route/city proof sections: estimated cost, transit time, access notes, elevator/building considerations, nearby service areas, and common move scenarios.
