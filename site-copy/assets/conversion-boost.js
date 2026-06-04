@@ -217,41 +217,49 @@
     "/local-movers-in-coquitlam-bc/": {
       title: "Local movers in Coquitlam with direct accountability",
       intro:
-        "Coquitlam is a core service area for Purely Canadian Movers. This page reinforces the local moving cluster for Coquitlam, Port Coquitlam, Port Moody, Burnaby, New Westminster, and nearby Metro Vancouver communities.",
+        "Coquitlam is a core service area for Purely Canadian Movers. This page reinforces the local moving cluster for Coquitlam, Port Coquitlam, Port Moody, Burnaby, New Westminster, and nearby Metro Vancouver communities with clearer cost, access, and direct-mover proof.",
       highlights: [
         ["Coquitlam move types", "Apartment moves, condo moves, detached homes, seniors moves, furniture moves, packing help, and short-notice local relocations."],
-        ["Tri-Cities coverage", "Coquitlam, Port Coquitlam, Port Moody, Burke Mountain, Maillardville, Austin Heights, and nearby Lower Mainland areas."],
-        ["Why this matters", "These are core local-money keywords, so the page needs clear Coquitlam language, service proof, internal links, FAQs, and trust signals."],
+        ["Access planning", "Elevator bookings, strata rules, loading zones, stairs, steep driveways, storage timing, and parking are reviewed before moving day."],
+        ["Tri-Cities coverage", "Coquitlam, Port Coquitlam, Port Moody, Burke Mountain, Maillardville, Austin Heights, Westwood Plateau, and nearby Lower Mainland areas."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
       ],
       links: [
         ["Coquitlam Movers", "/coquitlam-bc/"],
         ["Packing in Coquitlam", "/packing-service-in-coquitlam-bc/"],
         ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
         ["Corporate Relocation Coquitlam", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+        ["Port Coquitlam Movers", "/port-coquitlam/"],
         ["Port Moody Movers", "/local-movers-port-moody-bc/"],
+        ["Burnaby Movers", "/local-movers-burnaby-bc/"],
         ["New Westminster Movers", "/local-movers-new-westminster-bc/"],
       ],
       faqs: [
         ["Do you provide local movers in Coquitlam?", "Yes. Purely Canadian Movers provides local moving services in Coquitlam for apartments, condos, houses, furniture moves, offices, and packing-supported moves."],
         ["What areas near Coquitlam do you serve?", "We serve Coquitlam, Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Vancouver, and the wider Lower Mainland."],
         ["How much does a local move in Coquitlam cost?", "The cost depends on the size of the move, crew size, access, elevators, stairs, packing, storage, and travel time. Request an estimate for a specific Coquitlam moving quote."],
+        ["Can you help with Coquitlam condo and strata moves?", "Yes. We help plan elevator bookings, loading zones, strata move windows, parking, and access for Coquitlam condo and apartment moves."],
+        ["Do you offer packing or storage for Coquitlam local moves?", "Yes. Packing, unpacking, short-term storage, long-term storage, and valuation coverage options can be included in a Coquitlam moving estimate."],
         ["Are you a direct moving company or a broker?", "Purely Canadian Movers is a direct moving company with no subcontractors, giving customers one accountable team from estimate to moving day."],
       ],
     },
     "/coquitlam-bc/": {
       title: "Coquitlam moving company for local, packing, office, and long-distance moves",
       intro:
-        "This Coquitlam hub connects the local moving, packing, office moving, corporate relocation, and long-distance services that matter most for Coquitlam searches.",
+        "This Coquitlam hub connects the local moving, packing, office moving, corporate relocation, storage, and long-distance services that matter most for Coquitlam searches. It also gives customers a clearer path to the most relevant Coquitlam moving quote.",
       highlights: [
         ["Local base", "Purely Canadian Movers is based in Coquitlam and has served Metro Vancouver since 1991."],
-        ["Service cluster", "Local moves, packing, storage, office moves, corporate relocations, cross-border moves, and long-distance moving."],
-        ["Nearby coverage", "Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Langley, Maple Ridge, and Vancouver."],
+        ["Service cluster", "Local moves, packing, storage, office moves, corporate relocations, cross-border moves, valuation coverage, and long-distance moving."],
+        ["Neighbourhood notes", "Crews plan around Coquitlam condos, townhomes, detached homes, strata rules, elevator bookings, steep driveways, and routes through Burke Mountain, Maillardville, Austin Heights, and Westwood Plateau."],
+        ["Nearby coverage", "Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Langley, Maple Ridge, Pitt Meadows, and Vancouver."],
       ],
       links: [
         ["Local Movers in Coquitlam", "/local-movers-in-coquitlam-bc/"],
         ["Packing Service in Coquitlam", "/packing-service-in-coquitlam-bc/"],
         ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
         ["Corporate Moves Coquitlam", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+        ["Port Coquitlam Movers", "/port-coquitlam/"],
+        ["Port Moody Movers", "/port-moody/"],
         ["Storage", "/storage/"],
         ["Long-Distance Moving", "/long-distance/"],
       ],
@@ -259,6 +267,9 @@
         ["Is Purely Canadian Movers based in Coquitlam?", "Yes. Purely Canadian Movers is based in Coquitlam and serves Metro Vancouver, the Lower Mainland, BC, Canada, and international routes."],
         ["What moving services do you offer in Coquitlam?", "Services include local moving, long-distance moving, packing, storage, office moving, corporate relocation, cross-border moving, and valuation coverage options."],
         ["Do you serve Port Coquitlam and Port Moody?", "Yes. The Coquitlam team also serves Port Coquitlam, Port Moody, Burnaby, New Westminster, Surrey, Langley, Maple Ridge, and surrounding areas."],
+        ["Which Coquitlam page should I use for a local household move?", "Use the local movers in Coquitlam page for apartment, condo, house, furniture-only, seniors, and short-distance moves within Coquitlam and nearby Tri-Cities communities."],
+        ["Can you help with Coquitlam packing, storage, and long-distance moves?", "Yes. Packing, storage, valuation coverage, and long-distance moving can be included in a Coquitlam estimate when the move needs more than local transportation."],
+        ["What should I tell you before a Coquitlam estimate?", "Share your origin, destination, home size, access conditions, elevator or strata requirements, packing needs, storage timing, specialty items, and preferred move date."],
       ],
     },
     "/coquitlam/": {
@@ -675,7 +686,7 @@
       "<p></p>" +
       '<div class="pcm-local-seo__cards"></div>' +
       '<div class="pcm-local-seo__links"><h3>Related moving services</h3><div></div></div>' +
-      '<div class="pcm-local-seo__faqs"><h3>Local moving questions</h3></div>' +
+      '<div class="pcm-local-seo__faqs"><h3>Frequently asked questions</h3></div>' +
       "</div>";
 
     section.querySelector("h2").textContent = config.title;

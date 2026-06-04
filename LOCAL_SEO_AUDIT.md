@@ -69,12 +69,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Meta description may truncate.
 ### /coquitlam-bc/
-- Score: 97/100
+- Score: 100/100
 - Category: Core
 - Title: Movers in Coquitlam, BC | Purely Canadian Movers
 - H1: Movers in Coquitlam, BC
 - Schema: FAQPage, Question, Answer, MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem
-- Top opportunities: Add local SEO FAQs and FAQPage schema.
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /corporate-moves-employee-relocation-in-coquitlam-bc/
 - Score: 93/100
 - Category: Core
@@ -334,12 +334,12 @@ Average local SEO score: 97/100.
 - Schema: BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Meta description may truncate. Add page-specific Service schema. Add local SEO FAQs and FAQPage schema.
 ### /port-moody/
-- Score: 97/100
+- Score: 100/100
 - Category: Local
 - Title: Port Moody Movers | Local Moving Company in Port Moody BC
 - H1: Local Movers in Port Moody, BC
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer
-- Top opportunities: Add local SEO FAQs and FAQPage schema.
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /richmond/
 - Score: 100/100
 - Category: Local
@@ -362,12 +362,12 @@ Average local SEO score: 97/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /white-rock/
-- Score: 97/100
+- Score: 100/100
 - Category: Local
 - Title: White Rock Movers | Local Moving Company in White Rock BC
 - H1: Local Movers in White Rock, BC
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, FAQPage, Question, Answer
-- Top opportunities: Add local SEO FAQs and FAQPage schema.
+- Top opportunities: Looks solid; monitor rankings and conversions.
 
 ## Long-distance
 
@@ -451,7 +451,7 @@ Average local SEO score: 97/100.
 ### /long-distance-movers-edmonton/
 - Score: 100/100
 - Category: Long-distance
-- Title: Long-Distance Moving in Edmonton, AB | Purely Canadian Movers
+- Title: Vancouver Movers | Local & Long-Distance Moving
 - H1: Long-Distance Moving in Edmonton<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, AB</span>
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
