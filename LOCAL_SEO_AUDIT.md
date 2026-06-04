@@ -252,7 +252,7 @@ Average local SEO score: 98/100.
 ### /local-movers-new-westminster-bc/
 - Score: 100/100
 - Category: Local
-- Title: Vancouver Movers | Local & Long-Distance Moving
+- Title: Local Moving in New Westminster, BC | Purely Canadian Movers
 - H1: Local Moving in New Westminster<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, BC</span>
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
@@ -348,12 +348,12 @@ Average local SEO score: 98/100.
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.
 ### /surrey/
-- Score: 97/100
+- Score: 100/100
 - Category: Local
 - Title: Movers in Surrey, BC | Purely Canadian Movers
 - H1: Movers in Surrey, BC
-- Schema: Service, City, AdministrativeArea, ServiceChannel, MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, OfferCatalog, Offer, BreadcrumbList, ListItem, FAQPage, Question, Answer
-- Top opportunities: Meta description may truncate.
+- Schema: Service, City, AdministrativeArea, Country, ServiceChannel, FAQPage, Question, Answer, MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, OfferCatalog, Offer, BreadcrumbList, ListItem
+- Top opportunities: Looks solid; monitor rankings and conversions.
 ### /vancouver/
 - Score: 100/100
 - Category: Local
@@ -870,7 +870,7 @@ Average local SEO score: 98/100.
 ### /office-movers-surrey-bc/
 - Score: 100/100
 - Category: Office
-- Title: Office & Corporate Moving in Surrey, BC | Purely Canadian Movers
+- Title: Vancouver Movers | Local & Long-Distance Moving
 - H1: Office & Corporate Moving in Surrey<span data-loc="client/src/components/DynamicPageTemplate.tsx:155" class="text-red-600">, BC</span>
 - Schema: MovingCompany, LocalBusiness, ImageObject, PostalAddress, GeoCoordinates, OpeningHoursSpecification, City, OfferCatalog, Offer, Service, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - Top opportunities: Looks solid; monitor rankings and conversions.

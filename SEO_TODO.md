@@ -55,6 +55,7 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [x] Add `noindex` handling for utility pages such as `/admin/login/`, `/admin/blog/`, and `/404/`.
 - [x] Prioritize remaining lower-scoring page from this audit group: `/local-movers-in-vancouver-bc/`.
 - [x] Add tailored E-E-A-T proof to the suggested priority order: `/local-movers-in-vancouver-bc/`, `/port-coquitlam/`, `/storage/`, `/packing/`, `/long-distance/`, `/cross-country-movers/`, `/canada-usa/`, `/overseas/`, `/x-country/`, `/office/`, `/office-movers-in-vancouver-bc/`, `/corporate-moves-employee-relocation-in-coquitlam-bc/`, `/movers-calgary-to-edmonton/`, `/movers-edmonton-to-calgary/`, and `/movers-vancouver-to-halifax/`.
+- [x] Strengthen `/surrey/` for the keyword `long distance movers in Surrey, BC` with source title/meta, long-distance content, trust proof, internal links, Service schema, and FAQPage schema.
 - [x] Improve `/coquitlam-bc/` and `/local-movers-in-coquitlam-bc/` with stronger Coquitlam proof, internal links, visible FAQ wording, and expanded FAQ schema.
 - [x] Improve `/packing-service-in-coquitlam-bc/` and `/testimonials/` with stronger service-area proof, internal links, visible FAQ sections, and FAQ schema.
 - [x] Improve `/contact/` with cleaner title/meta, local estimate answer content, service-area sections, trust proof, and FAQ schema.
