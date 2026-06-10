@@ -1616,6 +1616,7 @@
     support.className = "pcm-footer-support-links";
     support.innerHTML =
       "<h3>Customer Support</h3>" +
+      '<a href="/company-proof/">Company Proof</a>' +
       '<a href="/privacy-policy/">Privacy Policy</a>' +
       '<a href="/terms/">Terms of Use</a>' +
       '<a href="/estimate-booking-policy/">Estimate & Booking Policy</a>' +
