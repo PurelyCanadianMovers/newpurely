@@ -1168,9 +1168,11 @@
       "<p></p>" +
       '<div class="pcm-trust-row">' +
       "<span>Family-owned since 1991</span>" +
-      "<span>BBB Accredited</span>" +
-      "<span>No subcontractors</span>" +
-      "<span>Canada-wide moving</span>" +
+      "<span>Coquitlam office</span>" +
+      "<span>BBB Accredited business</span>" +
+      "<span>No brokers or subcontractors</span>" +
+      "<span>Valuation coverage available</span>" +
+      "<span>Great Canadian Van Lines agent</span>" +
       "</div>" +
       "</div>" +
       '<form class="pcm-estimate-form" action="' +
@@ -1199,6 +1201,12 @@
       PHONE_DISPLAY +
       "</a>";
     form.appendChild(buttonRow);
+
+    var trustNote = document.createElement("div");
+    trustNote.className = "pcm-estimate-trust-note";
+    trustNote.innerHTML =
+      '<strong>Verified company details:</strong> Unit 16-91 Golden Dr., Coquitlam, BC · Local phone <a href="tel:16045227222">604-522-7222</a> · Direct mover since 1991';
+    form.appendChild(trustNote);
 
     form.addEventListener("submit", function () {
       saveEstimateIntent(form);
