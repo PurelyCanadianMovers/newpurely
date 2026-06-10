@@ -1605,6 +1605,32 @@
     return true;
   }
 
+  function enhanceFooterSupportLinks() {
+    if (document.querySelector(".pcm-footer-support-links")) return true;
+
+    var footer = document.querySelector("footer");
+    if (!footer) return false;
+
+    var columns = footer.querySelector("div");
+    var support = document.createElement("div");
+    support.className = "pcm-footer-support-links";
+    support.innerHTML =
+      "<h3>Customer Support</h3>" +
+      '<a href="/privacy-policy/">Privacy Policy</a>' +
+      '<a href="/terms/">Terms of Use</a>' +
+      '<a href="/estimate-booking-policy/">Estimate & Booking Policy</a>' +
+      '<a href="/claims-support/">Claims Support</a>' +
+      '<a href="/valuation-coverage-protection/">Valuation Coverage</a>' +
+      '<a href="/accessibility/">Accessibility</a>';
+
+    if (columns) {
+      columns.appendChild(support);
+    } else {
+      footer.appendChild(support);
+    }
+    return true;
+  }
+
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
     var details = getSavedEstimateDetails();
@@ -1640,7 +1666,9 @@
     var footerAttempts = 0;
     var footerTimer = window.setInterval(function () {
       footerAttempts += 1;
-      if (enhanceFooterAddress() || footerAttempts > 30) {
+      var addressDone = enhanceFooterAddress();
+      var supportDone = enhanceFooterSupportLinks();
+      if ((addressDone && supportDone) || footerAttempts > 30) {
         window.clearInterval(footerTimer);
       }
     }, 250);
