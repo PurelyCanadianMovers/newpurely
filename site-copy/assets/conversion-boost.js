@@ -277,6 +277,45 @@
     ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
   ];
 
+  var COST_GUIDE_SERVICE_AREAS = [
+    {
+      title: "Greater Toronto Area and Ottawa",
+      body:
+        "Toronto route estimates can also be used as planning ranges for many GTA communities. Ottawa route estimates can apply to nearby Eastern Ontario and National Capital Region communities.",
+      cities:
+        "Mississauga, Brampton, Vaughan, Markham, Richmond Hill, Oakville, Burlington, Scarborough, Etobicoke, North York, Pickering, Ajax, Whitby, Oshawa, Hamilton, Kanata, Nepean, Orleans, Barrhaven, Gloucester, Stittsville, Gatineau.",
+      links: [
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Ottawa movers", "/long-distance-movers-ottawa/"],
+      ],
+    },
+    {
+      title: "Vancouver and the Lower Mainland",
+      body:
+        "Vancouver and Lower Mainland estimates can help plan moves involving Metro Vancouver, the Fraser Valley, and nearby BC communities.",
+      cities:
+        "Vancouver, Burnaby, Richmond, Surrey, Coquitlam, Port Coquitlam, Port Moody, New Westminster, North Vancouver, West Vancouver, Delta, Langley, Maple Ridge, Pitt Meadows, Abbotsford, Chilliwack, White Rock, Mission.",
+      links: [
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Lower Mainland local movers", "/local/"],
+      ],
+    },
+    {
+      title: "Calgary area",
+      body:
+        "Calgary route estimates can also help with nearby Alberta communities where access, distance, shipment weight, and timing affect the final quote.",
+      cities: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks, High River, Strathmore, Canmore, Banff, Bragg Creek, Rocky View County.",
+      links: [["Calgary movers", "/calgary-long-distance-movers/"]],
+    },
+    {
+      title: "Edmonton area",
+      body:
+        "Edmonton route estimates can be used as starting ranges for surrounding communities, with final pricing confirmed after inventory and access details are reviewed.",
+      cities: "Edmonton, St. Albert, Sherwood Park, Spruce Grove, Stony Plain, Leduc, Beaumont, Fort Saskatchewan, Morinville, Devon, Nisku, Sturgeon County.",
+      links: [["Edmonton movers", "/edmonton-long-distance-movers/"]],
+    },
+  ];
+
   var TRUST_PROOF_BLOCKS = {
     "/long-distance-moving-cost-canada/": {
       title: "Why these long-distance moving cost ranges are reliable",
@@ -1530,6 +1569,52 @@
     return section;
   }
 
+  function createCostGuideServiceAreasBlock() {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-cost-service-areas";
+    section.setAttribute("aria-label", "Nearby cities covered by long-distance moving cost estimates");
+    section.innerHTML =
+      '<div class="pcm-cost-service-areas__inner">' +
+      '<div class="pcm-cost-service-areas__header">' +
+      '<div class="pcm-pricing-summary__eyebrow">Nearby cities covered</div>' +
+      "<h2>Do these long-distance prices apply to nearby cities?</h2>" +
+      "<p>Yes. The route table gives planning ranges for major Canadian hubs, and those same ranges can help estimate moves involving nearby suburbs and surrounding communities. Final pricing still depends on shipment weight, access, stairs, elevators, packing, storage, season, and exact pickup and delivery addresses.</p>" +
+      "</div>" +
+      '<div class="pcm-cost-service-areas__grid"></div>' +
+      '<p class="pcm-cost-service-areas__note">Use these communities as planning examples. For an accurate quote, send us the exact pickup city, delivery city, home size, access details, and any packing or storage needs.</p>' +
+      "</div>";
+
+    var grid = section.querySelector(".pcm-cost-service-areas__grid");
+    COST_GUIDE_SERVICE_AREAS.forEach(function (area) {
+      var card = document.createElement("article");
+      card.innerHTML =
+        "<h3></h3>" +
+        "<p></p>" +
+        '<div class="pcm-cost-service-areas__cities"></div>' +
+        '<div class="pcm-cost-service-areas__links"></div>';
+      card.querySelector("h3").textContent = area.title;
+      card.querySelector("p").textContent = area.body;
+      card.querySelector(".pcm-cost-service-areas__cities").textContent = area.cities;
+
+      var links = card.querySelector(".pcm-cost-service-areas__links");
+      area.links.forEach(function (linkData) {
+        var link = document.createElement("a");
+        link.href = linkData[1];
+        link.textContent = linkData[0];
+        links.appendChild(link);
+      });
+      grid.appendChild(card);
+    });
+
+    return section;
+  }
+
+  function insertCostGuideServiceAreasBlock(anchor) {
+    if (document.querySelector(".pcm-cost-service-areas")) return;
+    if (!anchor || !anchor.parentNode) return;
+    anchor.parentNode.insertBefore(createCostGuideServiceAreasBlock(), anchor.nextSibling);
+  }
+
   function insertPricingSummaryBlock(path) {
     if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-pricing-summary")) {
       return;
@@ -1538,7 +1623,9 @@
     var leadPanel = document.querySelector(".pcm-lead-panel");
     if (!leadPanel || !leadPanel.parentNode) return;
 
-    leadPanel.parentNode.insertBefore(createPricingSummaryBlock(), leadPanel.nextSibling);
+    var pricingSummary = createPricingSummaryBlock();
+    leadPanel.parentNode.insertBefore(pricingSummary, leadPanel.nextSibling);
+    insertCostGuideServiceAreasBlock(pricingSummary);
   }
 
   function insertTrustProofBlock(path) {

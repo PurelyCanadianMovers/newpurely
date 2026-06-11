@@ -865,6 +865,99 @@
   margin-top: 14px !important;
 }
 
+.pcm-cost-service-areas {
+  margin: 24px auto;
+  max-width: 1180px;
+  padding: 0 18px;
+}
+
+.pcm-cost-service-areas__inner {
+  background: #ffffff;
+  border: 1px solid var(--pcm-line);
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+  padding: 28px;
+}
+
+.pcm-cost-service-areas__header {
+  max-width: 860px;
+}
+
+.pcm-cost-service-areas h2 {
+  color: var(--pcm-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.pcm-cost-service-areas p {
+  color: var(--pcm-muted);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.pcm-cost-service-areas__grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.pcm-cost-service-areas article {
+  background: var(--pcm-soft);
+  border: 1px solid var(--pcm-line);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.pcm-cost-service-areas h3 {
+  color: var(--pcm-ink);
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.pcm-cost-service-areas__cities {
+  color: var(--pcm-ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+.pcm-cost-service-areas__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.pcm-cost-service-areas__links a {
+  background: #ffffff;
+  border: 1px solid rgba(204, 26, 26, 0.28);
+  border-radius: 6px;
+  color: var(--pcm-red);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 7px 10px;
+  text-decoration: none;
+}
+
+.pcm-cost-service-areas__links a:hover,
+.pcm-cost-service-areas__links a:focus {
+  background: var(--pcm-red);
+  color: #ffffff;
+}
+
+.pcm-cost-service-areas__note {
+  border-top: 1px solid var(--pcm-line);
+  font-size: 14px !important;
+  margin-top: 20px !important;
+  padding-top: 14px;
+}
+
 .pcm-route-link-callout a {
   color: #cc1a1a;
   font-weight: 800;
@@ -983,5 +1076,22 @@
 
   .pcm-pricing-summary__actions button {
     flex: 1;
+  }
+
+  .pcm-cost-service-areas {
+    margin: 16px auto;
+    padding: 0 14px;
+  }
+
+  .pcm-cost-service-areas__inner {
+    padding: 20px;
+  }
+
+  .pcm-cost-service-areas h2 {
+    font-size: 26px;
+  }
+
+  .pcm-cost-service-areas__grid {
+    grid-template-columns: 1fr;
   }
 }
