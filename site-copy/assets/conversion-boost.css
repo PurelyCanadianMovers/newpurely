@@ -865,6 +865,18 @@
   margin-top: 14px !important;
 }
 
+.pcm-route-link-callout a {
+  color: #cc1a1a;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.pcm-route-link-callout a:hover,
+.pcm-route-link-callout a:focus {
+  color: #991b1b;
+  text-decoration: underline;
+}
+
 @media (max-width: 820px) {
   .pcm-lead-panel {
     margin: 16px auto;

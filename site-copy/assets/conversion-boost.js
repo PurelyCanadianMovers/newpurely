@@ -1640,6 +1640,41 @@
     return true;
   }
 
+  function enhanceLongDistanceRouteLinks(path) {
+    if (path !== "/long-distance/") return true;
+    if (document.querySelector(".pcm-route-link-callout")) return true;
+
+    var callout = Array.prototype.find.call(document.querySelectorAll("#root div, #root p"), function (node) {
+      var text = (node.textContent || "").replace(/\s+/g, " ").trim();
+      return /^Popular long-distance routes:/i.test(text) && /route-specific details and pricing/i.test(text);
+    });
+
+    if (!callout) return false;
+
+    var routes = [
+      ["Toronto", "/toronto-long-distance-movers/"],
+      ["Vancouver", "/vancouver-long-distance-movers/"],
+      ["Calgary", "/calgary-long-distance-movers/"],
+      ["Edmonton", "/edmonton-long-distance-movers/"],
+      ["Montreal", "/long-distance-movers-montreal/"],
+      ["Ottawa", "/long-distance-movers-ottawa/"],
+      ["Victoria", "/long-distance-movers-victoria/"],
+      ["Halifax", "/halifax-long-distance-movers/"]
+    ];
+
+    callout.classList.add("pcm-route-link-callout");
+    callout.innerHTML =
+      "<strong>Popular long-distance routes:</strong> We specialize in moves to and from " +
+      routes
+        .map(function (route) {
+          return '<a href="' + route[1] + '">' + route[0] + "</a>";
+        })
+        .join(", ") +
+      ', and other major Canadian cities. Each destination page includes route-specific details, pricing guidance, transit expectations, and estimate support. See our <a href="/long-distance-moving-cost-canada/">Canada moving cost guide</a>.';
+
+    return true;
+  }
+
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
     var details = getSavedEstimateDetails();
@@ -1679,6 +1714,14 @@
       var supportDone = enhanceFooterSupportLinks();
       if ((addressDone && supportDone) || footerAttempts > 30) {
         window.clearInterval(footerTimer);
+      }
+    }, 250);
+
+    var routeAttempts = 0;
+    var routeTimer = window.setInterval(function () {
+      routeAttempts += 1;
+      if (enhanceLongDistanceRouteLinks(path) || routeAttempts > 30) {
+        window.clearInterval(routeTimer);
       }
     }, 250);
 
