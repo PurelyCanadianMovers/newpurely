@@ -111,6 +111,10 @@ function redirectWithSecurityHeaders(location, status = 301) {
   return withSecurityHeaders(Response.redirect(location, status));
 }
 
+function hasFileExtension(pathname) {
+  return /\/[^/]+\.[^/]+$/.test(pathname);
+}
+
 function isCostQuestion(inputText) {
   return (
     /\b(cost|price|pricing|quote|estimate|how much|rate|rates)\b/i.test(inputText) &&
@@ -226,6 +230,16 @@ export default {
 
     if (destination) {
       return redirectWithSecurityHeaders(redirectLocation(request.url, destination), 301);
+    }
+
+    if (!pathname.endsWith("/") && !hasFileExtension(pathname)) {
+      url.pathname = `${pathname}/`;
+      url.search = "";
+      return redirectWithSecurityHeaders(url.toString(), 301);
+    }
+
+    if (pathname.endsWith("/")) {
+      return fetchStaticAsset(request, env, `${pathname}index.html`);
     }
 
     return env.ASSETS.fetch(request).then(withSecurityHeaders);

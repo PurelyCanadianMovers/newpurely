@@ -6,3 +6,4 @@ compatibility_date = "2026-06-01"
 directory = "./site-copy"
 binding = "ASSETS"
 run_worker_first = true
+html_handling = "none"
