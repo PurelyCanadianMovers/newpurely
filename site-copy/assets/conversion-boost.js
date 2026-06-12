@@ -60,6 +60,11 @@
       title: "Get a Vancouver local moving estimate from a direct mover.",
       body: "Plan a condo, apartment, house, office, packing, or storage-supported move in Vancouver with no subcontractors and clear valuation options.",
     },
+    "/local-movers-surrey-bc/": {
+      eyebrow: "Surrey local movers",
+      title: "Get a Surrey local moving estimate from a direct Metro Vancouver mover.",
+      body: "Plan a house, condo, apartment, townhouse, office, packing, or storage-supported move in Surrey with no subcontractors and direct accountability.",
+    },
     "/port-coquitlam/": {
       eyebrow: "Port Coquitlam movers",
       title: "Plan a Port Coquitlam move with a Tri-Cities moving team.",
@@ -174,6 +179,7 @@
     "/how-to-choose-a-mover/": "How to Choose a Mover in Canada | Moving Guide",
     "/local-movers-in-coquitlam-bc/": "Local Movers Coquitlam BC | Direct Moving Company",
     "/local-movers-in-vancouver-bc/": "Local Movers Vancouver BC | Homes, Condos & Apartments",
+    "/local-movers-surrey-bc/": "Local Movers Surrey BC | Homes, Condos & Apartments",
     "/long-distance-moving-cost-canada/": "Moving Cost Guide Canada",
     "/long-distance/": "Long-Distance Movers Canada | Cross-Country Moving",
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
@@ -233,6 +239,8 @@
       "Cross-country movers across Canada with packing, storage, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
     "/local-movers-in-vancouver-bc/":
       "Vancouver local movers for condos, apartments, houses, packing, storage, and office moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/local-movers-surrey-bc/":
+      "Surrey local movers for houses, condos, apartments, townhomes, packing, storage, and office moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/long-distance/":
       "Long-distance movers across Canada with direct accountability, valuation coverage, packing, storage, and GCVL agent support. Since 1991, BBB Accredited.",
     "/movers-calgary-to-edmonton/":
