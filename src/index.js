@@ -33,6 +33,7 @@ const REDIRECTS = new Map([
   ["/blog/page/2/index.html", "/blog/"],
   ["/blog/page/3/", "/blog/"],
   ["/blog/page/3/index.html", "/blog/"],
+  ["/siteblog/index.php", "/blog/"],
   ["/siteblog/comments/feed/", "/blog/"],
   [
     "/2025/06/10/why-purely-canadian-movers-is-a-top-rated-choice-for-long-distance-moves-from-burnaby/",
