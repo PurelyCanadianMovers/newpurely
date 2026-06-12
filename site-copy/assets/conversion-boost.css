@@ -127,6 +127,15 @@
   padding: 10px 12px;
 }
 
+.pcm-estimate-reassurance {
+  color: var(--pcm-ink);
+  font-size: 14px;
+  font-weight: 800;
+  grid-column: 1 / -1;
+  line-height: 1.35;
+  margin-top: -2px;
+}
+
 .pcm-estimate-trust-note strong {
   color: var(--pcm-ink);
 }
@@ -203,6 +212,15 @@
   display: block;
   font-size: 18px;
   margin-bottom: 6px;
+}
+
+.pcm-contact-form-reassurance {
+  color: var(--pcm-ink) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.4 !important;
+  margin: 12px 0 0 !important;
+  text-align: center;
 }
 
 .pcm-footer-map-link {

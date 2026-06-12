@@ -1260,6 +1260,11 @@
       "</a>";
     form.appendChild(buttonRow);
 
+    var reassurance = document.createElement("div");
+    reassurance.className = "pcm-estimate-reassurance";
+    reassurance.textContent = "Free estimate. No obligation. No deposit required for a quote.";
+    form.appendChild(reassurance);
+
     var trustNote = document.createElement("div");
     trustNote.className = "pcm-estimate-trust-note";
     trustNote.innerHTML =
@@ -1808,6 +1813,23 @@
     }
   }
 
+  function addContactFormReassurance() {
+    if (normalizePath() !== "/contact/" || document.querySelector(".pcm-contact-form-reassurance")) return true;
+
+    var submitButton = Array.prototype.find.call(document.querySelectorAll('button, input[type="submit"]'), function (button) {
+      var text = (button.textContent || button.value || "").replace(/\s+/g, " ").trim();
+      return /submit estimate request|get.*estimate|request.*quote/i.test(text);
+    });
+
+    if (!submitButton || !submitButton.parentNode) return false;
+
+    var note = document.createElement("p");
+    note.className = "pcm-contact-form-reassurance";
+    note.textContent = "Free estimate. No obligation. No deposit required for a quote. We use your details to prepare a more accurate moving estimate.";
+    submitButton.parentNode.insertBefore(note, submitButton.nextSibling);
+    return true;
+  }
+
   function init() {
     var path = normalizePath();
     var config = getConfig(path);
@@ -1837,12 +1859,14 @@
         var contactTimer = window.setInterval(function () {
           contactAttempts += 1;
           showContactSummary();
-          if (contactAttempts > 30) {
+          var reassuranceDone = addContactFormReassurance();
+          if (reassuranceDone || contactAttempts > 30) {
             window.clearInterval(contactTimer);
           }
         }, 250);
       } else {
         showContactSummary();
+        addContactFormReassurance();
       }
       return;
     }
