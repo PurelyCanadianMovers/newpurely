@@ -196,6 +196,12 @@ export default {
     const url = new URL(request.url);
     const { pathname } = url;
 
+    if (url.protocol === "http:") {
+      url.protocol = "https:";
+      url.hostname = "purelycanadianmovers.com";
+      return redirectWithSecurityHeaders(url.toString(), 301);
+    }
+
     if (url.hostname === "www.purelycanadianmovers.com") {
       url.hostname = "purelycanadianmovers.com";
       return redirectWithSecurityHeaders(url.toString(), 301);
