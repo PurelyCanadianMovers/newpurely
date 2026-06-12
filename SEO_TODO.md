@@ -64,6 +64,7 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [x] Strengthen `/port-moody/` as a supporting city hub with title cleanup, Port Moody-specific content, internal links, and FAQ schema.
 - [x] Strengthen `/local-movers-white-rock-bc/` after Maple Ridge and Coquitlam cluster work.
 - [x] Strengthen the Port Coquitlam page/cluster after Maple Ridge and Coquitlam cluster work.
+- [ ] Strengthen `/packing-services-coquitlam-bc/` because Google flagged it as duplicate/weak: add unique title/meta, Coquitlam-specific packing content, local trust proof, and links to `/local-movers-in-coquitlam-bc/`, `/storage/`, and `/valuation-coverage-protection/`.
 - [ ] Continue expanding city/service internal links across the local moving cluster.
 - [ ] Monitor Google Search Console validation while it is still running; no new redirect/indexing changes unless Soft 404, Page with redirect, Not found 404, Redirect error, or Crawled currently not indexed shows new failed examples with recent crawl dates.
 - [ ] Monitor GBP calls, website clicks, and direction clicks after each local SEO update.
