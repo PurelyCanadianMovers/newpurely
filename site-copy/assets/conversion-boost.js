@@ -1244,6 +1244,11 @@
     section.querySelector("p").textContent = config.body;
 
     var form = section.querySelector("form");
+    var mobileStart = document.createElement("div");
+    mobileStart.className = "pcm-mobile-form-start";
+    mobileStart.textContent = "Begin here";
+    form.appendChild(mobileStart);
+
     form.appendChild(createField("Moving from", createInput("from", "Toronto, ON")));
     form.appendChild(createField("Moving to", createInput("to", "Calgary, AB")));
     form.appendChild(createField("Home size", createSizeSelect()));
