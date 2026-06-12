@@ -42,8 +42,8 @@
     },
     "/coquitlam/": {
       eyebrow: "Coquitlam movers",
-      title: "Plan your Coquitlam move with a local moving company.",
-      body: "Get help with Coquitlam apartments, condos, houses, office moves, packing, storage, and long-distance relocation.",
+      title: "Plan your Coquitlam local or long-distance move.",
+      body: "Get help with Coquitlam local moves, packing, storage, office moves, and long-distance relocation across BC and Canada.",
     },
     "/packing-service-in-coquitlam-bc/": {
       eyebrow: "Coquitlam packing services",
@@ -178,6 +178,7 @@
     "/great-canadian-vanlines-agent/": "Great Canadian Van Lines Agent | Coquitlam Movers",
     "/how-to-choose-a-mover/": "How to Choose a Mover in Canada | Moving Guide",
     "/local-movers-in-coquitlam-bc/": "Local Movers Coquitlam BC | Direct Moving Company",
+    "/coquitlam/": "Coquitlam Movers | Local & Long-Distance Moving Since 1991",
     "/local-movers-in-vancouver-bc/": "Local Movers Vancouver BC | Homes, Condos & Apartments",
     "/local-movers-surrey-bc/": "Local Movers Surrey BC | Homes, Condos & Apartments",
     "/long-distance-moving-cost-canada/": "Moving Cost Guide Canada",
@@ -235,6 +236,8 @@
       "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
     "/corporate-moves-employee-relocation-in-coquitlam-bc/":
       "Corporate movers in Coquitlam for employee relocation, office moves, packing, storage, and long-distance support. Since 1991, BBB Accredited, no subcontractors.",
+    "/coquitlam/":
+      "Coquitlam movers for local and long-distance moves across BC and Canada. Family-owned since 1991, BBB Accredited, no subcontractors, packing and storage available.",
     "/cross-country-movers/":
       "Cross-country movers across Canada with packing, storage, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
     "/local-movers-in-vancouver-bc/":
@@ -305,6 +308,7 @@
         "Vancouver, Burnaby, Richmond, Surrey, Coquitlam, Port Coquitlam, Port Moody, New Westminster, North Vancouver, West Vancouver, Delta, Langley, Maple Ridge, Pitt Meadows, Abbotsford, Chilliwack, White Rock, Mission.",
       links: [
         ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Coquitlam movers", "/coquitlam/"],
         ["Lower Mainland local movers", "/local/"],
       ],
     },
@@ -432,24 +436,30 @@
       ],
     },
     "/coquitlam/": {
-      title: "Coquitlam movers and nearby Tri-Cities moving services",
+      title: "Coquitlam local and long-distance movers",
       intro:
-        "This page supports the broader Coquitlam moving cluster and points customers toward the most relevant service pages for local, packing, office, storage, and long-distance moves.",
+        "Purely Canadian Movers is based in Coquitlam and helps customers move locally in the Tri-Cities, across BC, and across Canada. Use this page for Coquitlam long-distance moving estimates, local moves, packing, storage, office moves, and valuation coverage planning.",
       highlights: [
-        ["Best next page", "Customers looking for a local move should visit the local movers in Coquitlam page for the strongest match."],
-        ["Service proof", "Family-owned since 1991, BBB Accredited, no subcontractors, and direct moving support."],
-        ["Internal cluster", "Coquitlam service pages should link together so Google understands the full local moving topic."],
+        ["Long-distance routes from Coquitlam", "Coquitlam to Calgary, Edmonton, Toronto, Ottawa, Montreal, Vancouver Island, Halifax, and other cross-Canada destinations."],
+        ["Direct mover proof", "Family-owned since 1991, BBB Accredited, no brokers, no subcontractors, and direct moving accountability from estimate to delivery."],
+        ["Local Coquitlam support", "Crews plan around Coquitlam condos, townhomes, detached homes, strata rules, elevators, packing needs, storage timing, and access details."],
       ],
       links: [
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
         ["Local Movers in Coquitlam", "/local-movers-in-coquitlam-bc/"],
         ["Coquitlam BC Moving Page", "/coquitlam-bc/"],
         ["Packing Service in Coquitlam", "/packing-service-in-coquitlam-bc/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
         ["Office Movers Coquitlam", "/office-movers-coquitlam-bc/"],
         ["Contact for Estimate", "/contact/"],
       ],
       faqs: [
-        ["Which Coquitlam moving page should I use?", "For a local household move, use the local movers in Coquitlam page. For a broader overview, use the Coquitlam BC moving page."],
-        ["Can I get packing and storage with my Coquitlam move?", "Yes. Packing support and storage options can be included with a Coquitlam moving estimate."],
+        ["Do you provide long-distance movers in Coquitlam, BC?", "Yes. Purely Canadian Movers helps Coquitlam customers plan long-distance moves across BC and Canada, including routes to Calgary, Edmonton, Toronto, Ottawa, Montreal, Vancouver Island, and other Canadian destinations."],
+        ["Can you handle both local and long-distance moves from Coquitlam?", "Yes. Purely Canadian Movers supports Coquitlam local moves, packing, storage, office moves, and long-distance relocation with direct accountability and no subcontractors."],
+        ["How much does a long-distance move from Coquitlam cost?", "Long-distance moving cost depends on route, shipment size, access, stairs, elevators, season, packing, storage, specialty items, and valuation coverage. A written estimate is the best way to price a Coquitlam move accurately."],
+        ["Can packing and storage be included with a Coquitlam long-distance move?", "Yes. Packing, unpacking, short-term storage, long-term storage, and valuation coverage options can be included with Coquitlam long-distance moving estimates."],
       ],
     },
     "/packing-service-in-coquitlam-bc/": {
@@ -595,6 +605,7 @@
       ],
       links: [
         ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Coquitlam Long-Distance Movers", "/coquitlam/"],
         ["Cross-Country Movers", "/cross-country-movers/"],
         ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
         ["Packing Services", "/packing/"],
