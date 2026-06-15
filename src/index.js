@@ -171,35 +171,35 @@ const HOME_SIZE_LABELS = {
   fourPlus: "4+ bedroom",
 };
 const COST_ROUTE_ESTIMATES = [
-  { route: "Vancouver to Toronto", from: "vancouver", to: "toronto", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Toronto to Vancouver", from: "toronto", to: "vancouver", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Vancouver to Ottawa", from: "vancouver", to: "ottawa", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Ottawa to Vancouver", from: "ottawa", to: "vancouver", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Vancouver to Calgary", from: "vancouver", to: "calgary", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
-  { route: "Calgary to Vancouver", from: "calgary", to: "vancouver", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
-  { route: "Vancouver to Edmonton", from: "vancouver", to: "edmonton", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
-  { route: "Edmonton to Vancouver", from: "edmonton", to: "vancouver", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
-  { route: "Toronto to Calgary", from: "toronto", to: "calgary", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Calgary to Toronto", from: "calgary", to: "toronto", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Toronto to Edmonton", from: "toronto", to: "edmonton", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Edmonton to Toronto", from: "edmonton", to: "toronto", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Ottawa to Calgary", from: "ottawa", to: "calgary", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Calgary to Ottawa", from: "calgary", to: "ottawa", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Ottawa to Edmonton", from: "ottawa", to: "edmonton", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Edmonton to Ottawa", from: "edmonton", to: "ottawa", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Montreal to Calgary", from: "montreal", to: "calgary", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Calgary to Montreal", from: "calgary", to: "montreal", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Montreal to Edmonton", from: "montreal", to: "edmonton", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Edmonton to Montreal", from: "edmonton", to: "montreal", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Montreal to Vancouver", from: "montreal", to: "vancouver", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Vancouver to Montreal", from: "vancouver", to: "montreal", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Toronto to Montreal", from: "toronto", to: "montreal", studio: "$2,300", oneBed: "$3,900", twoBed: "$5,200", threeBed: "$8,300", fourPlus: "$12,000" },
-  { route: "Montreal to Toronto", from: "montreal", to: "toronto", studio: "$2,300", oneBed: "$3,900", twoBed: "$5,200", threeBed: "$8,300", fourPlus: "$12,000" },
-  { route: "Toronto to Ottawa", from: "toronto", to: "ottawa", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
-  { route: "Ottawa to Toronto", from: "ottawa", to: "toronto", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
-  { route: "Calgary to Edmonton", from: "calgary", to: "edmonton", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
-  { route: "Edmonton to Calgary", from: "edmonton", to: "calgary", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
-  { route: "Halifax to Toronto", from: "halifax", to: "toronto", studio: "$2,200", oneBed: "$2,900", twoBed: "$3,900", threeBed: "$5,300", fourPlus: "$7,000" },
+  { route: "Vancouver to Toronto", from: "vancouver", to: "toronto", transit: "9-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Toronto to Vancouver", from: "toronto", to: "vancouver", transit: "9-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Vancouver to Ottawa", from: "vancouver", to: "ottawa", transit: "11-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Vancouver", from: "ottawa", to: "vancouver", transit: "11-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Vancouver to Calgary", from: "vancouver", to: "calgary", transit: "4-13 days", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
+  { route: "Calgary to Vancouver", from: "calgary", to: "vancouver", transit: "4-13 days", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
+  { route: "Vancouver to Edmonton", from: "vancouver", to: "edmonton", transit: "4-13 days", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
+  { route: "Edmonton to Vancouver", from: "edmonton", to: "vancouver", transit: "4-13 days", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
+  { route: "Toronto to Calgary", from: "toronto", to: "calgary", transit: "7-19 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Toronto", from: "calgary", to: "toronto", transit: "7-19 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Toronto to Edmonton", from: "toronto", to: "edmonton", transit: "7-18 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Edmonton to Toronto", from: "edmonton", to: "toronto", transit: "7-18 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Calgary", from: "ottawa", to: "calgary", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Ottawa", from: "calgary", to: "ottawa", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Edmonton", from: "ottawa", to: "edmonton", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Edmonton to Ottawa", from: "edmonton", to: "ottawa", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Montreal to Calgary", from: "montreal", to: "calgary", transit: "8-20 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Montreal", from: "calgary", to: "montreal", transit: "8-20 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Montreal to Edmonton", from: "montreal", to: "edmonton", transit: "8-20 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Edmonton to Montreal", from: "edmonton", to: "montreal", transit: "8-20 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Montreal to Vancouver", from: "montreal", to: "vancouver", transit: "10-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Vancouver to Montreal", from: "vancouver", to: "montreal", transit: "10-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Toronto to Montreal", from: "toronto", to: "montreal", transit: "2-5 days", studio: "$2,300", oneBed: "$3,900", twoBed: "$5,200", threeBed: "$8,300", fourPlus: "$12,000" },
+  { route: "Montreal to Toronto", from: "montreal", to: "toronto", transit: "2-5 days", studio: "$2,300", oneBed: "$3,900", twoBed: "$5,200", threeBed: "$8,300", fourPlus: "$12,000" },
+  { route: "Toronto to Ottawa", from: "toronto", to: "ottawa", transit: "2-4 days", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Ottawa to Toronto", from: "ottawa", to: "toronto", transit: "2-4 days", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Calgary to Edmonton", from: "calgary", to: "edmonton", transit: "2-4 days", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Edmonton to Calgary", from: "edmonton", to: "calgary", transit: "2-4 days", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Halifax to Toronto", from: "halifax", to: "toronto", transit: "5-12 days", studio: "$2,200", oneBed: "$2,900", twoBed: "$3,900", threeBed: "$5,300", fourPlus: "$7,000" },
 ];
 
 function normalizeText(text) {
@@ -268,10 +268,10 @@ function costGuideChatReply(inputText) {
   const homeSize = parseHomeSize(inputText);
 
   if (homeSize) {
-    return `According to our long-distance moving cost guide, a ${HOME_SIZE_LABELS[homeSize]} move from ${routeEstimate.route} is estimated at about ${routeEstimate[homeSize]}. Actual pricing depends on shipment weight, access, stairs or elevators, packing, storage, season, and valuation coverage.\n\nSee the full pricing table here: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
+    return `According to our long-distance moving cost guide, a ${HOME_SIZE_LABELS[homeSize]} move from ${routeEstimate.route} is estimated at about ${routeEstimate[homeSize]}, with an estimated transit time of ${routeEstimate.transit}. Actual pricing and timing depend on shipment weight, access, stairs or elevators, packing, storage, season, and valuation coverage.\n\nSee the full pricing table here: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
   }
 
-  return `According to our long-distance moving cost guide, estimated pricing for ${routeEstimate.route} is: studio ${routeEstimate.studio}, 1-bedroom ${routeEstimate.oneBed}, 2-bedroom ${routeEstimate.twoBed}, 3-bedroom ${routeEstimate.threeBed}, and 4+ bedroom ${routeEstimate.fourPlus}. Actual pricing depends on shipment weight, access, packing, storage, timing, and valuation coverage.\n\nSee the full pricing table here: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
+  return `According to our long-distance moving cost guide, estimated transit time for ${routeEstimate.route} is ${routeEstimate.transit}. Estimated pricing is: studio ${routeEstimate.studio}, 1-bedroom ${routeEstimate.oneBed}, 2-bedroom ${routeEstimate.twoBed}, 3-bedroom ${routeEstimate.threeBed}, and 4+ bedroom ${routeEstimate.fourPlus}. Actual pricing and timing depend on shipment weight, access, packing, storage, season, and valuation coverage.\n\nSee the full pricing table here: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
 }
 
 function extractTextFromChatPayload(payload) {
