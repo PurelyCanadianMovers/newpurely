@@ -162,6 +162,85 @@ function appendCostGuideLink(payload) {
   return updated;
 }
 
+function extractTextFromChatPayload(payload) {
+  if (!payload || typeof payload !== "object") {
+    return "";
+  }
+
+  if (Array.isArray(payload.messages)) {
+    const lastUserMessage = [...payload.messages].reverse().find((message) => message?.role === "user");
+    return typeof lastUserMessage?.content === "string" ? lastUserMessage.content : "";
+  }
+
+  if (payload.json) {
+    return extractTextFromChatPayload(payload.json);
+  }
+
+  for (const value of Object.values(payload)) {
+    const text = extractTextFromChatPayload(value);
+
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
+}
+
+function fallbackChatReply(inputText) {
+  const lowerInput = inputText.toLowerCase();
+
+  if (isCostQuestion(inputText)) {
+    return "Moving costs depend on the route, home size, shipment weight, access, packing, storage, and timing. For Toronto to Calgary and other Canada-wide routes, Purely Canadian Movers can provide a detailed no-obligation estimate after reviewing your inventory.\n\nFor pricing ranges by route and home size, see our detailed guide: [Long-Distance Moving Cost Canada](https://purelycanadianmovers.com/long-distance-moving-cost-canada/).";
+  }
+
+  if (/\b(contact|phone|call|email|quote|estimate)\b/i.test(inputText)) {
+    return "You can reach Purely Canadian Movers at 1-877-485-6683, locally at 604-522-7222, or by email at esales@pcmovers.ca. You can also start a free estimate on the contact page: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
+  }
+
+  if (/\b(area|areas|serve|service|city|cities|coquitlam|surrey|burnaby|vancouver|langley|maple ridge|north vancouver|port moody|white rock)\b/i.test(inputText)) {
+    return "Purely Canadian Movers serves Metro Vancouver, the Lower Mainland, and long-distance moves across Canada. Key local service areas include Coquitlam, Port Coquitlam, Port Moody, Burnaby, Surrey, Langley, Maple Ridge, Vancouver, North Vancouver, White Rock, and nearby communities.";
+  }
+
+  if (/\b(subcontract|broker|agent|great canadian)\b/i.test(inputText)) {
+    return "Purely Canadian Movers is family-owned and based in Coquitlam, BC. The company does not use subcontractors for its moves and is an agent of Great Canadian Van Lines for Canada-wide long-distance moving support.";
+  }
+
+  if (lowerInput.includes("packing") || lowerInput.includes("storage")) {
+    return "Yes. Packing, unpacking, storage, and valuation coverage options can be added to a moving estimate. The best next step is to request a quote with your moving date, origin, destination, and home size so the team can price the right crew, truck, and services.";
+  }
+
+  return "I can help with local moves, long-distance moving, pricing questions, packing, storage, service areas, and estimate requests. For immediate help, call 1-877-485-6683 or start here: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
+}
+
+function makeTrpcChatResponse(body, requestUrl) {
+  let parsed;
+  let userText = "";
+
+  try {
+    parsed = JSON.parse(body || "{}");
+    userText = extractTextFromChatPayload(parsed);
+  } catch {
+    parsed = null;
+  }
+
+  const payload = {
+    reply: fallbackChatReply(userText),
+  };
+  const url = new URL(requestUrl);
+  const isBatch = url.searchParams.get("batch") === "1" || (parsed && typeof parsed === "object" && Object.hasOwn(parsed, "0"));
+  const result = { result: { data: { json: payload } } };
+  const responseBody = isBatch ? JSON.stringify([result]) : JSON.stringify(result);
+
+  return withSecurityHeaders(new Response(responseBody, {
+    status: 200,
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+    },
+  }));
+}
+
 async function proxyTrpcToManus(request) {
   const url = new URL(request.url);
   const upstream = new URL(url.pathname + url.search, MANUS_ORIGIN);
@@ -176,6 +255,12 @@ async function proxyTrpcToManus(request) {
     body: request.method === "GET" || request.method === "HEAD" ? undefined : body,
     redirect: "manual",
   });
+
+  const contentType = response.headers.get("content-type") || "";
+
+  if (isChatMessage && !contentType.includes("application/json")) {
+    return makeTrpcChatResponse(body, request.url);
+  }
 
   if (!shouldAddCostGuide || !response.ok) {
     return withSecurityHeaders(response);
