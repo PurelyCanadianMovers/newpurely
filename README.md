@@ -38,3 +38,14 @@ npm run routes
 ```
 
 Forms, analytics, and WordPress/admin-style backend behavior are preserved visually only. They will need a real backend or third-party form handler if you want submissions to work after publishing to GitHub Pages or another static host.
+
+## Chatbot Lead Notifications
+
+The Cloudflare Worker can send notifications for lead-intent chatbot questions only, such as quote, cost, route, phone, email, or booking questions.
+
+Configure one of these options in Cloudflare Worker variables/secrets:
+
+- `CHAT_LEAD_WEBHOOK_URL`: posts a JSON payload to Zapier, Make, or another webhook.
+- `RESEND_API_KEY`, `CHAT_LEAD_NOTIFY_TO`, and `CHAT_LEAD_NOTIFY_FROM`: sends an email through Resend.
+
+Do not put API keys directly in the repository.

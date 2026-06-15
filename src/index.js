@@ -136,6 +136,97 @@ function isCostQuestion(inputText) {
   );
 }
 
+function isLeadIntentQuestion(inputText) {
+  return (
+    isCostQuestion(inputText) ||
+    /\b(quote|estimate|book|booking|availability|available|schedule|moving date|move date|call me|contact me|phone|email)\b/i.test(inputText) ||
+    /\b(move|moving|movers|relocat|ship)\b/i.test(inputText) && /\bfrom\b.+\bto\b/i.test(inputText) ||
+    /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/.test(inputText) ||
+    /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(inputText)
+  );
+}
+
+function truncateForNotification(value, maxLength = 2000) {
+  if (!value || value.length <= maxLength) {
+    return value || "";
+  }
+
+  return `${value.slice(0, maxLength - 3)}...`;
+}
+
+function chatLeadNotificationPayload(request, userText, replyText) {
+  const url = new URL(request.url);
+
+  return {
+    event: "chat_lead_question",
+    site: "purelycanadianmovers.com",
+    page: request.headers.get("referer") || url.origin,
+    question: truncateForNotification(userText),
+    reply: truncateForNotification(replyText),
+    userAgent: request.headers.get("user-agent") || "",
+    ipCountry: request.cf?.country || "",
+    timestamp: new Date().toISOString(),
+  };
+}
+
+async function sendChatLeadNotification(request, env, userText, replyText) {
+  if (!isLeadIntentQuestion(userText)) {
+    return;
+  }
+
+  const payload = chatLeadNotificationPayload(request, userText, replyText);
+  const webhookUrl = env.CHAT_LEAD_WEBHOOK_URL;
+
+  if (webhookUrl) {
+    await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  }
+
+  if (env.RESEND_API_KEY && env.CHAT_LEAD_NOTIFY_TO && env.CHAT_LEAD_NOTIFY_FROM) {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        from: env.CHAT_LEAD_NOTIFY_FROM,
+        to: [env.CHAT_LEAD_NOTIFY_TO],
+        subject: "New chatbot lead question",
+        text: [
+          "A visitor asked a lead-intent question on the website chatbot.",
+          "",
+          `Question: ${payload.question}`,
+          "",
+          `Chatbot reply: ${payload.reply}`,
+          "",
+          `Page: ${payload.page}`,
+          `Country: ${payload.ipCountry || "Unknown"}`,
+          `Time: ${payload.timestamp}`,
+          `User agent: ${payload.userAgent}`,
+        ].join("\n"),
+      }),
+    });
+  }
+}
+
+function queueChatLeadNotification(request, env, ctx, userText, replyText) {
+  if (!env || (!env.CHAT_LEAD_WEBHOOK_URL && !env.RESEND_API_KEY)) {
+    return;
+  }
+
+  const task = sendChatLeadNotification(request, env, userText, replyText).catch((error) => {
+    console.error("Chat lead notification failed", error);
+  });
+
+  if (ctx?.waitUntil) {
+    ctx.waitUntil(task);
+  }
+}
+
 function appendCostGuideLink(payload) {
   if (!payload || typeof payload !== "object") {
     return false;
@@ -299,6 +390,38 @@ function extractTextFromChatPayload(payload) {
   return "";
 }
 
+function extractReplyFromChatPayload(payload) {
+  if (!payload || typeof payload !== "object") {
+    return "";
+  }
+
+  if (typeof payload.reply === "string") {
+    return payload.reply;
+  }
+
+  if (Array.isArray(payload)) {
+    for (const item of payload) {
+      const reply = extractReplyFromChatPayload(item);
+
+      if (reply) {
+        return reply;
+      }
+    }
+
+    return "";
+  }
+
+  for (const value of Object.values(payload)) {
+    const reply = extractReplyFromChatPayload(value);
+
+    if (reply) {
+      return reply;
+    }
+  }
+
+  return "";
+}
+
 function fallbackChatReply(inputText) {
   const lowerInput = inputText.toLowerCase();
   const costGuideReply = costGuideChatReply(inputText);
@@ -330,7 +453,7 @@ function fallbackChatReply(inputText) {
   return "I can help with local moves, long-distance moving, pricing questions, packing, storage, service areas, and estimate requests. For immediate help, call 1-877-485-6683 or start here: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
 }
 
-function makeTrpcChatResponse(body, requestUrl) {
+function makeTrpcChatResponse(body, request) {
   let parsed;
   let userText = "";
 
@@ -344,7 +467,7 @@ function makeTrpcChatResponse(body, requestUrl) {
   const payload = {
     reply: fallbackChatReply(userText),
   };
-  const url = new URL(requestUrl);
+  const url = new URL(request.url);
   const isBatch = url.searchParams.get("batch") === "1" || (parsed && typeof parsed === "object" && Object.hasOwn(parsed, "0"));
   const result = { result: { data: { json: payload } } };
   const responseBody = isBatch ? JSON.stringify([result]) : JSON.stringify(result);
@@ -358,7 +481,7 @@ function makeTrpcChatResponse(body, requestUrl) {
   }));
 }
 
-async function proxyTrpcToManus(request) {
+async function proxyTrpcToManus(request, env, ctx) {
   const url = new URL(request.url);
   const upstream = new URL(url.pathname + url.search, MANUS_ORIGIN);
   const isChatMessage = url.pathname === "/api/trpc/chat.message" || url.pathname === "/api/trpc/chat.message/";
@@ -376,10 +499,34 @@ async function proxyTrpcToManus(request) {
   const contentType = response.headers.get("content-type") || "";
 
   if (isChatMessage && !contentType.includes("application/json")) {
-    return makeTrpcChatResponse(body, request.url);
+    const fallbackResponse = makeTrpcChatResponse(body, request);
+    let userText = "";
+    let replyText = "";
+
+    try {
+      const parsedBody = JSON.parse(body || "{}");
+      userText = extractTextFromChatPayload(parsedBody);
+      replyText = extractReplyFromChatPayload(JSON.parse(await fallbackResponse.clone().text()));
+    } catch {}
+
+    queueChatLeadNotification(request, env, ctx, userText, replyText);
+    return fallbackResponse;
   }
 
   if (!shouldAddCostGuide || !response.ok) {
+    if (isChatMessage && response.ok) {
+      try {
+        const parsedBody = JSON.parse(body || "{}");
+        queueChatLeadNotification(
+          request,
+          env,
+          ctx,
+          extractTextFromChatPayload(parsedBody),
+          extractReplyFromChatPayload(JSON.parse(await response.clone().text())),
+        );
+      } catch {}
+    }
+
     return withSecurityHeaders(response);
   }
 
@@ -389,12 +536,14 @@ async function proxyTrpcToManus(request) {
     const payload = JSON.parse(responseText);
 
     if (!appendCostGuideLink(payload)) {
+      queueChatLeadNotification(request, env, ctx, extractTextFromChatPayload(JSON.parse(body || "{}")), extractReplyFromChatPayload(payload));
       return withSecurityHeaders(new Response(responseText, response));
     }
 
     const responseHeaders = new Headers(response.headers);
     responseHeaders.delete("content-length");
     responseHeaders.set("content-type", "application/json");
+    queueChatLeadNotification(request, env, ctx, extractTextFromChatPayload(JSON.parse(body || "{}")), extractReplyFromChatPayload(payload));
 
     return withSecurityHeaders(new Response(JSON.stringify(payload), {
       status: response.status,
@@ -407,7 +556,7 @@ async function proxyTrpcToManus(request) {
 }
 
 export default {
-  fetch(request, env) {
+  fetch(request, env, ctx) {
     const url = new URL(request.url);
     const { pathname } = url;
     const destination = REDIRECTS.get(pathname);
@@ -427,7 +576,7 @@ export default {
     }
 
     if (pathname === "/api/trpc" || pathname === "/api/trpc/" || pathname.startsWith("/api/trpc/")) {
-      return proxyTrpcToManus(request);
+      return proxyTrpcToManus(request, env, ctx);
     }
 
     if (pathname === "/blog" || pathname === "/blog/") {
