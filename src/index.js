@@ -69,6 +69,19 @@ function redirectLocation(requestUrl, destination) {
   return url.toString();
 }
 
+function canonicalRedirectLocation(requestUrl, destination) {
+  if (destination.startsWith("https://")) {
+    return destination;
+  }
+
+  const url = new URL(requestUrl);
+  url.protocol = "https:";
+  url.hostname = "purelycanadianmovers.com";
+  url.pathname = destination;
+  url.search = "";
+  return url.toString();
+}
+
 function manusCallbackLocation(requestUrl) {
   const url = new URL(requestUrl);
   return `${MANUS_OAUTH_CALLBACK}${url.search}`;
@@ -195,14 +208,14 @@ export default {
   fetch(request, env) {
     const url = new URL(request.url);
     const { pathname } = url;
+    const destination = REDIRECTS.get(pathname);
 
-    if (url.protocol === "http:") {
-      url.protocol = "https:";
-      url.hostname = "purelycanadianmovers.com";
-      return redirectWithSecurityHeaders(url.toString(), 301);
+    if (destination && (url.protocol === "http:" || url.hostname === "www.purelycanadianmovers.com")) {
+      return redirectWithSecurityHeaders(canonicalRedirectLocation(request.url, destination), 301);
     }
 
-    if (url.hostname === "www.purelycanadianmovers.com") {
+    if (url.protocol === "http:" || url.hostname === "www.purelycanadianmovers.com") {
+      url.protocol = "https:";
       url.hostname = "purelycanadianmovers.com";
       return redirectWithSecurityHeaders(url.toString(), 301);
     }
@@ -232,8 +245,6 @@ export default {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
       });
     }
-
-    const destination = REDIRECTS.get(pathname);
 
     if (destination) {
       return redirectWithSecurityHeaders(redirectLocation(request.url, destination), 301);
