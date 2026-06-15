@@ -162,6 +162,118 @@ function appendCostGuideLink(payload) {
   return updated;
 }
 
+const COST_GUIDE_URL = "https://purelycanadianmovers.com/long-distance-moving-cost-canada/";
+const HOME_SIZE_LABELS = {
+  studio: "studio",
+  oneBed: "1-bedroom",
+  twoBed: "2-bedroom",
+  threeBed: "3-bedroom",
+  fourPlus: "4+ bedroom",
+};
+const COST_ROUTE_ESTIMATES = [
+  { route: "Vancouver to Toronto", from: "vancouver", to: "toronto", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Toronto to Vancouver", from: "toronto", to: "vancouver", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Vancouver to Ottawa", from: "vancouver", to: "ottawa", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Vancouver", from: "ottawa", to: "vancouver", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Vancouver to Calgary", from: "vancouver", to: "calgary", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
+  { route: "Calgary to Vancouver", from: "calgary", to: "vancouver", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
+  { route: "Vancouver to Edmonton", from: "vancouver", to: "edmonton", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
+  { route: "Edmonton to Vancouver", from: "edmonton", to: "vancouver", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
+  { route: "Toronto to Calgary", from: "toronto", to: "calgary", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Toronto", from: "calgary", to: "toronto", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Toronto to Edmonton", from: "toronto", to: "edmonton", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Edmonton to Toronto", from: "edmonton", to: "toronto", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Calgary", from: "ottawa", to: "calgary", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Ottawa", from: "calgary", to: "ottawa", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Edmonton", from: "ottawa", to: "edmonton", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Edmonton to Ottawa", from: "edmonton", to: "ottawa", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Montreal to Calgary", from: "montreal", to: "calgary", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Montreal", from: "calgary", to: "montreal", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Montreal to Edmonton", from: "montreal", to: "edmonton", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Edmonton to Montreal", from: "edmonton", to: "montreal", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Montreal to Vancouver", from: "montreal", to: "vancouver", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Vancouver to Montreal", from: "vancouver", to: "montreal", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Toronto to Montreal", from: "toronto", to: "montreal", studio: "$2,300", oneBed: "$3,900", twoBed: "$5,200", threeBed: "$8,300", fourPlus: "$12,000" },
+  { route: "Montreal to Toronto", from: "montreal", to: "toronto", studio: "$2,300", oneBed: "$3,900", twoBed: "$5,200", threeBed: "$8,300", fourPlus: "$12,000" },
+  { route: "Toronto to Ottawa", from: "toronto", to: "ottawa", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Ottawa to Toronto", from: "ottawa", to: "toronto", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Calgary to Edmonton", from: "calgary", to: "edmonton", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Edmonton to Calgary", from: "edmonton", to: "calgary", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
+  { route: "Halifax to Toronto", from: "halifax", to: "toronto", studio: "$2,200", oneBed: "$2,900", twoBed: "$3,900", threeBed: "$5,300", fourPlus: "$7,000" },
+];
+
+function normalizeText(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function parseHomeSize(inputText) {
+  const normalized = normalizeText(inputText);
+
+  if (/\b(studio|bachelor)\b/.test(normalized)) {
+    return "studio";
+  }
+
+  if (/\b(1|one)\s*(bed|bedroom|br)\b/.test(normalized)) {
+    return "oneBed";
+  }
+
+  if (/\b(2|two)\s*(bed|bedroom|br)\b/.test(normalized)) {
+    return "twoBed";
+  }
+
+  if (/\b(3|three)\s*(bed|bedroom|br)\b/.test(normalized)) {
+    return "threeBed";
+  }
+
+  if (/\b(4|four|5|five)\s*(bed|bedroom|br)|\b4\s*\+\s*(bed|bedroom|br)\b/.test(normalized)) {
+    return "fourPlus";
+  }
+
+  return "";
+}
+
+function findCostRoute(inputText) {
+  const normalized = normalizeText(inputText);
+  const cities = [...new Set(COST_ROUTE_ESTIMATES.flatMap((estimate) => [estimate.from, estimate.to]))];
+  const mentionedCities = cities.filter((city) => new RegExp(`\\b${city}\\b`).test(normalized));
+
+  if (mentionedCities.length < 2) {
+    return null;
+  }
+
+  const fromToMatch = normalized.match(/\bfrom\s+([a-z ]+?)\s+to\s+([a-z ]+?)(?:\s|$)/);
+
+  if (fromToMatch) {
+    const from = cities.find((city) => fromToMatch[1].includes(city));
+    const to = cities.find((city) => fromToMatch[2].includes(city));
+
+    if (from && to) {
+      return COST_ROUTE_ESTIMATES.find((estimate) => estimate.from === from && estimate.to === to) || null;
+    }
+  }
+
+  const [firstCity, secondCity] = mentionedCities.sort((a, b) => normalized.indexOf(a) - normalized.indexOf(b));
+  return COST_ROUTE_ESTIMATES.find((estimate) => estimate.from === firstCity && estimate.to === secondCity) ||
+    COST_ROUTE_ESTIMATES.find((estimate) => estimate.from === secondCity && estimate.to === firstCity) ||
+    null;
+}
+
+function costGuideChatReply(inputText) {
+  const routeEstimate = findCostRoute(inputText);
+
+  if (!routeEstimate) {
+    return "";
+  }
+
+  const homeSize = parseHomeSize(inputText);
+
+  if (homeSize) {
+    return `According to our long-distance moving cost guide, a ${HOME_SIZE_LABELS[homeSize]} move from ${routeEstimate.route} is estimated at about ${routeEstimate[homeSize]}. Actual pricing depends on shipment weight, access, stairs or elevators, packing, storage, season, and valuation coverage.\n\nSee the full pricing table here: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
+  }
+
+  return `According to our long-distance moving cost guide, estimated pricing for ${routeEstimate.route} is: studio ${routeEstimate.studio}, 1-bedroom ${routeEstimate.oneBed}, 2-bedroom ${routeEstimate.twoBed}, 3-bedroom ${routeEstimate.threeBed}, and 4+ bedroom ${routeEstimate.fourPlus}. Actual pricing depends on shipment weight, access, packing, storage, timing, and valuation coverage.\n\nSee the full pricing table here: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
+}
+
 function extractTextFromChatPayload(payload) {
   if (!payload || typeof payload !== "object") {
     return "";
@@ -189,9 +301,14 @@ function extractTextFromChatPayload(payload) {
 
 function fallbackChatReply(inputText) {
   const lowerInput = inputText.toLowerCase();
+  const costGuideReply = costGuideChatReply(inputText);
+
+  if (costGuideReply) {
+    return costGuideReply;
+  }
 
   if (isCostQuestion(inputText)) {
-    return "Moving costs depend on the route, home size, shipment weight, access, packing, storage, and timing. For Toronto to Calgary and other Canada-wide routes, Purely Canadian Movers can provide a detailed no-obligation estimate after reviewing your inventory.\n\nFor pricing ranges by route and home size, see our detailed guide: [Long-Distance Moving Cost Canada](https://purelycanadianmovers.com/long-distance-moving-cost-canada/).";
+    return `Moving costs depend on the route, home size, shipment weight, access, packing, storage, and timing. Purely Canadian Movers can provide a detailed no-obligation estimate after reviewing your inventory.\n\nFor pricing ranges by route and home size, see our detailed guide: [Long-Distance Moving Cost Canada](${COST_GUIDE_URL}).`;
   }
 
   if (/\b(contact|phone|call|email|quote|estimate)\b/i.test(inputText)) {
