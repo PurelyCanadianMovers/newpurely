@@ -66,6 +66,7 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [x] Strengthen the Port Coquitlam page/cluster after Maple Ridge and Coquitlam cluster work.
 - [ ] Strengthen `/packing-services-coquitlam-bc/` because Google flagged it as duplicate/weak: add unique title/meta, Coquitlam-specific packing content, local trust proof, and links to `/local-movers-in-coquitlam-bc/`, `/storage/`, and `/valuation-coverage-protection/`.
 - [ ] Strengthen `/local-movers-langley-bc/` because Google flagged it as duplicate/weak even though it is a commercial local keyword: add unique Langley title/meta, local moving content, trust proof, FAQ/schema, and internal links to nearby service-area and moving-service pages.
+- [ ] Resolve the duplicate Edmonton-to-Toronto route URLs: choose the preferred page between `/edmonton-to-toronto-movers/` and `/movers-edmonton-to-toronto/`, strengthen the preferred page, and remove or redirect the duplicate to avoid canonical confusion.
 - [ ] Continue expanding city/service internal links across the local moving cluster.
 - [ ] Monitor Google Search Console validation while it is still running; no new redirect/indexing changes unless Soft 404, Page with redirect, Not found 404, Redirect error, or Crawled currently not indexed shows new failed examples with recent crawl dates.
 - [ ] Monitor GBP calls, website clicks, and direction clicks after each local SEO update.
