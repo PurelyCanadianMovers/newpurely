@@ -447,7 +447,7 @@ function fallbackChatReply(inputText) {
   }
 
   if (lowerInput.includes("packing") || lowerInput.includes("storage")) {
-    return "Yes. Packing, unpacking, storage, and valuation coverage options can be added to a moving estimate. The best next step is to request a quote with your moving date, origin, destination, and home size so the team can price the right crew, truck, and services.";
+    return "Yes. Packing, unpacking, storage, and valuation coverage options can be added to a moving estimate. The best next step is to request a quote with your moving date, origin, destination, home size, and inventory details so the team can price the move based on either weight or volume, along with the right crew, truck, and services.";
   }
 
   return "I can help with local moves, long-distance moving, pricing questions, packing, storage, service areas, and estimate requests. For immediate help, call 1-877-485-6683 or start here: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
