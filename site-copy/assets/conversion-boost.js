@@ -216,7 +216,7 @@
     "/surrey/": "Long-Distance Movers in Surrey BC | Moving Quotes",
     "/testimonials/": "Customer Reviews | Purely Canadian Movers",
     "/toronto-long-distance-movers/": "Toronto Long-Distance Movers",
-    "/toronto-to-calgary-movers/": "Toronto to Calgary Movers",
+    "/toronto-to-calgary-movers/": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time",
     "/toronto-to-edmonton-movers/": "Toronto to Edmonton Movers | Long-Distance Moving",
     "/toronto-to-montreal-movers/": "Toronto to Montreal Movers | Long-Distance Moving",
     "/toronto-to-vancouver-movers/": "Toronto to Vancouver Movers | Cross-Canada Moving",
@@ -272,6 +272,8 @@
       "Long-distance movers in Surrey, BC for cross-Canada moves, packing, storage, valuation coverage, and written estimates. Since 1991, no subcontractors.",
     "/testimonials/":
       "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
+    "/toronto-to-calgary-movers/":
+      "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/x-country/":
@@ -297,6 +299,7 @@
         "Mississauga, Brampton, Vaughan, Markham, Richmond Hill, Oakville, Burlington, Scarborough, Etobicoke, North York, Pickering, Ajax, Whitby, Oshawa, Hamilton, Kanata, Nepean, Orleans, Barrhaven, Gloucester, Stittsville, Gatineau.",
       links: [
         ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Toronto to Calgary cost", "/toronto-to-calgary-movers/"],
         ["Ottawa movers", "/long-distance-movers-ottawa/"],
       ],
     },
@@ -875,6 +878,33 @@
         ["What should I compare before booking?", "Compare written estimates, years in business, BBB accreditation, valuation coverage options, direct accountability, and whether the mover is a broker or direct mover."],
       ],
     },
+    "/toronto-to-calgary-movers/": {
+      title: "Toronto to Calgary moving cost, prices, and transit time",
+      intro:
+        "A Toronto to Calgary move typically ranges from about $2,500 for a small shipment to $10,000+ for a larger home. Many 1-2 bedroom Toronto to Calgary moves are estimated around $4,500-$7,000, depending on shipment weight or volume, access, packing, storage, timing, and valuation coverage.",
+      highlights: [
+        ["Route cost factors", "Final price depends on weight or volume, pickup access in the GTA, Calgary delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
+        ["Typical transit", "Toronto to Calgary long-distance moves are commonly planned around a 7-14 day transit window, depending on shipment size, routing, consolidation, and scheduling."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Toronto Long-Distance Movers", "/toronto-long-distance-movers/"],
+        ["Calgary Long-Distance Movers", "/calgary-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Get a Toronto to Calgary Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Toronto to Calgary?", "A Toronto to Calgary move is commonly estimated from about $2,500 for a small shipment to $10,000+ for a larger home. A 1-2 bedroom move is often estimated around $4,500-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does a Toronto to Calgary move take?", "A typical Toronto to Calgary moving transit window is about 7-14 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of a Toronto to Calgary move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Toronto to Calgary moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with a Toronto to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Toronto to Calgary moving estimate."],
+      ],
+    },
     "/surrey/": {
       title: "Long-distance movers in Surrey, BC with direct accountability",
       intro:
@@ -1330,6 +1360,42 @@
     return section;
   }
 
+  function createTorontoCalgaryCostBlock() {
+    var rows = [
+      ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7-14 days"],
+      ["1-bedroom", "$4,500-$5,500+", "Depends on inventory weight or volume, access, and packing", "7-14 days"],
+      ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-14 days"],
+      ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-14 days"],
+      ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-14 days"],
+    ];
+
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-route-cost";
+    section.setAttribute("aria-label", "Toronto to Calgary moving cost estimates");
+    section.innerHTML =
+      '<div class="pcm-route-cost__inner">' +
+      '<div class="pcm-route-cost__eyebrow">Toronto to Calgary moving cost</div>' +
+      "<h2>How much does it cost to move from Toronto to Calgary?</h2>" +
+      "<p>A Toronto to Calgary move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.</p>" +
+      '<div class="pcm-route-cost__table-wrap"><table><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody></tbody></table></div>' +
+      '<p class="pcm-route-cost__note">Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.</p>' +
+      '<div class="pcm-route-cost__links"><a href="/long-distance-moving-cost-canada/">Full cost guide</a><a href="/toronto-long-distance-movers/">Toronto movers</a><a href="/calgary-long-distance-movers/">Calgary movers</a><a href="/contact/">Get a written estimate</a></div>' +
+      "</div>";
+
+    var tbody = section.querySelector("tbody");
+    rows.forEach(function (row) {
+      var tr = document.createElement("tr");
+      row.forEach(function (cell) {
+        var td = document.createElement("td");
+        td.textContent = cell;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    return section;
+  }
+
   function createLocalSeoBlock(config, path) {
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-local-seo";
@@ -1475,6 +1541,14 @@
         document.title = title;
         if (attempts >= 8) window.clearInterval(titleTimer);
       }, 500);
+    }
+  }
+
+  function enhanceTorontoCalgaryHeading(path) {
+    if (path !== "/toronto-to-calgary-movers/") return;
+    var h1 = document.querySelector("h1");
+    if (h1 && /Toronto\s+to\s+Calgary/i.test(h1.textContent || "")) {
+      h1.textContent = "Toronto to Calgary Moving Cost, Prices & Transit Time";
     }
   }
 
@@ -1683,9 +1757,22 @@
     }
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
+    var routeCost = document.querySelector(".pcm-route-cost");
+    var anchor = routeCost || leadPanel;
+    if (!anchor || !anchor.parentNode) return;
+
+    anchor.parentNode.insertBefore(createBrokerComparison(), anchor.nextSibling);
+  }
+
+  function insertTorontoCalgaryCostBlock(path) {
+    if (path !== "/toronto-to-calgary-movers/" || document.querySelector(".pcm-route-cost")) {
+      return;
+    }
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
     if (!leadPanel || !leadPanel.parentNode) return;
 
-    leadPanel.parentNode.insertBefore(createBrokerComparison(), leadPanel.nextSibling);
+    leadPanel.parentNode.insertBefore(createTorontoCalgaryCostBlock(), leadPanel.nextSibling);
   }
 
   function insertLeadPanel(config) {
@@ -1700,7 +1787,9 @@
     } else {
       root.insertBefore(panel, root.firstChild);
     }
+    enhanceTorontoCalgaryHeading(normalizePath());
     insertLocalSeoBlock(normalizePath());
+    insertTorontoCalgaryCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
