@@ -206,7 +206,7 @@
     "/ottawa-to-calgary-movers/": "Ottawa to Calgary Movers | Cross-Canada Moving",
     "/ottawa-to-edmonton-movers/": "Ottawa to Edmonton Movers | Long-Distance Moving",
     "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Long-Distance Moving",
-    "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Movers | Cross-Canada Moving",
+    "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/ottawa-to-victoria-movers/": "Ottawa to Victoria Movers | Long-Distance Moving",
     "/our-network/": "Moving Network Across Canada | Purely Canadian Movers",
     "/overseas/": "Overseas Moving Services | International Movers Vancouver",
@@ -278,6 +278,8 @@
       "Montreal to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/montreal-to-edmonton-movers/":
       "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/ottawa-to-vancouver-movers/":
+      "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/x-country/":
@@ -429,6 +431,29 @@
         ["2-bedroom", "$6,800+", "Common planning range for apartment or condo moves", "8-18 days"],
         ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "8-18 days"],
         ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "8-18 days"],
+      ],
+    },
+    "/ottawa-to-vancouver-movers/": {
+      aria: "Ottawa to Vancouver moving cost estimates",
+      eyebrow: "Ottawa to Vancouver moving cost",
+      h1: "Ottawa to Vancouver Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Ottawa to Vancouver?",
+      intro:
+        "An Ottawa to Vancouver move typically ranges from about <strong>$3,000</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,300-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Ottawa to Vancouver pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Ottawa movers", "/long-distance-movers-ottawa/"],
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$3,000+", "Best for limited furniture or a partial shipment", "10-22 days"],
+        ["1-bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10-22 days"],
+        ["2-bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10-22 days"],
+        ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space", "10-22 days"],
+        ["4+ bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10-22 days"],
       ],
     },
   };
@@ -1037,6 +1062,34 @@
         ["What affects the price of a Montreal to Edmonton move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Montreal to Edmonton moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with a Montreal to Edmonton move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Montreal to Edmonton moving estimate."],
+      ],
+    },
+    "/ottawa-to-vancouver-movers/": {
+      title: "Ottawa to Vancouver moving cost, prices, and transit time",
+      intro:
+        "An Ottawa to Vancouver move typically ranges from about $3,000 for a small shipment to $16,000+ for a larger home. Many 1-2 bedroom Ottawa to Vancouver moves are estimated around $5,300-$7,000, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+      highlights: [
+        ["Route cost factors", "Final price depends on weight or volume, Ottawa pickup access, Vancouver delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
+        ["Typical transit", "Ottawa to Vancouver long-distance moves are commonly planned around a 10-22 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Ottawa Long-Distance Movers", "/long-distance-movers-ottawa/"],
+        ["Vancouver Long-Distance Movers", "/vancouver-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get an Ottawa to Vancouver Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Ottawa to Vancouver?", "An Ottawa to Vancouver move is commonly estimated from about $3,000 for a small shipment to $16,000+ for a larger home. A 1-2 bedroom move is often estimated around $5,300-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does an Ottawa to Vancouver move take?", "A typical Ottawa to Vancouver moving transit window is about 10-22 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of an Ottawa to Vancouver move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Ottawa to Vancouver moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with an Ottawa to Vancouver move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in an Ottawa to Vancouver moving estimate."],
       ],
     },
     "/surrey/": {
