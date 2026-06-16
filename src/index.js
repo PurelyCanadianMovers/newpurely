@@ -601,14 +601,14 @@ export default {
       });
     }
 
-    if (pathname === "/blog/toronto-to-western-canada-purely-canadian-movers/") {
-      return fetchStaticAsset(request, env, "/blog/toronto-to-western-canada-purely-canadian-movers/index.html", {
+    if (pathname === "/blog/content/posts.json") {
+      return fetchStaticAsset(request, env, "/blog/content/posts.json", {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
       });
     }
 
-    if (pathname === "/blog/avoid-cheap-long-distance-moving-quotes-fake-reviews-1779301349239/") {
-      return fetchStaticAsset(request, env, "/blog/avoid-cheap-long-distance-moving-quotes-fake-reviews-1779301349239/index.html", {
+    if (pathname.startsWith("/blog/") && pathname.endsWith("/") && !pathname.startsWith("/blog/content/")) {
+      return fetchStaticAsset(request, env, `${pathname}index.html`, {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
       });
     }
