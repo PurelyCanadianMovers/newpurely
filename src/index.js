@@ -136,9 +136,17 @@ function isCostQuestion(inputText) {
   );
 }
 
+function isStoragePricingQuestion(inputText) {
+  return (
+    /\b(storage|store|stored|warehouse|warehousing)\b/i.test(inputText) &&
+    /\b(cost|price|pricing|quote|estimate|how much|rate|rates|charge|charges|fee|fees)\b/i.test(inputText)
+  );
+}
+
 function isLeadIntentQuestion(inputText) {
   return (
     isCostQuestion(inputText) ||
+    isStoragePricingQuestion(inputText) ||
     /\b(quote|estimate|book|booking|availability|available|schedule|moving date|move date|call me|contact me|phone|email)\b/i.test(inputText) ||
     /\b(move|moving|movers|relocat|ship)\b/i.test(inputText) && /\bfrom\b.+\bto\b/i.test(inputText) ||
     /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/.test(inputText) ||
@@ -432,6 +440,10 @@ function fallbackChatReply(inputText) {
 
   if (costGuideReply) {
     return costGuideReply;
+  }
+
+  if (isStoragePricingQuestion(inputText)) {
+    return "Storage pricing depends on how much is being stored, how long you need storage, access, packing, and whether the shipment is priced by weight or volume. Purely Canadian Movers can include short-term or long-term storage in a written moving estimate after reviewing your inventory, origin, destination, and storage dates.\n\nFor the most accurate storage quote, start here: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
   }
 
   if (isCostQuestion(inputText)) {
