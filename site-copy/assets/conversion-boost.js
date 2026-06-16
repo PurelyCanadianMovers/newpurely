@@ -195,7 +195,7 @@
     "/montreal-to-calgary-movers/": "Montreal to Calgary Movers | Cross-Canada Moving",
     "/montreal-to-edmonton-movers/": "Montreal to Edmonton Movers | Long-Distance Moving",
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
-    "/montreal-to-vancouver-movers/": "Montreal to Vancouver Movers | Cross-Canada Moving",
+    "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
@@ -274,6 +274,8 @@
       "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
     "/toronto-to-calgary-movers/":
       "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/montreal-to-vancouver-movers/":
+      "Montreal to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/x-country/":
@@ -311,6 +313,7 @@
         "Vancouver, Burnaby, Richmond, Surrey, Coquitlam, Port Coquitlam, Port Moody, New Westminster, North Vancouver, West Vancouver, Delta, Langley, Maple Ridge, Pitt Meadows, Abbotsford, Chilliwack, White Rock, Mission.",
       links: [
         ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Montreal to Vancouver cost", "/montreal-to-vancouver-movers/"],
         ["Coquitlam movers", "/coquitlam/"],
         ["Lower Mainland local movers", "/local/"],
       ],
@@ -351,6 +354,55 @@
         ["Storage options", "/storage/"],
         ["Long-distance movers", "/long-distance/"],
         ["Great Canadian Van Lines agent", "/great-canadian-vanlines-agent/"],
+      ],
+    },
+  };
+
+  var ROUTE_COST_BLOCKS = {
+    "/toronto-to-calgary-movers/": {
+      aria: "Toronto to Calgary moving cost estimates",
+      eyebrow: "Toronto to Calgary moving cost",
+      h1: "Toronto to Calgary Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Toronto to Calgary?",
+      intro:
+        "A Toronto to Calgary move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Calgary movers", "/calgary-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7-14 days"],
+        ["1-bedroom", "$4,500-$5,500+", "Depends on inventory weight or volume, access, and packing", "7-14 days"],
+        ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-14 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-14 days"],
+        ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-14 days"],
+      ],
+    },
+    "/montreal-to-vancouver-movers/": {
+      aria: "Montreal to Vancouver moving cost estimates",
+      eyebrow: "Montreal to Vancouver moving cost",
+      h1: "Montreal to Vancouver Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Montreal to Vancouver?",
+      intro:
+        "A Montreal to Vancouver move typically ranges from about <strong>$3,000</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,300-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Montreal to Vancouver pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Montreal movers", "/long-distance-movers-montreal/"],
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$3,000+", "Best for limited furniture or a partial shipment", "10-22 days"],
+        ["1-bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10-22 days"],
+        ["2-bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10-22 days"],
+        ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space", "10-22 days"],
+        ["4+ bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10-22 days"],
       ],
     },
   };
@@ -905,6 +957,34 @@
         ["Can packing or storage be included with a Toronto to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Toronto to Calgary moving estimate."],
       ],
     },
+    "/montreal-to-vancouver-movers/": {
+      title: "Montreal to Vancouver moving cost, prices, and transit time",
+      intro:
+        "A Montreal to Vancouver move typically ranges from about $3,000 for a small shipment to $16,000+ for a larger home. Many 1-2 bedroom Montreal to Vancouver moves are estimated around $5,300-$7,000, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+      highlights: [
+        ["Route cost factors", "Final price depends on weight or volume, Montreal pickup access, Vancouver delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
+        ["Typical transit", "Montreal to Vancouver long-distance moves are commonly planned around a 10-22 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Montreal Long-Distance Movers", "/long-distance-movers-montreal/"],
+        ["Vancouver Long-Distance Movers", "/vancouver-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get a Montreal to Vancouver Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Montreal to Vancouver?", "A Montreal to Vancouver move is commonly estimated from about $3,000 for a small shipment to $16,000+ for a larger home. A 1-2 bedroom move is often estimated around $5,300-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does a Montreal to Vancouver move take?", "A typical Montreal to Vancouver moving transit window is about 10-22 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of a Montreal to Vancouver move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Montreal to Vancouver moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with a Montreal to Vancouver move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Montreal to Vancouver moving estimate."],
+      ],
+    },
     "/surrey/": {
       title: "Long-distance movers in Surrey, BC with direct accountability",
       intro:
@@ -1360,30 +1440,27 @@
     return section;
   }
 
-  function createTorontoCalgaryCostBlock() {
-    var rows = [
-      ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7-14 days"],
-      ["1-bedroom", "$4,500-$5,500+", "Depends on inventory weight or volume, access, and packing", "7-14 days"],
-      ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-14 days"],
-      ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-14 days"],
-      ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-14 days"],
-    ];
-
+  function createRouteCostBlock(config) {
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-route-cost";
-    section.setAttribute("aria-label", "Toronto to Calgary moving cost estimates");
+    section.setAttribute("aria-label", config.aria);
     section.innerHTML =
       '<div class="pcm-route-cost__inner">' +
-      '<div class="pcm-route-cost__eyebrow">Toronto to Calgary moving cost</div>' +
-      "<h2>How much does it cost to move from Toronto to Calgary?</h2>" +
-      "<p>A Toronto to Calgary move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.</p>" +
+      '<div class="pcm-route-cost__eyebrow"></div>' +
+      "<h2></h2>" +
+      "<p></p>" +
       '<div class="pcm-route-cost__table-wrap"><table><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody></tbody></table></div>' +
-      '<p class="pcm-route-cost__note">Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.</p>' +
-      '<div class="pcm-route-cost__links"><a href="/long-distance-moving-cost-canada/">Full cost guide</a><a href="/toronto-long-distance-movers/">Toronto movers</a><a href="/calgary-long-distance-movers/">Calgary movers</a><a href="/contact/">Get a written estimate</a></div>' +
+      '<p class="pcm-route-cost__note"></p>' +
+      '<div class="pcm-route-cost__links"></div>' +
       "</div>";
 
+    section.querySelector(".pcm-route-cost__eyebrow").textContent = config.eyebrow;
+    section.querySelector("h2").textContent = config.title;
+    section.querySelector(".pcm-route-cost__inner > p").innerHTML = config.intro;
+    section.querySelector(".pcm-route-cost__note").textContent = config.note;
+
     var tbody = section.querySelector("tbody");
-    rows.forEach(function (row) {
+    config.rows.forEach(function (row) {
       var tr = document.createElement("tr");
       row.forEach(function (cell) {
         var td = document.createElement("td");
@@ -1391,6 +1468,14 @@
         tr.appendChild(td);
       });
       tbody.appendChild(tr);
+    });
+
+    var links = section.querySelector(".pcm-route-cost__links");
+    config.links.forEach(function (item) {
+      var link = document.createElement("a");
+      link.href = item[1];
+      link.textContent = item[0];
+      links.appendChild(link);
     });
 
     return section;
@@ -1544,11 +1629,12 @@
     }
   }
 
-  function enhanceTorontoCalgaryHeading(path) {
-    if (path !== "/toronto-to-calgary-movers/") return;
+  function enhanceRouteHeading(path) {
+    var config = ROUTE_COST_BLOCKS[path];
+    if (!config) return;
     var h1 = document.querySelector("h1");
-    if (h1 && /Toronto\s+to\s+Calgary/i.test(h1.textContent || "")) {
-      h1.textContent = "Toronto to Calgary Moving Cost, Prices & Transit Time";
+    if (h1) {
+      h1.textContent = config.h1;
     }
   }
 
@@ -1764,15 +1850,16 @@
     anchor.parentNode.insertBefore(createBrokerComparison(), anchor.nextSibling);
   }
 
-  function insertTorontoCalgaryCostBlock(path) {
-    if (path !== "/toronto-to-calgary-movers/" || document.querySelector(".pcm-route-cost")) {
+  function insertRouteCostBlock(path) {
+    var config = ROUTE_COST_BLOCKS[path];
+    if (!config || document.querySelector(".pcm-route-cost")) {
       return;
     }
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
     if (!leadPanel || !leadPanel.parentNode) return;
 
-    leadPanel.parentNode.insertBefore(createTorontoCalgaryCostBlock(), leadPanel.nextSibling);
+    leadPanel.parentNode.insertBefore(createRouteCostBlock(config), leadPanel.nextSibling);
   }
 
   function insertLeadPanel(config) {
@@ -1787,9 +1874,9 @@
     } else {
       root.insertBefore(panel, root.firstChild);
     }
-    enhanceTorontoCalgaryHeading(normalizePath());
+    enhanceRouteHeading(normalizePath());
     insertLocalSeoBlock(normalizePath());
-    insertTorontoCalgaryCostBlock(normalizePath());
+    insertRouteCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
