@@ -96,6 +96,10 @@
       renderPosts();
     })
     .catch(function () {
+      if (list.children.length > 0) {
+        empty.hidden = true;
+        return;
+      }
       empty.hidden = false;
       empty.textContent = "Blog posts could not be loaded. Please refresh the page or contact us for help.";
     });
