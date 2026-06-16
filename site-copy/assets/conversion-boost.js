@@ -193,7 +193,7 @@
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
     "/long-distance-movers-montreal/": "Montreal Long-Distance Movers | Cross-Canada Moving",
     "/montreal-to-calgary-movers/": "Montreal to Calgary Movers | Cross-Canada Moving",
-    "/montreal-to-edmonton-movers/": "Montreal to Edmonton Movers | Long-Distance Moving",
+    "/montreal-to-edmonton-movers/": "Montreal to Edmonton Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
@@ -276,6 +276,8 @@
       "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/montreal-to-vancouver-movers/":
       "Montreal to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/montreal-to-edmonton-movers/":
+      "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/x-country/":
@@ -287,6 +289,7 @@
     ["Toronto to Vancouver", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
     ["Vancouver to Calgary", "$1,100+", "$1,500-$2,000+", "$2,800+", "2-5 days"],
     ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
+    ["Montreal to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-18 days"],
     ["Montreal to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
     ["Ottawa to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
     ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
@@ -403,6 +406,29 @@
         ["2-bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10-22 days"],
         ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space", "10-22 days"],
         ["4+ bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10-22 days"],
+      ],
+    },
+    "/montreal-to-edmonton-movers/": {
+      aria: "Montreal to Edmonton moving cost estimates",
+      eyebrow: "Montreal to Edmonton moving cost",
+      h1: "Montreal to Edmonton Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Montreal to Edmonton?",
+      intro:
+        "A Montreal to Edmonton move typically ranges from about <strong>$2,800</strong> for a small shipment to <strong>$15,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,000-$6,800</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Montreal to Edmonton pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Montreal movers", "/long-distance-movers-montreal/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,800+", "Best for limited furniture or a partial shipment", "8-18 days"],
+        ["1-bedroom", "$5,000+", "Depends on inventory weight or volume, access, and packing", "8-18 days"],
+        ["2-bedroom", "$6,800+", "Common planning range for apartment or condo moves", "8-18 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "8-18 days"],
+        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "8-18 days"],
       ],
     },
   };
@@ -983,6 +1009,34 @@
         ["What affects the price of a Montreal to Vancouver move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Montreal to Vancouver moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with a Montreal to Vancouver move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Montreal to Vancouver moving estimate."],
+      ],
+    },
+    "/montreal-to-edmonton-movers/": {
+      title: "Montreal to Edmonton moving cost, prices, and transit time",
+      intro:
+        "A Montreal to Edmonton move typically ranges from about $2,800 for a small shipment to $15,000+ for a larger home. Many 1-2 bedroom Montreal to Edmonton moves are estimated around $5,000-$6,800, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+      highlights: [
+        ["Route cost factors", "Final price depends on weight or volume, Montreal pickup access, Edmonton delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
+        ["Typical transit", "Montreal to Edmonton long-distance moves are commonly planned around an 8-18 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Montreal Long-Distance Movers", "/long-distance-movers-montreal/"],
+        ["Edmonton Long-Distance Movers", "/edmonton-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get a Montreal to Edmonton Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Montreal to Edmonton?", "A Montreal to Edmonton move is commonly estimated from about $2,800 for a small shipment to $15,000+ for a larger home. A 1-2 bedroom move is often estimated around $5,000-$6,800. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does a Montreal to Edmonton move take?", "A typical Montreal to Edmonton moving transit window is about 8-18 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of a Montreal to Edmonton move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Montreal to Edmonton moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with a Montreal to Edmonton move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Montreal to Edmonton moving estimate."],
       ],
     },
     "/surrey/": {
