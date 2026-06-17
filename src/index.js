@@ -903,6 +903,10 @@ export default {
       return proxyTrpcToManus(request, env, ctx);
     }
 
+    if (destination) {
+      return redirectWithSecurityHeaders(redirectLocation(request.url, destination), 301);
+    }
+
     if (pathname === "/blog" || pathname === "/blog/") {
       return fetchStaticAsset(request, env, "/blog/index.html", {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
@@ -925,10 +929,6 @@ export default {
       return fetchStaticAsset(request, env, `${pathname}index.html`, {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
       });
-    }
-
-    if (destination) {
-      return redirectWithSecurityHeaders(redirectLocation(request.url, destination), 301);
     }
 
     if (!pathname.endsWith("/") && !hasFileExtension(pathname)) {
