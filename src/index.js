@@ -248,6 +248,28 @@ function trpcJsonResponse(payload, isBatch = false) {
   }));
 }
 
+function trpcErrorResponse(message, isBatch = false, status = 500) {
+  const error = {
+    error: {
+      message,
+      code: -32603,
+      data: {
+        code: "INTERNAL_SERVER_ERROR",
+        httpStatus: status,
+      },
+    },
+  };
+  const responseBody = isBatch ? JSON.stringify([error]) : JSON.stringify(error);
+
+  return withSecurityHeaders(new Response(responseBody, {
+    status,
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+    },
+  }));
+}
+
 function extractTrpcJsonInput(parsed) {
   if (!parsed || typeof parsed !== "object") {
     return {};
@@ -311,20 +333,31 @@ function estimateNotificationText(payload) {
 
 async function sendEstimateNotification(request, env, estimate) {
   const payload = estimateNotificationPayload(request, estimate);
+  const channels = [];
 
   if (env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL) {
-    await fetch(env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL, {
+    const webhookResponse = await fetch(env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload),
     });
+
+    if (!webhookResponse.ok) {
+      throw new Error(`Estimate webhook failed with ${webhookResponse.status}`);
+    }
+
+    channels.push("webhook");
   }
 
   const notifyTo = env.ESTIMATE_NOTIFY_TO || env.CHAT_LEAD_NOTIFY_TO || "esales@pcmovers.ca";
   const notifyFrom = env.ESTIMATE_NOTIFY_FROM || env.CHAT_LEAD_NOTIFY_FROM;
 
-  if (env.RESEND_API_KEY && notifyTo && notifyFrom) {
-    await fetch("https://api.resend.com/emails", {
+  if (env.RESEND_API_KEY) {
+    if (!notifyFrom) {
+      throw new Error("Estimate email skipped because ESTIMATE_NOTIFY_FROM or CHAT_LEAD_NOTIFY_FROM is not configured.");
+    }
+
+    const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -337,7 +370,20 @@ async function sendEstimateNotification(request, env, estimate) {
         text: estimateNotificationText(payload),
       }),
     });
+
+    if (!emailResponse.ok) {
+      const errorText = await emailResponse.text();
+      throw new Error(`Estimate email failed with ${emailResponse.status}: ${errorText}`);
+    }
+
+    channels.push("email");
   }
+
+  return {
+    sent: channels.length > 0,
+    channels,
+    missingEmailConfig: !env.RESEND_API_KEY || !notifyFrom,
+  };
 }
 
 async function handleEstimateSubmit(request, env, ctx) {
@@ -352,17 +398,28 @@ async function handleEstimateSubmit(request, env, ctx) {
     estimate = {};
   }
 
-  const task = sendEstimateNotification(request, env || {}, estimate).catch((error) => {
-    console.error("Estimate notification failed", error);
-  });
+  let notification = {
+    sent: false,
+    channels: [],
+    missingEmailConfig: true,
+  };
 
-  if (ctx?.waitUntil) {
-    ctx.waitUntil(task);
+  try {
+    notification = await sendEstimateNotification(request, env || {}, estimate);
+  } catch (error) {
+    console.error("Estimate notification failed", error);
+    return trpcErrorResponse("Estimate request could not be emailed. Please call 1-877-485-6683.", isBatch);
+  }
+
+  if (!notification.sent) {
+    console.error("Estimate notification missing configuration", notification);
+    return trpcErrorResponse("Estimate notification is not configured. Please call 1-877-485-6683.", isBatch);
   }
 
   return trpcJsonResponse({
     success: true,
     message: "Estimate request received.",
+    notification,
   }, isBatch);
 }
 

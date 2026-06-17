@@ -37,7 +37,23 @@ npm run mirror
 npm run routes
 ```
 
-Forms, analytics, and WordPress/admin-style backend behavior are preserved visually only. They will need a real backend or third-party form handler if you want submissions to work after publishing to GitHub Pages or another static host.
+Analytics and WordPress/admin-style backend behavior are preserved visually only. Public estimate form submissions are handled by the Cloudflare Worker when deployed with the Worker configuration in `wrangler.toml`.
+
+## Estimate Form Notifications
+
+The Cloudflare Worker accepts `/api/trpc/contact.submit` requests directly so the public estimate form does not depend on the old Manus backend.
+
+Configure these Cloudflare Worker variables/secrets to email estimate requests:
+
+- `RESEND_API_KEY`: Resend API key.
+- `ESTIMATE_NOTIFY_TO`: recipient email, for example `esales@pcmovers.ca`.
+- `ESTIMATE_NOTIFY_FROM`: verified Resend sender, for example `Purely Canadian Movers <estimates@purelycanadianmovers.com>`.
+
+Optional:
+
+- `ESTIMATE_WEBHOOK_URL`: posts estimate submissions to Zapier, Make, or another webhook.
+
+If the email/webhook notification fails, the Worker returns an error so the form does not silently mark a failed notification as successful.
 
 ## Chatbot Lead Notifications
 
