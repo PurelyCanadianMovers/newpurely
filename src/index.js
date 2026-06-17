@@ -29,6 +29,24 @@ const REDIRECTS = new Map([
     "/2025/10/17/why-purely-canadian-movers-great-canadian-van-lines-are-montreal-and-quebecs-moving-company-of-choice/",
     "/montreal-long-distance-movers/",
   ],
+  ["/corporate-moves-employee-relocation/", "/corporate-moves-employee-relocation-in-coquitlam-bc/"],
+  ["/2023/06/29/5-ways-you-can-declutter-your-home-for-a-lighter-load/", "/packing/"],
+  [
+    "/2025/07/06/why-hiring-a-professional-mover-like-purely-canadian-movers-matters-for-your-move-from-ontario-to-western-canada/",
+    "/long-distance/",
+  ],
+  [
+    "/2025/07/21/top-long-distance-moving-team-in-canada-purely-canadian-great-canadian-vanlines/",
+    "/great-canadian-vanlines-agent/",
+  ],
+  [
+    "/2025/07/22/why-purely-canadian-movers-are-a-top-choice-for-long-distance-moves-in-canada/",
+    "/long-distance/",
+  ],
+  [
+    "/2025/07/28/why-you-should-choose-purely-canadian-movers-for-your-long-distance-move-from-greater-vancouver/",
+    "/vancouver-long-distance-movers/",
+  ],
   ["/category/news/index.html", "/blog/"],
   ["/blog/page/2/index.html", "/blog/"],
   ["/blog/page/3/", "/blog/"],
@@ -55,6 +73,16 @@ const REDIRECTS = new Map([
     "/2025/07/23/purely-canadian-best-long-distance-movers-in-canada/",
     "/long-distance/",
   ],
+  ["/vancouver/best-long-distance-mover-in-the-vancouver-area/", "/vancouver-long-distance-movers/"],
+  ["/tag/moving-and-storage-in-vancouver/", "/storage/"],
+  ["/blog/how-long-to-move-across-canada-timelines/", "/long-distance/"],
+  ["/tag/best-usa-mover/", "/canada-usa/"],
+  ["/locations/", "/local/"],
+  [
+    "/2026/01/08/why-purely-canadian-movers-is-the-best-choice-for-your-move-from-toronto-montreal-or-ottawa-2/",
+    "/long-distance/",
+  ],
+  ["/local-movers-vancouver/", "/local-movers-in-vancouver-bc/"],
   ["/tag/best-mover-in-burnaby/", "/local-movers-burnaby-bc/"],
 ]);
 
