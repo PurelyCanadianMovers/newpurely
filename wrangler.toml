@@ -7,3 +7,18 @@ directory = "./site-copy"
 binding = "ASSETS"
 run_worker_first = true
 html_handling = "none"
+
+[[secrets_store_secrets]]
+binding = "ESTIMATE_NOTIFY_TO"
+store_id = "932a02a1b8004c1a83b80f38239475b8"
+secret_name = "ESTIMATE_NOTIFY_TO"
+
+[[secrets_store_secrets]]
+binding = "ESTIMATE_NOTIFY_FROM"
+store_id = "932a02a1b8004c1a83b80f38239475b8"
+secret_name = "ESTIMATE_NOTIFY_FROM"
+
+[[secrets_store_secrets]]
+binding = "RESEND_API_KEY"
+store_id = "932a02a1b8004c1a83b80f38239475b8"
+secret_name = "RESEND_API_KEY"
