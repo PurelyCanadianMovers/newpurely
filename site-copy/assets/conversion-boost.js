@@ -1228,6 +1228,20 @@
     return path;
   }
 
+  function forceStaticBlogNavigation() {
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest ? event.target.closest("a[href]") : null;
+      if (!link) return;
+
+      var href = link.getAttribute("href") || "";
+      if (href !== "/blog" && href !== "/blog/") return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.assign("/blog/");
+    }, true);
+  }
+
   function isCityOrRoutePage(path) {
     return (
       /movers|moving|coquitlam|surrey|burnaby|vancouver|calgary|edmonton|toronto|ottawa|montreal|victoria|winnipeg|halifax|langley|maple-ridge|north-vancouver|new-westminster|white-rock|port-coquitlam/i.test(
@@ -2119,6 +2133,8 @@
   }
 
   function init() {
+    forceStaticBlogNavigation();
+
     var path = normalizePath();
     var config = getConfig(path);
     applyTitleOverride(path);

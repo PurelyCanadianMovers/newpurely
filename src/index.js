@@ -887,6 +887,12 @@ export default {
       });
     }
 
+    if (pathname === "/assets/conversion-boost.js") {
+      return fetchStaticAsset(request, env, "/assets/conversion-boost.js", {
+        "Cache-Control": "no-cache, max-age=0, must-revalidate",
+      });
+    }
+
     if (pathname.startsWith("/blog/") && pathname.endsWith("/") && !pathname.startsWith("/blog/content/")) {
       return fetchStaticAsset(request, env, `${pathname}index.html`, {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
