@@ -487,7 +487,8 @@ async function handleEstimateSubmit(request, env, ctx) {
     notification = await sendEstimateNotification(request, env || {}, estimate);
   } catch (error) {
     console.error("Estimate notification failed", error);
-    return trpcErrorResponse("Estimate request could not be emailed. Please call 1-877-485-6683.", isBatch);
+    const detail = error?.message ? ` ${String(error.message).slice(0, 500)}` : "";
+    return trpcErrorResponse(`Estimate request could not be emailed. Please call 1-877-485-6683.${detail}`, isBatch);
   }
 
   if (!notification.sent) {
