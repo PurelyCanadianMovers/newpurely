@@ -186,6 +186,57 @@ async function resolveEnvValue(env, ...names) {
   return "";
 }
 
+async function describeEnvValue(env, name) {
+  const binding = env?.[name];
+
+  if (!binding) {
+    return { configured: false, type: "missing", readable: false };
+  }
+
+  if (typeof binding === "string") {
+    return { configured: true, type: "string", readable: binding.length > 0 };
+  }
+
+  if (typeof binding.get === "function") {
+    try {
+      const value = await binding.get();
+      return { configured: true, type: "secrets-store", readable: Boolean(value) };
+    } catch (error) {
+      return {
+        configured: true,
+        type: "secrets-store",
+        readable: false,
+        error: error?.message || "Unable to read secret",
+      };
+    }
+  }
+
+  return { configured: true, type: typeof binding, readable: false };
+}
+
+async function estimateConfigDebugResponse(env) {
+  const payload = {
+    ok: true,
+    bindings: {
+      ESTIMATE_NOTIFY_TO: await describeEnvValue(env, "ESTIMATE_NOTIFY_TO"),
+      ESTIMATE_NOTIFY_FROM: await describeEnvValue(env, "ESTIMATE_NOTIFY_FROM"),
+      RESEND_API_KEY: await describeEnvValue(env, "RESEND_API_KEY"),
+      ESTIMATE_WEBHOOK_URL: await describeEnvValue(env, "ESTIMATE_WEBHOOK_URL"),
+      CHAT_LEAD_WEBHOOK_URL: await describeEnvValue(env, "CHAT_LEAD_WEBHOOK_URL"),
+      CHAT_LEAD_NOTIFY_TO: await describeEnvValue(env, "CHAT_LEAD_NOTIFY_TO"),
+      CHAT_LEAD_NOTIFY_FROM: await describeEnvValue(env, "CHAT_LEAD_NOTIFY_FROM"),
+    },
+  };
+
+  return withSecurityHeaders(new Response(JSON.stringify(payload, null, 2), {
+    status: 200,
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+    },
+  }));
+}
+
 function chatLeadNotificationPayload(request, userText, replyText) {
   const url = new URL(request.url);
 
@@ -796,6 +847,10 @@ export default {
 
     if (pathname === "/api/oauth/callback" || pathname === "/api/oauth/callback/") {
       return redirectWithSecurityHeaders(manusCallbackLocation(request.url), 302);
+    }
+
+    if (pathname === "/api/debug/estimate-config" || pathname === "/api/debug/estimate-config/") {
+      return estimateConfigDebugResponse(env);
     }
 
     if (pathname === "/api/trpc/contact.submit" || pathname === "/api/trpc/contact.submit/") {
