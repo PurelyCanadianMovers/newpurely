@@ -162,6 +162,13 @@ function truncateForNotification(value, maxLength = 2000) {
   return `${value.slice(0, maxLength - 3)}...`;
 }
 
+function parseEmailRecipients(value) {
+  return String(value || "")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean);
+}
+
 async function resolveEnvValue(env, ...names) {
   for (const name of names) {
     const binding = env?.[name];
@@ -262,6 +269,7 @@ async function sendChatLeadNotification(request, env, userText, replyText) {
   const resendApiKey = await resolveEnvValue(env, "RESEND_API_KEY");
   const notifyTo = await resolveEnvValue(env, "CHAT_LEAD_NOTIFY_TO", "ESTIMATE_NOTIFY_TO");
   const notifyFrom = await resolveEnvValue(env, "CHAT_LEAD_NOTIFY_FROM", "ESTIMATE_NOTIFY_FROM");
+  const recipients = parseEmailRecipients(notifyTo);
 
   if (webhookUrl) {
     await fetch(webhookUrl, {
@@ -271,7 +279,7 @@ async function sendChatLeadNotification(request, env, userText, replyText) {
     });
   }
 
-  if (resendApiKey && notifyTo && notifyFrom) {
+  if (resendApiKey && recipients.length > 0 && notifyFrom) {
     await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -280,7 +288,7 @@ async function sendChatLeadNotification(request, env, userText, replyText) {
       },
       body: JSON.stringify({
         from: notifyFrom,
-        to: [notifyTo],
+        to: recipients,
         subject: "New chatbot lead question",
         text: [
           "A visitor asked a lead-intent question on the website chatbot.",
@@ -416,6 +424,7 @@ async function sendEstimateNotification(request, env, estimate) {
   const resendApiKey = await resolveEnvValue(env, "RESEND_API_KEY");
   const notifyTo = await resolveEnvValue(env, "ESTIMATE_NOTIFY_TO", "CHAT_LEAD_NOTIFY_TO") || "esales@pcmovers.ca";
   const notifyFrom = await resolveEnvValue(env, "ESTIMATE_NOTIFY_FROM", "CHAT_LEAD_NOTIFY_FROM");
+  const recipients = parseEmailRecipients(notifyTo);
 
   if (webhookUrl) {
     const webhookResponse = await fetch(webhookUrl, {
@@ -436,6 +445,10 @@ async function sendEstimateNotification(request, env, estimate) {
       throw new Error("Estimate email skipped because ESTIMATE_NOTIFY_FROM or CHAT_LEAD_NOTIFY_FROM is not configured.");
     }
 
+    if (recipients.length === 0) {
+      throw new Error("Estimate email skipped because ESTIMATE_NOTIFY_TO or CHAT_LEAD_NOTIFY_TO is not configured.");
+    }
+
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -444,7 +457,7 @@ async function sendEstimateNotification(request, env, estimate) {
       },
       body: JSON.stringify({
         from: notifyFrom,
-        to: [notifyTo],
+        to: recipients,
         subject: `New estimate request: ${payload.movingFrom || "Origin"} to ${payload.movingTo || "Destination"}`,
         text: estimateNotificationText(payload),
       }),
@@ -461,7 +474,7 @@ async function sendEstimateNotification(request, env, estimate) {
   return {
     sent: channels.length > 0,
     channels,
-    missingEmailConfig: !resendApiKey || !notifyFrom,
+    missingEmailConfig: !resendApiKey || !notifyFrom || recipients.length === 0,
   };
 }
 
