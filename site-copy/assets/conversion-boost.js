@@ -233,13 +233,13 @@
 
   var META_DESCRIPTION_OVERRIDES = {
     "/canada-usa/":
-      "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
+      "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no moving brokers.",
     "/corporate-moves-employee-relocation-in-coquitlam-bc/":
       "Corporate movers in Coquitlam for employee relocation, office moves, packing, storage, and long-distance support. Since 1991, BBB Accredited, no subcontractors.",
     "/coquitlam/":
       "Coquitlam movers for local and long-distance moves across BC and Canada. Family-owned since 1991, BBB Accredited, no subcontractors, packing and storage available.",
     "/cross-country-movers/":
-      "Cross-country movers across Canada with packing, storage, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no subcontractors.",
+      "Cross-country movers across Canada with packing, storage, valuation coverage, route planning, written estimates, and GCVL agent-network support. Since 1991, BBB Accredited.",
     "/local-movers-in-vancouver-bc/":
       "Vancouver local movers for condos, apartments, houses, packing, storage, and office moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/local-movers-surrey-bc/":
@@ -269,7 +269,7 @@
     "/storage/":
       "Moving storage in Coquitlam and Metro Vancouver with packing, pickup, delivery, valuation options, and direct accountability. Since 1991, BBB Accredited.",
     "/surrey/":
-      "Long-distance movers in Surrey, BC for cross-Canada moves, packing, storage, valuation coverage, and written estimates. Since 1991, no subcontractors.",
+      "Long-distance movers in Surrey, BC for cross-Canada moves, packing, storage, valuation coverage, written estimates, and no broker-style handoffs.",
     "/testimonials/":
       "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
     "/toronto-to-calgary-movers/":
@@ -703,10 +703,10 @@
     "/long-distance/": {
       title: "Long-distance movers in Canada with direct accountability",
       intro:
-        "Long-distance moves carry more risk than short local moves, so customers need clear proof. Purely Canadian Movers supports cross-Canada moves with written estimates, packing, storage, valuation coverage options, no subcontractors, and Great Canadian Van Lines agent support.",
+        "Long-distance moves carry more risk than short local moves, so customers need clear proof. Purely Canadian Movers supports cross-Canada moves with written estimates, packing, storage, valuation coverage options, no moving brokers, no random subcontractors, and Great Canadian Van Lines agent support.",
       highlights: [
         ["Long-distance planning", "Route timing, shipment size, access, stairs, elevators, packing, storage, seasonal timing, and specialty items are reviewed before booking."],
-        ["Direct accountability", "No subcontractors. Customers work with one accountable team for estimate details, planning, pickup, and delivery coordination."],
+        ["Direct accountability", "No moving brokers. No random subcontractors. For long-distance moves, Purely Canadian Movers works as an authorized agent of Great Canadian Van Lines, using a coordinated national van line network rather than handing your move to an unknown third-party mover."],
         ["Trust proof", "Family-owned since 1991, BBB Accredited, valuation coverage options, and Great Canadian Van Lines agent support for national moves."],
       ],
       links: [
@@ -721,7 +721,7 @@
       ],
       faqs: [
         ["What makes a long-distance moving estimate accurate?", "An accurate estimate should consider route, shipment size, access, stairs, elevators, packing, storage, season, specialty items, and valuation coverage options."],
-        ["Do you use subcontractors for long-distance moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
+        ["Do you use subcontractors for long-distance moves?", "Purely Canadian Movers does not operate like a moving broker and does not hand long-distance moves to unknown third-party movers. Cross-Canada moves are coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network."],
         ["Can packing and storage be added to a long-distance move?", "Yes. Packing, unpacking, short-term storage, long-term storage, and valuation coverage options can be included in a long-distance estimate."],
         ["Are you connected to a national moving network?", "Yes. Purely Canadian Movers is a Great Canadian Van Lines agent, combining local service with cross-Canada route support."],
         ["How do I compare long-distance movers safely?", "Compare written estimates, years in business, BBB accreditation, direct accountability, valuation coverage options, service areas, and whether the mover uses brokers or subcontractors."],
@@ -734,7 +734,7 @@
       highlights: [
         ["Coast-to-coast planning", "Shipment size, access, route timing, packing, storage, specialty items, and delivery windows are reviewed before the estimate is finalized."],
         ["National support", "Great Canadian Van Lines agent support helps with cross-Canada coordination while keeping Purely Canadian Movers directly accountable."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, written estimates, and valuation coverage options."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, no moving brokers, no random subcontractors, written estimates, and valuation coverage options."],
       ],
       links: [
         ["Long-Distance Moving", "/long-distance/"],
@@ -1250,6 +1250,67 @@
     );
   }
 
+  function isLongDistanceTrustPage(path) {
+    return Boolean(
+      ROUTE_COST_BLOCKS[path] ||
+      path === "/long-distance/" ||
+      path === "/cross-country-movers/" ||
+      path === "/canada-usa/" ||
+      /long-distance|cross-country|canada-usa|to-[a-z-]+-movers|movers-[a-z-]+-to-[a-z-]+/i.test(path)
+    );
+  }
+
+  function replaceTextInElement(element, replacements) {
+    if (!element) return;
+
+    var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement && /script|style|noscript/i.test(node.parentElement.tagName)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(function (node) {
+      var value = node.nodeValue;
+      replacements.forEach(function (replacement) {
+        value = value.replace(replacement[0], replacement[1]);
+      });
+      node.nodeValue = value;
+    });
+  }
+
+  function normalizeLongDistanceTrustLanguage(path) {
+    if (!isLongDistanceTrustPage(path)) return;
+
+    var root = document.getElementById("root") || document.body;
+    var replacements = [
+      [/Zero subcontractors\. Agents of Great Canadian Van Lines\./g, "No moving brokers or random subcontractors. Authorized Great Canadian Van Lines agent."],
+      [/Zero subcontractors/g, "No moving brokers or random subcontractors"],
+      [/No Subcontractors/g, "No Brokers"],
+      [/no subcontractors/g, "no moving brokers or random subcontractors"],
+      [/No subcontractors/g, "No moving brokers or random subcontractors"],
+      [/we never use subcontractors/gi, "we do not operate like a moving broker or hand moves to unknown third-party movers"],
+      [/your belongings are handled by our own trained crew from pickup to delivery\s*-\s*no strangers, no handoffs/gi, "your move is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation, valuation coverage options, and no broker-style handoffs to unknown movers"],
+      [/your belongings are handled by our own trained crew from pickup to delivery\s*—\s*no strangers, no handoffs/gi, "your move is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation, valuation coverage options, and no broker-style handoffs to unknown movers"],
+      [/your move is handled by our own crew\s*-\s*not a subcontractor\s*-\s*from the moment we arrive at your [^.]+?\./gi, "your move is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation, valuation coverage options, and no broker-style handoffs to unknown movers."],
+      [/your move is handled by our own crew\s*—\s*not a subcontractor\s*—\s*from the moment we arrive at your [^.]+?\./gi, "your move is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation, valuation coverage options, and no broker-style handoffs to unknown movers."],
+      [/Your shipment travels the ([^.]+?) corridor with our own drivers\s*-\s*no third-party handoffs\./gi, "Your shipment is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation, valuation coverage options, and no broker-style handoffs to unknown movers."],
+      [/Your shipment travels the ([^.]+?) corridor with our own drivers\s*—\s*no third-party handoffs\./gi, "Your shipment is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation, valuation coverage options, and no broker-style handoffs to unknown movers."],
+      [/Direct moving accountability and no moving brokers or random subcontractors/gi, "Direct accountability from estimate to delivery"],
+      [/direct moving accountability and no moving brokers or random subcontractors/gi, "direct accountability from estimate to delivery"],
+      [/Direct moving accountability and no subcontractors/gi, "Direct accountability from estimate to delivery"],
+      [/direct moving accountability and no subcontractors/gi, "direct accountability from estimate to delivery"],
+    ];
+
+    replaceTextInElement(root, replacements);
+  }
+
   function getConfig(path) {
     if (TARGETS[path]) return TARGETS[path];
     if (isCityOrRoutePage(path)) {
@@ -1536,14 +1597,14 @@
     section.innerHTML =
       '<div class="pcm-broker-compare__inner">' +
       "<h2>Direct Toronto to Calgary mover, not a moving broker</h2>" +
-      "<p>For a long-distance move from Ontario to Alberta, who handles your shipment matters. Purely Canadian Movers gives you direct accountability from estimate to delivery.</p>" +
+      "<p>For a long-distance move from Ontario to Alberta, who coordinates your shipment matters. Purely Canadian Movers gives you direct accountability from estimate to delivery through authorized Great Canadian Van Lines agent-network support.</p>" +
       '<div class="pcm-compare-grid">' +
       '<div class="pcm-compare-column">' +
       "<h3>Purely Canadian Movers</h3>" +
       "<ul>" +
-      "<li>Direct moving team with no subcontractors</li>" +
+      "<li>No moving brokers or random subcontractors</li>" +
       "<li>Family-owned since 1991</li>" +
-      "<li>Agents of Great Canadian Van Lines</li>" +
+      "<li>Authorized agent of Great Canadian Van Lines</li>" +
       "<li>Clear estimate process and route-specific planning</li>" +
       "</ul>" +
       "</div>" +
@@ -1988,6 +2049,7 @@
     var root = document.getElementById("root");
     if (!root || !root.children.length) return false;
 
+    normalizeLongDistanceTrustLanguage(normalizePath());
     var panel = createLeadPanel(config);
     var hero = root.querySelector("section");
     if (hero && hero.parentNode) {
@@ -2001,6 +2063,7 @@
     insertPricingSummaryBlock(normalizePath());
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
+    normalizeLongDistanceTrustLanguage(normalizePath());
     return true;
   }
 
@@ -2138,6 +2201,7 @@
     var path = normalizePath();
     var config = getConfig(path);
     applyTitleOverride(path);
+    normalizeLongDistanceTrustLanguage(path);
 
     var footerAttempts = 0;
     var footerTimer = window.setInterval(function () {
@@ -2178,6 +2242,7 @@
     var attempts = 0;
     var timer = window.setInterval(function () {
       attempts += 1;
+      normalizeLongDistanceTrustLanguage(path);
       if (insertLeadPanel(config) || attempts > 30) {
         window.clearInterval(timer);
       }
