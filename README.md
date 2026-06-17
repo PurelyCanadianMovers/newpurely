@@ -49,6 +49,8 @@ Configure these Cloudflare Worker variables/secrets to email estimate requests:
 - `ESTIMATE_NOTIFY_TO`: recipient email, for example `esales@pcmovers.ca`.
 - `ESTIMATE_NOTIFY_FROM`: verified Resend sender, for example `Purely Canadian Movers <estimates@purelycanadianmovers.com>`.
 
+These can be configured as normal Worker variables/secrets or as Cloudflare Secrets Store bindings. If using Secrets Store, bind each secret to the Worker with the same variable name listed above.
+
 Optional:
 
 - `ESTIMATE_WEBHOOK_URL`: posts estimate submissions to Zapier, Make, or another webhook.

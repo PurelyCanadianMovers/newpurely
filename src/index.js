@@ -162,6 +162,30 @@ function truncateForNotification(value, maxLength = 2000) {
   return `${value.slice(0, maxLength - 3)}...`;
 }
 
+async function resolveEnvValue(env, ...names) {
+  for (const name of names) {
+    const binding = env?.[name];
+
+    if (!binding) {
+      continue;
+    }
+
+    if (typeof binding === "string") {
+      return binding;
+    }
+
+    if (typeof binding.get === "function") {
+      const value = await binding.get();
+
+      if (value) {
+        return value;
+      }
+    }
+  }
+
+  return "";
+}
+
 function chatLeadNotificationPayload(request, userText, replyText) {
   const url = new URL(request.url);
 
@@ -183,7 +207,10 @@ async function sendChatLeadNotification(request, env, userText, replyText) {
   }
 
   const payload = chatLeadNotificationPayload(request, userText, replyText);
-  const webhookUrl = env.CHAT_LEAD_WEBHOOK_URL;
+  const webhookUrl = await resolveEnvValue(env, "CHAT_LEAD_WEBHOOK_URL");
+  const resendApiKey = await resolveEnvValue(env, "RESEND_API_KEY");
+  const notifyTo = await resolveEnvValue(env, "CHAT_LEAD_NOTIFY_TO", "ESTIMATE_NOTIFY_TO");
+  const notifyFrom = await resolveEnvValue(env, "CHAT_LEAD_NOTIFY_FROM", "ESTIMATE_NOTIFY_FROM");
 
   if (webhookUrl) {
     await fetch(webhookUrl, {
@@ -193,16 +220,16 @@ async function sendChatLeadNotification(request, env, userText, replyText) {
     });
   }
 
-  if (env.RESEND_API_KEY && env.CHAT_LEAD_NOTIFY_TO && env.CHAT_LEAD_NOTIFY_FROM) {
+  if (resendApiKey && notifyTo && notifyFrom) {
     await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        authorization: `Bearer ${env.RESEND_API_KEY}`,
+        authorization: `Bearer ${resendApiKey}`,
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        from: env.CHAT_LEAD_NOTIFY_FROM,
-        to: [env.CHAT_LEAD_NOTIFY_TO],
+        from: notifyFrom,
+        to: [notifyTo],
         subject: "New chatbot lead question",
         text: [
           "A visitor asked a lead-intent question on the website chatbot.",
@@ -222,7 +249,7 @@ async function sendChatLeadNotification(request, env, userText, replyText) {
 }
 
 function queueChatLeadNotification(request, env, ctx, userText, replyText) {
-  if (!env || (!env.CHAT_LEAD_WEBHOOK_URL && !env.RESEND_API_KEY)) {
+  if (!env) {
     return;
   }
 
@@ -334,9 +361,13 @@ function estimateNotificationText(payload) {
 async function sendEstimateNotification(request, env, estimate) {
   const payload = estimateNotificationPayload(request, estimate);
   const channels = [];
+  const webhookUrl = await resolveEnvValue(env, "ESTIMATE_WEBHOOK_URL", "CHAT_LEAD_WEBHOOK_URL");
+  const resendApiKey = await resolveEnvValue(env, "RESEND_API_KEY");
+  const notifyTo = await resolveEnvValue(env, "ESTIMATE_NOTIFY_TO", "CHAT_LEAD_NOTIFY_TO") || "esales@pcmovers.ca";
+  const notifyFrom = await resolveEnvValue(env, "ESTIMATE_NOTIFY_FROM", "CHAT_LEAD_NOTIFY_FROM");
 
-  if (env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL) {
-    const webhookResponse = await fetch(env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL, {
+  if (webhookUrl) {
+    const webhookResponse = await fetch(webhookUrl, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload),
@@ -349,10 +380,7 @@ async function sendEstimateNotification(request, env, estimate) {
     channels.push("webhook");
   }
 
-  const notifyTo = env.ESTIMATE_NOTIFY_TO || env.CHAT_LEAD_NOTIFY_TO || "esales@pcmovers.ca";
-  const notifyFrom = env.ESTIMATE_NOTIFY_FROM || env.CHAT_LEAD_NOTIFY_FROM;
-
-  if (env.RESEND_API_KEY) {
+  if (resendApiKey) {
     if (!notifyFrom) {
       throw new Error("Estimate email skipped because ESTIMATE_NOTIFY_FROM or CHAT_LEAD_NOTIFY_FROM is not configured.");
     }
@@ -360,7 +388,7 @@ async function sendEstimateNotification(request, env, estimate) {
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        authorization: `Bearer ${env.RESEND_API_KEY}`,
+        authorization: `Bearer ${resendApiKey}`,
         "content-type": "application/json",
       },
       body: JSON.stringify({
@@ -382,7 +410,7 @@ async function sendEstimateNotification(request, env, estimate) {
   return {
     sent: channels.length > 0,
     channels,
-    missingEmailConfig: !env.RESEND_API_KEY || !notifyFrom,
+    missingEmailConfig: !resendApiKey || !notifyFrom,
   };
 }
 
