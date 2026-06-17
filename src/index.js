@@ -235,6 +235,137 @@ function queueChatLeadNotification(request, env, ctx, userText, replyText) {
   }
 }
 
+function trpcJsonResponse(payload, isBatch = false) {
+  const result = { result: { data: { json: payload } } };
+  const responseBody = isBatch ? JSON.stringify([result]) : JSON.stringify(result);
+
+  return withSecurityHeaders(new Response(responseBody, {
+    status: 200,
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+    },
+  }));
+}
+
+function extractTrpcJsonInput(parsed) {
+  if (!parsed || typeof parsed !== "object") {
+    return {};
+  }
+
+  if (parsed.json && typeof parsed.json === "object") {
+    return parsed.json;
+  }
+
+  if (parsed["0"] && typeof parsed["0"] === "object") {
+    return extractTrpcJsonInput(parsed["0"]);
+  }
+
+  return parsed;
+}
+
+function estimateNotificationPayload(request, estimate) {
+  const url = new URL(request.url);
+
+  return {
+    event: "estimate_request",
+    site: "purelycanadianmovers.com",
+    page: request.headers.get("referer") || url.origin,
+    name: estimate.name || "",
+    email: estimate.email || "",
+    phone: estimate.phone || "",
+    moveType: estimate.moveType || "",
+    homeSize: estimate.homeSize || "",
+    movingFrom: estimate.movingFrom || "",
+    movingTo: estimate.movingTo || "",
+    moveDate: estimate.moveDate || "",
+    details: truncateForNotification(estimate.details || ""),
+    userAgent: request.headers.get("user-agent") || "",
+    ipCountry: request.cf?.country || "",
+    timestamp: new Date().toISOString(),
+  };
+}
+
+function estimateNotificationText(payload) {
+  return [
+    "A visitor submitted an estimate request on purelycanadianmovers.com.",
+    "",
+    `Name: ${payload.name || "Not provided"}`,
+    `Email: ${payload.email || "Not provided"}`,
+    `Phone: ${payload.phone || "Not provided"}`,
+    `Move type: ${payload.moveType || "Not provided"}`,
+    `Home / office size: ${payload.homeSize || "Not provided"}`,
+    `Moving from: ${payload.movingFrom || "Not provided"}`,
+    `Moving to: ${payload.movingTo || "Not provided"}`,
+    `Move date: ${payload.moveDate || "Not provided"}`,
+    "",
+    "Additional details:",
+    payload.details || "None provided",
+    "",
+    `Page: ${payload.page}`,
+    `Country: ${payload.ipCountry || "Unknown"}`,
+    `Time: ${payload.timestamp}`,
+    `User agent: ${payload.userAgent}`,
+  ].join("\n");
+}
+
+async function sendEstimateNotification(request, env, estimate) {
+  const payload = estimateNotificationPayload(request, estimate);
+
+  if (env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL) {
+    await fetch(env.ESTIMATE_WEBHOOK_URL || env.CHAT_LEAD_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  }
+
+  const notifyTo = env.ESTIMATE_NOTIFY_TO || env.CHAT_LEAD_NOTIFY_TO || "esales@pcmovers.ca";
+  const notifyFrom = env.ESTIMATE_NOTIFY_FROM || env.CHAT_LEAD_NOTIFY_FROM;
+
+  if (env.RESEND_API_KEY && notifyTo && notifyFrom) {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        from: notifyFrom,
+        to: [notifyTo],
+        subject: `New estimate request: ${payload.movingFrom || "Origin"} to ${payload.movingTo || "Destination"}`,
+        text: estimateNotificationText(payload),
+      }),
+    });
+  }
+}
+
+async function handleEstimateSubmit(request, env, ctx) {
+  const body = request.method === "GET" || request.method === "HEAD" ? "" : await request.text();
+  const url = new URL(request.url);
+  const isBatch = url.searchParams.get("batch") === "1";
+  let estimate = {};
+
+  try {
+    estimate = extractTrpcJsonInput(JSON.parse(body || "{}"));
+  } catch {
+    estimate = {};
+  }
+
+  const task = sendEstimateNotification(request, env || {}, estimate).catch((error) => {
+    console.error("Estimate notification failed", error);
+  });
+
+  if (ctx?.waitUntil) {
+    ctx.waitUntil(task);
+  }
+
+  return trpcJsonResponse({
+    success: true,
+    message: "Estimate request received.",
+  }, isBatch);
+}
+
 function appendCostGuideLink(payload) {
   if (!payload || typeof payload !== "object") {
     return false;
@@ -485,16 +616,7 @@ function makeTrpcChatResponse(body, request) {
   };
   const url = new URL(request.url);
   const isBatch = url.searchParams.get("batch") === "1" || (parsed && typeof parsed === "object" && Object.hasOwn(parsed, "0"));
-  const result = { result: { data: { json: payload } } };
-  const responseBody = isBatch ? JSON.stringify([result]) : JSON.stringify(result);
-
-  return withSecurityHeaders(new Response(responseBody, {
-    status: 200,
-    headers: {
-      "content-type": "application/json",
-      "cache-control": "no-store",
-    },
-  }));
+  return trpcJsonResponse(payload, isBatch);
 }
 
 async function proxyTrpcToManus(request, env, ctx) {
@@ -589,6 +711,10 @@ export default {
 
     if (pathname === "/api/oauth/callback" || pathname === "/api/oauth/callback/") {
       return redirectWithSecurityHeaders(manusCallbackLocation(request.url), 302);
+    }
+
+    if (pathname === "/api/trpc/contact.submit" || pathname === "/api/trpc/contact.submit/") {
+      return handleEstimateSubmit(request, env, ctx);
     }
 
     if (pathname === "/api/trpc" || pathname === "/api/trpc/" || pathname.startsWith("/api/trpc/")) {
