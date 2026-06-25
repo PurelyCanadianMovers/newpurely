@@ -1,5 +1,41 @@
 # AI Search SEO To-Do
 
+## Sitewide GEO patch — June 25, 2026 (`tools/patch-geo.mjs`)
+
+Ran a single idempotent injector across all 132 route shells to close the gap where
+~87% of pages were empty React shells (no content/schema, duplicate homepage title)
+and therefore invisible to non-JS AI crawlers (GPTBot, ClaudeBot, PerplexityBot, CCBot).
+
+Done:
+
+- [x] Sitewide `MovingCompany` + `Organization` + `WebSite` JSON-LD (`@id .../#organization`)
+      on every page — resolves the previously-dangling `Service.provider` references and
+      gives every page NAP, geo, areaServed, and `sameAs` (BBB, Yelp, HomeStars).
+- [x] Full treatment for 107 previously-empty pages: unique title/description/OG/Twitter,
+      a crawlable `.pcm-local-seo` content section, and `Service` + `BreadcrumbList` +
+      `FAQPage` JSON-LD. Verified content + schema render to a `GPTBot` user-agent with JS off.
+- [x] Route pages reuse the CAD cost/transit table from `src/index.js` for factual,
+      unique per-route copy.
+- [x] Legal/utility pages (`/accessibility/`, `/privacy-policy/`, `/terms/`,
+      `/claims-support/`, `/estimate-booking-policy/`) get unique titles + org graph.
+- [x] The 24 already-patched pages are left untouched except for the org graph (guarded by
+      existing `ld+json` / `data-pcm-static-local-seo`), so no duplicate schema or overwritten titles.
+
+Still needs a human:
+
+- [ ] **Confirm NAP**: verify the office street address/postal code in `tools/patch-geo.mjs`
+      (`SITE.street`, `SITE.postalCode`) against the live Google Business Profile, then re-run.
+- [ ] **AggregateRating/Review**: intentionally NOT auto-injected (avoid invented numbers).
+      Set `SITE.aggregateRating` from the real review export and render the reviews on
+      `/testimonials/`, then re-run, to earn review rich results.
+- [ ] Add schema to `local-movers-surrey-bc` (has a body section from an earlier pass but no
+      Service/FAQ JSON-LD).
+- [ ] Deploy (`wrangler deploy`) — the live site currently serves the old empty shells.
+
+Re-run anytime with: `node tools/patch-geo.mjs site-copy` (idempotent). Dry run: `--dry`.
+
+---
+
 Page: https://purelycanadianmovers.com/long-distance-moving-cost-canada/
 
 Completed:
