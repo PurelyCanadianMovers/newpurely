@@ -187,7 +187,7 @@
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
     "/edmonton-long-distance-movers/": "Edmonton Long-Distance Movers | Cross-Canada Moving",
-    "/edmonton-to-toronto-movers/": "Edmonton to Toronto Movers | Long-Distance Moving",
+    "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/edmonton-to-vancouver-movers/": "Edmonton to Vancouver Movers | Alberta to BC Moving",
     "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
@@ -199,6 +199,7 @@
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
+    "/movers-edmonton-to-toronto/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/movers-vancouver-to-halifax/": "Vancouver to Halifax Movers | Coast-to-Coast Moving",
     "/office-movers-in-vancouver-bc/": "Office Movers Vancouver BC | Corporate Moving",
     "/office/": "Office Movers Metro Vancouver | Corporate Moving",
@@ -246,10 +247,14 @@
       "Surrey local movers for houses, condos, apartments, townhomes, packing, storage, and office moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/long-distance/":
       "Long-distance movers across Canada with direct accountability, valuation coverage, packing, storage, and GCVL agent support. Since 1991, BBB Accredited.",
+    "/edmonton-to-toronto-movers/":
+      "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/movers-calgary-to-edmonton/":
       "Calgary to Edmonton movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
     "/movers-edmonton-to-calgary/":
       "Edmonton to Calgary movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
+    "/movers-edmonton-to-toronto/":
+      "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/movers-vancouver-to-halifax/":
       "Vancouver to Halifax movers for coast-to-coast relocation, packing, storage, valuation coverage, and written estimates. Since 1991, BBB Accredited.",
     "/office/":
@@ -364,6 +369,52 @@
   };
 
   var ROUTE_COST_BLOCKS = {
+    "/movers-edmonton-to-toronto/": {
+      aria: "Edmonton to Toronto moving cost estimates",
+      eyebrow: "Edmonton to Toronto moving cost",
+      h1: "Edmonton to Toronto Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Edmonton to Toronto?",
+      intro:
+        "An Edmonton to Toronto move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Edmonton to Toronto pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7-16 days"],
+        ["1-bedroom", "$4,500-$5,500+", "Depends on inventory weight or volume, access, and packing", "7-16 days"],
+        ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-16 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-16 days"],
+        ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-16 days"],
+      ],
+    },
+    "/edmonton-to-toronto-movers/": {
+      aria: "Edmonton to Toronto moving cost estimates",
+      eyebrow: "Edmonton to Toronto moving cost",
+      h1: "Edmonton to Toronto Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Edmonton to Toronto?",
+      intro:
+        "An Edmonton to Toronto move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Edmonton to Toronto pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7-16 days"],
+        ["1-bedroom", "$4,500-$5,500+", "Depends on inventory weight or volume, access, and packing", "7-16 days"],
+        ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-16 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-16 days"],
+        ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-16 days"],
+      ],
+    },
     "/toronto-to-calgary-movers/": {
       aria: "Toronto to Calgary moving cost estimates",
       eyebrow: "Toronto to Calgary moving cost",
@@ -953,6 +1004,62 @@
         ["How much does an Edmonton to Calgary move cost?", "Cost depends on shipment size, access, stairs, elevators, packing, storage, season, and the amount being moved."],
         ["Can storage be included if dates do not line up?", "Yes. Storage can be coordinated when pickup and delivery dates do not align."],
         ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
+      ],
+    },
+    "/movers-edmonton-to-toronto/": {
+      title: "Edmonton to Toronto movers with cost planning, transit timing, and trust proof",
+      intro:
+        "An Edmonton to Toronto move is a major long-distance relocation across Canada. Purely Canadian Movers helps customers compare estimated cost, shipment size, access, packing, storage, valuation coverage options, and delivery timing before booking.",
+      highlights: [
+        ["Route cost factors", "Final price depends on weight or volume, Edmonton pickup access, Toronto or GTA delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
+        ["Typical transit", "Edmonton to Toronto long-distance moves are commonly planned around a 7-16 day transit window, depending on shipment size, routing, consolidation, scheduling, weather, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Edmonton Long-Distance Movers", "/edmonton-long-distance-movers/"],
+        ["Toronto Long-Distance Movers", "/toronto-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get an Edmonton to Toronto Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Edmonton to Toronto?", "An Edmonton to Toronto move is commonly estimated from about $2,500 for a small shipment to $10,000+ for a larger home. A 1-2 bedroom move is often estimated around $4,500-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does an Edmonton to Toronto move take?", "A typical Edmonton to Toronto moving transit window is about 7-16 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of an Edmonton to Toronto move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Edmonton to Toronto moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with an Edmonton to Toronto move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in an Edmonton to Toronto moving estimate."],
+      ],
+    },
+    "/edmonton-to-toronto-movers/": {
+      title: "Edmonton to Toronto movers with cost planning, transit timing, and trust proof",
+      intro:
+        "An Edmonton to Toronto move is a major long-distance relocation across Canada. Purely Canadian Movers helps customers compare estimated cost, shipment size, access, packing, storage, valuation coverage options, and delivery timing before booking.",
+      highlights: [
+        ["Route cost factors", "Final price depends on weight or volume, Edmonton pickup access, Toronto or GTA delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
+        ["Typical transit", "Edmonton to Toronto long-distance moves are commonly planned around a 7-16 day transit window, depending on shipment size, routing, consolidation, scheduling, weather, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Edmonton Long-Distance Movers", "/edmonton-long-distance-movers/"],
+        ["Toronto Long-Distance Movers", "/toronto-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get an Edmonton to Toronto Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Edmonton to Toronto?", "An Edmonton to Toronto move is commonly estimated from about $2,500 for a small shipment to $10,000+ for a larger home. A 1-2 bedroom move is often estimated around $4,500-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does an Edmonton to Toronto move take?", "A typical Edmonton to Toronto moving transit window is about 7-16 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of an Edmonton to Toronto move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Edmonton to Toronto moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with an Edmonton to Toronto move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in an Edmonton to Toronto moving estimate."],
       ],
     },
     "/movers-vancouver-to-halifax/": {
