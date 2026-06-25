@@ -805,16 +805,66 @@
       ],
     },
     "/canada-usa/": {
-      title: "Canada-USA movers with cross-border planning and direct accountability",
+      title: "Canada-USA movers with customs-aware planning and direct accountability",
       intro:
-        "Cross-border moving requires careful planning, clear paperwork expectations, packing, route timing, and trust proof. Purely Canadian Movers supports Canada-USA moves with written estimates, valuation coverage options, no subcontractors, and experienced coordination.",
+        "Moving from Canada to the United States involves more than booking a truck. Purely Canadian Movers helps customers plan cross-border household moves with written estimates, packing, storage, valuation coverage options, inventory preparation, and clear customs-document expectations.",
       highlights: [
-        ["Cross-border planning", "Origin and destination access, shipment size, packing, inventory notes, documentation expectations, route timing, and delivery coordination are reviewed before booking."],
-        ["Risk reduction", "Written estimates, valuation coverage options, direct communication, and no subcontractors help customers avoid broker confusion."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and international moving experience."],
+        ["Cross-border planning", "Origin and destination access, shipment size, packing, inventory notes, customs paperwork expectations, route timing, and delivery coordination are reviewed before booking."],
+        ["No broker-style handoffs", "Purely Canadian Movers coordinates your move directly and works through established van line support rather than handing your shipment to an unknown third-party mover."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and cross-border moving experience."],
+        ["Customs-aware preparation", "Customers are guided on common moving paperwork needs, including household goods inventories and U.S. Customs Form 3299 where applicable."],
+      ],
+      sections: [
+        {
+          title: "What to plan before moving from Canada to the U.S.",
+          body:
+            "A Canada to U.S. relocation usually has several tracks happening at the same time: your moving estimate, customs paperwork, immigration status, banking, healthcare, tax planning, storage timing, and vehicle import decisions. Purely Canadian Movers focuses on the household goods move, while customers should confirm immigration, tax, healthcare, and vehicle requirements with the appropriate government agency or qualified professional.",
+          bullets: [
+            "Confirm that you have the legal right to live or work in the United States before moving household goods.",
+            "Speak with a cross-border tax professional before your departure date if you own investments, real estate, a business, or registered accounts.",
+            "Arrange U.S. healthcare coverage or temporary bridge coverage before provincial coverage ends.",
+            "Plan banking, credit, and address changes early, especially if you will need a U.S. lease, mortgage, or vehicle financing.",
+          ],
+        },
+        {
+          title: "Common customs documents for household goods",
+          body:
+            "Exact requirements depend on your status and destination, but most cross-border household moves require identification, a detailed inventory, and completed customs forms before the shipment can clear the border. Incomplete paperwork is one of the most common causes of delay.",
+          bullets: [
+            "Passport or government photo identification for the person moving.",
+            "A secondary piece of photo identification when requested.",
+            "Completed U.S. Customs Form 3299 for household goods entering the United States.",
+            "Visa, work authorization, green card, I-94 record, or other status documentation when applicable.",
+            "A clear inventory of owner-packed cartons, with cartons labelled by contents.",
+          ],
+        },
+        {
+          title: "Items that need extra attention at the border",
+          body:
+            "Most normal household goods can move across the border, but some items may be restricted, delayed, inspected, or require separate handling. Tell your moving consultant early if any of these apply.",
+          bullets: [
+            "Plants, soil, fresh food, meat, dairy, and other organic materials may be restricted or rejected.",
+            "Firearms, ammunition, alcohol, and regulated goods require advance discussion and may need separate paperwork.",
+            "Vehicles are not treated the same as household goods and require separate U.S. DOT, EPA, and customs processing.",
+            "Goods made from protected wildlife or endangered species may be prohibited.",
+          ],
+        },
+        {
+          title: "How Canada-USA moving costs are priced",
+          body:
+            "Cross-border moving costs depend on route, shipment size, access, packing, storage, timing, customs requirements, and whether pricing is based on weight or volume. A visual or detailed inventory-based estimate is the safest way to price a Canada-USA move.",
+          bullets: [
+            "Small apartment or partial-load moves to nearby U.S. states may cost less than full-house moves across the continent.",
+            "Packing, fragile items, storage, shuttle service, long carries, stairs, elevators, and specialty items can affect the estimate.",
+            "Delivery windows depend on route, shipment size, scheduling, consolidation, weather, and customs clearance.",
+            "Valuation coverage options should be reviewed before booking so expectations are clear before loading day.",
+          ],
+        },
       ],
       links: [
         ["Long-Distance Moving", "/long-distance/"],
+        ["Cross-Country Movers", "/cross-country-movers/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
         ["Overseas Moving", "/overseas/"],
         ["Packing Services", "/packing/"],
         ["Storage Services", "/storage/"],
@@ -823,10 +873,13 @@
       ],
       faqs: [
         ["Do you handle moves between Canada and the United States?", "Yes. Purely Canadian Movers helps customers plan Canada-USA moves with route planning, packing, valuation coverage options, and cross-border coordination."],
-        ["What information is needed for a Canada-USA moving estimate?", "Share the origin, destination, home size, access conditions, preferred date, packing needs, storage timing, specialty items, and any documentation questions."],
+        ["What information is needed for a Canada-USA moving estimate?", "Share the origin, destination, home size, inventory, access conditions, preferred date, packing needs, storage timing, specialty items, and any documentation questions."],
+        ["What paperwork is commonly needed for a Canada to U.S. household move?", "Common requirements include photo identification, a household goods inventory, U.S. Customs Form 3299, and visa, work authorization, green card, or I-94 documentation when applicable. Requirements can vary, so customers should confirm their situation before moving day."],
         ["Can packing and storage be included?", "Yes. Packing, unpacking, storage, and valuation coverage options can be included in a Canada-USA moving estimate."],
-        ["Do you use subcontractors for cross-border moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
-        ["How do I reduce risk on a cross-border move?", "Start with a written estimate, confirm valuation coverage options, provide clear inventory details, and work with a direct mover rather than a broker."],
+        ["How are Canada-USA moving costs calculated?", "Cross-border moving cost depends on route, shipment size, access, weight or volume, packing, storage, specialty items, timing, customs requirements, and valuation coverage options."],
+        ["Do you use brokers for cross-border moves?", "No. Purely Canadian Movers does not operate like a moving broker. Your move is coordinated through Purely Canadian Movers with established van line support instead of being handed to an unknown third-party mover."],
+        ["Can vehicles move with household goods?", "Vehicles are handled separately from household goods and may require U.S. DOT, EPA, and customs paperwork. Ask about vehicle shipping early if you need it coordinated with your household move."],
+        ["How do I reduce risk on a cross-border move?", "Start with a written estimate, confirm valuation coverage options, provide clear inventory details, label owner-packed cartons, and work with a direct mover rather than a broker."],
       ],
     },
     "/overseas/": {
@@ -1780,6 +1833,7 @@
       "<h2></h2>" +
       "<p></p>" +
       '<div class="pcm-local-seo__cards"></div>' +
+      '<div class="pcm-local-seo__guide"></div>' +
       '<div class="pcm-local-seo__links"><h2>Related moving services</h2><div></div></div>' +
       '<div class="pcm-local-seo__faqs"><h2>Frequently asked questions</h2></div>' +
       "</div>";
@@ -1795,6 +1849,25 @@
       card.querySelector("p").textContent = item[1];
       cards.appendChild(card);
     });
+
+    var guide = section.querySelector(".pcm-local-seo__guide");
+    if (config.sections && config.sections.length) {
+      config.sections.forEach(function (item) {
+        var article = document.createElement("article");
+        article.innerHTML = "<h2></h2><p></p><ul></ul>";
+        article.querySelector("h2").textContent = item.title;
+        article.querySelector("p").textContent = item.body;
+        var list = article.querySelector("ul");
+        item.bullets.forEach(function (bullet) {
+          var li = document.createElement("li");
+          li.textContent = bullet;
+          list.appendChild(li);
+        });
+        guide.appendChild(article);
+      });
+    } else {
+      guide.remove();
+    }
 
     var links = section.querySelector(".pcm-local-seo__links div");
     config.links.forEach(function (item) {

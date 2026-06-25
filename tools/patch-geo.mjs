@@ -865,8 +865,9 @@ const CORE = {
     breadcrumb: [{ name: "Home", path: "/" }, { name: "Office Moving", path: "/office/" }],
   },
   "/canada-usa/": {
-    title: "Canada-USA Cross-Border Movers | Purely Canadian Movers",
-    description: "Cross-border movers for Canada-USA moves: customs documentation, packing, storage, and valuation coverage. Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent.",
+    // Title/description match the "Improve Canada-USA moving guide" commit on main.
+    title: "Canada-USA Movers | Cross-Border Moving from Canada to the U.S.",
+    description: "Canada-USA movers for cross-border household moves, customs paperwork planning, packing, storage, valuation coverage, and written estimates. Family-owned since 1991.",
     geoPlace: "Coquitlam, British Columbia, Canada",
     h1: "Canada-USA cross-border movers",
     intro: "Purely Canadian Movers coordinates cross-border moves between Canada and the United States, including customs documentation guidance, professional packing, storage, and valuation coverage options. As a Great Canadian Van Lines agent, we combine local accountability with the network needed for cross-border logistics.",
