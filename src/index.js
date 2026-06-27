@@ -173,10 +173,18 @@ function isStoragePricingQuestion(inputText) {
   );
 }
 
+function isHourlyRateQuestion(inputText) {
+  return (
+    /\b(hourly|per\s*hour|hour\s*rate|hourly\s*rate|rate|rates)\b/i.test(inputText) &&
+    !/\b(storage|store|stored|warehouse|warehousing)\b/i.test(inputText)
+  );
+}
+
 function isLeadIntentQuestion(inputText) {
   return (
     isCostQuestion(inputText) ||
     isStoragePricingQuestion(inputText) ||
+    isHourlyRateQuestion(inputText) ||
     /\b(quote|estimate|book|booking|availability|available|schedule|moving date|move date|call me|contact me|phone|email)\b/i.test(inputText) ||
     /\b(move|moving|movers|relocat|ship)\b/i.test(inputText) && /\bfrom\b.+\bto\b/i.test(inputText) ||
     /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/.test(inputText) ||
@@ -755,6 +763,10 @@ function fallbackChatReply(inputText) {
 
   if (isStoragePricingQuestion(inputText)) {
     return "Storage pricing depends on how much is being stored, how long you need storage, access, packing, and whether the shipment is priced by weight or volume. Purely Canadian Movers can include short-term or long-term storage in a written moving estimate after reviewing your inventory, origin, destination, and storage dates.\n\nFor the most accurate storage quote, start here: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
+  }
+
+  if (isHourlyRateQuestion(inputText)) {
+    return "For local moves, hourly rates are typically in the $150-$300/hour range depending on crew size, truck requirements, access, stairs or elevators, travel time, packing needs, storage, and the amount being moved. The most accurate way to confirm the right crew and rate is to request a written estimate.\n\nStart here: [Get a Free Estimate](https://purelycanadianmovers.com/contact/) or call 1-877-485-6683.";
   }
 
   if (isCostQuestion(inputText)) {
