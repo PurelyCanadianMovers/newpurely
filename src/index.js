@@ -777,6 +777,18 @@ function fallbackChatReply(inputText) {
     return "You can reach Purely Canadian Movers at 1-877-485-6683, locally at 604-522-7222, or by email at esales@pcmovers.ca. You can also start a free estimate on the contact page: [Get a Free Estimate](https://purelycanadianmovers.com/contact/).";
   }
 
+  if (/\b(how long|years?|since|founded|started|start|established|in business|been in business|family[-\s]?owned|history)\b/i.test(inputText)) {
+    return "Purely Canadian Movers has been family-owned and operating since 1991. The company is based in Coquitlam, BC, and serves Metro Vancouver, the Lower Mainland, and long-distance moves across Canada.";
+  }
+
+  if (/\b(bbb|better business bureau|accredited|accreditation)\b/i.test(inputText)) {
+    return "Yes. Purely Canadian Movers is BBB Accredited. The company also highlights direct accountability, written estimates, valuation coverage options, and family ownership since 1991 as key trust signals.";
+  }
+
+  if (/\b(insured|insurance|valuation|coverage|damage|claim|claims)\b/i.test(inputText)) {
+    return "Purely Canadian Movers offers valuation coverage options for moves. Coverage needs can vary by shipment, route, and service type, so the best next step is to ask for coverage details when requesting your written estimate.";
+  }
+
   if (/\b(area|areas|serve|service|city|cities|coquitlam|surrey|burnaby|vancouver|langley|maple ridge|north vancouver|port moody|white rock)\b/i.test(inputText)) {
     return "Purely Canadian Movers serves Metro Vancouver, the Lower Mainland, and long-distance moves across Canada. Key local service areas include Coquitlam, Port Coquitlam, Port Moody, Burnaby, Surrey, Langley, Maple Ridge, Vancouver, North Vancouver, White Rock, and nearby communities.";
   }
