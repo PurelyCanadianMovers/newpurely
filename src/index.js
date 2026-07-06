@@ -792,7 +792,7 @@ function fallbackChatReply(inputText) {
   }
 
   if (/\b(area|areas|serve|service|city|cities|coquitlam|surrey|burnaby|vancouver|langley|maple ridge|north vancouver|port moody|white rock)\b/i.test(inputText)) {
-    return "Purely Canadian Movers serves Metro Vancouver, the Lower Mainland, and long-distance moves across Canada. Key local service areas include Coquitlam, Port Coquitlam, Port Moody, Burnaby, Surrey, Langley, Maple Ridge, Vancouver, North Vancouver, White Rock, and nearby communities.";
+    return "Purely Canadian Movers serves Metro Vancouver, the Lower Mainland, and long-distance moves across Canada. Key local service areas include Coquitlam, Port Coquitlam, Port Moody, Burnaby, Surrey, Langley, Maple Ridge, Vancouver, North Vancouver, West Vancouver, White Rock, and nearby communities.";
   }
 
   if (/\b(subcontract|broker|agent|great canadian)\b/i.test(inputText)) {
