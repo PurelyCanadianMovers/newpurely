@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "node tools/serve-static.mjs site-copy 4174",
     "mirror": "node tools/mirror-site.mjs https://purelycanadianmovers.com/ site-copy 20",
+    "catalog": "node tools/build-knowledge-catalog.mjs site-copy",
     "routes": "node tools/generate-spa-routes.mjs site-copy",
     "audit:seo": "node tools/audit-local-seo.mjs site-copy http://localhost:4175 LOCAL_SEO_AUDIT.md"
   }

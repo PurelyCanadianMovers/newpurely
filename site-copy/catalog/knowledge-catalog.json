@@ -1,0 +1,396 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-09",
+  "organization": {
+    "name": "Purely Canadian Movers",
+    "legalName": "Purely Canadian Movers Inc.",
+    "url": "https://purelycanadianmovers.com",
+    "phone": "1-877-485-6683",
+    "localPhone": "604-522-7222",
+    "email": "esales@pcmovers.ca",
+    "address": "Unit 16, 91 Golden Drive, Coquitlam, BC V3K 6R2",
+    "proofPoints": [
+      "Family-owned moving company serving customers since 1991",
+      "Based in Coquitlam and serving Metro Vancouver and the Lower Mainland",
+      "BBB Accredited",
+      "No subcontractors for local moves",
+      "Authorized agent of Great Canadian Van Lines for long-distance support",
+      "Written estimates available before booking",
+      "Valuation coverage options explained before moving day"
+    ]
+  },
+  "services": [
+    {
+      "id": "local-moving",
+      "name": "Local Moving",
+      "url": "/local/",
+      "summary": "Residential local moving for homes, condos, townhomes, apartments, and small offices across Metro Vancouver and the Lower Mainland.",
+      "whoItHelps": [
+        "Homeowners",
+        "Renters",
+        "Condo and apartment residents",
+        "Small offices",
+        "Seniors and families"
+      ],
+      "includes": [
+        "Moving crew and truck planning",
+        "Furniture protection and loading",
+        "Elevator and access planning",
+        "Local transport and placement at destination",
+        "Optional packing and storage support"
+      ],
+      "priceFactors": [
+        "Crew size",
+        "Move duration",
+        "Truck size",
+        "Origin and destination access",
+        "Stairs, elevator bookings, and loading zones",
+        "Packing needs",
+        "Specialty items",
+        "Season and move date"
+      ],
+      "commonQuestions": [
+        "How much do local movers cost in Metro Vancouver?",
+        "Do movers charge travel time?",
+        "How long does a one-bedroom apartment move take?",
+        "Do I need to reserve the elevator?"
+      ]
+    },
+    {
+      "id": "long-distance-moving",
+      "name": "Long-Distance Moving",
+      "url": "/long-distance/",
+      "summary": "Long-distance moving from British Columbia to other Canadian provinces, with route planning, packing, storage, and delivery coordination.",
+      "whoItHelps": [
+        "Families moving provinces",
+        "Students",
+        "Retirees",
+        "Corporate relocations",
+        "Customers moving to or from BC"
+      ],
+      "includes": [
+        "Inventory review",
+        "Route and transit planning",
+        "Loading and protection",
+        "Delivery coordination",
+        "Optional packing, storage, and valuation coverage"
+      ],
+      "priceFactors": [
+        "Shipment weight or volume",
+        "Route distance",
+        "Pickup and delivery access",
+        "Timing flexibility",
+        "Storage needs",
+        "Packing and specialty handling",
+        "Valuation coverage selection"
+      ],
+      "commonQuestions": [
+        "How much does a long-distance move cost in Canada?",
+        "How long does a cross-Canada move take?",
+        "Can storage be included between pickup and delivery?",
+        "What affects the final written estimate?"
+      ]
+    },
+    {
+      "id": "packing",
+      "name": "Packing and Unpacking",
+      "url": "/packing/",
+      "summary": "Full or partial packing support for fragile items, kitchens, offices, artwork, electronics, and long-distance shipments.",
+      "whoItHelps": [
+        "Busy families",
+        "Long-distance customers",
+        "Offices",
+        "Customers with fragile goods"
+      ],
+      "includes": [
+        "Full-home or partial packing",
+        "Fragile-item protection",
+        "Boxing and wrapping",
+        "Optional unpacking support",
+        "Moving supply guidance"
+      ],
+      "priceFactors": [
+        "Number of boxes",
+        "Fragile-item volume",
+        "Packing material needs",
+        "Crew time",
+        "Unpacking scope"
+      ],
+      "commonQuestions": [
+        "Do movers pack boxes?",
+        "Can movers pack dishes and fragile items?",
+        "Should I pack myself or hire movers to pack?"
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "Storage",
+      "url": "/storage/",
+      "summary": "Short-term and long-term storage support for moves with possession gaps, renovations, staged delivery, or long-distance timing needs.",
+      "whoItHelps": [
+        "Customers between homes",
+        "Renovation projects",
+        "Long-distance moves",
+        "Office moves"
+      ],
+      "includes": [
+        "Storage coordination",
+        "Pickup and delivery",
+        "Short-term storage",
+        "Long-term storage",
+        "Moving support"
+      ],
+      "priceFactors": [
+        "Storage duration",
+        "Volume of goods",
+        "Pickup and delivery needs",
+        "Handling requirements"
+      ],
+      "commonQuestions": [
+        "Can movers store my items between homes?",
+        "How is storage priced?",
+        "Can storage be combined with a long-distance move?"
+      ]
+    },
+    {
+      "id": "office-moving",
+      "name": "Office and Corporate Moving",
+      "url": "/office/",
+      "summary": "Commercial moving for offices, employee relocations, business furniture, files, equipment, and staged moves.",
+      "whoItHelps": [
+        "Small businesses",
+        "Corporate teams",
+        "Office managers",
+        "Employee relocation coordinators"
+      ],
+      "includes": [
+        "Move planning",
+        "Furniture handling",
+        "File and equipment movement",
+        "After-hours scheduling",
+        "Placement at destination"
+      ],
+      "priceFactors": [
+        "Office size",
+        "Number of workstations",
+        "Building access",
+        "After-hours timing",
+        "Packing needs"
+      ],
+      "commonQuestions": [
+        "Can office moves happen after hours?",
+        "How do movers reduce business downtime?",
+        "Can movers handle desks, files, and equipment?"
+      ]
+    },
+    {
+      "id": "canada-usa-moving",
+      "name": "Canada-USA Moving",
+      "url": "/canada-usa/",
+      "summary": "Cross-border moving between Canada and the United States with documentation guidance and careful shipment planning.",
+      "whoItHelps": [
+        "Families moving across the border",
+        "Employees relocating",
+        "Students",
+        "Retirees"
+      ],
+      "includes": [
+        "Inventory preparation",
+        "Customs documentation guidance",
+        "Packing support",
+        "Pickup and delivery coordination"
+      ],
+      "priceFactors": [
+        "Route distance",
+        "Shipment size",
+        "Customs requirements",
+        "Packing",
+        "Storage",
+        "Timing"
+      ],
+      "commonQuestions": [
+        "What paperwork is needed for a Canada-USA move?",
+        "How are cross-border moving costs estimated?",
+        "Can movers help with customs documentation?"
+      ]
+    }
+  ],
+  "locations": [
+    "Coquitlam",
+    "Port Coquitlam",
+    "Port Moody",
+    "Burnaby",
+    "Vancouver",
+    "Surrey",
+    "Langley",
+    "Maple Ridge",
+    "New Westminster",
+    "North Vancouver",
+    "Richmond",
+    "Delta",
+    "White Rock",
+    "Abbotsford"
+  ],
+  "pricing": [
+    {
+      "id": "local-moving-pricing",
+      "name": "Local moving pricing",
+      "url": "/moving-cost-vancouver/",
+      "answer": "Local moving pricing in Metro Vancouver depends on crew size, time required, access, stairs or elevator bookings, packing needs, travel time, and specialty items. Purely Canadian Movers provides a written estimate before booking so customers can understand the expected cost before moving day.",
+      "priceModel": "Quoted based on move details. Local moves commonly use crew size and time as major pricing drivers.",
+      "drivers": [
+        "Home size and inventory",
+        "Crew size",
+        "Move duration",
+        "Truck access and parking",
+        "Elevators, stairs, and loading zones",
+        "Packing and supplies",
+        "Specialty items",
+        "Move date and season"
+      ]
+    },
+    {
+      "id": "long-distance-pricing",
+      "name": "Long-distance moving pricing",
+      "url": "/long-distance-moving-cost-canada/",
+      "answer": "Long-distance moving costs in Canada depend on shipment weight or volume, route distance, pickup and delivery access, timing, packing, storage, specialty handling, and valuation coverage. A written estimate is the right way to confirm the final cost.",
+      "priceModel": "Quoted based on inventory, route, timing, and service requirements.",
+      "drivers": [
+        "Shipment weight or volume",
+        "Route distance",
+        "Pickup and delivery access",
+        "Packing and fragile handling",
+        "Storage requirements",
+        "Timing flexibility",
+        "Valuation coverage"
+      ]
+    },
+    {
+      "id": "packing-pricing",
+      "name": "Packing service pricing",
+      "url": "/packing/",
+      "answer": "Packing service pricing depends on the number of rooms, box count, fragile items, packing materials, and whether the customer needs full packing, partial packing, or unpacking help.",
+      "priceModel": "Quoted based on packing scope and material needs.",
+      "drivers": [
+        "Room count",
+        "Box count",
+        "Fragile items",
+        "Packing materials",
+        "Unpacking scope"
+      ]
+    },
+    {
+      "id": "storage-pricing",
+      "name": "Storage pricing",
+      "url": "/storage/",
+      "answer": "Storage pricing depends on the volume of goods, storage duration, pickup and delivery requirements, and whether storage is paired with a local or long-distance move.",
+      "priceModel": "Quoted based on volume, duration, and handling requirements.",
+      "drivers": [
+        "Volume",
+        "Storage duration",
+        "Pickup and delivery",
+        "Handling requirements",
+        "Move type"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How far in advance should I book movers?",
+      "answer": "Book as early as possible, especially for month-end, summer, weekends, and long-distance moves. A few weeks of notice gives the team better scheduling options and more time to prepare an accurate estimate.",
+      "tags": [
+        "booking",
+        "planning"
+      ]
+    },
+    {
+      "question": "How much do movers cost in Metro Vancouver?",
+      "answer": "Moving cost depends on crew size, time required, travel time, access, stairs, elevators, packing, and specialty items. The best next step is a written estimate based on the actual move details.",
+      "tags": [
+        "pricing",
+        "local-moving"
+      ]
+    },
+    {
+      "question": "Do movers charge travel time?",
+      "answer": "Travel time can be part of moving pricing depending on the move type, route, and estimate details. Customers should ask what is included in the written estimate before booking.",
+      "tags": [
+        "pricing",
+        "local-moving"
+      ]
+    },
+    {
+      "question": "Do I need to reserve the elevator?",
+      "answer": "For condos and apartments, customers should reserve the elevator and confirm loading zone rules before moving day. Elevator delays can increase move time and make scheduling harder.",
+      "tags": [
+        "local-moving",
+        "condo-moving"
+      ]
+    },
+    {
+      "question": "Do you use subcontractors?",
+      "answer": "Purely Canadian Movers emphasizes direct accountability and no subcontractors for local moves. Long-distance moves may involve coordinated van line network support through Great Canadian Van Lines.",
+      "tags": [
+        "trust",
+        "process"
+      ]
+    },
+    {
+      "question": "Can movers pack fragile items?",
+      "answer": "Yes. Packing support can include fragile items, kitchens, artwork, glass, electronics, and full or partial home packing depending on the customer's needs.",
+      "tags": [
+        "packing"
+      ]
+    },
+    {
+      "question": "Can storage be included with my move?",
+      "answer": "Yes. Storage can be useful when possession dates do not line up, renovations are underway, or a long-distance move needs staged pickup or delivery.",
+      "tags": [
+        "storage"
+      ]
+    },
+    {
+      "question": "Are belongings protected during the move?",
+      "answer": "Valuation coverage options should be reviewed before moving day. Customers with high-value, fragile, or sentimental items should discuss protection options during the estimate process.",
+      "tags": [
+        "valuation",
+        "coverage"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "estimate-booking",
+      "name": "Estimate and booking policy",
+      "url": "/estimate-booking-policy/",
+      "summary": "Customers should request a written estimate and confirm move date, inventory, access, services, and timing before booking.",
+      "publicNotes": [
+        "Written estimates should reflect inventory and access details.",
+        "Month-end, summer, and weekend moves should be booked earlier when possible.",
+        "Changes to inventory, access, packing, or route may change the final estimate."
+      ]
+    },
+    {
+      "id": "valuation-coverage",
+      "name": "Valuation and coverage",
+      "url": "/valuation-coverage-protection/",
+      "summary": "Customers should review valuation coverage options before moving day, especially for long-distance moves and high-value goods.",
+      "publicNotes": [
+        "Basic carrier liability and additional valuation options are not the same as separate home insurance.",
+        "Customers should disclose high-value or fragile items during the estimate process.",
+        "Damage concerns should be documented promptly with photos and item details."
+      ]
+    },
+    {
+      "id": "building-access",
+      "name": "Building access and elevator planning",
+      "url": "/local/",
+      "summary": "Condo, apartment, office, and high-rise moves need elevator booking, loading zone planning, and building access confirmation.",
+      "publicNotes": [
+        "Customers should reserve elevators before moving day.",
+        "Loading zone and parking restrictions can affect timing.",
+        "Building rules should be shared with the moving team before arrival."
+      ]
+    }
+  ]
+}
