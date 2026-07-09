@@ -6,6 +6,20 @@ Purely Canadian Movers is a family-owned Canadian moving company based in Coquit
 
 This website is for people and businesses planning a local move in Metro Vancouver, a long-distance move within Canada, or a Canada-USA move. Visitors can learn about moving services, compare route and pricing information, review service-area pages, read moving guides, and request a free no-obligation moving estimate.
 
+## Knowledge Catalog
+
+- Knowledge Catalog Overview: https://purelycanadianmovers.com/knowledge-catalog/
+- Full Catalog JSON: https://purelycanadianmovers.com/catalog/knowledge-catalog.json
+- Services JSON: https://purelycanadianmovers.com/catalog/services.json
+- Pricing JSON: https://purelycanadianmovers.com/catalog/pricing.json
+- Locations JSON: https://purelycanadianmovers.com/catalog/locations.json
+- FAQs JSON: https://purelycanadianmovers.com/catalog/faqs.json
+- Policies JSON: https://purelycanadianmovers.com/catalog/policies.json
+- Services Markdown: https://purelycanadianmovers.com/services.md
+- Pricing Markdown: https://purelycanadianmovers.com/pricing.md
+- Locations Markdown: https://purelycanadianmovers.com/locations.md
+- FAQ Markdown: https://purelycanadianmovers.com/faq.md
+
 ## Key Pages
 
 - Home: https://purelycanadianmovers.com/
@@ -13,28 +27,31 @@ This website is for people and businesses planning a local move in Metro Vancouv
 - Services: https://purelycanadianmovers.com/services/
 - Local Moving: https://purelycanadianmovers.com/local/
 - Long-Distance Moving: https://purelycanadianmovers.com/long-distance/
-- Pricing: https://purelycanadianmovers.com/long-distance-moving-cost-canada/
+- Pricing: https://purelycanadianmovers.com/moving-cost-vancouver/
+- Long-Distance Pricing: https://purelycanadianmovers.com/long-distance-moving-cost-canada/
+- Moving FAQ: https://purelycanadianmovers.com/moving-faq/
+- Moving Policies: https://purelycanadianmovers.com/moving-policies/
 - Packing: https://purelycanadianmovers.com/packing/
 - Storage: https://purelycanadianmovers.com/storage/
 - Office Moving: https://purelycanadianmovers.com/office/
 - Canada-USA Moving: https://purelycanadianmovers.com/canada-usa/
 - Valuation Coverage: https://purelycanadianmovers.com/valuation-coverage-protection/
-- Blog: https://purelycanadianmovers.com/blog/
-- Contact: https://purelycanadianmovers.com/contact/
 - FAQs and Booking Policy: https://purelycanadianmovers.com/estimate-booking-policy/
 - Company Proof: https://purelycanadianmovers.com/company-proof/
 - Claims Support: https://purelycanadianmovers.com/claims-support/
+- Blog: https://purelycanadianmovers.com/blog/
+- Contact: https://purelycanadianmovers.com/contact/
 - Sitemap: https://purelycanadianmovers.com/sitemap.xml
 
 ## Important Information
 
-Purely Canadian Movers serves local moving customers in Metro Vancouver and the Lower Mainland, including Coquitlam, Port Coquitlam, Port Moody, Burnaby, Vancouver, Surrey, Langley, Maple Ridge, New Westminster, North Vancouver, Richmond, Delta, White Rock, and Abbotsford.
+Purely Canadian Movers serves local moving customers in Metro Vancouver and the Lower Mainland, including Coquitlam, Port Coquitlam, Port Moody, Burnaby, Vancouver, Surrey, Langley, Maple Ridge, New Westminster, North Vancouver, Richmond, Delta, White Rock, Abbotsford.
 
-The site includes long-distance moving resources for routes involving Vancouver, Victoria, Nanaimo, Toronto, Ottawa, Montreal, Calgary, Edmonton, Halifax, and other Canadian cities. Long-distance pages explain route planning, estimated moving costs, transit timing, packing, storage, valuation coverage, and how estimates are prepared.
+The site includes long-distance moving resources for routes involving Vancouver, Victoria, Toronto, Ottawa, Montreal, Calgary, Edmonton, Halifax, and other Canadian cities. Long-distance pages explain route planning, estimated moving costs, transit timing, packing, storage, valuation coverage, and how estimates are prepared.
 
 For local moves, the company emphasizes family ownership since 1991, a Coquitlam office, BBB accreditation, valuation coverage options, and direct moving accountability. For long-distance moves, Purely Canadian Movers works as an authorized agent of Great Canadian Van Lines, using a coordinated national van line network rather than a broker-style handoff to unknown movers.
 
-Important service and resource pages include:
+Important service and route pages include:
 
 - Great Canadian Van Lines Agent: https://purelycanadianmovers.com/great-canadian-vanlines-agent/
 - Cross-Country Movers: https://purelycanadianmovers.com/cross-country-movers/
