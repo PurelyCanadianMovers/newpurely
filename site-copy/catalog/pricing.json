@@ -33,6 +33,38 @@
     ]
   },
   {
+    "id": "winnipeg-to-calgary-pricing",
+    "name": "Winnipeg to Calgary moving pricing",
+    "url": "/winnipeg-to-calgary-movers/",
+    "answer": "Winnipeg to Calgary moving estimates commonly start around $1,500 for a small shipment, $2,200-$4,800+ for many 1-2 bedroom moves, and $5,500-$10,000+ for larger homes. The route is about 1,320 km by road and typical transit planning is 3-7 days.",
+    "priceModel": "Quoted based on shipment weight or volume, route distance, access, packing, storage, timing, and valuation coverage.",
+    "drivers": [
+      "Shipment weight or volume",
+      "About 1,320 km route distance",
+      "Pickup and delivery access",
+      "Packing and fragile handling",
+      "Storage requirements",
+      "Move date and route timing",
+      "Valuation coverage"
+    ]
+  },
+  {
+    "id": "calgary-to-winnipeg-pricing",
+    "name": "Calgary to Winnipeg moving pricing",
+    "url": "/calgary-to-winnipeg-movers/",
+    "answer": "Calgary to Winnipeg moving estimates commonly start around $1,500 for a small shipment, $2,200-$4,800+ for many 1-2 bedroom moves, and $5,500-$10,000+ for larger homes. The route is about 1,320 km by road and typical transit planning is 3-7 days.",
+    "priceModel": "Quoted based on shipment weight or volume, route distance, access, packing, storage, timing, and valuation coverage.",
+    "drivers": [
+      "Shipment weight or volume",
+      "About 1,320 km route distance",
+      "Pickup and delivery access",
+      "Packing and fragile handling",
+      "Storage requirements",
+      "Move date and route timing",
+      "Valuation coverage"
+    ]
+  },
+  {
     "id": "packing-pricing",
     "name": "Packing service pricing",
     "url": "/packing/",

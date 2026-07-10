@@ -186,6 +186,7 @@
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
+    "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Moving Cost | Movers, Distance & Transit Time",
     "/edmonton-long-distance-movers/": "Edmonton Long-Distance Movers | Cross-Canada Moving",
     "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/edmonton-to-vancouver-movers/": "Edmonton to Vancouver Movers | Alberta to BC Moving",
@@ -229,12 +230,15 @@
     "/victoria-long-distance-movers/": "Victoria Long-Distance Movers | Cross-Canada Moving",
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
+    "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Moving Cost | Movers, Distance & Transit Time",
     "/x-country/": "Cross-Country Moving Cost Guide | Canada Routes",
   };
 
   var META_DESCRIPTION_OVERRIDES = {
     "/canada-usa/":
       "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no moving brokers.",
+    "/calgary-to-winnipeg-movers/":
+      "Calgary to Winnipeg moving cost guide with estimated prices by home size, 1,320 km route distance, 3-7 day transit planning, packing, storage, and written quotes.",
     "/corporate-moves-employee-relocation-in-coquitlam-bc/":
       "Corporate movers in Coquitlam for employee relocation, office moves, packing, storage, and long-distance support. Since 1991, BBB Accredited, no subcontractors.",
     "/coquitlam/":
@@ -287,6 +291,8 @@
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+    "/winnipeg-to-calgary-movers/":
+      "Winnipeg to Calgary moving cost guide with estimated prices by home size, 1,320 km route distance, 3-7 day transit planning, packing, storage, and written quotes.",
     "/x-country/":
       "Cross-country moving cost guide for Canada routes with packing, storage, valuation coverage, and written estimate planning. Since 1991, BBB Accredited.",
   };
@@ -295,6 +301,8 @@
     ["Vancouver to Toronto", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
     ["Toronto to Vancouver", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
     ["Vancouver to Calgary", "$1,100+", "$1,500-$2,000+", "$2,800+", "2-5 days"],
+    ["Winnipeg to Calgary", "$1,500+", "$2,200-$4,800+", "$5,500-$10,000+", "3-7 days"],
+    ["Calgary to Winnipeg", "$1,500+", "$2,200-$4,800+", "$5,500-$10,000+", "3-7 days"],
     ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
     ["Montreal to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-18 days"],
     ["Montreal to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
@@ -333,7 +341,22 @@
       body:
         "Calgary route estimates can also help with nearby Alberta communities where access, distance, shipment weight, and timing affect the final quote.",
       cities: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks, High River, Strathmore, Canmore, Banff, Bragg Creek, Rocky View County.",
-      links: [["Calgary movers", "/calgary-long-distance-movers/"]],
+      links: [
+        ["Calgary movers", "/calgary-long-distance-movers/"],
+        ["Calgary to Winnipeg cost", "/calgary-to-winnipeg-movers/"],
+        ["Winnipeg to Calgary cost", "/winnipeg-to-calgary-movers/"],
+      ],
+    },
+    {
+      title: "Winnipeg and southern Manitoba",
+      body:
+        "Winnipeg route estimates can help plan Prairie moves involving Manitoba and Alberta, with final pricing confirmed after inventory, access, packing, storage, and timing details are reviewed.",
+      cities: "Winnipeg, Brandon, Portage la Prairie, Steinbach, Selkirk, Winkler, Morden, Headingley, East St. Paul, West St. Paul, St. Norbert, St. Vital.",
+      links: [
+        ["Winnipeg to Calgary cost", "/winnipeg-to-calgary-movers/"],
+        ["Calgary to Winnipeg cost", "/calgary-to-winnipeg-movers/"],
+        ["Long-distance moving", "/long-distance/"],
+      ],
     },
     {
       title: "Edmonton area",
@@ -436,6 +459,52 @@
         ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-14 days"],
         ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-14 days"],
         ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-14 days"],
+      ],
+    },
+    "/winnipeg-to-calgary-movers/": {
+      aria: "Winnipeg to Calgary moving cost estimates",
+      eyebrow: "Winnipeg to Calgary moving cost",
+      h1: "Winnipeg to Calgary Moving Cost, Distance & Transit Time",
+      title: "How much does it cost to move from Winnipeg to Calgary?",
+      intro:
+        "A Winnipeg to Calgary move is about <strong>1,320 km</strong> by road and commonly ranges from about <strong>$1,500</strong> for a small shipment to <strong>$8,000-$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$2,200-$4,800</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Winnipeg to Calgary pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates. Typical transit planning is about 3-7 days.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Calgary movers", "/calgary-long-distance-movers/"],
+        ["Long-distance moving", "/long-distance/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$1,500+", "Best for limited furniture or a partial shipment", "3-7 days"],
+        ["1-bedroom", "$2,200-$3,200+", "Depends on inventory weight or volume, access, and packing", "3-7 days"],
+        ["2-bedroom", "$3,500-$4,800+", "Common planning range for apartment or condo moves", "3-7 days"],
+        ["3-bedroom", "$5,500-$7,500+", "Larger household shipment with more labour and space", "3-7 days"],
+        ["4+ bedroom", "$8,000-$10,000+", "Final quote depends heavily on inventory and services", "3-7 days"],
+      ],
+    },
+    "/calgary-to-winnipeg-movers/": {
+      aria: "Calgary to Winnipeg moving cost estimates",
+      eyebrow: "Calgary to Winnipeg moving cost",
+      h1: "Calgary to Winnipeg Moving Cost, Distance & Transit Time",
+      title: "How much does it cost to move from Calgary to Winnipeg?",
+      intro:
+        "A Calgary to Winnipeg move is about <strong>1,320 km</strong> by road and commonly ranges from about <strong>$1,500</strong> for a small shipment to <strong>$8,000-$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$2,200-$4,800</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Calgary to Winnipeg pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates. Typical transit planning is about 3-7 days.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Calgary movers", "/calgary-long-distance-movers/"],
+        ["Long-distance moving", "/long-distance/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$1,500+", "Best for limited furniture or a partial shipment", "3-7 days"],
+        ["1-bedroom", "$2,200-$3,200+", "Depends on inventory weight or volume, access, and packing", "3-7 days"],
+        ["2-bedroom", "$3,500-$4,800+", "Common planning range for apartment or condo moves", "3-7 days"],
+        ["3-bedroom", "$5,500-$7,500+", "Larger household shipment with more labour and space", "3-7 days"],
+        ["4+ bedroom", "$8,000-$10,000+", "Final quote depends heavily on inventory and services", "3-7 days"],
       ],
     },
     "/montreal-to-vancouver-movers/": {
@@ -1166,6 +1235,60 @@
         ["What affects the price of a Toronto to Calgary move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Toronto to Calgary moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with a Toronto to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Toronto to Calgary moving estimate."],
+      ],
+    },
+    "/winnipeg-to-calgary-movers/": {
+      title: "Winnipeg to Calgary moving cost, distance, and transit time",
+      intro:
+        "A Winnipeg to Calgary move is about 1,320 km by road and typically ranges from about $1,500 for a small shipment to $8,000-$10,000+ for a larger home. Many 1-2 bedroom Winnipeg to Calgary moves are estimated around $2,200-$4,800, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+      highlights: [
+        ["Route distance", "Winnipeg to Calgary is about 1,320 km by road, depending on the exact pickup and delivery addresses."],
+        ["Typical transit", "Winnipeg to Calgary long-distance moves are commonly planned around a 3-7 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Calgary Long-Distance Movers", "/calgary-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get a Winnipeg to Calgary Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Winnipeg to Calgary?", "A Winnipeg to Calgary move is commonly estimated from about $1,500 for a small shipment to $8,000-$10,000+ for a larger home. A 1-2 bedroom move is often estimated around $2,200-$4,800. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does a Winnipeg to Calgary move take?", "A typical Winnipeg to Calgary moving transit window is about 3-7 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of a Winnipeg to Calgary move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Winnipeg to Calgary moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with a Winnipeg to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Winnipeg to Calgary moving estimate."],
+      ],
+    },
+    "/calgary-to-winnipeg-movers/": {
+      title: "Calgary to Winnipeg moving cost, distance, and transit time",
+      intro:
+        "A Calgary to Winnipeg move is about 1,320 km by road and typically ranges from about $1,500 for a small shipment to $8,000-$10,000+ for a larger home. Many 1-2 bedroom Calgary to Winnipeg moves are estimated around $2,200-$4,800, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+      highlights: [
+        ["Route distance", "Calgary to Winnipeg is about 1,320 km by road, depending on the exact pickup and delivery addresses."],
+        ["Typical transit", "Calgary to Winnipeg long-distance moves are commonly planned around a 3-7 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+      ],
+      links: [
+        ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Calgary Long-Distance Movers", "/calgary-long-distance-movers/"],
+        ["Long-Distance Moving", "/long-distance/"],
+        ["Packing Services", "/packing/"],
+        ["Storage Services", "/storage/"],
+        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
+        ["Get a Calgary to Winnipeg Estimate", "/contact/"],
+      ],
+      faqs: [
+        ["How much does it cost to move from Calgary to Winnipeg?", "A Calgary to Winnipeg move is commonly estimated from about $1,500 for a small shipment to $8,000-$10,000+ for a larger home. A 1-2 bedroom move is often estimated around $2,200-$4,800. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does a Calgary to Winnipeg move take?", "A typical Calgary to Winnipeg moving transit window is about 3-7 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["What affects the price of a Calgary to Winnipeg move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
+        ["Is Calgary to Winnipeg moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
+        ["Can packing or storage be included with a Calgary to Winnipeg move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Calgary to Winnipeg moving estimate."],
       ],
     },
     "/montreal-to-vancouver-movers/": {

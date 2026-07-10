@@ -39,6 +39,26 @@ Cost drivers:
 - Timing flexibility
 - Valuation coverage
 
+### Winnipeg to Calgary
+
+URL: https://purelycanadianmovers.com/winnipeg-to-calgary-movers/
+
+Planning ranges: small shipment from about $1,500+; many 1-2 bedroom moves around $2,200-$4,800+; larger homes around $5,500-$10,000+.
+
+Distance and transit: about 1,320 km by road; typical transit planning is 3-7 days.
+
+Pricing model: Quoted based on shipment weight or volume, route distance, access, packing, storage, timing, and valuation coverage.
+
+### Calgary to Winnipeg
+
+URL: https://purelycanadianmovers.com/calgary-to-winnipeg-movers/
+
+Planning ranges: small shipment from about $1,500+; many 1-2 bedroom moves around $2,200-$4,800+; larger homes around $5,500-$10,000+.
+
+Distance and transit: about 1,320 km by road; typical transit planning is 3-7 days.
+
+Pricing model: Quoted based on shipment weight or volume, route distance, access, packing, storage, timing, and valuation coverage.
+
 ## Packing service pricing
 
 URL: https://purelycanadianmovers.com/packing/
