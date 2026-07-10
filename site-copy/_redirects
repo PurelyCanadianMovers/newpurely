@@ -1,3 +1,4 @@
+/movers-in-west-vancouver.html  /west-vancouver/  301
 /api/oauth/callback  https://purelycanada-fhisz7wx.manus.space/api/oauth/callback  302
 /api/oauth/callback/  https://purelycanada-fhisz7wx.manus.space/api/oauth/callback  302
 /admin/login  https://manus.im/app-auth?appId=FhisZ7WXCdcqNnJdX5VyAC&redirectUri=https%3A%2F%2Fpurelycanada-fhisz7wx.manus.space%2Fapi%2Foauth%2Fcallback&state=eyJyZWRpcmVjdFVyaSI6Imh0dHBzOi8vcHVyZWx5Y2FuYWRhLWZoaXN6N3d4Lm1hbnVzLnNwYWNlL2FwaS9vYXV0aC9jYWxsYmFjayIsInJldHVyblBhdGgiOiIvYWRtaW4vYmxvZyJ9&type=signIn  302
@@ -12,7 +13,7 @@
 /distance  /long-distance/  301
 /distance/  /long-distance/  301
 /routes/  /long-distance/  301
-/movers-west-vancouver.html  /local/  301
+/movers-west-vancouver.html  /west-vancouver/  301
 /thank-you/index.html  /contact/  301
 /customer-comments/index.html  /testimonials/  301
 /load-your-moving-truck-like-a-pro/  /packing/  301
