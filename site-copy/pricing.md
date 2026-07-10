@@ -45,7 +45,7 @@ URL: https://purelycanadianmovers.com/winnipeg-to-calgary-movers/
 
 Planning figures: studio $2,300; 1-bedroom $3,200; 2-bedroom $5,100; 3-bedroom $8,200; 4+ bedroom $12,000.
 
-Distance and transit: about 1,320 km by road; typical transit planning is 3-7 days.
+Distance and transit: about 1,320 km by road; typical transit planning is 3-11 days.
 
 Pricing model: Quoted based on shipment weight or volume, route distance, access, packing, storage, timing, and valuation coverage.
 
@@ -55,7 +55,7 @@ URL: https://purelycanadianmovers.com/calgary-to-winnipeg-movers/
 
 Planning figures: studio $2,300; 1-bedroom $3,200; 2-bedroom $5,100; 3-bedroom $8,200; 4+ bedroom $12,000.
 
-Distance and transit: about 1,320 km by road; typical transit planning is 3-7 days.
+Distance and transit: about 1,320 km by road; typical transit planning is 3-11 days.
 
 Pricing model: Quoted based on shipment weight or volume, route distance, access, packing, storage, timing, and valuation coverage.
 
