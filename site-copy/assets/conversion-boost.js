@@ -199,6 +199,7 @@
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
+    "/montreal-to-winnipeg-movers/": "Montreal to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
     "/movers-edmonton-to-toronto/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
@@ -234,6 +235,7 @@
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
     "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Moving Cost | Movers, Prices & Transit Time",
     "/winnipeg-to-edmonton-movers/": "Winnipeg to Edmonton Moving Cost | Movers, Prices & Transit Time",
+    "/winnipeg-to-montreal-movers/": "Winnipeg to Montreal Moving Cost | Movers, Prices & Transit Time",
     "/winnipeg-to-toronto-movers/": "Winnipeg to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/winnipeg-to-vancouver-movers/": "Winnipeg to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
@@ -295,6 +297,8 @@
       "Montreal to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/montreal-to-edmonton-movers/":
       "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/montreal-to-winnipeg-movers/":
+      "Montreal to Winnipeg moving cost guide with estimated prices by home size, 2,300 km route distance, 5-13 day transit planning, packing, storage, and written quotes.",
     "/ottawa-to-vancouver-movers/":
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/vancouver-to-winnipeg-movers/":
@@ -303,6 +307,8 @@
       "Winnipeg to Calgary moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
     "/winnipeg-to-edmonton-movers/":
       "Winnipeg to Edmonton moving cost guide with estimated prices by home size, 1,300 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
+    "/winnipeg-to-montreal-movers/":
+      "Winnipeg to Montreal moving cost guide with estimated prices by home size, 2,300 km route distance, 5-13 day transit planning, packing, storage, and written quotes.",
     "/winnipeg-to-toronto-movers/":
       "Winnipeg to Toronto moving cost guide with estimated prices by home size, 2,200 km route distance, 4-12 day transit planning, packing, storage, and written quotes.",
     "/winnipeg-to-vancouver-movers/":
@@ -366,6 +372,7 @@
       ["Montreal to Calgary", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
       ["Montreal to Edmonton", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
       ["Montreal to Toronto", "$2,300+", "$3,900-$5,200", "$8,300-$12,000", "2-5 days"],
+      ["Montreal to Winnipeg", "$2,400+", "$3,400-$5,500", "$9,000-$13,000", "5-13 days"],
       ["Montreal to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
     ],
     "/montreal-long-distance-movers/": [
@@ -373,6 +380,7 @@
       ["Montreal to Calgary", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
       ["Montreal to Edmonton", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
       ["Montreal to Toronto", "$2,300+", "$3,900-$5,200", "$8,300-$12,000", "2-5 days"],
+      ["Montreal to Winnipeg", "$2,400+", "$3,400-$5,500", "$9,000-$13,000", "5-13 days"],
       ["Montreal to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
     ],
     "/ottawa-long-distance-movers/": [
