@@ -2283,7 +2283,13 @@
     }
 
     if (existing && existing.getAttribute("data-pcm-pricing-path") === path) {
-      return true;
+      var currentMain = document.querySelector("main");
+      if (path !== "/long-distance-moving-cost-canada/" || (currentMain && currentMain.contains(existing))) {
+        return true;
+      }
+      if (existing.parentNode) {
+        existing.parentNode.removeChild(existing);
+      }
     }
 
     var pricingSummary = createPricingSummaryBlock(path);
@@ -2297,7 +2303,11 @@
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
     var root = document.getElementById("root");
-    var anchor = leadPanel || (root && root.querySelector("section"));
+    var main = document.querySelector("main");
+    var anchor =
+      path === "/long-distance-moving-cost-canada/"
+        ? main && (main.querySelector("section") || main.firstElementChild)
+        : leadPanel || (root && root.querySelector("section"));
     if (!anchor || !anchor.parentNode) return false;
 
     anchor.parentNode.insertBefore(pricingSummary, anchor.nextSibling);
