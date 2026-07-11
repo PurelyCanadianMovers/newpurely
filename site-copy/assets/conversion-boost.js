@@ -2163,6 +2163,7 @@
     var isCityPage = !!cityName;
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-pricing-summary";
+    section.setAttribute("data-pcm-pricing-path", path);
     section.setAttribute("aria-label", "Downloadable long-distance moving cost summary");
     section.innerHTML =
       '<div class="pcm-pricing-summary__inner">' +
@@ -2273,7 +2274,24 @@
   }
 
   function insertPricingSummaryBlock(path) {
-    if (!isPricingSummaryPath(path) || document.querySelector(".pcm-pricing-summary")) {
+    var existing = document.querySelector(".pcm-pricing-summary");
+    if (!isPricingSummaryPath(path)) {
+      if (existing && existing.parentNode) {
+        existing.parentNode.removeChild(existing);
+      }
+      return true;
+    }
+
+    if (existing && existing.getAttribute("data-pcm-pricing-path") === path) {
+      return true;
+    }
+
+    var pricingSummary = createPricingSummaryBlock(path);
+    if (existing && existing.parentNode) {
+      existing.parentNode.replaceChild(pricingSummary, existing);
+      if (path === "/long-distance-moving-cost-canada/") {
+        insertCostGuideServiceAreasBlock(pricingSummary);
+      }
       return true;
     }
 
@@ -2282,12 +2300,21 @@
     var anchor = leadPanel || (root && root.querySelector("section"));
     if (!anchor || !anchor.parentNode) return false;
 
-    var pricingSummary = createPricingSummaryBlock(path);
     anchor.parentNode.insertBefore(pricingSummary, anchor.nextSibling);
     if (path === "/long-distance-moving-cost-canada/") {
       insertCostGuideServiceAreasBlock(pricingSummary);
     }
     return true;
+  }
+
+  function schedulePricingSummaryUpdate(path) {
+    var pricingAttempts = 0;
+    var pricingTimer = window.setInterval(function () {
+      pricingAttempts += 1;
+      if (insertPricingSummaryBlock(path) || pricingAttempts > 30) {
+        window.clearInterval(pricingTimer);
+      }
+    }, 250);
   }
 
   function insertTrustProofBlock(path) {
@@ -2513,14 +2540,17 @@
     }, 250);
 
     if (isPricingSummaryPath(path)) {
-      var pricingAttempts = 0;
-      var pricingTimer = window.setInterval(function () {
-        pricingAttempts += 1;
-        if (insertPricingSummaryBlock(path) || pricingAttempts > 30) {
-          window.clearInterval(pricingTimer);
-        }
-      }, 250);
+      schedulePricingSummaryUpdate(path);
     }
+
+    var observedPricingPath = path;
+    window.setInterval(function () {
+      var currentPath = normalizePath();
+      if (currentPath !== observedPricingPath) {
+        observedPricingPath = currentPath;
+        schedulePricingSummaryUpdate(currentPath);
+      }
+    }, 500);
 
     if (!config) {
       if (path === "/contact/") {
