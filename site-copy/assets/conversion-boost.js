@@ -186,9 +186,11 @@
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
+    "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/edmonton-long-distance-movers/": "Edmonton Long-Distance Movers | Cross-Canada Moving",
     "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/edmonton-to-vancouver-movers/": "Edmonton to Vancouver Movers | Alberta to BC Moving",
+    "/edmonton-to-winnipeg-movers/": "Edmonton to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
     "/long-distance-movers-montreal/": "Montreal Long-Distance Movers | Cross-Canada Moving",
@@ -228,6 +230,8 @@
     "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
     "/victoria-long-distance-movers/": "Victoria Long-Distance Movers | Cross-Canada Moving",
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
+    "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Moving Cost | Movers, Prices & Transit Time",
+    "/winnipeg-to-edmonton-movers/": "Winnipeg to Edmonton Moving Cost | Movers, Prices & Transit Time",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
     "/x-country/": "Cross-Country Moving Cost Guide | Canada Routes",
   };
@@ -249,6 +253,8 @@
       "Long-distance movers across Canada with direct accountability, valuation coverage, packing, storage, and GCVL agent support. Since 1991, BBB Accredited.",
     "/edmonton-to-toronto-movers/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/edmonton-to-winnipeg-movers/":
+      "Edmonton to Winnipeg moving cost guide with estimated prices by home size, 1,300 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
     "/movers-calgary-to-edmonton/":
       "Calgary to Edmonton movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
     "/movers-edmonton-to-calgary/":
@@ -285,6 +291,10 @@
       "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/ottawa-to-vancouver-movers/":
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/winnipeg-to-calgary-movers/":
+      "Winnipeg to Calgary moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
+    "/winnipeg-to-edmonton-movers/":
+      "Winnipeg to Edmonton moving cost guide with estimated prices by home size, 1,300 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/x-country/":
@@ -334,6 +344,7 @@
       ["Edmonton to Toronto", "$2,500+", "$3,800-$6,400", "$10,000-$15,000", "7-18 days"],
       ["Edmonton to Ottawa", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
       ["Edmonton to Montreal", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+      ["Edmonton to Winnipeg", "$2,300+", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
       ["Edmonton to Calgary", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
     ],
     "/long-distance-movers-montreal/": [
