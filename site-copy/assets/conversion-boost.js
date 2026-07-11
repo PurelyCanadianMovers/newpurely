@@ -377,7 +377,7 @@
   }
 
   function isPricingSummaryPath(path) {
-    return path === "/long-distance-moving-cost-canada/" || !!CITY_PRICING_SUMMARY_ROWS[path];
+    return !!CITY_PRICING_SUMMARY_ROWS[path];
   }
 
   function getPricingSummaryCityName(path) {
@@ -2288,6 +2288,10 @@
 
   function insertCostGuideServiceAreasBlock(anchor) {
     if (document.querySelector(".pcm-cost-service-areas")) return;
+    if (!anchor) {
+      var main = document.querySelector("main");
+      anchor = main && (main.querySelector("section") || main.firstElementChild);
+    }
     if (!anchor || !anchor.parentNode) return;
     anchor.parentNode.insertBefore(createCostGuideServiceAreasBlock(), anchor.nextSibling);
   }
@@ -2342,6 +2346,18 @@
       pricingAttempts += 1;
       if (insertPricingSummaryBlock(path) || pricingAttempts > 30) {
         window.clearInterval(pricingTimer);
+      }
+    }, 250);
+  }
+
+  function scheduleCostGuideServiceAreasUpdate(path) {
+    if (path !== "/long-distance-moving-cost-canada/") return;
+    var serviceAreaAttempts = 0;
+    var serviceAreaTimer = window.setInterval(function () {
+      serviceAreaAttempts += 1;
+      insertCostGuideServiceAreasBlock();
+      if (document.querySelector(".pcm-cost-service-areas") || serviceAreaAttempts > 30) {
+        window.clearInterval(serviceAreaTimer);
       }
     }, 250);
   }
@@ -2604,6 +2620,7 @@
     if (isPricingSummaryPath(path)) {
       schedulePricingSummaryUpdate(path);
     }
+    scheduleCostGuideServiceAreasUpdate(path);
     if (TRUST_PROOF_BLOCKS[path]) {
       scheduleTrustProofUpdate(path);
     }
@@ -2614,6 +2631,7 @@
       if (currentPath !== observedPricingPath) {
         observedPricingPath = currentPath;
         schedulePricingSummaryUpdate(currentPath);
+        scheduleCostGuideServiceAreasUpdate(currentPath);
         scheduleTrustProofUpdate(currentPath);
       }
     }, 500);
