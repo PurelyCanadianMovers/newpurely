@@ -2127,6 +2127,25 @@
     return section;
   }
 
+  function getTrustProofAnchor(path) {
+    if (path === "/long-distance-moving-cost-canada/") {
+      var costServiceAreas = document.querySelector(".pcm-cost-service-areas");
+      if (costServiceAreas) return costServiceAreas;
+
+      var pricingSummary = document.querySelector(".pcm-pricing-summary");
+      if (pricingSummary) return pricingSummary;
+
+      var main = document.querySelector("main");
+      if (main) {
+        return main.querySelector("section") || main.firstElementChild;
+      }
+    }
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    var root = document.getElementById("root");
+    return leadPanel || (root && root.querySelector("section"));
+  }
+
   function pricingSummaryText(path) {
     var rows = getPricingSummaryRows(path);
     return [
@@ -2329,14 +2348,47 @@
 
   function insertTrustProofBlock(path) {
     var config = TRUST_PROOF_BLOCKS[path];
-    if (!config || document.querySelector(".pcm-trust-proof")) return;
+    var existing = document.querySelector(".pcm-trust-proof");
+    if (!config) {
+      if (existing && existing.parentNode) {
+        existing.parentNode.removeChild(existing);
+      }
+      return true;
+    }
 
-    var leadPanel = document.querySelector(".pcm-lead-panel");
-    var root = document.getElementById("root");
-    var anchor = leadPanel || (root && root.querySelector("section"));
-    if (!anchor || !anchor.parentNode) return;
+    var anchor = getTrustProofAnchor(path);
+    var main = document.querySelector("main");
+    if (
+      existing &&
+      path === "/long-distance-moving-cost-canada/" &&
+      main &&
+      main.contains(existing) &&
+      anchor &&
+      existing.previousElementSibling === anchor
+    ) {
+      return true;
+    }
+    if (existing && path !== "/long-distance-moving-cost-canada/") {
+      return true;
+    }
+    if (existing && existing.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+
+    if (!anchor || !anchor.parentNode) return false;
 
     anchor.parentNode.insertBefore(createTrustProofBlock(config), anchor.nextSibling);
+    return true;
+  }
+
+  function scheduleTrustProofUpdate(path) {
+    var trustAttempts = 0;
+    var trustTimer = window.setInterval(function () {
+      trustAttempts += 1;
+      if (insertTrustProofBlock(path) || trustAttempts > 30) {
+        window.clearInterval(trustTimer);
+      }
+    }, 250);
   }
 
   function insertLocalSeoBlock(path) {
@@ -2552,6 +2604,9 @@
     if (isPricingSummaryPath(path)) {
       schedulePricingSummaryUpdate(path);
     }
+    if (TRUST_PROOF_BLOCKS[path]) {
+      scheduleTrustProofUpdate(path);
+    }
 
     var observedPricingPath = path;
     window.setInterval(function () {
@@ -2559,6 +2614,7 @@
       if (currentPath !== observedPricingPath) {
         observedPricingPath = currentPath;
         schedulePricingSummaryUpdate(currentPath);
+        scheduleTrustProofUpdate(currentPath);
       }
     }, 500);
 
