@@ -302,6 +302,19 @@
     ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
   ];
 
+  var CALGARY_PRICING_SUMMARY_ROWS = [
+    ["Calgary to Vancouver", "$2,000+", "$2,600-$3,500", "$4,800-$6,500", "4-13 days"],
+    ["Calgary to Toronto", "$2,500+", "$3,800-$6,400", "$10,000-$15,000", "7-19 days"],
+    ["Calgary to Ottawa", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
+    ["Calgary to Montreal", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+    ["Calgary to Winnipeg", "$2,300+", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
+    ["Calgary to Edmonton", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
+  ];
+
+  function getPricingSummaryRows(path) {
+    return path === "/calgary-long-distance-movers/" ? CALGARY_PRICING_SUMMARY_ROWS : PRICING_SUMMARY_ROWS;
+  }
+
   var COST_GUIDE_SERVICE_AREAS = [
     {
       title: "Greater Toronto Area and Ottawa",
@@ -2034,13 +2047,14 @@
     return section;
   }
 
-  function pricingSummaryText() {
+  function pricingSummaryText(path) {
+    var rows = getPricingSummaryRows(path);
     return [
       "Long-Distance Moving Cost Summary (CAD)",
       "Route | Small Move | 1-2 Bedroom | 3+ Bedroom | Typical Transit",
     ]
       .concat(
-        PRICING_SUMMARY_ROWS.map(function (row) {
+        rows.map(function (row) {
           return row.join(" | ");
         })
       )
@@ -2048,10 +2062,11 @@
       .join("\n");
   }
 
-  function pricingSummaryCsv() {
+  function pricingSummaryCsv(path) {
+    var rows = getPricingSummaryRows(path);
     return ["Route,Small Move,1-2 Bedroom,3+ Bedroom,Typical Transit"]
       .concat(
-        PRICING_SUMMARY_ROWS.map(function (row) {
+        rows.map(function (row) {
           return row
             .map(function (cell) {
               return '"' + String(cell).replace(/"/g, '""') + '"';
@@ -2062,14 +2077,22 @@
       .join("\n");
   }
 
-  function createPricingSummaryBlock() {
+  function createPricingSummaryBlock(path) {
+    var rows = getPricingSummaryRows(path);
+    var isCalgary = path === "/calgary-long-distance-movers/";
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-pricing-summary";
     section.setAttribute("aria-label", "Downloadable long-distance moving cost summary");
     section.innerHTML =
       '<div class="pcm-pricing-summary__inner">' +
       '<div class="pcm-pricing-summary__header">' +
-      '<div><div class="pcm-pricing-summary__eyebrow">Copy-friendly pricing summary</div><h2>Long-distance moving cost summary</h2><p>Use this quick table to compare common Canadian moving routes. Copy it for planning or download it as a CSV.</p></div>' +
+      '<div><div class="pcm-pricing-summary__eyebrow">Copy-friendly pricing summary</div><h2>' +
+      (isCalgary ? "Calgary long-distance moving cost summary" : "Long-distance moving cost summary") +
+      "</h2><p>" +
+      (isCalgary
+        ? "Use this quick table to compare common long-distance routes from Calgary. Copy it for planning or download it as a CSV."
+        : "Use this quick table to compare common Canadian moving routes. Copy it for planning or download it as a CSV.") +
+      "</p></div>" +
       '<div class="pcm-pricing-summary__actions"><button type="button" data-action="copy">Copy summary</button><button type="button" data-action="csv">Download CSV</button></div>' +
       "</div>" +
       '<div class="pcm-pricing-summary__table-wrap"><table><thead><tr><th>Route</th><th>Small move</th><th>1-2 bedroom</th><th>3+ bedroom</th><th>Typical transit</th></tr></thead><tbody></tbody></table></div>' +
@@ -2077,7 +2100,7 @@
       "</div>";
 
     var body = section.querySelector("tbody");
-    PRICING_SUMMARY_ROWS.forEach(function (row) {
+    rows.forEach(function (row) {
       var tr = document.createElement("tr");
       row.forEach(function (cell) {
         var td = document.createElement("td");
@@ -2089,7 +2112,7 @@
 
     var copyButton = section.querySelector('[data-action="copy"]');
     copyButton.addEventListener("click", function () {
-      navigator.clipboard.writeText(pricingSummaryText()).then(
+      navigator.clipboard.writeText(pricingSummaryText(path)).then(
         function () {
           copyButton.textContent = "Copied";
           window.setTimeout(function () {
@@ -2106,11 +2129,13 @@
     });
 
     section.querySelector('[data-action="csv"]').addEventListener("click", function () {
-      var blob = new Blob([pricingSummaryCsv()], { type: "text/csv;charset=utf-8" });
+      var blob = new Blob([pricingSummaryCsv(path)], { type: "text/csv;charset=utf-8" });
       var url = URL.createObjectURL(blob);
       var link = document.createElement("a");
       link.href = url;
-      link.download = "purely-canadian-movers-long-distance-cost-summary.csv";
+      link.download = isCalgary
+        ? "purely-canadian-movers-calgary-long-distance-cost-summary.csv"
+        : "purely-canadian-movers-long-distance-cost-summary.csv";
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -2167,16 +2192,21 @@
   }
 
   function insertPricingSummaryBlock(path) {
-    if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-pricing-summary")) {
+    if (
+      (path !== "/long-distance-moving-cost-canada/" && path !== "/calgary-long-distance-movers/") ||
+      document.querySelector(".pcm-pricing-summary")
+    ) {
       return;
     }
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
     if (!leadPanel || !leadPanel.parentNode) return;
 
-    var pricingSummary = createPricingSummaryBlock();
+    var pricingSummary = createPricingSummaryBlock(path);
     leadPanel.parentNode.insertBefore(pricingSummary, leadPanel.nextSibling);
-    insertCostGuideServiceAreasBlock(pricingSummary);
+    if (path === "/long-distance-moving-cost-canada/") {
+      insertCostGuideServiceAreasBlock(pricingSummary);
+    }
   }
 
   function insertTrustProofBlock(path) {
