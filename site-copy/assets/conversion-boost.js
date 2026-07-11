@@ -228,10 +228,12 @@
     "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers",
     "/vancouver-to-calgary-movers/": "Vancouver to Calgary Movers | Costs, Transit & Quotes",
     "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
+    "/vancouver-to-winnipeg-movers/": "Vancouver to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/victoria-long-distance-movers/": "Victoria Long-Distance Movers | Cross-Canada Moving",
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
     "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Moving Cost | Movers, Prices & Transit Time",
     "/winnipeg-to-edmonton-movers/": "Winnipeg to Edmonton Moving Cost | Movers, Prices & Transit Time",
+    "/winnipeg-to-vancouver-movers/": "Winnipeg to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
     "/x-country/": "Cross-Country Moving Cost Guide | Canada Routes",
   };
@@ -291,10 +293,14 @@
       "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/ottawa-to-vancouver-movers/":
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/vancouver-to-winnipeg-movers/":
+      "Vancouver to Winnipeg moving cost guide with estimated prices by home size, 2,300 km route distance, 5-13 day transit planning, packing, storage, and written quotes.",
     "/winnipeg-to-calgary-movers/":
       "Winnipeg to Calgary moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
     "/winnipeg-to-edmonton-movers/":
       "Winnipeg to Edmonton moving cost guide with estimated prices by home size, 1,300 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
+    "/winnipeg-to-vancouver-movers/":
+      "Winnipeg to Vancouver moving cost guide with estimated prices by home size, 2,300 km route distance, 5-13 day transit planning, packing, storage, and written quotes.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/x-country/":
@@ -336,6 +342,7 @@
       ["Vancouver to Ottawa", "$2,500+", "$4,700-$6,500", "$10,000-$15,000", "11-22 days"],
       ["Vancouver to Calgary", "$2,000+", "$2,600-$3,500", "$4,800-$6,500", "4-13 days"],
       ["Vancouver to Edmonton", "$2,200+", "$2,800-$3,800", "$5,200-$7,000", "4-13 days"],
+      ["Vancouver to Winnipeg", "$2,400+", "$3,400-$5,500", "$8,900-$13,000", "5-13 days"],
       ["Vancouver to Montreal", "$2,500+", "$4,700-$6,400", "$10,000-$15,000", "10-22 days"],
       ["Vancouver to Halifax", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-27 days"],
     ],
