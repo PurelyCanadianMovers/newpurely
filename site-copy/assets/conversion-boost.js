@@ -2127,18 +2127,25 @@
     return section;
   }
 
+  function getCostGuideRouteTableAnchor() {
+    var main = document.querySelector("main");
+    if (!main) return null;
+
+    var sections = Array.prototype.slice.call(main.querySelectorAll("section"));
+    var routeSection = sections.find(function (section) {
+      var heading = section.querySelector("h1, h2");
+      return heading && /Long-Distance Moving Costs by Route/i.test(heading.textContent || "");
+    });
+
+    return routeSection || main.querySelector("section") || main.firstElementChild;
+  }
+
   function getTrustProofAnchor(path) {
     if (path === "/long-distance-moving-cost-canada/") {
       var costServiceAreas = document.querySelector(".pcm-cost-service-areas");
       if (costServiceAreas) return costServiceAreas;
 
-      var pricingSummary = document.querySelector(".pcm-pricing-summary");
-      if (pricingSummary) return pricingSummary;
-
-      var main = document.querySelector("main");
-      if (main) {
-        return main.querySelector("section") || main.firstElementChild;
-      }
+      return getCostGuideRouteTableAnchor();
     }
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
@@ -2287,13 +2294,19 @@
   }
 
   function insertCostGuideServiceAreasBlock(anchor) {
-    if (document.querySelector(".pcm-cost-service-areas")) return;
+    var existing = document.querySelector(".pcm-cost-service-areas");
     if (!anchor) {
-      var main = document.querySelector("main");
-      anchor = main && (main.querySelector("section") || main.firstElementChild);
+      anchor = getCostGuideRouteTableAnchor();
     }
-    if (!anchor || !anchor.parentNode) return;
+    if (!anchor || !anchor.parentNode) return false;
+
+    if (existing && existing.previousElementSibling === anchor) return true;
+    if (existing && existing.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+
     anchor.parentNode.insertBefore(createCostGuideServiceAreasBlock(), anchor.nextSibling);
+    return true;
   }
 
   function insertPricingSummaryBlock(path) {
@@ -2355,8 +2368,7 @@
     var serviceAreaAttempts = 0;
     var serviceAreaTimer = window.setInterval(function () {
       serviceAreaAttempts += 1;
-      insertCostGuideServiceAreasBlock();
-      if (document.querySelector(".pcm-cost-service-areas") || serviceAreaAttempts > 30) {
+      if (insertCostGuideServiceAreasBlock() || serviceAreaAttempts > 30) {
         window.clearInterval(serviceAreaTimer);
       }
     }, 250);
