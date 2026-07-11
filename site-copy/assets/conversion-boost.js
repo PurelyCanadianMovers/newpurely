@@ -311,8 +311,88 @@
     ["Calgary to Edmonton", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
   ];
 
+  var CITY_PRICING_SUMMARY_ROWS = {
+    "/calgary-long-distance-movers/": CALGARY_PRICING_SUMMARY_ROWS,
+    "/toronto-long-distance-movers/": [
+      ["Toronto to Vancouver", "$2,500+", "$4,700-$6,500", "$10,000-$15,000", "9-22 days"],
+      ["Toronto to Calgary", "$2,500+", "$3,800-$6,400", "$10,000-$15,000", "7-19 days"],
+      ["Toronto to Edmonton", "$2,500+", "$3,800-$6,400", "$10,000-$15,000", "7-18 days"],
+      ["Toronto to Montreal", "$2,300+", "$3,900-$5,200", "$8,300-$12,000", "2-5 days"],
+      ["Toronto to Ottawa", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
+      ["Toronto to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+    ],
+    "/vancouver-long-distance-movers/": [
+      ["Vancouver to Toronto", "$2,500+", "$4,700-$6,500", "$10,000-$15,000", "9-22 days"],
+      ["Vancouver to Ottawa", "$2,500+", "$4,700-$6,500", "$10,000-$15,000", "11-22 days"],
+      ["Vancouver to Calgary", "$2,000+", "$2,600-$3,500", "$4,800-$6,500", "4-13 days"],
+      ["Vancouver to Edmonton", "$2,200+", "$2,800-$3,800", "$5,200-$7,000", "4-13 days"],
+      ["Vancouver to Montreal", "$2,500+", "$4,700-$6,400", "$10,000-$15,000", "10-22 days"],
+      ["Vancouver to Halifax", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-27 days"],
+    ],
+    "/edmonton-long-distance-movers/": [
+      ["Edmonton to Vancouver", "$2,200+", "$2,800-$3,800", "$5,200-$7,000", "4-13 days"],
+      ["Edmonton to Toronto", "$2,500+", "$3,800-$6,400", "$10,000-$15,000", "7-18 days"],
+      ["Edmonton to Ottawa", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
+      ["Edmonton to Montreal", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+      ["Edmonton to Calgary", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
+    ],
+    "/long-distance-movers-montreal/": [
+      ["Montreal to Vancouver", "$2,500+", "$4,700-$6,400", "$10,000-$15,000", "10-22 days"],
+      ["Montreal to Calgary", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+      ["Montreal to Edmonton", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+      ["Montreal to Toronto", "$2,300+", "$3,900-$5,200", "$8,300-$12,000", "2-5 days"],
+      ["Montreal to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+    ],
+    "/montreal-long-distance-movers/": [
+      ["Montreal to Vancouver", "$2,500+", "$4,700-$6,400", "$10,000-$15,000", "10-22 days"],
+      ["Montreal to Calgary", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+      ["Montreal to Edmonton", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
+      ["Montreal to Toronto", "$2,300+", "$3,900-$5,200", "$8,300-$12,000", "2-5 days"],
+      ["Montreal to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+    ],
+    "/ottawa-long-distance-movers/": [
+      ["Ottawa to Vancouver", "$2,500+", "$4,700-$6,500", "$10,000-$15,000", "11-22 days"],
+      ["Ottawa to Calgary", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
+      ["Ottawa to Edmonton", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
+      ["Ottawa to Toronto", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
+      ["Ottawa to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+    ],
+    "/halifax-long-distance-movers/": [
+      ["Halifax to Toronto", "$2,200+", "$2,900-$3,900", "$5,300-$7,000", "5-12 days"],
+      ["Halifax to Vancouver", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-27 days"],
+      ["Halifax to Calgary", "$2,800+", "$5,000-$6,800", "$10,000-$15,000", "8-20 days"],
+      ["Halifax to Edmonton", "$2,800+", "$5,000-$6,800", "$10,000-$15,000", "8-20 days"],
+      ["Halifax to Montreal", "$2,200+", "$2,900-$3,900", "$5,300-$7,000", "5-12 days"],
+    ],
+    "/victoria-long-distance-movers/": [
+      ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+      ["Victoria/Nanaimo to Ottawa", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+      ["Victoria/Nanaimo to Montreal", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
+      ["Victoria to Vancouver", "$800+", "$1,100-$1,500", "$2,000-$2,800", "1-3 days"],
+    ],
+  };
+
   function getPricingSummaryRows(path) {
-    return path === "/calgary-long-distance-movers/" ? CALGARY_PRICING_SUMMARY_ROWS : PRICING_SUMMARY_ROWS;
+    return CITY_PRICING_SUMMARY_ROWS[path] || PRICING_SUMMARY_ROWS;
+  }
+
+  function isPricingSummaryPath(path) {
+    return path === "/long-distance-moving-cost-canada/" || !!CITY_PRICING_SUMMARY_ROWS[path];
+  }
+
+  function getPricingSummaryCityName(path) {
+    var names = {
+      "/calgary-long-distance-movers/": "Calgary",
+      "/toronto-long-distance-movers/": "Toronto",
+      "/vancouver-long-distance-movers/": "Vancouver",
+      "/edmonton-long-distance-movers/": "Edmonton",
+      "/long-distance-movers-montreal/": "Montreal",
+      "/montreal-long-distance-movers/": "Montreal",
+      "/ottawa-long-distance-movers/": "Ottawa",
+      "/halifax-long-distance-movers/": "Halifax",
+      "/victoria-long-distance-movers/": "Victoria",
+    };
+    return names[path] || "";
   }
 
   var COST_GUIDE_SERVICE_AREAS = [
@@ -2079,7 +2159,8 @@
 
   function createPricingSummaryBlock(path) {
     var rows = getPricingSummaryRows(path);
-    var isCalgary = path === "/calgary-long-distance-movers/";
+    var cityName = getPricingSummaryCityName(path);
+    var isCityPage = !!cityName;
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-pricing-summary";
     section.setAttribute("aria-label", "Downloadable long-distance moving cost summary");
@@ -2087,10 +2168,10 @@
       '<div class="pcm-pricing-summary__inner">' +
       '<div class="pcm-pricing-summary__header">' +
       '<div><div class="pcm-pricing-summary__eyebrow">Copy-friendly pricing summary</div><h2>' +
-      (isCalgary ? "Calgary long-distance moving cost summary" : "Long-distance moving cost summary") +
+      (isCityPage ? cityName + " long-distance moving cost summary" : "Long-distance moving cost summary") +
       "</h2><p>" +
-      (isCalgary
-        ? "Use this quick table to compare common long-distance routes from Calgary. Copy it for planning or download it as a CSV."
+      (isCityPage
+        ? "Use this quick table to compare common long-distance routes from " + cityName + ". Copy it for planning or download it as a CSV."
         : "Use this quick table to compare common Canadian moving routes. Copy it for planning or download it as a CSV.") +
       "</p></div>" +
       '<div class="pcm-pricing-summary__actions"><button type="button" data-action="copy">Copy summary</button><button type="button" data-action="csv">Download CSV</button></div>' +
@@ -2133,8 +2214,8 @@
       var url = URL.createObjectURL(blob);
       var link = document.createElement("a");
       link.href = url;
-      link.download = isCalgary
-        ? "purely-canadian-movers-calgary-long-distance-cost-summary.csv"
+      link.download = isCityPage
+        ? "purely-canadian-movers-" + cityName.toLowerCase() + "-long-distance-cost-summary.csv"
         : "purely-canadian-movers-long-distance-cost-summary.csv";
       document.body.appendChild(link);
       link.click();
@@ -2192,21 +2273,21 @@
   }
 
   function insertPricingSummaryBlock(path) {
-    if (
-      (path !== "/long-distance-moving-cost-canada/" && path !== "/calgary-long-distance-movers/") ||
-      document.querySelector(".pcm-pricing-summary")
-    ) {
-      return;
+    if (!isPricingSummaryPath(path) || document.querySelector(".pcm-pricing-summary")) {
+      return true;
     }
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
-    if (!leadPanel || !leadPanel.parentNode) return;
+    var root = document.getElementById("root");
+    var anchor = leadPanel || (root && root.querySelector("section"));
+    if (!anchor || !anchor.parentNode) return false;
 
     var pricingSummary = createPricingSummaryBlock(path);
-    leadPanel.parentNode.insertBefore(pricingSummary, leadPanel.nextSibling);
+    anchor.parentNode.insertBefore(pricingSummary, anchor.nextSibling);
     if (path === "/long-distance-moving-cost-canada/") {
       insertCostGuideServiceAreasBlock(pricingSummary);
     }
+    return true;
   }
 
   function insertTrustProofBlock(path) {
@@ -2430,6 +2511,16 @@
         window.clearInterval(routeTimer);
       }
     }, 250);
+
+    if (isPricingSummaryPath(path)) {
+      var pricingAttempts = 0;
+      var pricingTimer = window.setInterval(function () {
+        pricingAttempts += 1;
+        if (insertPricingSummaryBlock(path) || pricingAttempts > 30) {
+          window.clearInterval(pricingTimer);
+        }
+      }, 250);
+    }
 
     if (!config) {
       if (path === "/contact/") {
