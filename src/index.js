@@ -88,6 +88,8 @@ const REDIRECTS = new Map([
   ["/local-movers-coquitlam/", "/local-movers-in-coquitlam-bc/"],
   ["/movers-edmonton-to-toronto", "/edmonton-to-toronto-movers/"],
   ["/movers-edmonton-to-toronto/", "/edmonton-to-toronto-movers/"],
+  ["/movers-vancouver-to-toronto", "/vancouver-to-toronto-movers/"],
+  ["/movers-vancouver-to-toronto/", "/vancouver-to-toronto-movers/"],
   ["/tag/best-mover-in-burnaby/", "/local-movers-burnaby-bc/"],
 ]);
 
