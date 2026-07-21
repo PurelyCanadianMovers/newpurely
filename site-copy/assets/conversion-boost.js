@@ -86,12 +86,36 @@
       body: "Get help with Canada-USA moving logistics, packing, valuation coverage, route timing, and customs-aware planning.",
     },
     "/bc-to-washington-movers/": {
-      eyebrow: "Trusted BC to Washington movers",
-      title: "Move from British Columbia to Washington with confidence.",
+      eyebrow: "Vancouver to Washington movers",
+      title: "Move from Vancouver to Washington, Seattle, Bellevue, or Redmond with confidence.",
       body:
-        "Family-owned since 1991, BBB Accredited, 200 Google reviews, customs-aware planning, valuation coverage options, and no broker-style handoffs to unknown movers.",
-      fromPlaceholder: "British Columbia",
-      toPlaceholder: "Washington",
+        "Get a written cross-border moving estimate from Vancouver or BC to Washington State with customs-aware planning, packing, valuation coverage, and no broker-style handoffs to unknown movers.",
+      fromPlaceholder: "Vancouver, BC",
+      toPlaceholder: "Seattle, WA",
+    },
+    "/vancouver-to-seattle-movers/": {
+      eyebrow: "Vancouver to Seattle movers",
+      title: "Move from Vancouver to Seattle with customs-aware planning.",
+      body:
+        "Plan a Vancouver to Seattle cross-border move with written estimate support, packing, valuation coverage options, and clear route planning before moving day.",
+      fromPlaceholder: "Vancouver, BC",
+      toPlaceholder: "Seattle, WA",
+    },
+    "/vancouver-to-bellevue-movers/": {
+      eyebrow: "Vancouver to Bellevue movers",
+      title: "Move from Vancouver to Bellevue with cross-border support.",
+      body:
+        "Plan a Vancouver to Bellevue move with customs-aware preparation, written estimate support, packing, valuation coverage options, and direct moving accountability.",
+      fromPlaceholder: "Vancouver, BC",
+      toPlaceholder: "Bellevue, WA",
+    },
+    "/vancouver-to-redmond-movers/": {
+      eyebrow: "Vancouver to Redmond movers",
+      title: "Move from Vancouver to Redmond with cross-border support.",
+      body:
+        "Plan a Vancouver to Redmond move with customs-aware preparation, written estimate support, packing, valuation coverage options, and direct moving accountability.",
+      fromPlaceholder: "Vancouver, BC",
+      toPlaceholder: "Redmond, WA",
     },
     "/cross-country-movers/": {
       eyebrow: "Cross-country movers",
@@ -207,7 +231,7 @@
     "/about/": "About Purely Canadian Movers | Coquitlam Moving Company",
     "/admin/blog/": "Blog Admin | Purely Canadian Movers",
     "/admin/login/": "Admin Login | Purely Canadian Movers",
-    "/bc-to-washington-movers/": "BC to Washington Movers | Cross-Border Moving",
+    "/bc-to-washington-movers/": "Vancouver to Washington Movers | Seattle Cross-Border Moving",
     "/blog/": "Moving Tips Blog | Purely Canadian Movers",
     "/canada-usa/": "Canada-USA Movers | Cross-Border Moving Services",
     "/contact/": "Free Moving Estimate | Metro Vancouver Movers",
@@ -272,6 +296,9 @@
     "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers",
     "/vancouver-to-calgary-movers/": "Vancouver to Calgary Movers | Costs, Transit & Quotes",
     "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
+    "/vancouver-to-bellevue-movers/": "Vancouver to Bellevue Movers | Cross-Border Moving",
+    "/vancouver-to-redmond-movers/": "Vancouver to Redmond Movers | Cross-Border Moving",
+    "/vancouver-to-seattle-movers/": "Vancouver to Seattle Movers | Cross-Border Moving",
     "/vancouver-to-winnipeg-movers/": "Vancouver to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/victoria-long-distance-movers/": "Victoria Long-Distance Movers | Cross-Canada Moving",
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
@@ -286,6 +313,8 @@
   };
 
   var META_DESCRIPTION_OVERRIDES = {
+    "/bc-to-washington-movers/":
+      "Vancouver to Washington movers for Seattle, Bellevue, Redmond, and Washington State moves with customs-aware planning, written estimates, packing, storage, and valuation options.",
     "/canada-usa/":
       "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no moving brokers.",
     "/corporate-moves-employee-relocation-in-coquitlam-bc/":
@@ -352,6 +381,12 @@
       "Ottawa to Winnipeg moving cost guide with estimated prices by home size, 2,200 km route distance, 4-12 day transit planning, packing, storage, and written quotes.",
     "/vancouver-to-winnipeg-movers/":
       "Vancouver to Winnipeg moving cost guide with estimated prices by home size, 2,300 km route distance, 5-13 day transit planning, packing, storage, and written quotes.",
+    "/vancouver-to-bellevue-movers/":
+      "Vancouver to Bellevue movers for cross-border household moves with customs-aware planning, written estimates, packing, storage, valuation coverage, and direct accountability.",
+    "/vancouver-to-redmond-movers/":
+      "Vancouver to Redmond movers for cross-border household moves with customs-aware planning, written estimates, packing, storage, valuation coverage, and direct accountability.",
+    "/vancouver-to-seattle-movers/":
+      "Vancouver to Seattle movers for cross-border household moves with customs-aware planning, written estimates, packing, storage, valuation coverage, and direct accountability.",
     "/winnipeg-to-calgary-movers/":
       "Winnipeg to Calgary moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
     "/winnipeg-to-edmonton-movers/":
@@ -941,6 +976,8 @@
       links: [
         ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
         ["Coquitlam Long-Distance Movers", "/coquitlam/"],
+        ["BC to Washington Movers", "/bc-to-washington-movers/"],
+        ["Vancouver to Seattle Movers", "/vancouver-to-seattle-movers/"],
         ["Cross-Country Movers", "/cross-country-movers/"],
         ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
         ["Packing Services", "/packing/"],
@@ -1764,6 +1801,27 @@
       transit: "5-13 days",
       links: [["Vancouver movers", "/vancouver-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
     },
+    "/vancouver-to-seattle-movers/": {
+      from: "Vancouver",
+      to: "Seattle",
+      route: "Vancouver to Seattle",
+      transit: "Overnight",
+      links: [["BC to Washington movers", "/bc-to-washington-movers/"], ["Canada-USA moving", "/canada-usa/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/vancouver-to-bellevue-movers/": {
+      from: "Vancouver",
+      to: "Bellevue",
+      route: "Vancouver to Bellevue",
+      transit: "Overnight",
+      links: [["BC to Washington movers", "/bc-to-washington-movers/"], ["Canada-USA moving", "/canada-usa/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/vancouver-to-redmond-movers/": {
+      from: "Vancouver",
+      to: "Redmond",
+      route: "Vancouver to Redmond",
+      transit: "Overnight",
+      links: [["BC to Washington movers", "/bc-to-washington-movers/"], ["Canada-USA moving", "/canada-usa/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
     "/winnipeg-to-toronto-movers/": {
       from: "Winnipeg",
       to: "Toronto",
@@ -1819,6 +1877,7 @@
   var ROUTE_CITY_LABELS = {
     abbotsford: "Abbotsford",
     bc: "BC",
+    bellevue: "Bellevue",
     burnaby: "Burnaby",
     calgary: "Calgary",
     coquitlam: "Coquitlam",
@@ -1835,6 +1894,8 @@
     "port-coquitlam": "Port Coquitlam",
     "port-moody": "Port Moody",
     richmond: "Richmond",
+    redmond: "Redmond",
+    seattle: "Seattle",
     surrey: "Surrey",
     toronto: "Toronto",
     vancouver: "Vancouver",
@@ -1848,6 +1909,7 @@
   var CITY_PROVINCE_ABBR = {
     abbotsford: "BC",
     burnaby: "BC",
+    bellevue: "WA",
     calgary: "AB",
     coquitlam: "BC",
     delta: "BC",
@@ -1863,6 +1925,8 @@
     "port-coquitlam": "BC",
     "port-moody": "BC",
     richmond: "BC",
+    redmond: "WA",
+    seattle: "WA",
     surrey: "BC",
     toronto: "ON",
     vancouver: "BC",
@@ -3150,6 +3214,7 @@
     var routes = [
       ["Toronto", "/toronto-long-distance-movers/"],
       ["Vancouver", "/vancouver-long-distance-movers/"],
+      ["Washington/Seattle", "/bc-to-washington-movers/"],
       ["Calgary", "/calgary-long-distance-movers/"],
       ["Edmonton", "/edmonton-long-distance-movers/"],
       ["Montreal", "/long-distance-movers-montreal/"],
