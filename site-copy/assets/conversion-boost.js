@@ -125,6 +125,12 @@
       title: "Plan a long-distance move from Surrey, BC.",
       body: "Get help with Surrey long-distance routes, packing, storage, valuation coverage, route timing, and a written estimate from a direct mover.",
     },
+    "/toronto-long-distance-movers/": {
+      eyebrow: "Trusted Toronto long-distance movers",
+      title: "Plan your move from Toronto with confidence.",
+      body:
+        "Get a detailed written estimate for long-distance moves from Toronto and the GTA. Family-owned since 1991, BBB Accredited, 200 Google reviews, and Great Canadian Van Lines agent-network support.",
+    },
     "/toronto-to-calgary-movers/": {
       eyebrow: "Trusted Toronto to Calgary movers",
       title: "Move from Toronto to Calgary with confidence.",
@@ -226,7 +232,7 @@
     "/port-moody/": "Port Moody Movers | Local Moving Company in Port Moody BC",
     "/surrey/": "Long-Distance Movers in Surrey BC | Moving Quotes",
     "/testimonials/": "Customer Reviews | Purely Canadian Movers",
-    "/toronto-long-distance-movers/": "Toronto Long-Distance Movers",
+    "/toronto-long-distance-movers/": "Toronto Long-Distance Movers Since 1991 | Written Estimates",
     "/toronto-to-calgary-movers/": "Toronto to Calgary Movers Since 1991 | Written Estimates",
     "/toronto-to-edmonton-movers/": "Toronto to Edmonton Movers | Long-Distance Moving",
     "/toronto-to-montreal-movers/": "Toronto to Montreal Movers | Long-Distance Moving",
@@ -1926,6 +1932,50 @@
     leadPanel.parentNode.insertBefore(createTorontoCalgaryTrustBlock(), leadPanel.nextSibling);
   }
 
+  function createTorontoHubTrustBlock() {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-route-confidence";
+    section.setAttribute("aria-label", "Toronto long-distance moving trust signals");
+    section.innerHTML =
+      '<div class="pcm-route-confidence__inner">' +
+      '<div class="pcm-route-confidence__intro">' +
+      "<h2>Trusted Toronto long-distance movers for moves across Canada</h2>" +
+      "<p>Toronto customers comparing long-distance movers often see very different prices for the same move. Purely Canadian Movers helps you understand realistic moving costs, route timing, packing, storage, valuation coverage, and what is included before you book.</p>" +
+      "</div>" +
+      '<div class="pcm-route-confidence__grid">' +
+      "<article><strong>Family-owned since 1991</strong><span>Experienced long-distance moving support for Toronto, the GTA, and cross-Canada routes.</span></article>" +
+      "<article><strong>200 Google reviews</strong><span>Public review proof helps customers compare trust, communication, and estimate clarity.</span></article>" +
+      "<article><strong>Written estimates</strong><span>Pricing is prepared from inventory, route, access, services, and shipment weight or volume.</span></article>" +
+      "<article><strong>No broker-style handoffs</strong><span>Moves are coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
+      "</div>" +
+      '<div class="pcm-route-confidence__reviews">' +
+      "<h3>Popular Toronto long-distance routes</h3>" +
+      '<div class="pcm-route-confidence__links">' +
+      '<a href="/toronto-to-vancouver-movers/">Toronto to Vancouver</a>' +
+      '<a href="/toronto-to-calgary-movers/">Toronto to Calgary</a>' +
+      '<a href="/toronto-to-edmonton-movers/">Toronto to Edmonton</a>' +
+      '<a href="/toronto-to-winnipeg-movers/">Toronto to Winnipeg</a>' +
+      '<a href="/toronto-to-montreal-movers/">Toronto to Montreal</a>' +
+      '<a href="/toronto-to-victoria-movers/">Toronto to Victoria/Nanaimo</a>' +
+      '<a href="/long-distance-moving-cost-canada/">Canada moving cost guide</a>' +
+      "</div>" +
+      '<blockquote>"Before choosing a mover, compare the written estimate, what is included, valuation coverage, and who is actually coordinating your shipment."</blockquote>' +
+      "</div>" +
+      "</div>";
+    return section;
+  }
+
+  function insertTorontoHubTrustBlock(path) {
+    if (path !== "/toronto-long-distance-movers/" || document.querySelector(".pcm-route-confidence")) {
+      return;
+    }
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    if (!leadPanel || !leadPanel.parentNode) return;
+
+    leadPanel.parentNode.insertBefore(createTorontoHubTrustBlock(), leadPanel.nextSibling);
+  }
+
   function createBrokerComparison() {
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-broker-compare";
@@ -2550,6 +2600,7 @@
     }
     enhanceRouteHeading(normalizePath());
     insertLocalSeoBlock(normalizePath());
+    insertTorontoHubTrustBlock(normalizePath());
     insertTorontoCalgaryTrustBlock(normalizePath());
     insertRouteCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());

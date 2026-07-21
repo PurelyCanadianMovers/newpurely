@@ -578,6 +578,30 @@
   margin: 0 0 12px;
 }
 
+.pcm-route-confidence__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.pcm-route-confidence__links a {
+  background: #ffffff;
+  border: 1px solid rgba(204, 26, 26, 0.28);
+  border-radius: 999px;
+  color: var(--pcm-red);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 8px 11px;
+  text-decoration: none;
+}
+
+.pcm-route-confidence__links a:hover,
+.pcm-route-confidence__links a:focus {
+  background: var(--pcm-red);
+  color: #ffffff;
+}
+
 .pcm-route-confidence__reviews blockquote {
   background: #fff7f7;
   border-left: 4px solid var(--pcm-red);
