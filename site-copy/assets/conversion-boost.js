@@ -1809,17 +1809,60 @@
   }
 
   var ROUTE_CITY_LABELS = {
+    abbotsford: "Abbotsford",
     bc: "BC",
+    burnaby: "Burnaby",
     calgary: "Calgary",
+    coquitlam: "Coquitlam",
+    delta: "Delta",
     edmonton: "Edmonton",
     halifax: "Halifax",
+    langley: "Langley",
+    "maple-ridge": "Maple Ridge",
     montreal: "Montreal",
+    "new-westminster": "New Westminster",
+    "north-vancouver": "North Vancouver",
     ottawa: "Ottawa",
+    "pitt-meadows": "Pitt Meadows",
+    "port-coquitlam": "Port Coquitlam",
+    "port-moody": "Port Moody",
+    richmond: "Richmond",
+    surrey: "Surrey",
     toronto: "Toronto",
     vancouver: "Vancouver",
     victoria: "Victoria",
     washington: "Washington",
+    "west-vancouver": "West Vancouver",
+    "white-rock": "White Rock",
     winnipeg: "Winnipeg",
+  };
+
+  var CITY_PROVINCE_ABBR = {
+    abbotsford: "BC",
+    burnaby: "BC",
+    calgary: "AB",
+    coquitlam: "BC",
+    delta: "BC",
+    edmonton: "AB",
+    halifax: "NS",
+    langley: "BC",
+    "maple-ridge": "BC",
+    montreal: "QC",
+    "new-westminster": "BC",
+    "north-vancouver": "BC",
+    ottawa: "ON",
+    "pitt-meadows": "BC",
+    "port-coquitlam": "BC",
+    "port-moody": "BC",
+    richmond: "BC",
+    surrey: "BC",
+    toronto: "ON",
+    vancouver: "BC",
+    victoria: "BC",
+    washington: "WA",
+    "west-vancouver": "BC",
+    "white-rock": "BC",
+    winnipeg: "MB",
   };
 
   var LONG_DISTANCE_HUBS = {
@@ -1855,6 +1898,11 @@
     return ROUTE_CITY_LABELS[slug] || titleCaseSlug(slug);
   }
 
+  function cityPlaceholder(slug) {
+    var province = CITY_PROVINCE_ABBR[slug];
+    return cityLabel(slug) + (province ? ", " + province : "");
+  }
+
   function routeFromPath(path) {
     if (ROUTE_CONFIDENCE_ROUTES[path]) return ROUTE_CONFIDENCE_ROUTES[path];
 
@@ -1864,11 +1912,15 @@
     }
     if (!match) return null;
 
-    var from = cityLabel(match[1]);
-    var to = cityLabel(match[2]);
+    var fromSlug = match[1];
+    var toSlug = match[2];
+    var from = cityLabel(fromSlug);
+    var to = cityLabel(toSlug);
     return {
       from: from,
       to: to,
+      fromPlaceholder: cityPlaceholder(fromSlug),
+      toPlaceholder: cityPlaceholder(toSlug),
       route: from + " to " + to,
       transit: "Confirmed with your written estimate",
       links: [
@@ -1878,6 +1930,65 @@
         ["Get a written estimate", "/contact/"],
       ],
     };
+  }
+
+  function citySlugFromPath(path) {
+    var direct = path.replace(/^\/|\/$/g, "");
+    if (ROUTE_CITY_LABELS[direct] && direct !== "bc" && direct !== "washington") return direct;
+
+    var patterns = [
+      /^local-movers-in-(.+)-bc$/i,
+      /^local-movers-(.+)-bc$/i,
+      /^office-movers-in-(.+)-bc$/i,
+      /^office-movers-(.+)-bc$/i,
+      /^packing-service-in-(.+)-bc$/i,
+      /^packing-services-(.+)-bc$/i,
+    ];
+
+    for (var i = 0; i < patterns.length; i += 1) {
+      var match = direct.match(patterns[i]);
+      if (match && ROUTE_CITY_LABELS[match[1]]) return match[1];
+    }
+
+    return null;
+  }
+
+  function inferredPlaceholdersForPath(path) {
+    var route = routeFromPath(path);
+    if (route) {
+      return {
+        fromPlaceholder: route.fromPlaceholder || route.from,
+        toPlaceholder: route.toPlaceholder || route.to,
+      };
+    }
+
+    var hub = LONG_DISTANCE_HUBS[path];
+    if (hub) {
+      return {
+        fromPlaceholder: hub.city + ", " + hub.region,
+        toPlaceholder: "Destination city",
+      };
+    }
+
+    var citySlug = citySlugFromPath(path);
+    if (citySlug) {
+      return {
+        fromPlaceholder: cityPlaceholder(citySlug),
+        toPlaceholder: "Destination city",
+      };
+    }
+
+    return null;
+  }
+
+  function withInferredPlaceholders(path, config) {
+    var inferred = inferredPlaceholdersForPath(path);
+    if (!inferred) return config;
+
+    return Object.assign({}, config, {
+      fromPlaceholder: config.fromPlaceholder || inferred.fromPlaceholder,
+      toPlaceholder: config.toPlaceholder || inferred.toPlaceholder,
+    });
   }
 
   function longDistanceHubConfig(path) {
@@ -1898,7 +2009,7 @@
   }
 
   function getConfig(path) {
-    if (TARGETS[path]) return TARGETS[path];
+    if (TARGETS[path]) return withInferredPlaceholders(path, TARGETS[path]);
     if (longDistanceHubConfig(path)) return longDistanceHubConfig(path);
     if (routeFromPath(path)) {
       var route = routeFromPath(path);
@@ -1909,15 +2020,18 @@
           "Get a detailed written estimate for your " +
           route.route +
           " move. Family-owned since 1991, BBB Accredited, 200 Google reviews, valuation coverage options, and Great Canadian Van Lines agent-network support.",
-        fromPlaceholder: route.from,
-        toPlaceholder: route.to,
+        fromPlaceholder: route.fromPlaceholder || route.from,
+        toPlaceholder: route.toPlaceholder || route.to,
       };
     }
     if (isCityOrRoutePage(path)) {
+      var inferred = inferredPlaceholdersForPath(path) || {};
       return {
         eyebrow: "Free moving estimate",
         title: "Get a quote for this moving route.",
         body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+        fromPlaceholder: inferred.fromPlaceholder,
+        toPlaceholder: inferred.toPlaceholder,
       };
     }
     return null;
