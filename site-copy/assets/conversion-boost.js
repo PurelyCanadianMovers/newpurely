@@ -27,8 +27,8 @@
     },
     "/maple-ridge/": {
       eyebrow: "Maple Ridge movers",
-      title: "Get a Maple Ridge moving estimate from a direct local mover.",
-      body: "Plan a house, condo, apartment, or long-distance move in Maple Ridge with a family-owned mover serving the Lower Mainland since 1991.",
+      title: "Trusted Maple Ridge movers since 1991.",
+      body: "Get a free written estimate for a Maple Ridge house, condo, apartment, acreage, or long-distance move with direct moving accountability.",
     },
     "/local-movers-in-coquitlam-bc/": {
       eyebrow: "Coquitlam local movers",
@@ -724,13 +724,37 @@
 
   var LOCAL_SEO_BLOCKS = {
     "/maple-ridge/": {
-      title: "Maple Ridge movers for local and long-distance moves",
+      title: "Trusted Maple Ridge movers since 1991",
       intro:
-        "Purely Canadian Movers helps Maple Ridge families and businesses move within the Lower Mainland, across BC, and across Canada. The page now gives Google and customers clearer Maple Ridge intent, nearby service links, and quote-focused answers.",
+        "Purely Canadian Movers helps Maple Ridge families and businesses move within the Lower Mainland, across BC, and across Canada. Get a free written estimate for a Maple Ridge local or long-distance move with clear planning before moving day.",
       highlights: [
         ["Local move scenarios", "Apartments, townhomes, detached homes, seniors moves, furniture moves, and storage-assisted moves in Maple Ridge."],
         ["Nearby areas", "Pitt Meadows, Port Coquitlam, Coquitlam, Langley, Mission, and the rest of Metro Vancouver."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
+        ["Customer proof", "200 Google reviews, BBB accreditation, and long-term Lower Mainland service help customers compare Purely Canadian Movers before requesting a quote."],
+      ],
+      sections: [
+        {
+          title: "Why Maple Ridge families choose us",
+          body:
+            "Moving from Maple Ridge often means planning around hillside access, strata rules, acreages, townhomes, storage timing, and long-distance delivery windows. Purely Canadian Movers gives customers one accountable team from estimate to moving day.",
+          bullets: [
+            "Family-owned moving company serving customers since 1991",
+            "BBB Accredited business with 200 Google reviews",
+            "No moving brokers or random subcontractors for local moves",
+            "Free written estimates with valuation coverage options",
+            "Great Canadian Van Lines agent support for long-distance moves",
+          ],
+        },
+        {
+          title: "Planning a Maple Ridge move?",
+          body:
+            "Most customers start with a written estimate so crew size, truck time, access, packing, storage, and moving distance can be reviewed before booking.",
+          bullets: [
+            "Tell us where you are moving from and to",
+            "Share your home size, access notes, and planned move date",
+            "Get a free written estimate with no obligation",
+          ],
+        },
       ],
       links: [
         ["Local Moving", "/local/"],
