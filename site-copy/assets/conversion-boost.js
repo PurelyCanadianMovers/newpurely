@@ -1808,10 +1808,100 @@
     );
   }
 
+  var ROUTE_CITY_LABELS = {
+    bc: "BC",
+    calgary: "Calgary",
+    edmonton: "Edmonton",
+    halifax: "Halifax",
+    montreal: "Montreal",
+    ottawa: "Ottawa",
+    toronto: "Toronto",
+    vancouver: "Vancouver",
+    victoria: "Victoria",
+    washington: "Washington",
+    winnipeg: "Winnipeg",
+  };
+
+  var LONG_DISTANCE_HUBS = {
+    "/calgary-long-distance-movers/": { city: "Calgary", region: "Alberta" },
+    "/long-distance-movers-calgary/": { city: "Calgary", region: "Alberta" },
+    "/edmonton-long-distance-movers/": { city: "Edmonton", region: "Alberta" },
+    "/long-distance-movers-edmonton/": { city: "Edmonton", region: "Alberta" },
+    "/halifax-long-distance-movers/": { city: "Halifax", region: "Nova Scotia" },
+    "/long-distance-movers-halifax/": { city: "Halifax", region: "Nova Scotia" },
+    "/long-distance-movers-montreal/": { city: "Montreal", region: "Quebec" },
+    "/montreal-long-distance-movers/": { city: "Montreal", region: "Quebec" },
+    "/long-distance-movers-ottawa/": { city: "Ottawa", region: "Ontario" },
+    "/ottawa-long-distance-movers/": { city: "Ottawa", region: "Ontario" },
+    "/long-distance-movers-toronto/": { city: "Toronto", region: "Ontario" },
+    "/toronto-long-distance-movers/": { city: "Toronto", region: "Ontario" },
+    "/long-distance-movers-vancouver/": { city: "Vancouver", region: "British Columbia" },
+    "/vancouver-long-distance-movers/": { city: "Vancouver", region: "British Columbia" },
+    "/long-distance-movers-victoria/": { city: "Victoria", region: "British Columbia" },
+    "/victoria-long-distance-movers/": { city: "Victoria", region: "British Columbia" },
+  };
+
+  function titleCaseSlug(slug) {
+    return (slug || "")
+      .split("-")
+      .filter(Boolean)
+      .map(function (part) {
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      })
+      .join(" ");
+  }
+
+  function cityLabel(slug) {
+    return ROUTE_CITY_LABELS[slug] || titleCaseSlug(slug);
+  }
+
+  function routeFromPath(path) {
+    if (ROUTE_CONFIDENCE_ROUTES[path]) return ROUTE_CONFIDENCE_ROUTES[path];
+
+    var match = path.match(/^\/([a-z-]+)-to-([a-z-]+)-movers\/$/i);
+    if (!match) {
+      match = path.match(/^\/movers-([a-z-]+)-to-([a-z-]+)\/$/i);
+    }
+    if (!match) return null;
+
+    var from = cityLabel(match[1]);
+    var to = cityLabel(match[2]);
+    return {
+      from: from,
+      to: to,
+      route: from + " to " + to,
+      transit: "Confirmed with your written estimate",
+      links: [
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Long-distance movers", "/long-distance/"],
+        ["Packing services", "/packing/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    };
+  }
+
+  function longDistanceHubConfig(path) {
+    var hub = LONG_DISTANCE_HUBS[path];
+    if (!hub) return null;
+    return {
+      eyebrow: "Trusted " + hub.city + " long-distance movers",
+      title: "Plan your move from " + hub.city + " with confidence.",
+      body:
+        "Get a detailed written estimate for long-distance moves from " +
+        hub.city +
+        " and " +
+        hub.region +
+        ". Family-owned since 1991, BBB Accredited, 200 Google reviews, valuation coverage options, and Great Canadian Van Lines agent-network support.",
+      fromPlaceholder: hub.city + ", " + hub.region,
+      toPlaceholder: "Destination city",
+    };
+  }
+
   function getConfig(path) {
     if (TARGETS[path]) return TARGETS[path];
-    if (ROUTE_CONFIDENCE_ROUTES[path]) {
-      var route = ROUTE_CONFIDENCE_ROUTES[path];
+    if (longDistanceHubConfig(path)) return longDistanceHubConfig(path);
+    if (routeFromPath(path)) {
+      var route = routeFromPath(path);
       return {
         eyebrow: "Trusted " + route.route + " movers",
         title: "Move from " + route.from + " to " + route.to + " with confidence.",
@@ -2221,7 +2311,7 @@
   }
 
   function insertRouteConfidenceBlock(path) {
-    var config = ROUTE_CONFIDENCE_ROUTES[path];
+    var config = routeFromPath(path);
     if (!config || document.querySelector(".pcm-route-confidence")) return;
 
     var leadPanel = document.querySelector(".pcm-lead-panel");
@@ -2440,9 +2530,18 @@
   }
 
   function applyTitleOverride(path) {
-    var routeConfidence = ROUTE_CONFIDENCE_ROUTES[path];
-    var title = routeConfidence ? routeConfidence.route + " Movers Since 1991 | Written Estimates" : TITLE_OVERRIDES[path] || cleanupTitle(document.title);
-    var description = routeConfidence ? getRouteConfidenceDescription(routeConfidence) : META_DESCRIPTION_OVERRIDES[path];
+    var routeConfidence = routeFromPath(path);
+    var hub = LONG_DISTANCE_HUBS[path];
+    var title = routeConfidence
+      ? routeConfidence.route + " Movers Since 1991 | Written Estimates"
+      : hub
+        ? hub.city + " Long-Distance Movers Since 1991 | Written Estimates"
+        : TITLE_OVERRIDES[path] || cleanupTitle(document.title);
+    var description = routeConfidence
+      ? getRouteConfidenceDescription(routeConfidence)
+      : hub
+        ? hub.city + " long-distance movers for moves across Canada with written estimates, realistic costs, transit planning, packing, storage, valuation options, and no broker-style handoffs."
+        : META_DESCRIPTION_OVERRIDES[path];
     if (title === document.title) title = "";
     if (!title && !description) return;
 
