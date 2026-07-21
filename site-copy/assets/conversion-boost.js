@@ -1616,8 +1616,186 @@
     replaceTextInElement(root, replacements);
   }
 
+  var ROUTE_CONFIDENCE_ROUTES = {
+    "/toronto-to-vancouver-movers/": {
+      from: "Toronto",
+      to: "Vancouver",
+      route: "Toronto to Vancouver",
+      transit: "9-22 days",
+      links: [
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/montreal-to-vancouver-movers/": {
+      from: "Montreal",
+      to: "Vancouver",
+      route: "Montreal to Vancouver",
+      transit: "10-22 days",
+      links: [
+        ["Montreal movers", "/long-distance-movers-montreal/"],
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/montreal-to-edmonton-movers/": {
+      from: "Montreal",
+      to: "Edmonton",
+      route: "Montreal to Edmonton",
+      transit: "8-18 days",
+      links: [
+        ["Montreal movers", "/long-distance-movers-montreal/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/ottawa-to-vancouver-movers/": {
+      from: "Ottawa",
+      to: "Vancouver",
+      route: "Ottawa to Vancouver",
+      transit: "10-22 days",
+      links: [
+        ["Ottawa movers", "/long-distance-movers-ottawa/"],
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/edmonton-to-toronto-movers/": {
+      from: "Edmonton",
+      to: "Toronto",
+      route: "Edmonton to Toronto",
+      transit: "7-16 days",
+      links: [
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/movers-edmonton-to-toronto/": {
+      from: "Edmonton",
+      to: "Toronto",
+      route: "Edmonton to Toronto",
+      transit: "7-16 days",
+      links: [
+        ["Canonical route page", "/edmonton-to-toronto-movers/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/winnipeg-to-calgary-movers/": {
+      from: "Winnipeg",
+      to: "Calgary",
+      route: "Winnipeg to Calgary",
+      transit: "3-11 days",
+      links: [["Calgary movers", "/calgary-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/calgary-to-winnipeg-movers/": {
+      from: "Calgary",
+      to: "Winnipeg",
+      route: "Calgary to Winnipeg",
+      transit: "3-11 days",
+      links: [["Calgary movers", "/calgary-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/winnipeg-to-edmonton-movers/": {
+      from: "Winnipeg",
+      to: "Edmonton",
+      route: "Winnipeg to Edmonton",
+      transit: "3-11 days",
+      links: [["Edmonton movers", "/edmonton-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/edmonton-to-winnipeg-movers/": {
+      from: "Edmonton",
+      to: "Winnipeg",
+      route: "Edmonton to Winnipeg",
+      transit: "3-11 days",
+      links: [["Edmonton movers", "/edmonton-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/winnipeg-to-vancouver-movers/": {
+      from: "Winnipeg",
+      to: "Vancouver",
+      route: "Winnipeg to Vancouver",
+      transit: "5-13 days",
+      links: [["Vancouver movers", "/vancouver-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/vancouver-to-winnipeg-movers/": {
+      from: "Vancouver",
+      to: "Winnipeg",
+      route: "Vancouver to Winnipeg",
+      transit: "5-13 days",
+      links: [["Vancouver movers", "/vancouver-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/winnipeg-to-toronto-movers/": {
+      from: "Winnipeg",
+      to: "Toronto",
+      route: "Winnipeg to Toronto",
+      transit: "4-12 days",
+      links: [["Toronto movers", "/toronto-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/toronto-to-winnipeg-movers/": {
+      from: "Toronto",
+      to: "Winnipeg",
+      route: "Toronto to Winnipeg",
+      transit: "4-12 days",
+      links: [["Toronto movers", "/toronto-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/winnipeg-to-montreal-movers/": {
+      from: "Winnipeg",
+      to: "Montreal",
+      route: "Winnipeg to Montreal",
+      transit: "5-13 days",
+      links: [["Montreal movers", "/long-distance-movers-montreal/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/montreal-to-winnipeg-movers/": {
+      from: "Montreal",
+      to: "Winnipeg",
+      route: "Montreal to Winnipeg",
+      transit: "5-13 days",
+      links: [["Montreal movers", "/long-distance-movers-montreal/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/winnipeg-to-ottawa-movers/": {
+      from: "Winnipeg",
+      to: "Ottawa",
+      route: "Winnipeg to Ottawa",
+      transit: "4-12 days",
+      links: [["Ottawa movers", "/long-distance-movers-ottawa/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/ottawa-to-winnipeg-movers/": {
+      from: "Ottawa",
+      to: "Winnipeg",
+      route: "Ottawa to Winnipeg",
+      transit: "4-12 days",
+      links: [["Ottawa movers", "/long-distance-movers-ottawa/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+  };
+
+  function getRouteConfidenceDescription(route) {
+    return (
+      "Trusted " +
+      route.route +
+      " movers since 1991 with written estimates, realistic moving costs, transit planning, valuation options, packing, storage, and no broker-style handoffs."
+    );
+  }
+
   function getConfig(path) {
     if (TARGETS[path]) return TARGETS[path];
+    if (ROUTE_CONFIDENCE_ROUTES[path]) {
+      var route = ROUTE_CONFIDENCE_ROUTES[path];
+      return {
+        eyebrow: "Trusted " + route.route + " movers",
+        title: "Move from " + route.from + " to " + route.to + " with confidence.",
+        body:
+          "Get a detailed written estimate for your " +
+          route.route +
+          " move. Family-owned since 1991, BBB Accredited, 200 Google reviews, valuation coverage options, and Great Canadian Van Lines agent-network support.",
+      };
+    }
     if (isCityOrRoutePage(path)) {
       return {
         eyebrow: "Free moving estimate",
@@ -1976,6 +2154,55 @@
     leadPanel.parentNode.insertBefore(createTorontoHubTrustBlock(), leadPanel.nextSibling);
   }
 
+  function createRouteConfidenceBlock(config) {
+    var links = (config.links || [])
+      .map(function (link) {
+        return '<a href="' + link[1] + '">' + link[0] + "</a>";
+      })
+      .join("");
+
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-route-confidence";
+    section.setAttribute("aria-label", config.route + " moving trust signals");
+    section.innerHTML =
+      '<div class="pcm-route-confidence__inner">' +
+      '<div class="pcm-route-confidence__intro">' +
+      "<h2>Why families choose Purely Canadian Movers for " +
+      config.route +
+      " moves</h2>" +
+      "<p>A " +
+      config.route +
+      " move is a major long-distance relocation, so the safest estimate explains realistic cost ranges, typical transit, access, packing, storage, valuation coverage, and who coordinates your shipment before you book.</p>" +
+      "</div>" +
+      '<div class="pcm-route-confidence__grid">' +
+      "<article><strong>Family-owned since 1991</strong><span>More than three decades helping Canadians plan local and long-distance moves.</span></article>" +
+      "<article><strong>200 Google reviews</strong><span>Public review proof helps customers compare trust, communication, and estimate clarity.</span></article>" +
+      "<article><strong>No broker-style handoffs</strong><span>Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
+      "<article><strong>Typical transit: " +
+      config.transit +
+      "</strong><span>Route timing is planned around destination, shipment size, loading access, and van line scheduling.</span></article>" +
+      "</div>" +
+      '<div class="pcm-route-confidence__reviews">' +
+      "<h3>Compare the full moving plan before booking</h3>" +
+      '<div class="pcm-route-confidence__links">' +
+      links +
+      "</div>" +
+      '<blockquote>"A realistic long-distance estimate should explain what is included, what can change the final price, and who is accountable from estimate to delivery."</blockquote>' +
+      "</div>" +
+      "</div>";
+    return section;
+  }
+
+  function insertRouteConfidenceBlock(path) {
+    var config = ROUTE_CONFIDENCE_ROUTES[path];
+    if (!config || document.querySelector(".pcm-route-confidence")) return;
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    if (!leadPanel || !leadPanel.parentNode) return;
+
+    leadPanel.parentNode.insertBefore(createRouteConfidenceBlock(config), leadPanel.nextSibling);
+  }
+
   function createBrokerComparison() {
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-broker-compare";
@@ -2186,8 +2413,9 @@
   }
 
   function applyTitleOverride(path) {
-    var title = TITLE_OVERRIDES[path] || cleanupTitle(document.title);
-    var description = META_DESCRIPTION_OVERRIDES[path];
+    var routeConfidence = ROUTE_CONFIDENCE_ROUTES[path];
+    var title = routeConfidence ? routeConfidence.route + " Movers Since 1991 | Written Estimates" : TITLE_OVERRIDES[path] || cleanupTitle(document.title);
+    var description = routeConfidence ? getRouteConfidenceDescription(routeConfidence) : META_DESCRIPTION_OVERRIDES[path];
     if (title === document.title) title = "";
     if (!title && !description) return;
 
@@ -2602,6 +2830,7 @@
     insertLocalSeoBlock(normalizePath());
     insertTorontoHubTrustBlock(normalizePath());
     insertTorontoCalgaryTrustBlock(normalizePath());
+    insertRouteConfidenceBlock(normalizePath());
     insertRouteCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());
     insertTrustProofBlock(normalizePath());
