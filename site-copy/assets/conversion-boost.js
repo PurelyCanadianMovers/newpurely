@@ -130,12 +130,32 @@
       title: "Plan your move from Toronto with confidence.",
       body:
         "Get a detailed written estimate for long-distance moves from Toronto and the GTA. Family-owned since 1991, BBB Accredited, 200 Google reviews, and Great Canadian Van Lines agent-network support.",
+      fromPlaceholder: "Toronto, ON",
+      toPlaceholder: "Destination city",
+    },
+    "/long-distance-movers-montreal/": {
+      eyebrow: "Trusted Montreal long-distance movers",
+      title: "Plan your move from Montreal with confidence.",
+      body:
+        "Get a detailed written estimate for long-distance moves from Montreal and Quebec. Family-owned since 1991, BBB Accredited, 200 Google reviews, valuation coverage options, and Great Canadian Van Lines agent-network support.",
+      fromPlaceholder: "Montreal, QC",
+      toPlaceholder: "Destination city",
+    },
+    "/montreal-long-distance-movers/": {
+      eyebrow: "Trusted Montreal long-distance movers",
+      title: "Plan your move from Montreal with confidence.",
+      body:
+        "Get a detailed written estimate for long-distance moves from Montreal and Quebec. Family-owned since 1991, BBB Accredited, 200 Google reviews, valuation coverage options, and Great Canadian Van Lines agent-network support.",
+      fromPlaceholder: "Montreal, QC",
+      toPlaceholder: "Destination city",
     },
     "/toronto-to-calgary-movers/": {
       eyebrow: "Trusted Toronto to Calgary movers",
       title: "Move from Toronto to Calgary with confidence.",
       body:
         "Family-owned since 1991, BBB Accredited, and backed by Great Canadian Van Lines agent-network support. Get a detailed written estimate before you book, with no broker-style handoffs to unknown movers.",
+      fromPlaceholder: "Toronto, ON",
+      toPlaceholder: "Calgary, AB",
     },
     "/local-movers-burnaby-bc/": {
       eyebrow: "Burnaby local movers",
@@ -205,7 +225,8 @@
     "/edmonton-to-winnipeg-movers/": "Edmonton to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
-    "/long-distance-movers-montreal/": "Montreal Long-Distance Movers | Cross-Canada Moving",
+    "/long-distance-movers-montreal/": "Montreal Long-Distance Movers Since 1991 | Written Estimates",
+    "/montreal-long-distance-movers/": "Montreal Long-Distance Movers Since 1991 | Written Estimates",
     "/montreal-to-calgary-movers/": "Montreal to Calgary Movers | Cross-Canada Moving",
     "/montreal-to-edmonton-movers/": "Montreal to Edmonton Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
@@ -271,6 +292,10 @@
       "Surrey local movers for houses, condos, apartments, townhomes, packing, storage, and office moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/long-distance/":
       "Long-distance movers across Canada with direct accountability, valuation coverage, packing, storage, and GCVL agent support. Since 1991, BBB Accredited.",
+    "/long-distance-movers-montreal/":
+      "Montreal long-distance movers for moves across Canada with written estimates, realistic costs, transit planning, packing, storage, valuation options, and no broker-style handoffs.",
+    "/montreal-long-distance-movers/":
+      "Montreal long-distance movers for moves across Canada with written estimates, realistic costs, transit planning, packing, storage, valuation options, and no broker-style handoffs.",
     "/edmonton-to-toronto-movers/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/edmonton-to-winnipeg-movers/":
@@ -1794,6 +1819,8 @@
           "Get a detailed written estimate for your " +
           route.route +
           " move. Family-owned since 1991, BBB Accredited, 200 Google reviews, valuation coverage options, and Great Canadian Van Lines agent-network support.",
+        fromPlaceholder: route.from,
+        toPlaceholder: route.to,
       };
     }
     if (isCityOrRoutePage(path)) {
@@ -2024,8 +2051,8 @@
     mobileStart.textContent = "Begin here";
     form.appendChild(mobileStart);
 
-    form.appendChild(createField("Moving from", createInput("from", "Toronto, ON")));
-    form.appendChild(createField("Moving to", createInput("to", "Calgary, AB")));
+    form.appendChild(createField("Moving from", createInput("from", config.fromPlaceholder || "Toronto, ON")));
+    form.appendChild(createField("Moving to", createInput("to", config.toPlaceholder || "Calgary, AB")));
     form.appendChild(createField("Home size", createSizeSelect()));
     form.appendChild(createField("Move date", createInput("moveDate", "", "date")));
 
