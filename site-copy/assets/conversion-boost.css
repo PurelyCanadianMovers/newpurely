@@ -507,6 +507,88 @@
   padding: 0 20px;
 }
 
+.pcm-route-confidence {
+  max-width: 1120px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.pcm-route-confidence__inner {
+  background: #ffffff;
+  border: 1px solid var(--pcm-line);
+  border-left: 5px solid var(--pcm-red);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  padding: 26px;
+}
+
+.pcm-route-confidence h2 {
+  color: var(--pcm-ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.pcm-route-confidence p {
+  color: var(--pcm-muted);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 850px;
+}
+
+.pcm-route-confidence__grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 20px;
+}
+
+.pcm-route-confidence__grid article {
+  background: #f9fafb;
+  border: 1px solid var(--pcm-line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.pcm-route-confidence__grid strong {
+  color: var(--pcm-ink);
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.pcm-route-confidence__grid span {
+  color: var(--pcm-muted);
+  display: block;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.pcm-route-confidence__reviews {
+  border-top: 1px solid var(--pcm-line);
+  margin-top: 22px;
+  padding-top: 20px;
+}
+
+.pcm-route-confidence__reviews h3 {
+  color: var(--pcm-ink);
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+
+.pcm-route-confidence__reviews blockquote {
+  background: #fff7f7;
+  border-left: 4px solid var(--pcm-red);
+  border-radius: 6px;
+  color: var(--pcm-ink);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 10px 0;
+  padding: 12px 14px;
+}
+
 .pcm-route-cost {
   max-width: 1120px;
   margin: 24px auto;
@@ -1173,6 +1255,23 @@
 
   .pcm-broker-compare {
     padding: 0 14px;
+  }
+
+  .pcm-route-confidence {
+    margin: 16px auto;
+    padding: 0 14px;
+  }
+
+  .pcm-route-confidence__inner {
+    padding: 18px;
+  }
+
+  .pcm-route-confidence h2 {
+    font-size: 25px;
+  }
+
+  .pcm-route-confidence__grid {
+    grid-template-columns: 1fr;
   }
 
   .pcm-broker-compare__inner {

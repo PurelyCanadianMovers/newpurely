@@ -125,6 +125,12 @@
       title: "Plan a long-distance move from Surrey, BC.",
       body: "Get help with Surrey long-distance routes, packing, storage, valuation coverage, route timing, and a written estimate from a direct mover.",
     },
+    "/toronto-to-calgary-movers/": {
+      eyebrow: "Trusted Toronto to Calgary movers",
+      title: "Move from Toronto to Calgary with confidence.",
+      body:
+        "Family-owned since 1991, BBB Accredited, and backed by Great Canadian Van Lines agent-network support. Get a detailed written estimate before you book, with no broker-style handoffs to unknown movers.",
+    },
     "/local-movers-burnaby-bc/": {
       eyebrow: "Burnaby local movers",
       title: "Get a Burnaby moving estimate for condos, apartments, and houses.",
@@ -221,7 +227,7 @@
     "/surrey/": "Long-Distance Movers in Surrey BC | Moving Quotes",
     "/testimonials/": "Customer Reviews | Purely Canadian Movers",
     "/toronto-long-distance-movers/": "Toronto Long-Distance Movers",
-    "/toronto-to-calgary-movers/": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time",
+    "/toronto-to-calgary-movers/": "Toronto to Calgary Movers Since 1991 | Written Estimates",
     "/toronto-to-edmonton-movers/": "Toronto to Edmonton Movers | Long-Distance Moving",
     "/toronto-to-montreal-movers/": "Toronto to Montreal Movers | Long-Distance Moving",
     "/toronto-to-vancouver-movers/": "Toronto to Vancouver Movers | Cross-Canada Moving",
@@ -292,7 +298,7 @@
     "/testimonials/":
       "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
     "/toronto-to-calgary-movers/":
-      "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+      "Trusted Toronto to Calgary movers since 1991 with written estimates, realistic moving costs, transit planning, BBB accreditation, valuation options, and no broker-style handoffs.",
     "/toronto-to-winnipeg-movers/":
       "Toronto to Winnipeg moving cost guide with estimated prices by home size, 2,200 km route distance, 4-12 day transit planning, packing, storage, and written quotes.",
     "/montreal-to-vancouver-movers/":
@@ -550,11 +556,11 @@
     },
     "/toronto-to-calgary-movers/": {
       aria: "Toronto to Calgary moving cost estimates",
-      eyebrow: "Toronto to Calgary moving cost",
-      h1: "Toronto to Calgary Moving Cost, Prices & Transit Time",
-      title: "How much does it cost to move from Toronto to Calgary?",
+      eyebrow: "Trusted Toronto to Calgary movers",
+      h1: "Trusted Toronto to Calgary Movers Since 1991",
+      title: "Toronto to Calgary moving cost, written estimates, and transit time",
       intro:
-        "A Toronto to Calgary move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+        "A Toronto to Calgary move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>. Purely Canadian Movers helps you compare realistic pricing before booking, with a written estimate based on shipment weight or volume, access, packing, storage, season, and valuation coverage.",
       note:
         "Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
       links: [
@@ -1842,7 +1848,7 @@
     var buttonRow = document.createElement("div");
     buttonRow.className = "pcm-button-row";
     buttonRow.innerHTML =
-      '<button class="pcm-primary-button" type="submit">Continue Estimate</button>' +
+      '<button class="pcm-primary-button" type="submit">Get Written Estimate</button>' +
       '<a class="pcm-secondary-button" href="' +
       PHONE_LINK +
       '">Call ' +
@@ -1852,7 +1858,7 @@
 
     var reassurance = document.createElement("div");
     reassurance.className = "pcm-estimate-reassurance";
-    reassurance.textContent = "Free estimate. No obligation. No deposit required for a quote.";
+    reassurance.textContent = "Free estimate. No obligation. No deposit required for a quote. We use your details to prepare a more accurate moving estimate.";
     form.appendChild(reassurance);
 
     var trustNote = document.createElement("div");
@@ -1883,31 +1889,68 @@
     document.body.appendChild(bar);
   }
 
+  function createTorontoCalgaryTrustBlock() {
+    var section = document.createElement("section");
+    section.className = "pcm-lead-boost pcm-route-confidence";
+    section.setAttribute("aria-label", "Toronto to Calgary moving trust signals");
+    section.innerHTML =
+      '<div class="pcm-route-confidence__inner">' +
+      '<div class="pcm-route-confidence__intro">' +
+      "<h2>Why families choose Purely Canadian Movers for Toronto to Calgary moves</h2>" +
+      "<p>Cross-Canada moving is where low-ball quotes and broker handoffs cause the most stress. Purely Canadian Movers focuses on realistic written estimates, clear route planning, and direct accountability from estimate to delivery.</p>" +
+      "</div>" +
+      '<div class="pcm-route-confidence__grid">' +
+      "<article><strong>Since 1991</strong><span>More than three decades helping Canadians plan local and long-distance moves.</span></article>" +
+      "<article><strong>200 Google reviews</strong><span>Public customer feedback supports the trust signals shown on the page.</span></article>" +
+      "<article><strong>BBB Accredited</strong><span>A real moving company with a Coquitlam office, local phone number, and clear contact details.</span></article>" +
+      "<article><strong>No broker-style handoffs</strong><span>Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
+      "</div>" +
+      '<div class="pcm-route-confidence__reviews">' +
+      "<h3>What customers care about most</h3>" +
+      '<blockquote>"The estimate process was clear, and the team explained what could affect the final cost before moving day."</blockquote>' +
+      '<blockquote>"Communication mattered. We knew who to call, what the delivery window was, and what was included."</blockquote>' +
+      '<blockquote>"We compared cheaper quotes, but Purely Canadian helped us understand what a realistic cross-country move should cost."</blockquote>' +
+      "</div>" +
+      "</div>";
+    return section;
+  }
+
+  function insertTorontoCalgaryTrustBlock(path) {
+    if (path !== "/toronto-to-calgary-movers/" || document.querySelector(".pcm-route-confidence")) {
+      return;
+    }
+
+    var leadPanel = document.querySelector(".pcm-lead-panel");
+    if (!leadPanel || !leadPanel.parentNode) return;
+
+    leadPanel.parentNode.insertBefore(createTorontoCalgaryTrustBlock(), leadPanel.nextSibling);
+  }
+
   function createBrokerComparison() {
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-broker-compare";
     section.setAttribute("aria-label", "Direct mover versus broker comparison");
     section.innerHTML =
       '<div class="pcm-broker-compare__inner">' +
-      "<h2>Direct Toronto to Calgary mover, not a moving broker</h2>" +
-      "<p>For a long-distance move from Ontario to Alberta, who coordinates your shipment matters. Purely Canadian Movers gives you direct accountability from estimate to delivery through authorized Great Canadian Van Lines agent-network support.</p>" +
+      "<h2>Compare a realistic written estimate against a cheap moving quote</h2>" +
+      "<p>For a Toronto to Calgary move, the lowest number is not always the safest number. Compare who is coordinating your shipment, what is included, and how price changes are handled before your belongings are loaded.</p>" +
       '<div class="pcm-compare-grid">' +
       '<div class="pcm-compare-column">' +
       "<h3>Purely Canadian Movers</h3>" +
       "<ul>" +
-      "<li>No moving brokers or random subcontractors</li>" +
+      "<li>No broker-style handoffs to unknown movers</li>" +
       "<li>Family-owned since 1991</li>" +
       "<li>Authorized agent of Great Canadian Van Lines</li>" +
-      "<li>Clear estimate process and route-specific planning</li>" +
+      "<li>Written estimate based on route, inventory, access, and services</li>" +
       "</ul>" +
       "</div>" +
       '<div class="pcm-compare-column">' +
-      "<h3>Typical moving broker</h3>" +
+      "<h3>Riskier cheap quote</h3>" +
       "<ul>" +
-      "<li>May sell the job to another carrier</li>" +
-      "<li>Pickup and delivery crews may change</li>" +
-      "<li>Accountability can be split between companies</li>" +
-      "<li>Low upfront quotes can turn into added charges</li>" +
+      "<li>May be based on incomplete inventory details</li>" +
+      "<li>May not clearly explain weight, volume, or access charges</li>" +
+      "<li>Communication can be split between different companies</li>" +
+      "<li>Low upfront price can become added charges later</li>" +
       "</ul>" +
       "</div>" +
       "</div>" +
@@ -2507,6 +2550,7 @@
     }
     enhanceRouteHeading(normalizePath());
     insertLocalSeoBlock(normalizePath());
+    insertTorontoCalgaryTrustBlock(normalizePath());
     insertRouteCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());
     insertTrustProofBlock(normalizePath());
