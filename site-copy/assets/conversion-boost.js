@@ -1603,6 +1603,37 @@
     return path;
   }
 
+  var STATIC_ROUTE_PAGES = {
+    "/vancouver-to-seattle-movers/": true,
+    "/vancouver-to-bellevue-movers/": true,
+    "/vancouver-to-redmond-movers/": true,
+  };
+
+  function suppressStaticRouteNotFound(path) {
+    if (!STATIC_ROUTE_PAGES[path]) return true;
+
+    var root = document.getElementById("root");
+    if (!root) return false;
+
+    var headings = Array.prototype.slice.call(root.querySelectorAll("h1, h2, h3"));
+    var notFoundHeading = headings.find(function (heading) {
+      var text = (heading.textContent || "").replace(/\s+/g, " ").trim();
+      return text === "404" || /^Page Not Found$/i.test(text);
+    });
+
+    if (!notFoundHeading) return false;
+
+    var container = notFoundHeading.closest("main") || notFoundHeading.closest("section") || notFoundHeading.parentElement;
+    if (container && container !== root) {
+      container.remove();
+    } else {
+      notFoundHeading.remove();
+    }
+
+    document.body.classList.add("pcm-static-route-ready");
+    return true;
+  }
+
   function forceStaticBlogNavigation() {
     document.addEventListener("click", function (event) {
       var link = event.target.closest ? event.target.closest("a[href]") : null;
@@ -3303,6 +3334,14 @@
       routeAttempts += 1;
       if (enhanceLongDistanceRouteLinks(path) || routeAttempts > 30) {
         window.clearInterval(routeTimer);
+      }
+    }, 250);
+
+    var staticRouteAttempts = 0;
+    var staticRouteTimer = window.setInterval(function () {
+      staticRouteAttempts += 1;
+      if (suppressStaticRouteNotFound(path) || staticRouteAttempts > 30) {
+        window.clearInterval(staticRouteTimer);
       }
     }, 250);
 
