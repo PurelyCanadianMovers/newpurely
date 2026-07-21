@@ -85,6 +85,14 @@
       title: "Plan a cross-border move with direct moving accountability.",
       body: "Get help with Canada-USA moving logistics, packing, valuation coverage, route timing, and customs-aware planning.",
     },
+    "/bc-to-washington-movers/": {
+      eyebrow: "Trusted BC to Washington movers",
+      title: "Move from British Columbia to Washington with confidence.",
+      body:
+        "Family-owned since 1991, BBB Accredited, 200 Google reviews, customs-aware planning, valuation coverage options, and no broker-style handoffs to unknown movers.",
+      fromPlaceholder: "British Columbia",
+      toPlaceholder: "Washington",
+    },
     "/cross-country-movers/": {
       eyebrow: "Cross-country movers",
       title: "Plan a coast-to-coast move with a trusted Canadian mover.",
