@@ -22,6 +22,8 @@ const REDIRECTS = new Map([
   ["/long-distance", "/long-distance/"],
   ["/distance", "/long-distance/"],
   ["/distance/", "/long-distance/"],
+  ["/x-country", "/cross-country-movers/"],
+  ["/x-country/", "/cross-country-movers/"],
   ["/movers-west-vancouver.html", "/west-vancouver/"],
   ["/movers-in-west-vancouver.html", "/west-vancouver/"],
   ["/blog/cost-to-move-toronto-to-vancouver/", "/toronto-to-vancouver-movers/"],
