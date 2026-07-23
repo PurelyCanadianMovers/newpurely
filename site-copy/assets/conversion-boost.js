@@ -371,6 +371,8 @@
     "/long-distance-moving-cost-canada/": "Moving Cost Guide Canada",
     "/long-distance/": "Long-Distance Movers Canada | Cross-Country Moving",
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
+    "/calgary-to-montreal-movers/": "Calgary to Montreal Movers | Costs, Transit & Quotes",
+    "/calgary-to-ottawa-movers/": "Calgary to Ottawa Movers | Costs, Transit & Quotes",
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
     "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Moving Cost | Movers, Prices & Transit Time",
@@ -456,6 +458,10 @@
       "Montreal long-distance movers for moves across Canada with written estimates, realistic costs, transit planning, packing, storage, valuation options, and no broker-style handoffs.",
     "/montreal-long-distance-movers/":
       "Montreal long-distance movers for moves across Canada with written estimates, realistic costs, transit planning, packing, storage, valuation options, and no broker-style handoffs.",
+    "/calgary-to-montreal-movers/":
+      "Calgary to Montreal movers with estimated prices by home size, 8-20 day transit planning, packing, storage, valuation options, and written moving quotes.",
+    "/calgary-to-ottawa-movers/":
+      "Calgary to Ottawa movers with estimated prices by home size, 7-19 day transit planning, packing, storage, valuation options, and written moving quotes.",
     "/edmonton-to-toronto-movers/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/edmonton-to-winnipeg-movers/":
@@ -1751,6 +1757,8 @@
   }
 
   var STATIC_ROUTE_PAGES = {
+    "/calgary-to-montreal-movers/": true,
+    "/calgary-to-ottawa-movers/": true,
     "/vancouver-to-seattle-movers/": true,
     "/vancouver-to-bellevue-movers/": true,
     "/vancouver-to-redmond-movers/": true,
