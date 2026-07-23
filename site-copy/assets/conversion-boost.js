@@ -4,6 +4,129 @@
   var CONTACT_URL = "/contact/";
   var GOOGLE_MAPS_ADDRESS_URL =
     "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
+  var OPENAI_ADS_PIXEL_ID = "VoQRj1i5cYmiok3DbhBcb5";
+  var OPENAI_ADS_CONVERSION_EVENT = "order_created";
+
+  function installOpenAiAdsPixel() {
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+
+    window.oaiq =
+      window.oaiq ||
+      function () {
+        (window.oaiq.q = window.oaiq.q || []).push(arguments);
+      };
+
+    if (!window.__pcmOpenAiAdsPixelInitialized) {
+      window.__pcmOpenAiAdsPixelInitialized = true;
+      window.oaiq("init", { pixelId: OPENAI_ADS_PIXEL_ID });
+    }
+
+    if (document.querySelector('script[src="https://bzrcdn.openai.com/sdk/oaiq.min.js"]')) return;
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://bzrcdn.openai.com/sdk/oaiq.min.js";
+    (document.head || document.documentElement).appendChild(script);
+  }
+
+  function createOpenAiConversionEventId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return "estimate_" + window.crypto.randomUUID();
+    }
+
+    return "estimate_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+  }
+
+  function readNestedValue(payload, key) {
+    if (!payload || typeof payload !== "object") return "";
+
+    if (Object.prototype.hasOwnProperty.call(payload, key) && typeof payload[key] === "string") {
+      return payload[key];
+    }
+
+    if (Array.isArray(payload)) {
+      for (var i = 0; i < payload.length; i += 1) {
+        var arrayValue = readNestedValue(payload[i], key);
+        if (arrayValue) return arrayValue;
+      }
+      return "";
+    }
+
+    var values = Object.keys(payload);
+    for (var valueIndex = 0; valueIndex < values.length; valueIndex += 1) {
+      var nestedValue = readNestedValue(payload[values[valueIndex]], key);
+      if (nestedValue) return nestedValue;
+    }
+
+    return "";
+  }
+
+  function markOpenAiConversionMeasured(eventId) {
+    if (!eventId) return false;
+
+    try {
+      var key = "pcm_oaiq_" + eventId;
+      if (window.sessionStorage && window.sessionStorage.getItem(key)) return false;
+      if (window.sessionStorage) window.sessionStorage.setItem(key, "1");
+    } catch (error) {
+      // Storage can be unavailable in private browsing; measurement can still proceed.
+    }
+
+    return true;
+  }
+
+  function measureOpenAiEstimateConversion(eventId) {
+    if (typeof window === "undefined") return;
+
+    var conversionEventId = eventId || createOpenAiConversionEventId();
+    if (!markOpenAiConversionMeasured(conversionEventId)) return;
+
+    installOpenAiAdsPixel();
+    window.oaiq(
+      "measure",
+      OPENAI_ADS_CONVERSION_EVENT,
+      { type: "contents" },
+      { event_id: conversionEventId }
+    );
+  }
+
+  function isEstimateSubmitUrl(input) {
+    try {
+      var rawUrl = typeof input === "string" ? input : input && input.url;
+      var url = new URL(rawUrl, window.location.origin);
+      return url.pathname === "/api/trpc/contact.submit" || url.pathname === "/api/trpc/contact.submit/";
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function installEstimateConversionTracking() {
+    if (typeof window === "undefined" || !window.fetch || window.__pcmEstimateConversionTrackingInstalled) return;
+
+    window.__pcmEstimateConversionTrackingInstalled = true;
+    var nativeFetch = window.fetch.bind(window);
+
+    window.fetch = function (input, init) {
+      var shouldMeasure = isEstimateSubmitUrl(input);
+
+      return nativeFetch(input, init).then(function (response) {
+        if (shouldMeasure && response && response.ok && typeof response.clone === "function") {
+          response
+            .clone()
+            .json()
+            .then(function (payload) {
+              measureOpenAiEstimateConversion(readNestedValue(payload, "eventId"));
+            })
+            .catch(function () {
+              measureOpenAiEstimateConversion();
+            });
+        }
+
+        return response;
+      });
+    };
+  }
+
   var TARGETS = {
     "/": {
       eyebrow: "Free moving estimate",
@@ -3336,6 +3459,8 @@
   }
 
   function init() {
+    installOpenAiAdsPixel();
+    installEstimateConversionTracking();
     forceStaticBlogNavigation();
 
     var path = normalizePath();

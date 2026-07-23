@@ -6,6 +6,8 @@ const MANUS_OAUTH_CALLBACK =
 const SECURITY_HEADERS = {
   "Strict-Transport-Security": "max-age=31536000",
 };
+const OPENAI_ADS_PIXEL_ID = "VoQRj1i5cYmiok3DbhBcb5";
+const OPENAI_ADS_CONVERSION_EVENT = "order_created";
 
 const REDIRECTS = new Map([
   ["/admin/blog", MANUS_BLOG_LOGIN],
@@ -275,6 +277,8 @@ async function estimateConfigDebugResponse(env) {
       CHAT_LEAD_WEBHOOK_URL: await describeEnvValue(env, "CHAT_LEAD_WEBHOOK_URL"),
       CHAT_LEAD_NOTIFY_TO: await describeEnvValue(env, "CHAT_LEAD_NOTIFY_TO"),
       CHAT_LEAD_NOTIFY_FROM: await describeEnvValue(env, "CHAT_LEAD_NOTIFY_FROM"),
+      OPENAI_CONVERSIONS_API_KEY: await describeEnvValue(env, "OPENAI_CONVERSIONS_API_KEY"),
+      CONVERSIONS_API_KEY: await describeEnvValue(env, "CONVERSIONS_API_KEY"),
     },
   };
 
@@ -437,6 +441,50 @@ function estimateNotificationPayload(request, estimate) {
   };
 }
 
+function createConversionEventId(prefix = "estimate") {
+  if (crypto?.randomUUID) {
+    return `${prefix}_${crypto.randomUUID()}`;
+  }
+
+  return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+}
+
+async function sendOpenAiConversionEvent(request, env, eventId, payload) {
+  const conversionsApiKey = await resolveEnvValue(env, "OPENAI_CONVERSIONS_API_KEY", "CONVERSIONS_API_KEY");
+
+  if (!conversionsApiKey) {
+    return { sent: false, reason: "missing_key" };
+  }
+
+  const response = await fetch(`https://bzr.openai.com/v1/events?pid=${OPENAI_ADS_PIXEL_ID}`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${conversionsApiKey}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      validate_only: false,
+      events: [
+        {
+          id: eventId,
+          type: OPENAI_ADS_CONVERSION_EVENT,
+          timestamp_ms: Date.now(),
+          source_url: payload.page || request.headers.get("referer") || new URL(request.url).origin,
+          action_source: "web",
+          data: { type: "contents" },
+        },
+      ],
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`OpenAI conversion event failed with ${response.status}: ${errorText}`);
+  }
+
+  return { sent: true };
+}
+
 function estimateNotificationText(payload) {
   return [
     "A visitor submitted an estimate request on purelycanadianmovers.com.",
@@ -552,10 +600,31 @@ async function handleEstimateSubmit(request, env, ctx) {
     return trpcErrorResponse("Estimate notification is not configured. Please call 1-877-485-6683.", isBatch);
   }
 
+  const conversionEventId = createConversionEventId("estimate");
+  const conversionPayload = estimateNotificationPayload(request, estimate);
+  const conversionTask = sendOpenAiConversionEvent(request, env || {}, conversionEventId, conversionPayload)
+    .catch((error) => {
+      console.error("OpenAI conversion event failed", error);
+      return { sent: false, error: error?.message || "OpenAI conversion event failed" };
+    });
+
+  if (ctx?.waitUntil) {
+    ctx.waitUntil(conversionTask);
+  } else {
+    await conversionTask;
+  }
+
   return trpcJsonResponse({
     success: true,
     message: "Estimate request received.",
     notification,
+    conversion: {
+      provider: "openai_ads",
+      event: OPENAI_ADS_CONVERSION_EVENT,
+      eventId: conversionEventId,
+      browserEventEnabled: true,
+      serverEventQueued: Boolean(ctx?.waitUntil),
+    },
   }, isBatch);
 }
 
