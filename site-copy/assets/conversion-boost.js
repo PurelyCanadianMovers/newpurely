@@ -3456,6 +3456,19 @@
       });
     });
 
+    links.forEach(function (link) {
+      var text = (link.textContent || "").replace(/\s+/g, " ").trim();
+      if (/^Vancouver\s+to\s+Edmonton$/i.test(text)) {
+        link.setAttribute("href", "/vancouver-to-edmonton-movers/");
+      }
+      if (/^Vancouver\s+to\s+Montreal$/i.test(text)) {
+        link.setAttribute("href", "/vancouver-to-montreal-movers/");
+      }
+      if (/^Vancouver\s+to\s+Ottawa$/i.test(text)) {
+        link.setAttribute("href", "/vancouver-to-ottawa-movers/");
+      }
+    });
+
     return true;
   }
 
