@@ -420,6 +420,9 @@
     "/valuation-coverage-protection/": "Moving Valuation Coverage | Protection Options",
     "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers",
     "/vancouver-to-calgary-movers/": "Vancouver to Calgary Movers | Costs, Transit & Quotes",
+    "/vancouver-to-edmonton-movers/": "Vancouver to Edmonton Movers | Costs, Transit & Quotes",
+    "/vancouver-to-montreal-movers/": "Vancouver to Montreal Movers | Costs, Transit & Quotes",
+    "/vancouver-to-ottawa-movers/": "Vancouver to Ottawa Movers | Costs, Transit & Quotes",
     "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
     "/vancouver-to-bellevue-movers/": "Vancouver to Bellevue Movers | Cross-Border Moving",
     "/vancouver-to-redmond-movers/": "Vancouver to Redmond Movers | Cross-Border Moving",
@@ -508,6 +511,12 @@
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/ottawa-to-winnipeg-movers/":
       "Ottawa to Winnipeg moving cost guide with estimated prices by home size, 2,200 km route distance, 4-12 day transit planning, packing, storage, and written quotes.",
+    "/vancouver-to-edmonton-movers/":
+      "Vancouver to Edmonton moving cost guide with estimated prices by home size, 4-13 day transit planning, packing, storage, valuation options, and written moving quotes.",
+    "/vancouver-to-montreal-movers/":
+      "Vancouver to Montreal moving cost guide with estimated prices by home size, 10-22 day transit planning, packing, storage, valuation options, and written moving quotes.",
+    "/vancouver-to-ottawa-movers/":
+      "Vancouver to Ottawa moving cost guide with estimated prices by home size, 11-22 day transit planning, packing, storage, valuation options, and written moving quotes.",
     "/vancouver-to-winnipeg-movers/":
       "Vancouver to Winnipeg moving cost guide with estimated prices by home size, 2,300 km route distance, 5-13 day transit planning, packing, storage, and written quotes.",
     "/vancouver-to-bellevue-movers/":
@@ -1759,6 +1768,9 @@
   var STATIC_ROUTE_PAGES = {
     "/calgary-to-montreal-movers/": true,
     "/calgary-to-ottawa-movers/": true,
+    "/vancouver-to-edmonton-movers/": true,
+    "/vancouver-to-montreal-movers/": true,
+    "/vancouver-to-ottawa-movers/": true,
     "/vancouver-to-seattle-movers/": true,
     "/vancouver-to-bellevue-movers/": true,
     "/vancouver-to-redmond-movers/": true,
@@ -3422,6 +3434,30 @@
     return true;
   }
 
+  function fixVancouverRouteLinks(path) {
+    if (path !== "/vancouver-long-distance-movers/") return true;
+
+    var links = Array.prototype.slice.call(document.querySelectorAll('a[href]'));
+    if (!links.length) return false;
+
+    var replacements = [
+      { pattern: /Vancouver\s*(?:→|->|-)\s*Edmonton/i, href: "/vancouver-to-edmonton-movers/" },
+      { pattern: /Vancouver\s*(?:→|->|-)\s*Montreal/i, href: "/vancouver-to-montreal-movers/" },
+      { pattern: /Vancouver\s*(?:→|->|-)\s*Ottawa/i, href: "/vancouver-to-ottawa-movers/" },
+    ];
+
+    replacements.forEach(function (replacement) {
+      links.forEach(function (link) {
+        var text = (link.textContent || "").replace(/\s+/g, " ").trim();
+        if (replacement.pattern.test(text)) {
+          link.setAttribute("href", replacement.href);
+        }
+      });
+    });
+
+    return true;
+  }
+
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
     var details = getSavedEstimateDetails();
@@ -3491,6 +3527,14 @@
       routeAttempts += 1;
       if (enhanceLongDistanceRouteLinks(path) || routeAttempts > 30) {
         window.clearInterval(routeTimer);
+      }
+    }, 250);
+
+    var vancouverRouteAttempts = 0;
+    var vancouverRouteTimer = window.setInterval(function () {
+      vancouverRouteAttempts += 1;
+      if (fixVancouverRouteLinks(path) || vancouverRouteAttempts > 30) {
+        window.clearInterval(vancouverRouteTimer);
       }
     }, 250);
 
