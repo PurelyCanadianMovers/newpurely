@@ -393,7 +393,6 @@
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
     "/movers-edmonton-to-toronto/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
-    "/movers-vancouver-to-halifax/": "Vancouver to Halifax Movers | Coast-to-Coast Moving",
     "/office-movers-in-vancouver-bc/": "Office Movers Vancouver BC | Corporate Moving",
     "/office/": "Office Movers Metro Vancouver | Corporate Moving",
     "/ottawa-long-distance-movers/": "Ottawa Long-Distance Movers | Cross-Canada Moving",
@@ -421,6 +420,7 @@
     "/vancouver-long-distance-movers/": "Vancouver Long-Distance Movers",
     "/vancouver-to-calgary-movers/": "Vancouver to Calgary Movers | Costs, Transit & Quotes",
     "/vancouver-to-edmonton-movers/": "Vancouver to Edmonton Movers | Costs, Transit & Quotes",
+    "/vancouver-to-halifax-movers/": "Vancouver to Halifax Movers | Coast-to-Coast Moving",
     "/vancouver-to-montreal-movers/": "Vancouver to Montreal Movers | Costs, Transit & Quotes",
     "/vancouver-to-ottawa-movers/": "Vancouver to Ottawa Movers | Costs, Transit & Quotes",
     "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
@@ -475,7 +475,7 @@
       "Edmonton to Calgary movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
     "/movers-edmonton-to-toronto/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
-    "/movers-vancouver-to-halifax/":
+    "/vancouver-to-halifax-movers/":
       "Vancouver to Halifax movers for coast-to-coast relocation, packing, storage, valuation coverage, and written estimates. Since 1991, BBB Accredited.",
     "/office/":
       "Office movers in Metro Vancouver for commercial moves, packing, storage, after-hours planning, and valuation coverage. Since 1991, BBB Accredited.",
@@ -1492,7 +1492,7 @@
         ["Can packing or storage be included with an Edmonton to Toronto move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in an Edmonton to Toronto moving estimate."],
       ],
     },
-    "/movers-vancouver-to-halifax/": {
+    "/vancouver-to-halifax-movers/": {
       title: "Vancouver to Halifax movers with coast-to-coast planning and trust proof",
       intro:
         "A Vancouver to Halifax move is a major coast-to-coast relocation. Purely Canadian Movers helps plan shipment size, packing, storage, route timing, valuation coverage options, and written estimates with direct accountability.",
@@ -1769,6 +1769,7 @@
     "/calgary-to-montreal-movers/": true,
     "/calgary-to-ottawa-movers/": true,
     "/vancouver-to-edmonton-movers/": true,
+    "/vancouver-to-halifax-movers/": true,
     "/vancouver-to-montreal-movers/": true,
     "/vancouver-to-ottawa-movers/": true,
     "/vancouver-to-seattle-movers/": true,

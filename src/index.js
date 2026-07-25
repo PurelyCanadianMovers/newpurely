@@ -94,6 +94,8 @@ const REDIRECTS = new Map([
   ["/movers-edmonton-to-toronto/", "/edmonton-to-toronto-movers/"],
   ["/movers-vancouver-to-edmonton", "/vancouver-to-edmonton-movers/"],
   ["/movers-vancouver-to-edmonton/", "/vancouver-to-edmonton-movers/"],
+  ["/movers-vancouver-to-halifax", "/vancouver-to-halifax-movers/"],
+  ["/movers-vancouver-to-halifax/", "/vancouver-to-halifax-movers/"],
   ["/movers-vancouver-to-montreal", "/vancouver-to-montreal-movers/"],
   ["/movers-vancouver-to-montreal/", "/vancouver-to-montreal-movers/"],
   ["/movers-vancouver-to-ottawa", "/vancouver-to-ottawa-movers/"],
