@@ -3593,6 +3593,18 @@
     return false;
   }
 
+  function removeVisibleArrowFallbackText() {
+    var changed = false;
+    Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (link) {
+      var text = (link.textContent || "").replace(/\s+/g, " ").trim();
+      if (!/\sarrow$/i.test(text)) return;
+
+      link.textContent = text.replace(/\sarrow$/i, "");
+      changed = true;
+    });
+    return changed;
+  }
+
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
     var details = getSavedEstimateDetails();
@@ -3686,6 +3698,14 @@
       edmontonRouteAttempts += 1;
       if (enhanceEdmontonRouteLinks(path) || edmontonRouteAttempts > 30) {
         window.clearInterval(edmontonRouteTimer);
+      }
+    }, 250);
+
+    var arrowTextAttempts = 0;
+    var arrowTextTimer = window.setInterval(function () {
+      arrowTextAttempts += 1;
+      if (removeVisibleArrowFallbackText() || arrowTextAttempts > 30) {
+        window.clearInterval(arrowTextTimer);
       }
     }, 250);
 
