@@ -3478,6 +3478,7 @@
     var desiredRoutes = [
       { label: "Calgary \u2192 Montreal", href: "/calgary-to-montreal-movers/" },
       { label: "Calgary \u2192 Ottawa", href: "/calgary-to-ottawa-movers/" },
+      { label: "Calgary \u2192 Winnipeg", href: "/calgary-to-winnipeg-movers/" },
     ];
 
     var heading = Array.prototype.find.call(document.querySelectorAll("h2, h3"), function (node) {
