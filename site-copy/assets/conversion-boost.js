@@ -3533,6 +3533,66 @@
     return false;
   }
 
+  function enhanceEdmontonRouteLinks(path) {
+    if (path !== "/edmonton-long-distance-movers/") return true;
+
+    var desiredRoutes = [
+      { label: "Edmonton \u2192 Winnipeg", href: "/edmonton-to-winnipeg-movers/" },
+      { label: "Edmonton \u2192 Calgary", href: "/movers-edmonton-to-calgary/" },
+    ];
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2, h3"), function (node) {
+      return /Routes\s+From\s+Edmonton/i.test((node.textContent || "").replace(/\s+/g, " ").trim());
+    });
+    if (!heading) return false;
+
+    var scope = heading.parentElement;
+    for (var i = 0; scope && i < 5; i += 1) {
+      var routeLinks = Array.prototype.slice.call(scope.querySelectorAll('a[href]'));
+      var sample = routeLinks.find(function (link) {
+        return /Edmonton\s*(?:\u2192|Ã¢â€ â€™|->|-)\s*(?:Toronto|Vancouver)/i.test(
+          (link.textContent || "").replace(/\s+/g, " ").trim()
+        );
+      });
+
+      if (sample) {
+        var grid = sample.parentElement || scope;
+        desiredRoutes.forEach(function (route) {
+          if (Array.prototype.some.call(grid.querySelectorAll('a[href]'), function (link) {
+            return link.getAttribute("href") === route.href;
+          })) {
+            return;
+          }
+
+          var clone = sample.cloneNode(true);
+          clone.setAttribute("href", route.href);
+          var textNodes = [];
+          var walker = document.createTreeWalker(clone, NodeFilter.SHOW_TEXT);
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          var routeText = textNodes.find(function (node) {
+            return /Edmonton\s*(?:\u2192|Ã¢â€ â€™|->|-)\s*(?:Toronto|Vancouver)/i.test(
+              (node.nodeValue || "").replace(/\s+/g, " ").trim()
+            );
+          });
+          if (routeText) {
+            routeText.nodeValue = routeText.nodeValue.replace(
+              /Edmonton\s*(?:\u2192|Ã¢â€ â€™|->|-)\s*(?:Toronto|Vancouver)/i,
+              route.label
+            );
+          } else {
+            clone.textContent = route.label;
+          }
+          grid.appendChild(clone);
+        });
+        return true;
+      }
+
+      scope = scope.parentElement;
+    }
+
+    return false;
+  }
+
   function showContactSummary() {
     if (normalizePath() !== "/contact/") return;
     var details = getSavedEstimateDetails();
@@ -3618,6 +3678,14 @@
       calgaryRouteAttempts += 1;
       if (enhanceCalgaryRouteLinks(path) || calgaryRouteAttempts > 30) {
         window.clearInterval(calgaryRouteTimer);
+      }
+    }, 250);
+
+    var edmontonRouteAttempts = 0;
+    var edmontonRouteTimer = window.setInterval(function () {
+      edmontonRouteAttempts += 1;
+      if (enhanceEdmontonRouteLinks(path) || edmontonRouteAttempts > 30) {
+        window.clearInterval(edmontonRouteTimer);
       }
     }, 250);
 
