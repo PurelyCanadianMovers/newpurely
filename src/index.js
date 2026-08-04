@@ -24,6 +24,8 @@ const REDIRECTS = new Map([
   ["/distance/", "/long-distance/"],
   ["/x-country", "/cross-country-movers/"],
   ["/x-country/", "/cross-country-movers/"],
+  ["/coquitlam-bc", "/coquitlam/"],
+  ["/coquitlam-bc/", "/coquitlam/"],
   ["/movers-west-vancouver.html", "/west-vancouver/"],
   ["/movers-in-west-vancouver.html", "/west-vancouver/"],
   ["/blog/cost-to-move-toronto-to-vancouver/", "/toronto-to-vancouver-movers/"],
@@ -69,7 +71,7 @@ const REDIRECTS = new Map([
   ],
   [
     "/2025/07/07/purely-canadian-movers-coquitlams-oldest-most-reputable-moving-company/",
-    "/local-movers-in-coquitlam-bc/",
+    "/coquitlam/",
   ],
   [
     "/2025/07/21/purely-canadian-movers-trusted-long-distance-movers-in-canada-with-honest-quotes/",
