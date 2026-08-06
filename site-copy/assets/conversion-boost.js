@@ -7,6 +7,7 @@
   var GOOGLE_REVIEWS_URL = "https://g.page/r/CRIx-kvcq5k0EAE/review";
   var BBB_PROFILE_URL =
     "https://www.bbb.org/ca/bc/coquitlam/profile/moving-companies/purely-canadian-movers-inc-0037-135934";
+  var GCVL_AGENT_PAGE_URL = "/great-canadian-vanlines-agent/";
   var OPENAI_ADS_PIXEL_ID = "VoQRj1i5cYmiok3DbhBcb5";
   var OPENAI_ADS_CONVERSION_EVENT = "order_created";
 
@@ -2512,7 +2513,9 @@
       '" target="_blank" rel="noopener noreferrer">BBB Accredited business</a>' +
       "<span>No brokers or subcontractors</span>" +
       "<span>Valuation coverage available</span>" +
-      "<span>Great Canadian Van Lines agent</span>" +
+      '<a href="' +
+      GCVL_AGENT_PAGE_URL +
+      '">Great Canadian Van Lines agent</a>' +
       "</div>" +
       "</div>" +
       '<form class="pcm-estimate-form" action="' +
