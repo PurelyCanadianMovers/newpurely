@@ -396,7 +396,7 @@
     "/montreal-to-winnipeg-movers/": "Montreal to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
-    "/movers-edmonton-to-toronto/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
+    "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/office-movers-in-vancouver-bc/": "Office Movers Vancouver BC | Corporate Moving",
     "/office/": "Office Movers Metro Vancouver | Corporate Moving",
     "/ottawa-long-distance-movers/": "Ottawa Long-Distance Movers | Cross-Canada Moving",
@@ -477,7 +477,7 @@
       "Calgary to Edmonton movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
     "/movers-edmonton-to-calgary/":
       "Edmonton to Calgary movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
-    "/movers-edmonton-to-toronto/":
+    "/edmonton-to-toronto-movers/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/vancouver-to-halifax-movers/":
       "Vancouver to Halifax movers for coast-to-coast relocation, packing, storage, valuation coverage, and written estimates. Since 1991, BBB Accredited.",
@@ -724,7 +724,7 @@
   };
 
   var ROUTE_COST_BLOCKS = {
-    "/movers-edmonton-to-toronto/": {
+    "/edmonton-to-toronto-movers/": {
       aria: "Edmonton to Toronto moving cost estimates",
       eyebrow: "Edmonton to Toronto moving cost",
       h1: "Edmonton to Toronto Moving Cost, Prices & Transit Time",
@@ -1440,7 +1440,7 @@
         ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
       ],
     },
-    "/movers-edmonton-to-toronto/": {
+    "/edmonton-to-toronto-movers/": {
       title: "Edmonton to Toronto movers with cost planning, transit timing, and trust proof",
       intro:
         "An Edmonton to Toronto move is a major long-distance relocation across Canada. Purely Canadian Movers helps customers compare estimated cost, shipment size, access, packing, storage, valuation coverage options, and delivery timing before booking.",
@@ -1950,7 +1950,7 @@
         ["Get a written estimate", "/contact/"],
       ],
     },
-    "/movers-edmonton-to-toronto/": {
+    "/edmonton-to-toronto-movers/": {
       from: "Edmonton",
       to: "Toronto",
       route: "Edmonton to Toronto",
