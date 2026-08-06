@@ -5,6 +5,8 @@
   var GOOGLE_MAPS_ADDRESS_URL =
     "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
   var GOOGLE_REVIEWS_URL = "https://g.page/r/CRIx-kvcq5k0EAE/review";
+  var BBB_PROFILE_URL =
+    "https://www.bbb.org/ca/bc/coquitlam/profile/moving-companies/purely-canadian-movers-inc-0037-135934";
   var OPENAI_ADS_PIXEL_ID = "VoQRj1i5cYmiok3DbhBcb5";
   var OPENAI_ADS_CONVERSION_EVENT = "order_created";
 
@@ -2505,7 +2507,9 @@
       '<div class="pcm-trust-row">' +
       "<span>Family-owned since 1991</span>" +
       "<span>Coquitlam office</span>" +
-      "<span>BBB Accredited business</span>" +
+      '<a href="' +
+      BBB_PROFILE_URL +
+      '" target="_blank" rel="noopener noreferrer">BBB Accredited business</a>' +
       "<span>No brokers or subcontractors</span>" +
       "<span>Valuation coverage available</span>" +
       "<span>Great Canadian Van Lines agent</span>" +
@@ -2603,7 +2607,9 @@
       '<article><strong><a href="' +
       GOOGLE_REVIEWS_URL +
       '" target="_blank" rel="noopener noreferrer">200 Google reviews</a></strong><span>Public customer feedback supports the trust signals shown on the page.</span></article>' +
-      "<article><strong>BBB Accredited</strong><span>A real moving company with a Coquitlam office, local phone number, and clear contact details.</span></article>" +
+      '<article><strong><a href="' +
+      BBB_PROFILE_URL +
+      '" target="_blank" rel="noopener noreferrer">BBB Accredited</a></strong><span>A real moving company with a Coquitlam office, local phone number, and clear contact details.</span></article>' +
       "<article><strong>No broker-style handoffs</strong><span>Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
       "</div>" +
       '<div class="pcm-route-confidence__reviews">' +
