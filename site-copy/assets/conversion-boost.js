@@ -4,6 +4,7 @@
   var CONTACT_URL = "/contact/";
   var GOOGLE_MAPS_ADDRESS_URL =
     "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
+  var GOOGLE_REVIEWS_URL = "https://g.page/r/CRIx-kvcq5k0EAE/review";
   var OPENAI_ADS_PIXEL_ID = "VoQRj1i5cYmiok3DbhBcb5";
   var OPENAI_ADS_CONVERSION_EVENT = "order_created";
 
@@ -2559,6 +2560,10 @@
     trustNote.className = "pcm-estimate-trust-note";
     trustNote.innerHTML =
       '<strong>Verified company details:</strong> Unit 16-91 Golden Dr., Coquitlam, BC · Local phone <a href="tel:16045227222">604-522-7222</a> · Direct mover since 1991';
+    trustNote.innerHTML +=
+      ' | <a href="' +
+      GOOGLE_REVIEWS_URL +
+      '" target="_blank" rel="noopener noreferrer">Google reviews</a>';
     form.appendChild(trustNote);
 
     form.addEventListener("submit", function () {
@@ -2595,7 +2600,9 @@
       "</div>" +
       '<div class="pcm-route-confidence__grid">' +
       "<article><strong>Since 1991</strong><span>More than three decades helping Canadians plan local and long-distance moves.</span></article>" +
-      "<article><strong>200 Google reviews</strong><span>Public customer feedback supports the trust signals shown on the page.</span></article>" +
+      '<article><strong><a href="' +
+      GOOGLE_REVIEWS_URL +
+      '" target="_blank" rel="noopener noreferrer">200 Google reviews</a></strong><span>Public customer feedback supports the trust signals shown on the page.</span></article>' +
       "<article><strong>BBB Accredited</strong><span>A real moving company with a Coquitlam office, local phone number, and clear contact details.</span></article>" +
       "<article><strong>No broker-style handoffs</strong><span>Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
       "</div>" +
@@ -2632,7 +2639,9 @@
       "</div>" +
       '<div class="pcm-route-confidence__grid">' +
       "<article><strong>Family-owned since 1991</strong><span>Experienced long-distance moving support for Toronto, the GTA, and cross-Canada routes.</span></article>" +
-      "<article><strong>200 Google reviews</strong><span>Public review proof helps customers compare trust, communication, and estimate clarity.</span></article>" +
+      '<article><strong><a href="' +
+      GOOGLE_REVIEWS_URL +
+      '" target="_blank" rel="noopener noreferrer">200 Google reviews</a></strong><span>Public review proof helps customers compare trust, communication, and estimate clarity.</span></article>' +
       "<article><strong>Written estimates</strong><span>Pricing is prepared from inventory, route, access, services, and shipment weight or volume.</span></article>" +
       "<article><strong>No broker-style handoffs</strong><span>Moves are coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
       "</div>" +
@@ -2686,7 +2695,9 @@
       "</div>" +
       '<div class="pcm-route-confidence__grid">' +
       "<article><strong>Family-owned since 1991</strong><span>More than three decades helping Canadians plan local and long-distance moves.</span></article>" +
-      "<article><strong>200 Google reviews</strong><span>Public review proof helps customers compare trust, communication, and estimate clarity.</span></article>" +
+      '<article><strong><a href="' +
+      GOOGLE_REVIEWS_URL +
+      '" target="_blank" rel="noopener noreferrer">200 Google reviews</a></strong><span>Public review proof helps customers compare trust, communication, and estimate clarity.</span></article>' +
       "<article><strong>No broker-style handoffs</strong><span>Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
       "<article><strong>Typical transit: " +
       config.transit +
