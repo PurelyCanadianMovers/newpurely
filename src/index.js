@@ -170,6 +170,16 @@ async function fetchStaticAsset(request, env, assetPath, extraHeaders = {}) {
   });
 }
 
+async function fetchStaticAssetWithStatus(request, env, assetPath, status, extraHeaders = {}) {
+  const response = await fetchStaticAsset(request, env, assetPath, extraHeaders);
+
+  return new Response(response.body, {
+    status,
+    statusText: status === 404 ? "Not Found" : response.statusText,
+    headers: response.headers,
+  });
+}
+
 function redirectWithSecurityHeaders(location, status = 301) {
   return withSecurityHeaders(Response.redirect(location, status));
 }
@@ -1017,6 +1027,13 @@ export default {
 
     if (destination) {
       return redirectWithSecurityHeaders(redirectLocation(request.url, destination), 301);
+    }
+
+    if (pathname === "/404" || pathname === "/404/") {
+      return fetchStaticAssetWithStatus(request, env, "/404/index.html", 404, {
+        "Cache-Control": "no-cache, max-age=0, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow, noarchive",
+      });
     }
 
     if (pathname === "/blog" || pathname === "/blog/") {

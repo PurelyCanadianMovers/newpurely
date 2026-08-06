@@ -31,7 +31,6 @@ Content-Signal: search=yes,ai-input=yes,ai-train=yes
 Allow: /
 Allow: /llms.txt
 Disallow: /admin/
-Disallow: /404/
 Disallow: /wp-admin/
 Disallow: /wp-content/
 Disallow: /wp-includes/
