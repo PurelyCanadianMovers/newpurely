@@ -94,6 +94,8 @@ const REDIRECTS = new Map([
   ["/local-movers-coquitlam/", "/local-movers-in-coquitlam-bc/"],
   ["/movers-toronto-to-calgary", "/toronto-to-calgary-movers/"],
   ["/movers-toronto-to-calgary/", "/toronto-to-calgary-movers/"],
+  ["/movers-toronto-to-vancouver", "/toronto-to-vancouver-movers/"],
+  ["/movers-toronto-to-vancouver/", "/toronto-to-vancouver-movers/"],
   ["/movers-edmonton-to-toronto", "/edmonton-to-toronto-movers/"],
   ["/movers-edmonton-to-toronto/", "/edmonton-to-toronto-movers/"],
   ["/movers-montreal-to-vancouver", "/montreal-to-vancouver-movers/"],
