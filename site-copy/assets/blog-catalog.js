@@ -32,6 +32,7 @@
       post.title,
       post.description,
       post.category,
+      post.author,
       (post.keywords || []).join(" "),
     ].join(" ");
     return normalize(haystack).indexOf(query) !== -1;
@@ -66,6 +67,7 @@
         '    <div class="meta-row"><span class="tag">' + escapeHtml(post.category) + '</span><span>' + escapeHtml(post.readTime || "") + '</span></div>',
         '    <h2>' + escapeHtml(post.title) + '</h2>',
         '    <p>' + escapeHtml(post.description) + '</p>',
+        '    <p class="author">' + escapeHtml(post.author || "Written by the Purely Canadian Movers team") + '</p>',
         '    <span class="read">Read article</span>',
         '  </div>',
         '</a>',
