@@ -727,6 +727,7 @@ const COST_ROUTE_ESTIMATES = [
   { route: "Ottawa to Toronto", from: "ottawa", to: "toronto", transit: "2-4 days", studio: "$800", oneBed: "$1,100", twoBed: "$1,500", threeBed: "$2,000", fourPlus: "$2,800" },
   { route: "Halifax to Toronto", from: "halifax", to: "toronto", transit: "5-12 days", studio: "$2,200", oneBed: "$2,900", twoBed: "$3,900", threeBed: "$5,300", fourPlus: "$7,000" },
   { route: "Halifax to Calgary", from: "halifax", to: "calgary", transit: "8-20 days", studio: "$2,800", oneBed: "$5,000", twoBed: "$6,800", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Halifax to Vancouver", from: "halifax", to: "vancouver", transit: "10-27 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
 ];
 
 function normalizeText(text) {

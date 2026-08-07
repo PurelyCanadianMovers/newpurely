@@ -387,6 +387,7 @@
     "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
     "/halifax-to-calgary-movers/": "Halifax to Calgary Movers | Costs, Transit & Quotes",
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
+    "/halifax-to-vancouver-movers/": "Halifax to Vancouver Movers | Coast-to-Coast Moving",
     "/long-distance-movers-montreal/": "Montreal Long-Distance Movers Since 1991 | Written Estimates",
     "/montreal-long-distance-movers/": "Montreal Long-Distance Movers Since 1991 | Written Estimates",
     "/montreal-to-calgary-movers/": "Montreal to Calgary Movers | Cross-Canada Moving",
@@ -476,6 +477,8 @@
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/halifax-to-calgary-movers/":
       "Halifax to Calgary movers with estimated prices by home size, 8-20 day transit planning, packing, storage, valuation options, and written moving quotes.",
+    "/halifax-to-vancouver-movers/":
+      "Halifax to Vancouver movers with estimated prices by home size, 10-27 day transit planning, packing, storage, valuation options, and written coast-to-coast moving quotes.",
     "/vancouver-to-halifax-movers/":
       "Vancouver to Halifax movers for coast-to-coast relocation, packing, storage, valuation coverage, and written estimates. Since 1991, BBB Accredited.",
     "/office/":
@@ -551,6 +554,7 @@
     ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
     ["Montreal to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-18 days"],
     ["Halifax to Calgary", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-20 days"],
+    ["Halifax to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-27 days"],
     ["Montreal to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
     ["Ottawa to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
     ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
@@ -1721,6 +1725,7 @@
     "/calgary-to-montreal-movers/": true,
     "/calgary-to-ottawa-movers/": true,
     "/halifax-to-calgary-movers/": true,
+    "/halifax-to-vancouver-movers/": true,
     "/vancouver-to-edmonton-movers/": true,
     "/vancouver-to-halifax-movers/": true,
     "/vancouver-to-montreal-movers/": true,
@@ -1980,6 +1985,13 @@
       route: "Halifax to Calgary",
       transit: "8-20 days",
       links: [["Halifax movers", "/halifax-long-distance-movers/"], ["Calgary movers", "/calgary-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/halifax-to-vancouver-movers/": {
+      from: "Halifax",
+      to: "Vancouver",
+      route: "Halifax to Vancouver",
+      transit: "10-27 days",
+      links: [["Halifax movers", "/halifax-long-distance-movers/"], ["Vancouver movers", "/vancouver-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
     },
     "/winnipeg-to-toronto-movers/": {
       from: "Winnipeg",
