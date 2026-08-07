@@ -386,6 +386,7 @@
     "/edmonton-to-winnipeg-movers/": "Edmonton to Winnipeg Moving Cost | Movers, Prices & Transit Time",
     "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
     "/halifax-to-calgary-movers/": "Halifax to Calgary Movers | Costs, Transit & Quotes",
+    "/halifax-to-edmonton-movers/": "Halifax to Edmonton Movers | Costs, Transit & Quotes",
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
     "/halifax-to-vancouver-movers/": "Halifax to Vancouver Movers | Coast-to-Coast Moving",
     "/long-distance-movers-montreal/": "Montreal Long-Distance Movers Since 1991 | Written Estimates",
@@ -477,6 +478,8 @@
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/halifax-to-calgary-movers/":
       "Halifax to Calgary movers with estimated prices by home size, 8-20 day transit planning, packing, storage, valuation options, and written moving quotes.",
+    "/halifax-to-edmonton-movers/":
+      "Halifax to Edmonton movers with estimated prices by home size, 8-20 day transit planning, packing, storage, valuation options, and written moving quotes.",
     "/halifax-to-vancouver-movers/":
       "Halifax to Vancouver movers with estimated prices by home size, 10-27 day transit planning, packing, storage, valuation options, and written coast-to-coast moving quotes.",
     "/vancouver-to-halifax-movers/":
@@ -554,6 +557,7 @@
     ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
     ["Montreal to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-18 days"],
     ["Halifax to Calgary", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-20 days"],
+    ["Halifax to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-20 days"],
     ["Halifax to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-27 days"],
     ["Montreal to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
     ["Ottawa to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
@@ -629,6 +633,7 @@
     ],
     "/halifax-long-distance-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
     "/halifax-to-calgary-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
+    "/halifax-to-edmonton-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
     "/halifax-to-vancouver-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
     "/victoria-long-distance-movers/": [
       ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
@@ -657,6 +662,7 @@
       "/ottawa-long-distance-movers/": "Ottawa",
       "/halifax-long-distance-movers/": "Halifax",
       "/halifax-to-calgary-movers/": "Halifax",
+      "/halifax-to-edmonton-movers/": "Halifax",
       "/halifax-to-vancouver-movers/": "Halifax",
       "/victoria-long-distance-movers/": "Victoria",
     };
@@ -1731,6 +1737,7 @@
     "/calgary-to-montreal-movers/": true,
     "/calgary-to-ottawa-movers/": true,
     "/halifax-to-calgary-movers/": true,
+    "/halifax-to-edmonton-movers/": true,
     "/halifax-to-vancouver-movers/": true,
     "/vancouver-to-edmonton-movers/": true,
     "/vancouver-to-halifax-movers/": true,
@@ -1991,6 +1998,13 @@
       route: "Halifax to Calgary",
       transit: "8-20 days",
       links: [["Halifax movers", "/halifax-long-distance-movers/"], ["Calgary movers", "/calgary-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
+    },
+    "/halifax-to-edmonton-movers/": {
+      from: "Halifax",
+      to: "Edmonton",
+      route: "Halifax to Edmonton",
+      transit: "8-20 days",
+      links: [["Halifax movers", "/halifax-long-distance-movers/"], ["Edmonton movers", "/edmonton-long-distance-movers/"], ["Cost guide", "/long-distance-moving-cost-canada/"], ["Packing services", "/packing/"], ["Get a written estimate", "/contact/"]],
     },
     "/halifax-to-vancouver-movers/": {
       from: "Halifax",
@@ -3594,6 +3608,65 @@
     return false;
   }
 
+  function enhanceHalifaxRouteLinks(path) {
+    if (path !== "/halifax-long-distance-movers/") return true;
+
+    var desiredRoutes = [
+      { label: "Halifax \u2192 Edmonton", href: "/halifax-to-edmonton-movers/" },
+    ];
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2, h3"), function (node) {
+      return /Routes\s+From\s+Halifax/i.test((node.textContent || "").replace(/\s+/g, " ").trim());
+    });
+    if (!heading) return false;
+
+    var scope = heading.parentElement;
+    for (var i = 0; scope && i < 5; i += 1) {
+      var routeLinks = Array.prototype.slice.call(scope.querySelectorAll('a[href]'));
+      var sample = routeLinks.find(function (link) {
+        return /Halifax\s*(?:\u2192|Ã¢â€ â€™|->|-)\s*(?:Toronto|Calgary|Vancouver)/i.test(
+          (link.textContent || "").replace(/\s+/g, " ").trim()
+        );
+      });
+
+      if (sample) {
+        var grid = sample.parentElement || scope;
+        desiredRoutes.forEach(function (route) {
+          if (Array.prototype.some.call(grid.querySelectorAll('a[href]'), function (link) {
+            return link.getAttribute("href") === route.href;
+          })) {
+            return;
+          }
+
+          var clone = sample.cloneNode(true);
+          clone.setAttribute("href", route.href);
+          var textNodes = [];
+          var walker = document.createTreeWalker(clone, NodeFilter.SHOW_TEXT);
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          var routeText = textNodes.find(function (node) {
+            return /Halifax\s*(?:\u2192|Ã¢â€ â€™|->|-)\s*(?:Toronto|Calgary|Vancouver)/i.test(
+              (node.nodeValue || "").replace(/\s+/g, " ").trim()
+            );
+          });
+          if (routeText) {
+            routeText.nodeValue = routeText.nodeValue.replace(
+              /Halifax\s*(?:\u2192|Ã¢â€ â€™|->|-)\s*(?:Toronto|Calgary|Vancouver)/i,
+              route.label
+            );
+          } else {
+            clone.textContent = route.label;
+          }
+          grid.appendChild(clone);
+        });
+        return true;
+      }
+
+      scope = scope.parentElement;
+    }
+
+    return false;
+  }
+
   function removeVisibleArrowFallbackText() {
     var changed = false;
     Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (link) {
@@ -3699,6 +3772,14 @@
       edmontonRouteAttempts += 1;
       if (enhanceEdmontonRouteLinks(path) || edmontonRouteAttempts > 30) {
         window.clearInterval(edmontonRouteTimer);
+      }
+    }, 250);
+
+    var halifaxRouteAttempts = 0;
+    var halifaxRouteTimer = window.setInterval(function () {
+      halifaxRouteAttempts += 1;
+      if (enhanceHalifaxRouteLinks(path) || halifaxRouteAttempts > 30) {
+        window.clearInterval(halifaxRouteTimer);
       }
     }, 250);
 
