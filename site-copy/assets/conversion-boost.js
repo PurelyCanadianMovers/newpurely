@@ -3612,7 +3612,10 @@
     if (path !== "/halifax-long-distance-movers/") return true;
 
     var desiredRoutes = [
+      { label: "Halifax \u2192 Toronto", href: "/halifax-to-toronto-movers/" },
+      { label: "Halifax \u2192 Calgary", href: "/halifax-to-calgary-movers/" },
       { label: "Halifax \u2192 Edmonton", href: "/halifax-to-edmonton-movers/" },
+      { label: "Halifax \u2192 Vancouver", href: "/halifax-to-vancouver-movers/" },
     ];
 
     var heading = Array.prototype.find.call(document.querySelectorAll("h2, h3"), function (node) {
