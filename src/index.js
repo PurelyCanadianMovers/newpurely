@@ -24,6 +24,8 @@ const REDIRECTS = new Map([
   ["/distance/", "/long-distance/"],
   ["/x-country", "/cross-country-movers/"],
   ["/x-country/", "/cross-country-movers/"],
+  ["/moving-in-abbotsford-bc", "/abbotsford/"],
+  ["/moving-in-abbotsford-bc/", "/abbotsford/"],
   ["/coquitlam-bc", "/coquitlam/"],
   ["/coquitlam-bc/", "/coquitlam/"],
   ["/movers-west-vancouver.html", "/west-vancouver/"],
