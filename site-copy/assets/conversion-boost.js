@@ -394,8 +394,8 @@
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
     "/montreal-to-winnipeg-movers/": "Montreal to Winnipeg Moving Cost | Movers, Prices & Transit Time",
-    "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
-    "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
+    "/calgary-to-edmonton-movers/": "Calgary to Edmonton Movers | Alberta Moving Route",
+    "/edmonton-to-calgary-movers/": "Edmonton to Calgary Movers | Alberta Moving Route",
     "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/office-movers-in-vancouver-bc/": "Office Movers Vancouver BC | Corporate Moving",
     "/office/": "Office Movers Metro Vancouver | Corporate Moving",
@@ -473,9 +473,9 @@
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/edmonton-to-winnipeg-movers/":
       "Edmonton to Winnipeg moving cost guide with estimated prices by home size, 1,300 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
-    "/movers-calgary-to-edmonton/":
+    "/calgary-to-edmonton-movers/":
       "Calgary to Edmonton movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
-    "/movers-edmonton-to-calgary/":
+    "/edmonton-to-calgary-movers/":
       "Edmonton to Calgary movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
     "/edmonton-to-toronto-movers/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
@@ -1392,7 +1392,7 @@
         ["What should a business provide for an estimate?", "Share origin and destination details, employee move dates, home size, access conditions, packing needs, storage timing, and any office or HR requirements."],
       ],
     },
-    "/movers-calgary-to-edmonton/": {
+    "/calgary-to-edmonton-movers/": {
       title: "Calgary to Edmonton movers with Alberta route planning and trust proof",
       intro:
         "A Calgary to Edmonton move still needs a clear written plan. Purely Canadian Movers helps customers compare route timing, shipment size, access, packing, storage, valuation coverage options, and direct accountability before booking.",
@@ -1416,7 +1416,7 @@
         ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
       ],
     },
-    "/movers-edmonton-to-calgary/": {
+    "/edmonton-to-calgary-movers/": {
       title: "Edmonton to Calgary movers with Alberta route planning and direct accountability",
       intro:
         "An Edmonton to Calgary move should include more than a basic price. Purely Canadian Movers helps plan access, shipment size, packing, storage, valuation coverage options, and route timing with direct moving accountability.",
@@ -3566,7 +3566,7 @@
 
     var desiredRoutes = [
       { label: "Edmonton \u2192 Winnipeg", href: "/edmonton-to-winnipeg-movers/" },
-      { label: "Edmonton \u2192 Calgary", href: "/movers-edmonton-to-calgary/" },
+      { label: "Edmonton \u2192 Calgary", href: "/edmonton-to-calgary-movers/" },
     ];
 
     var heading = Array.prototype.find.call(document.querySelectorAll("h2, h3"), function (node) {
