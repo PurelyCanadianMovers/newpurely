@@ -568,6 +568,14 @@
     ["Calgary to Winnipeg", "$2,300+", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
   ];
 
+  var HALIFAX_PRICING_SUMMARY_ROWS = [
+    ["Halifax to Toronto", "$2,200+", "$2,900-$3,900", "$5,300-$7,000", "5-12 days"],
+    ["Halifax to Vancouver", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-27 days"],
+    ["Halifax to Calgary", "$2,800+", "$5,000-$6,800", "$10,000-$15,000", "8-20 days"],
+    ["Halifax to Edmonton", "$2,800+", "$5,000-$6,800", "$10,000-$15,000", "8-20 days"],
+    ["Halifax to Montreal", "$2,200+", "$2,900-$3,900", "$5,300-$7,000", "5-12 days"],
+  ];
+
   var CITY_PRICING_SUMMARY_ROWS = {
     "/calgary-long-distance-movers/": CALGARY_PRICING_SUMMARY_ROWS,
     "/toronto-long-distance-movers/": [
@@ -619,13 +627,9 @@
       ["Ottawa to Victoria/Nanaimo", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
       ["Ottawa to Winnipeg", "$2,400+", "$3,400-$5,500", "$9,000-$13,000", "4-12 days"],
     ],
-    "/halifax-long-distance-movers/": [
-      ["Halifax to Toronto", "$2,200+", "$2,900-$3,900", "$5,300-$7,000", "5-12 days"],
-      ["Halifax to Vancouver", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-27 days"],
-      ["Halifax to Calgary", "$2,800+", "$5,000-$6,800", "$10,000-$15,000", "8-20 days"],
-      ["Halifax to Edmonton", "$2,800+", "$5,000-$6,800", "$10,000-$15,000", "8-20 days"],
-      ["Halifax to Montreal", "$2,200+", "$2,900-$3,900", "$5,300-$7,000", "5-12 days"],
-    ],
+    "/halifax-long-distance-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
+    "/halifax-to-calgary-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
+    "/halifax-to-vancouver-movers/": HALIFAX_PRICING_SUMMARY_ROWS,
     "/victoria-long-distance-movers/": [
       ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
       ["Victoria/Nanaimo to Ottawa", "$3,000+", "$5,300-$7,000", "$11,000-$16,000", "10-22 days"],
@@ -652,6 +656,8 @@
       "/montreal-long-distance-movers/": "Montreal",
       "/ottawa-long-distance-movers/": "Ottawa",
       "/halifax-long-distance-movers/": "Halifax",
+      "/halifax-to-calgary-movers/": "Halifax",
+      "/halifax-to-vancouver-movers/": "Halifax",
       "/victoria-long-distance-movers/": "Victoria",
     };
     return names[path] || "";
