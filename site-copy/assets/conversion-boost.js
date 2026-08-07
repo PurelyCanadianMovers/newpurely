@@ -394,8 +394,6 @@
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
     "/montreal-to-winnipeg-movers/": "Montreal to Winnipeg Moving Cost | Movers, Prices & Transit Time",
-    "/calgary-to-edmonton-movers/": "Calgary to Edmonton Movers | Alberta Moving Route",
-    "/edmonton-to-calgary-movers/": "Edmonton to Calgary Movers | Alberta Moving Route",
     "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/office-movers-in-vancouver-bc/": "Office Movers Vancouver BC | Corporate Moving",
     "/office/": "Office Movers Metro Vancouver | Corporate Moving",
@@ -473,10 +471,6 @@
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/edmonton-to-winnipeg-movers/":
       "Edmonton to Winnipeg moving cost guide with estimated prices by home size, 1,300 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
-    "/calgary-to-edmonton-movers/":
-      "Calgary to Edmonton movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
-    "/edmonton-to-calgary-movers/":
-      "Edmonton to Calgary movers with route planning, packing, storage, valuation coverage, and direct moving accountability. Since 1991, BBB Accredited.",
     "/edmonton-to-toronto-movers/":
       "Edmonton to Toronto moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/vancouver-to-halifax-movers/":
@@ -564,7 +558,6 @@
     ["Calgary to Ottawa", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
     ["Calgary to Montreal", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
     ["Calgary to Winnipeg", "$2,300+", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
-    ["Calgary to Edmonton", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
   ];
 
   var CITY_PRICING_SUMMARY_ROWS = {
@@ -593,7 +586,6 @@
       ["Edmonton to Ottawa", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "7-19 days"],
       ["Edmonton to Montreal", "$2,500+", "$4,700-$6,300", "$10,000-$15,000", "8-20 days"],
       ["Edmonton to Winnipeg", "$2,300+", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
-      ["Edmonton to Calgary", "$800+", "$1,100-$1,500", "$2,000-$2,800", "2-4 days"],
     ],
     "/long-distance-movers-montreal/": [
       ["Montreal to Vancouver", "$2,500+", "$4,700-$6,400", "$10,000-$15,000", "10-22 days"],
@@ -1390,54 +1382,6 @@
         ["Do you support long-distance employee relocation?", "Yes. Long-distance routes can be planned with Great Canadian Van Lines agent support and direct communication from Purely Canadian Movers."],
         ["Do you use subcontractors for corporate moves?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moving work."],
         ["What should a business provide for an estimate?", "Share origin and destination details, employee move dates, home size, access conditions, packing needs, storage timing, and any office or HR requirements."],
-      ],
-    },
-    "/calgary-to-edmonton-movers/": {
-      title: "Calgary to Edmonton movers with Alberta route planning and trust proof",
-      intro:
-        "A Calgary to Edmonton move still needs a clear written plan. Purely Canadian Movers helps customers compare route timing, shipment size, access, packing, storage, valuation coverage options, and direct accountability before booking.",
-      highlights: [
-        ["Route details", "Calgary pickup access, Edmonton delivery access, stairs, elevators, packing, storage timing, season, shipment size, and specialty items affect the estimate."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and long-distance moving experience."],
-        ["Estimate clarity", "Written estimates and direct communication help customers compare Alberta movers and avoid broker confusion."],
-      ],
-      links: [
-        ["Long-Distance Moving", "/long-distance/"],
-        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
-        ["Packing Services", "/packing/"],
-        ["Storage Services", "/storage/"],
-        ["Valuation Coverage", "/valuation-coverage-protection/"],
-        ["Get a Route Estimate", "/contact/"],
-      ],
-      faqs: [
-        ["Do you move from Calgary to Edmonton?", "Yes. Purely Canadian Movers can help plan Calgary to Edmonton moves with route planning, packing, storage, and valuation coverage options."],
-        ["How much does a Calgary to Edmonton move cost?", "Cost depends on shipment size, access, stairs, elevators, packing, storage, season, and the amount being moved."],
-        ["Can packing or storage be included?", "Yes. Packing, unpacking, storage, and valuation coverage options can be included in the estimate."],
-        ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
-      ],
-    },
-    "/edmonton-to-calgary-movers/": {
-      title: "Edmonton to Calgary movers with Alberta route planning and direct accountability",
-      intro:
-        "An Edmonton to Calgary move should include more than a basic price. Purely Canadian Movers helps plan access, shipment size, packing, storage, valuation coverage options, and route timing with direct moving accountability.",
-      highlights: [
-        ["Route details", "Edmonton pickup access, Calgary delivery access, stairs, elevators, parking, packing, storage timing, season, shipment size, and specialty items affect the estimate."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and long-distance moving experience."],
-        ["Estimate clarity", "Written estimates and one accountable moving team help customers compare movers safely."],
-      ],
-      links: [
-        ["Long-Distance Moving", "/long-distance/"],
-        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
-        ["Packing Services", "/packing/"],
-        ["Storage Services", "/storage/"],
-        ["Valuation Coverage", "/valuation-coverage-protection/"],
-        ["Get a Route Estimate", "/contact/"],
-      ],
-      faqs: [
-        ["Do you move from Edmonton to Calgary?", "Yes. Purely Canadian Movers can help plan Edmonton to Calgary moves with route planning, packing, storage, and valuation coverage options."],
-        ["How much does an Edmonton to Calgary move cost?", "Cost depends on shipment size, access, stairs, elevators, packing, storage, season, and the amount being moved."],
-        ["Can storage be included if dates do not line up?", "Yes. Storage can be coordinated when pickup and delivery dates do not align."],
-        ["Do you use subcontractors?", "No. Purely Canadian Movers focuses on direct accountability and does not subcontract moves."],
       ],
     },
     "/edmonton-to-toronto-movers/": {
@@ -3566,7 +3510,6 @@
 
     var desiredRoutes = [
       { label: "Edmonton \u2192 Winnipeg", href: "/edmonton-to-winnipeg-movers/" },
-      { label: "Edmonton \u2192 Calgary", href: "/edmonton-to-calgary-movers/" },
     ];
 
     var heading = Array.prototype.find.call(document.querySelectorAll("h2, h3"), function (node) {
