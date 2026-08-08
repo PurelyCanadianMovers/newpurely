@@ -403,7 +403,7 @@
     "/ottawa-long-distance-movers/": "Ottawa Long-Distance Movers | Cross-Canada Moving",
     "/ottawa-to-calgary-movers/": "Ottawa to Calgary Movers | Cross-Canada Moving",
     "/ottawa-to-edmonton-movers/": "Ottawa to Edmonton Movers | Long-Distance Moving",
-    "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Long-Distance Moving",
+    "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Ontario Moving Cost",
     "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/ottawa-to-victoria-movers/": "Ottawa to Victoria Movers | Long-Distance Moving",
     "/ottawa-to-winnipeg-movers/": "Ottawa to Winnipeg Moving Cost | Movers, Prices & Transit Time",
@@ -1862,6 +1862,8 @@
       to: "Vancouver",
       route: "Toronto to Vancouver",
       transit: "9-22 days",
+      summary:
+        "A Toronto to Vancouver move is a major cross-Canada relocation into the Lower Mainland. A realistic estimate should account for shipment weight or volume, Toronto pickup access, Vancouver delivery access, condo elevators, parking limits, packing, storage, valuation coverage, and route timing before you book.",
       links: [
         ["Toronto movers", "/toronto-long-distance-movers/"],
         ["Vancouver movers", "/vancouver-long-distance-movers/"],
@@ -1874,6 +1876,8 @@
       to: "Vancouver",
       route: "Montreal to Vancouver",
       transit: "10-22 days",
+      summary:
+        "A Montreal to Vancouver move is a coast-to-coast relocation into the Lower Mainland. A realistic estimate should account for shipment weight or volume, Montreal pickup access, Vancouver delivery access, elevator bookings, parking limits, packing, storage, valuation coverage, and route timing before you book.",
       links: [
         ["Montreal movers", "/long-distance-movers-montreal/"],
         ["Vancouver movers", "/vancouver-long-distance-movers/"],
@@ -1901,6 +1905,20 @@
       links: [
         ["Ottawa movers", "/long-distance-movers-ottawa/"],
         ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Cost guide", "/long-distance-moving-cost-canada/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+    },
+    "/ottawa-to-toronto-movers/": {
+      from: "Ottawa",
+      to: "Toronto",
+      route: "Ottawa to Toronto",
+      transit: "2-4 days",
+      summary:
+        "An Ottawa to Toronto move is an intercity Ontario move. A realistic estimate should account for shipment weight or volume, Ottawa pickup access, Toronto delivery access, condo elevators, loading docks, packing, storage, valuation coverage, and route timing before you book.",
+      links: [
+        ["Ottawa movers", "/ottawa-long-distance-movers/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
         ["Cost guide", "/long-distance-moving-cost-canada/"],
         ["Get a written estimate", "/contact/"],
       ],
@@ -2686,9 +2704,12 @@
       "<h2>Why families choose Purely Canadian Movers for " +
       config.route +
       " moves</h2>" +
-      "<p>A " +
-      config.route +
-      " move is a major long-distance relocation, so the safest estimate explains realistic cost ranges, typical transit, access, packing, storage, valuation coverage, and who coordinates your shipment before you book.</p>" +
+      "<p>" +
+      (config.summary ||
+        "A " +
+          config.route +
+          " move is a major long-distance relocation, so the safest estimate explains realistic cost ranges, typical transit, access, packing, storage, valuation coverage, and who coordinates your shipment before you book.") +
+      "</p>" +
       "</div>" +
       '<div class="pcm-route-confidence__grid">' +
       "<article><strong>Family-owned since 1991</strong><span>More than three decades helping Canadians plan local and long-distance moves.</span></article>" +
