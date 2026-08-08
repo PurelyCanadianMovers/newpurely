@@ -3878,3 +3878,84 @@
     init();
   }
 })();
+
+;(function () {
+  var targetPath = "/montreal-long-distance-movers/";
+  var imagePath = "/assets/montreal-long-distance-truck.png";
+  var imageUrl = "https://purelycanadianmovers.com/assets/montreal-long-distance-truck.png";
+  var imageAlt = "Great Canadian Van Lines truck in Montreal for Purely Canadian Movers long-distance moving";
+
+  function isTargetPage() {
+    return window.location.pathname === targetPath;
+  }
+
+  function isOldTruckAsset(value) {
+    return value && (
+      value.indexOf("hero-truck_dad4e475") !== -1 ||
+      value.indexOf("WhalenTractortrailer") !== -1 ||
+      value.indexOf("Whalen%20Tractor") !== -1 ||
+      value.indexOf("d2xsxph8kpxj0f.cloudfront.net") !== -1
+    );
+  }
+
+  function updateMeta(selector) {
+    var meta = document.querySelector(selector);
+    if (meta) {
+      meta.setAttribute("content", imageUrl);
+    }
+  }
+
+  function replaceMontrealTruckImage() {
+    if (!isTargetPage()) return;
+
+    updateMeta('meta[property="og:image"]');
+    updateMeta('meta[name="twitter:image"]');
+    var ogAlt = document.querySelector('meta[property="og:image:alt"]');
+    if (ogAlt) {
+      ogAlt.setAttribute("content", imageAlt);
+    }
+
+    document.querySelectorAll("img").forEach(function (img) {
+      var src = img.getAttribute("src") || "";
+      if (!isOldTruckAsset(src)) return;
+      img.setAttribute("src", imagePath);
+      img.setAttribute("alt", imageAlt);
+      img.removeAttribute("srcset");
+    });
+
+    document.querySelectorAll("source").forEach(function (source) {
+      var srcset = source.getAttribute("srcset") || "";
+      if (isOldTruckAsset(srcset)) {
+        source.setAttribute("srcset", imagePath);
+      }
+    });
+
+    document.querySelectorAll("[style]").forEach(function (element) {
+      var backgroundImage = element.style && element.style.backgroundImage;
+      if (isOldTruckAsset(backgroundImage)) {
+        element.style.backgroundImage = "url('" + imagePath + "')";
+      }
+    });
+  }
+
+  function startMontrealTruckSwap() {
+    if (!isTargetPage()) return;
+    replaceMontrealTruckImage();
+    [250, 750, 1500, 3000].forEach(function (delay) {
+      window.setTimeout(replaceMontrealTruckImage, delay);
+    });
+
+    if (!document.body || !window.MutationObserver) return;
+    var observer = new MutationObserver(replaceMontrealTruckImage);
+    observer.observe(document.body, { childList: true, subtree: true });
+    window.setTimeout(function () {
+      observer.disconnect();
+    }, 5000);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startMontrealTruckSwap);
+  } else {
+    startMontrealTruckSwap();
+  }
+})();
