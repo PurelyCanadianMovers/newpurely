@@ -312,7 +312,7 @@
       eyebrow: "Trusted Toronto to Calgary movers",
       title: "Get a written Toronto to Calgary moving estimate.",
       body:
-        "Your local moving contact, backed by a national van-line network. Purely Canadian Movers reviews your route, shipment size, dates, and access details before preparing a written estimate.",
+        "Purely Canadian Movers is an authorized Great Canadian Van Lines agent, providing Toronto-to-Calgary long-distance moving service through one of Canada's established national van-line networks.",
       fromPlaceholder: "Toronto, ON",
       toPlaceholder: "Calgary, AB",
       buttonLabel: "Get My Toronto to Calgary Estimate",
@@ -2617,11 +2617,11 @@
       '<div class="pcm-route-confidence__inner">' +
       '<div class="pcm-route-confidence__intro">' +
       "<h2>Your local mover, backed by a national van-line network</h2>" +
-      "<p>For Toronto to Calgary moves, Purely Canadian Movers gives you direct personal service from an experienced moving team plus the transportation resources of Great Canadian Van Lines agent-network support.</p>" +
+      "<p>Purely Canadian Movers is an authorized Great Canadian Van Lines agent, providing Toronto-to-Calgary long-distance moving service through one of Canada's established national van-line networks.</p>" +
       "</div>" +
       '<div class="pcm-route-confidence__grid">' +
       "<article><strong>You deal with us</strong><span>One accountable contact helps review your estimate, route details, shipment size, access, and delivery expectations.</span></article>" +
-      "<article><strong>Not a lead broker</strong><span>We do not hand your move to an unknown broker. Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
+      "<article><strong>Not a lead broker</strong><span>No moving brokers. Purely Canadian Movers is an authorized agent of Great Canadian Van Lines. Your Toronto-to-Calgary move is handled through the Great Canadian Van Lines network, with Purely Canadian Movers providing your estimate, documentation, and direct point of contact.</span></article>" +
       "<article><strong>Since 1991</strong><span>More than three decades helping Canadians plan local, long-distance, and cross-country moves.</span></article>" +
       '<article><strong><a href="' +
       GOOGLE_REVIEWS_URL +
