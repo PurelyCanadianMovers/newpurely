@@ -310,11 +310,14 @@
     },
     "/toronto-to-calgary-movers/": {
       eyebrow: "Trusted Toronto to Calgary movers",
-      title: "Move from Toronto to Calgary with confidence.",
+      title: "Get a written Toronto to Calgary moving estimate.",
       body:
-        "Family-owned since 1991, BBB Accredited, and backed by Great Canadian Van Lines agent-network support. Get a detailed written estimate before you book, with no broker-style handoffs to unknown movers.",
+        "Your local moving contact, backed by a national van-line network. Purely Canadian Movers reviews your route, shipment size, dates, and access details before preparing a written estimate.",
       fromPlaceholder: "Toronto, ON",
       toPlaceholder: "Calgary, AB",
+      buttonLabel: "Get My Toronto to Calgary Estimate",
+      reassurance:
+        "No obligation. No broker. Reviewed by an experienced moving consultant before we prepare your written estimate.",
     },
     "/local-movers-burnaby-bc/": {
       eyebrow: "Burnaby local movers",
@@ -2548,7 +2551,9 @@
     var buttonRow = document.createElement("div");
     buttonRow.className = "pcm-button-row";
     buttonRow.innerHTML =
-      '<button class="pcm-primary-button" type="submit">Get Written Estimate</button>' +
+      '<button class="pcm-primary-button" type="submit">' +
+      (config.buttonLabel || "Get Written Estimate") +
+      "</button>" +
       '<a class="pcm-secondary-button" href="' +
       PHONE_LINK +
       '">Call ' +
@@ -2558,7 +2563,9 @@
 
     var reassurance = document.createElement("div");
     reassurance.className = "pcm-estimate-reassurance";
-    reassurance.textContent = "Free estimate. No obligation. No deposit required for a quote. We use your details to prepare a more accurate moving estimate.";
+    reassurance.textContent =
+      config.reassurance ||
+      "Free estimate. No obligation. No deposit required for a quote. We use your details to prepare a more accurate moving estimate.";
     form.appendChild(reassurance);
 
     var bookingBonus = document.createElement("div");
@@ -2609,24 +2616,25 @@
     section.innerHTML =
       '<div class="pcm-route-confidence__inner">' +
       '<div class="pcm-route-confidence__intro">' +
-      "<h2>Why families choose Purely Canadian Movers for Toronto to Calgary moves</h2>" +
-      "<p>Cross-Canada moving is where low-ball quotes and broker handoffs cause the most stress. Purely Canadian Movers focuses on realistic written estimates, clear route planning, and direct accountability from estimate to delivery.</p>" +
+      "<h2>Your local mover, backed by a national van-line network</h2>" +
+      "<p>For Toronto to Calgary moves, Purely Canadian Movers gives you direct personal service from an experienced moving team plus the transportation resources of Great Canadian Van Lines agent-network support.</p>" +
       "</div>" +
       '<div class="pcm-route-confidence__grid">' +
-      "<article><strong>Since 1991</strong><span>More than three decades helping Canadians plan local and long-distance moves.</span></article>" +
+      "<article><strong>You deal with us</strong><span>One accountable contact helps review your estimate, route details, shipment size, access, and delivery expectations.</span></article>" +
+      "<article><strong>Not a lead broker</strong><span>We do not hand your move to an unknown broker. Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
+      "<article><strong>Since 1991</strong><span>More than three decades helping Canadians plan local, long-distance, and cross-country moves.</span></article>" +
       '<article><strong><a href="' +
       GOOGLE_REVIEWS_URL +
       '" target="_blank" rel="noopener noreferrer">200 Google reviews</a></strong><span>Public customer feedback supports the trust signals shown on the page.</span></article>' +
       '<article><strong><a href="' +
       BBB_PROFILE_URL +
       '" target="_blank" rel="noopener noreferrer">BBB Accredited</a></strong><span>A real moving company with a Coquitlam office, local phone number, and clear contact details.</span></article>' +
-      "<article><strong>No broker-style handoffs</strong><span>Your move is coordinated through Purely Canadian Movers and Great Canadian Van Lines agent-network support.</span></article>" +
+      "<article><strong>Written estimates</strong><span>Pricing is reviewed around shipment weight or volume, route distance, access, timing, packing, storage, and valuation options.</span></article>" +
       "</div>" +
       '<div class="pcm-route-confidence__reviews">' +
-      "<h3>What customers care about most</h3>" +
-      '<blockquote>"The estimate process was clear, and the team explained what could affect the final cost before moving day."</blockquote>' +
-      '<blockquote>"Communication mattered. We knew who to call, what the delivery window was, and what was included."</blockquote>' +
-      '<blockquote>"We compared cheaper quotes, but Purely Canadian helped us understand what a realistic cross-country move should cost."</blockquote>' +
+      "<h3>What happens after you request an estimate?</h3>" +
+      '<blockquote>Send us the basic details of your Toronto to Calgary move. We review your route, shipment size, moving dates, access conditions, packing needs, storage timing, and valuation options before preparing a written estimate.</blockquote>' +
+      '<blockquote>Have questions about weight, delivery windows, or why quotes vary so much? Call us before you book. We have been doing this since 1991.</blockquote>' +
       "</div>" +
       "</div>";
     return section;
