@@ -2566,6 +2566,7 @@
     bookingBonus.innerHTML =
       '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span>' +
       '<div><strong>Online estimate bonus: save at least $100</strong>' +
+      '<span class="pcm-estimate-bonus__deadline">Book before August 31</span>' +
       '<span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div>';
     form.appendChild(bookingBonus);
 

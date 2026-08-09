@@ -217,14 +217,15 @@
 
 .pcm-estimate-bonus {
   align-items: center;
-  background: #fff7f7;
-  border: 1px solid rgba(204, 26, 26, 0.28);
+  background: linear-gradient(135deg, #fff7f7 0%, #fffdfd 58%, #ffecec 100%);
+  border: 2px solid rgba(204, 26, 26, 0.42);
   border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(204, 26, 26, 0.1);
   color: var(--pcm-ink);
   display: flex;
-  gap: 10px;
+  gap: 12px;
   grid-column: 1 / -1;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 .pcm-estimate-bonus__icon {
@@ -245,11 +246,25 @@
 .pcm-estimate-bonus strong {
   color: var(--pcm-red-dark);
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.25;
 }
 
-.pcm-estimate-bonus span:not(.pcm-estimate-bonus__icon) {
+.pcm-estimate-bonus__deadline {
+  background: var(--pcm-red);
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-top: 6px;
+  padding: 6px 9px;
+  text-transform: uppercase;
+}
+
+.pcm-estimate-bonus span:not(.pcm-estimate-bonus__icon):not(.pcm-estimate-bonus__deadline) {
   color: var(--pcm-muted);
   display: block;
   font-size: 13px;
