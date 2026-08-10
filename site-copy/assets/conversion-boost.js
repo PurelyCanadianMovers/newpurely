@@ -213,10 +213,10 @@
       body: "Get help with Canada-USA moving logistics, packing, valuation coverage, route timing, and customs-aware planning.",
     },
     "/bc-to-washington-movers/": {
-      eyebrow: "Vancouver to Washington movers",
-      title: "Move from Vancouver to Washington, Seattle, Bellevue, or Redmond with confidence.",
+      eyebrow: "BC and Washington cross-border movers",
+      title: "Move between BC and Washington, including Seattle, Bellevue, or Redmond, with confidence.",
       body:
-        "Get a written cross-border moving estimate from Vancouver or BC to Washington State with customs-aware planning, packing, valuation coverage, and no broker-style handoffs to unknown movers.",
+        "Get a written cross-border moving estimate for BC to Washington or Washington to BC moves, with overnight service available, customs-aware planning, packing, valuation coverage, and no broker-style handoffs to unknown movers.",
       fromPlaceholder: "Vancouver, BC",
       toPlaceholder: "Seattle, WA",
     },
