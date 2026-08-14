@@ -1752,28 +1752,103 @@
     "/vancouver-to-redmond-movers/": true,
   };
 
-  function suppressStaticRouteNotFound(path) {
+  function staticRoutePlaceholders(path, config) {
+    var match = path.match(/^\/([a-z-]+)-to-([a-z-]+)-movers\/$/i);
+    if (!match) {
+      return {
+        from: config.fromPlaceholder || config.from,
+        to: config.toPlaceholder || config.to,
+      };
+    }
+
+    return {
+      from: config.fromPlaceholder || cityPlaceholder(match[1]),
+      to: config.toPlaceholder || cityPlaceholder(match[2]),
+    };
+  }
+
+  function setMetaContent(selector, value) {
+    if (!value) return;
+    var element = document.querySelector(selector);
+    if (element) element.setAttribute("content", value);
+  }
+
+  function setStaticRouteHead(path, config) {
+    if (!config) return;
+
+    var url = "https://purelycanadianmovers.com" + path;
+    var title = config.route + " Movers Since 1991 | Written Estimates";
+    var description = getRouteConfidenceDescription(config);
+    var canonical = document.getElementById("canonical-tag") || document.querySelector('link[rel="canonical"]');
+
+    document.title = title;
+    if (canonical) canonical.setAttribute("href", url);
+    setMetaContent('meta[name="description"]', description);
+    setMetaContent('meta[property="og:title"]', title);
+    setMetaContent('meta[property="og:description"]', description);
+    setMetaContent('meta[property="og:url"]', url);
+    setMetaContent('meta[name="twitter:title"]', title);
+    setMetaContent('meta[name="twitter:description"]', description);
+  }
+
+  function createStaticRoutePage(path) {
     if (!STATIC_ROUTE_PAGES[path]) return true;
 
     var root = document.getElementById("root");
     if (!root) return false;
 
-    var headings = Array.prototype.slice.call(root.querySelectorAll("h1, h2, h3"));
-    var notFoundHeading = headings.find(function (heading) {
-      var text = (heading.textContent || "").replace(/\s+/g, " ").trim();
-      return text === "404" || /^Page Not Found$/i.test(text);
-    });
+    if (root.querySelector(".pcm-static-route-page")) return true;
 
-    if (!notFoundHeading) return false;
+    var config = routeFromPath(path);
+    if (!config) return false;
 
-    var container = notFoundHeading.closest("main") || notFoundHeading.closest("section") || notFoundHeading.parentElement;
-    if (container && container !== root) {
-      container.remove();
-    } else {
-      notFoundHeading.remove();
+    setStaticRouteHead(path, config);
+
+    var header = root.querySelector("header");
+    var footer = root.querySelector("footer");
+    var preservedHeader = header ? header.cloneNode(true) : null;
+    var preservedFooter = footer ? footer.cloneNode(true) : null;
+    var placeholders = staticRoutePlaceholders(path, config);
+    var leadConfig = {
+      eyebrow: "LONG-DISTANCE MOVING ESTIMATE",
+      title: "Get a written estimate for your " + config.route + " move.",
+      body:
+        "Plan your " +
+        config.route +
+        " move with realistic pricing, transit timing, packing, storage, valuation coverage, and clear Great Canadian Van Lines agent-network support.",
+      fromPlaceholder: placeholders.from,
+      toPlaceholder: placeholders.to,
+      buttonLabel: "Get Written Estimate",
+    };
+
+    var main = document.createElement("main");
+    main.className = "pcm-static-route-page";
+
+    var intro = document.createElement("section");
+    intro.className = "pcm-lead-boost pcm-static-route-intro";
+    intro.innerHTML =
+      "<h1>" +
+      config.route +
+      " movers for long-distance moves</h1>" +
+      "<p>Purely Canadian Movers helps customers compare written estimates, route timing, shipment weight or volume, packing, storage, valuation coverage, and delivery planning before booking a " +
+      config.route +
+      " move.</p>";
+
+    main.appendChild(intro);
+    main.appendChild(createLeadPanel(leadConfig));
+    main.appendChild(createRouteConfidenceBlock(config));
+
+    var staticSeoBlock = document.querySelector('[data-pcm-static-local-seo="' + path + '"]');
+    if (staticSeoBlock) {
+      main.appendChild(staticSeoBlock);
     }
 
+    root.innerHTML = "";
+    if (preservedHeader) root.appendChild(preservedHeader);
+    root.appendChild(main);
+    if (preservedFooter) root.appendChild(preservedFooter);
     document.body.classList.add("pcm-static-route-ready");
+    createStickyCta();
     return true;
   }
 
@@ -3828,7 +3903,7 @@
     var staticRouteAttempts = 0;
     var staticRouteTimer = window.setInterval(function () {
       staticRouteAttempts += 1;
-      if (suppressStaticRouteNotFound(path) || staticRouteAttempts > 30) {
+      if (createStaticRoutePage(path) || staticRouteAttempts > 30) {
         window.clearInterval(staticRouteTimer);
       }
     }, 250);
