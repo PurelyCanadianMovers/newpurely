@@ -148,14 +148,15 @@
       body: "Long-distance pricing depends on route, weight, access, season, packing, and storage. Send us your move details for a clearer range.",
     },
     "/local/": {
-      eyebrow: "Metro Vancouver local move",
-      title: "Get a local moving estimate for Metro Vancouver.",
-      body: "Book a direct mover with no subcontractors for apartments, condos, houses, offices, and furniture moves.",
+      eyebrow: "Metro Vancouver local movers",
+      title: "Local movers in Metro Vancouver since 1991.",
+      body: "Direct local moving company based in Coquitlam. Family-owned, BBB Accredited, no subcontractors, clear written estimates, 200 Google reviews, and local phone support at 604-522-7222.",
     },
     "/maple-ridge/": {
       eyebrow: "Maple Ridge movers",
-      title: "Trusted Maple Ridge movers since 1991.",
-      body: "Get a free written estimate for a Maple Ridge house, condo, apartment, acreage, or long-distance move with direct moving accountability.",
+      title: "Maple Ridge movers for local and long-distance moves.",
+      body: "Get a free written estimate for a Maple Ridge house, condo, apartment, acreage, packing, storage, or long-distance move with direct moving accountability.",
+      fromPlaceholder: "Maple Ridge, BC",
     },
     "/local-movers-in-coquitlam-bc/": {
       eyebrow: "Coquitlam local movers",

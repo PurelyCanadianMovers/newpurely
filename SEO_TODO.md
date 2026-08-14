@@ -64,13 +64,70 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [x] Strengthen `/port-moody/` as a supporting city hub with title cleanup, Port Moody-specific content, internal links, and FAQ schema.
 - [x] Strengthen `/local-movers-white-rock-bc/` after Maple Ridge and Coquitlam cluster work.
 - [x] Strengthen the Port Coquitlam page/cluster after Maple Ridge and Coquitlam cluster work.
-- [ ] Strengthen `/packing-services-coquitlam-bc/` because Google flagged it as duplicate/weak: add unique title/meta, Coquitlam-specific packing content, local trust proof, and links to `/local-movers-in-coquitlam-bc/`, `/storage/`, and `/valuation-coverage-protection/`.
+- [x] Strengthen `/packing-services-coquitlam-bc/` because Google flagged it as duplicate/weak: add unique title/meta, Coquitlam-specific packing content, local trust proof, and links to `/local-movers-in-coquitlam-bc/`, `/storage/`, and `/valuation-coverage-protection/`.
 - [ ] Strengthen `/local-movers-langley-bc/` because Google flagged it as duplicate/weak even though it is a commercial local keyword: add unique Langley title/meta, local moving content, trust proof, FAQ/schema, and internal links to nearby service-area and moving-service pages.
-- [ ] Resolve the duplicate Edmonton-to-Toronto route URLs: choose the preferred page between `/edmonton-to-toronto-movers/` and `/movers-edmonton-to-toronto/`, strengthen the preferred page, and remove or redirect the duplicate to avoid canonical confusion.
+- [ ] Improve `/calgary-long-distance-movers/` for Search Console query `long distance movers calgary`: current average position is about 18.8 with impressions but no clicks. Confirm the ranking page in Search Console, then strengthen Calgary-specific content, route links, cost/transit table, FAQ/schema, trust proof near the estimate form, and internal links from `/long-distance/`, `/long-distance-moving-cost-canada/`, route pages, and relevant blog posts.
+- [x] Resolve the duplicate Edmonton-to-Toronto route URLs: choose the preferred page between `/edmonton-to-toronto-movers/` and `/movers-edmonton-to-toronto/`, strengthen the preferred page, and remove or redirect the duplicate to avoid canonical confusion.
 - [ ] Continue expanding city/service internal links across the local moving cluster.
 - [ ] Monitor Google Search Console validation while it is still running; no new redirect/indexing changes unless Soft 404, Page with redirect, Not found 404, Redirect error, or Crawled currently not indexed shows new failed examples with recent crawl dates.
+- [x] Confirm `/montreal-to-calgary-movers/` is indexed in Google Search Console.
 - [ ] Monitor GBP calls, website clicks, and direction clicks after each local SEO update.
 - [ ] Re-run `npm run audit:seo` after improvements and update `LOCAL_SEO_AUDIT.md`.
+
+## Remaining Static HTML / JS-Dependent Pages
+
+These pages still need stronger raw HTML content so crawlers do not have to rely entirely on the client-side app render. Highest-priority hub pages were completed on July 7, 2026: `/packing/`, `/storage/`, `/services/`, `/office/`, `/our-network/`, `/great-canadian-vanlines-agent/`, `/cross-country-movers/`, `/cross-country-moving-guide/`, and `/how-to-choose-a-mover/`.
+
+Local/service pages:
+
+- [ ] Strengthen `/vancouver/` with unique Vancouver mover title/meta, static city content, trust proof, FAQ schema, and internal links.
+- [ ] Strengthen `/new-westminster/` with unique city content, access/building notes, trust proof, FAQ schema, and internal links.
+- [ ] Strengthen `/richmond/` with unique city content, condo/apartment/access notes, trust proof, FAQ schema, and internal links.
+- [ ] Strengthen `/pitt-meadows/` with unique city content, local moving scenarios, trust proof, FAQ schema, and internal links.
+- [ ] Strengthen `/port-moody/` raw HTML if still generic after previous visible-content work.
+- [ ] Strengthen `/white-rock/` with unique city content, local/long-distance moving notes, trust proof, FAQ schema, and internal links.
+- [ ] Strengthen `/local-movers-in-vancouver-bc/` raw HTML if still generic after previous visible-content work.
+- [ ] Strengthen `/local-movers-new-westminster-bc/`.
+- [ ] Strengthen `/local-movers-port-moody-bc/`.
+- [ ] Strengthen `/local-movers-richmond-bc/`.
+- [ ] Strengthen `/local-movers-white-rock-bc/` raw HTML if still generic after previous visible-content work.
+
+Long-distance city hub pages:
+
+- [ ] Strengthen `/long-distance-movers-calgary/`.
+- [ ] Strengthen `/long-distance-movers-edmonton/`.
+- [ ] Strengthen `/long-distance-movers-halifax/`.
+- [ ] Strengthen `/long-distance-movers-montreal/`.
+- [ ] Strengthen `/long-distance-movers-ottawa/`.
+- [ ] Strengthen `/long-distance-movers-toronto/`.
+- [ ] Strengthen `/long-distance-movers-victoria/`.
+- [ ] Strengthen `/montreal-long-distance-movers/`.
+- [ ] Strengthen `/ottawa-long-distance-movers/`.
+- [ ] Strengthen `/edmonton-long-distance-movers/`.
+- [ ] Strengthen `/halifax-long-distance-movers/`.
+- [ ] Strengthen `/victoria-long-distance-movers/`.
+
+Packing and office city pages:
+
+- [ ] Strengthen `/packing-service-in-coquitlam-bc/` raw HTML if still generic after previous content work.
+- [ ] Strengthen `/packing-services-burnaby-bc/`.
+- [ ] Strengthen `/packing-services-langley-bc/`.
+- [ ] Strengthen `/packing-services-richmond-bc/`.
+- [ ] Strengthen `/packing-services-surrey-bc/`.
+- [ ] Strengthen `/packing-services-vancouver-bc/`.
+- [ ] Strengthen `/office-movers-burnaby-bc/`.
+- [ ] Strengthen `/office-movers-coquitlam-bc/`.
+- [ ] Strengthen `/office-movers-langley-bc/`.
+- [ ] Strengthen `/office-movers-richmond-bc/`.
+- [ ] Strengthen `/office-movers-surrey-bc/`.
+
+Lower-priority utility or non-core pages:
+
+- [ ] Review `/about/` raw HTML.
+- [ ] Review `/testimonials/` raw HTML.
+- [ ] Review `/404/` custom 404 behavior and raw HTML.
+- [ ] Review `/overseas/` only if the service becomes a business priority.
+- [ ] Review `/distance/`, `/index.html`, and `/x-country/` for redirect/canonical cleanup.
 
 Admin/blog access note:
 
@@ -82,6 +139,7 @@ Admin/blog access note:
 ## AI Overview / Answer Engine Monitoring To-Do
 
 - [ ] Check Search Console weekly, not daily, because AI/search visibility usually needs more than one crawl cycle.
+- [ ] Clarify long-distance trust wording across route pages, long-distance hubs, company proof/About, FAQ, and knowledge catalog: keep "no subcontractors" but explain that Purely Canadian Movers does not hand moves to independent subcontractors; long-distance moves may be coordinated through the Great Canadian Van Lines network and its established agents.
 - [ ] Watch for early movement 1-3 weeks after page changes: recrawled pages, updated titles/snippets, new long-tail impressions, and FAQ/schema recognition.
 - [ ] Look for stronger evidence after 4-8 weeks: improved impressions, better CTR, more question-style queries, and occasional answer-engine pickup.
 - [ ] Treat 2-4 months as the realistic window for meaningful AI Overview improvement on competitive moving searches.
@@ -92,3 +150,23 @@ Admin/blog access note:
 Reminder:
 
 - Google does not guarantee AI Overview placement, and Search Console does not yet provide a clean AI Overview ranking report.
+
+## DIY Citations / Listings To-Do
+
+What we can do ourselves:
+
+- [ ] Audit current NAP consistency across the website and major public listings.
+- [ ] Build a master business profile sheet with approved company name, address, phone numbers, website, email, hours, categories, service areas, and short business descriptions.
+- [ ] Fix Google Business Profile.
+- [ ] Fix Bing Places.
+- [ ] Fix Apple Business Connect.
+- [ ] Fix Yelp.
+- [ ] Fix Facebook.
+- [ ] Fix BBB.
+- [ ] Ask Great Canadian Van Lines to make the Purely Canadian Movers website URL clickable on their Coquitlam agent listing and, if possible, add a short description: "Purely Canadian Movers is a Coquitlam-based moving company and authorized Great Canadian Van Lines agent, serving local and long-distance moves across Canada."
+- [ ] Fix YellowPages.
+- [ ] Fix HomeStars.
+- [ ] Fix 411.ca / Canada411 where possible.
+- [ ] Identify duplicate listings.
+- [ ] Track logins, status, and correction dates.
+- [ ] Create a citation cleanup checklist for monthly rechecks.
