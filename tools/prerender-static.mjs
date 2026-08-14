@@ -35,6 +35,10 @@ const types = {
 };
 
 const excludedRouteParts = new Set(["admin", "404", "siteblog", "wp-admin", "wp-content", "wp-includes"]);
+const excludedRoutes = new Set([
+  "/movers-calgary-to-edmonton/",
+  "/movers-edmonton-to-calgary/",
+]);
 
 async function exists(path) {
   try {
@@ -105,7 +109,7 @@ function fileToRoute(root, file) {
 
 function isPublicRoute(route) {
   const parts = route.split("/").filter(Boolean);
-  return !parts.some((part) => excludedRouteParts.has(part) || part.startsWith("wp-"));
+  return !excludedRoutes.has(route) && !parts.some((part) => excludedRouteParts.has(part) || part.startsWith("wp-"));
 }
 
 function isEmptyShell(html) {
@@ -183,6 +187,9 @@ async function main() {
   await rm(outputRoot, { recursive: true, force: true });
   await mkdir(dirname(outputRoot), { recursive: true });
   await cp(sourceRoot, outputRoot, { recursive: true });
+  for (const route of excludedRoutes) {
+    await rm(join(outputRoot, route), { recursive: true, force: true });
+  }
 
   const server = await createStaticServer(sourceRoot);
   const results = [];
