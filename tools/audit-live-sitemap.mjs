@@ -45,6 +45,24 @@ function csvCell(value) {
   return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
 }
 
+function contentKindFor(url, result) {
+  const pathname = new URL(url).pathname.toLowerCase();
+  if (/\.(json|md|txt|xml|csv)$/i.test(pathname)) return pathname.split(".").pop();
+  if (/html/i.test(result.contentType) || /<html[\s>]/i.test(result.body ?? "")) return "html";
+  return "other";
+}
+
+function isMalformedCanonical(canonical) {
+  if (!canonical) return false;
+  if (/https?:\/\/[^/]+\/https?:\/\//i.test(canonical)) return true;
+  try {
+    const parsed = new URL(canonical);
+    return !parsed.protocol.startsWith("http");
+  } catch {
+    return true;
+  }
+}
+
 async function requestWithRedirects(url) {
   const chain = [];
   let currentUrl = url;
@@ -119,21 +137,33 @@ function analyzeHtml(result) {
 }
 
 function buildFlags(row) {
-  const flags = [];
-  if (row.status !== 200) flags.push(`status_${row.status}`);
-  if (row.redirectCount > 0) flags.push(`redirect_${row.redirectCount}`);
-  if (row.redirectCount > 1) flags.push("redirect_chain");
-  if (row.soft404Likely) flags.push("soft_404");
-  if (!row.title) flags.push("missing_title");
-  if (row.titleDuplicate) flags.push("duplicate_title");
-  if (row.h1Count === 0) flags.push("missing_h1");
-  if (row.h1Count > 1) flags.push("multiple_h1");
-  if (!row.canonical) flags.push("missing_canonical");
-  if (row.canonical && row.status === 200 && row.canonical.replace(/\/$/, "") !== row.finalUrl.replace(/\/$/, "")) flags.push("canonical_not_final_url");
-  if (row.noindex) flags.push("noindex");
-  if (row.rootEmpty) flags.push("empty_root");
-  if (!row.hasSubstantialBody) flags.push("thin_raw_html");
-  return flags;
+  const issueFlags = [];
+  const warningFlags = [];
+  const isHtml = row.contentKind === "html";
+
+  if (row.status !== 200) issueFlags.push(`status_${row.status}`);
+  if (row.redirectCount > 0) warningFlags.push(`redirect_${row.redirectCount}`);
+  if (row.redirectCount > 1) issueFlags.push("redirect_chain");
+
+  if (!isHtml) {
+    return { issueFlags, warningFlags, flags: [...issueFlags, ...warningFlags] };
+  }
+
+  if (row.soft404Likely) issueFlags.push("soft_404");
+  if (!row.title) warningFlags.push("missing_title");
+  if (row.titleDuplicate) warningFlags.push("duplicate_title");
+  if (row.h1Count === 0) issueFlags.push("missing_h1");
+  if (row.h1Count > 1) warningFlags.push("multiple_h1");
+  if (!row.canonical) warningFlags.push("missing_canonical");
+  if (isMalformedCanonical(row.canonical)) issueFlags.push("malformed_canonical");
+  if (row.canonical && row.status === 200 && row.canonical.replace(/\/$/, "") !== row.finalUrl.replace(/\/$/, "")) {
+    warningFlags.push("canonical_not_final_url");
+  }
+  if (row.noindex) issueFlags.push("noindex");
+  if (row.rootEmpty) issueFlags.push("empty_root");
+  if (!row.hasSubstantialBody) warningFlags.push("thin_raw_html");
+
+  return { issueFlags, warningFlags, flags: [...issueFlags, ...warningFlags] };
 }
 
 const sitemapResponse = await requestWithRedirects(sitemapUrl);
@@ -150,7 +180,8 @@ const rows = [];
 for (const [index, url] of urls.entries()) {
   try {
     const result = await requestWithRedirects(url);
-    const html = /html/i.test(result.contentType) || /<html[\s>]/i.test(result.body) ? analyzeHtml(result) : {};
+    const contentKind = contentKindFor(url, result);
+    const html = contentKind === "html" ? analyzeHtml(result) : {};
     rows.push({
       index: index + 1,
       requestedUrl: url,
@@ -158,6 +189,7 @@ for (const [index, url] of urls.entries()) {
       finalUrl: result.finalUrl,
       redirectCount: Math.max(0, result.chain.length - 1),
       redirectChain: result.chain.map((item) => `${item.status}:${item.url}`).join(" -> "),
+      contentKind,
       contentType: result.contentType,
       error: result.error ?? "",
       ...html,
@@ -170,6 +202,7 @@ for (const [index, url] of urls.entries()) {
       finalUrl: "",
       redirectCount: 0,
       redirectChain: "",
+      contentKind: "error",
       contentType: "",
       error: error.message,
     });
@@ -184,7 +217,10 @@ for (const row of rows) {
 
 for (const row of rows) {
   row.titleDuplicate = row.title ? titleCounts.get(row.title) > 1 : false;
-  row.flags = buildFlags(row);
+  const { issueFlags, warningFlags, flags } = buildFlags(row);
+  row.issueFlags = issueFlags;
+  row.warningFlags = warningFlags;
+  row.flags = flags;
 }
 
 await mkdir(outputDir, { recursive: true });
@@ -199,6 +235,7 @@ const csvColumns = [
   "status",
   "finalUrl",
   "redirectCount",
+  "contentKind",
   "canonical",
   "title",
   "titleLength",
@@ -211,15 +248,22 @@ const csvColumns = [
   "meaningfulTextLength",
   "soft404Likely",
   "titleDuplicate",
+  "issueFlags",
+  "warningFlags",
   "flags",
   "error",
 ];
 
 const csv = [
   csvColumns.join(","),
-  ...rows.map((row) => csvColumns.map((column) => csvCell(column === "flags" ? row.flags.join(";") : row[column])).join(",")),
+  ...rows.map((row) => csvColumns.map((column) => {
+    if (["issueFlags", "warningFlags", "flags"].includes(column)) return csvCell(row[column].join(";"));
+    return csvCell(row[column]);
+  }).join(",")),
 ].join("\n");
 
+const issueRows = rows.filter((row) => row.issueFlags.length || row.error);
+const warningRows = rows.filter((row) => !row.issueFlags.length && !row.error && row.warningFlags.length);
 const flagged = rows.filter((row) => row.flags.length || row.error);
 const summary = [
   "# Live Sitemap Audit",
@@ -227,22 +271,43 @@ const summary = [
   `Sitemap: ${sitemapUrl}`,
   `Run: ${new Date().toISOString()}`,
   `URLs checked: ${rows.length}`,
-  `Flagged rows: ${flagged.length}`,
+  `Production issues: ${issueRows.length}`,
+  `Warnings: ${warningRows.length}`,
+  `Total flagged rows: ${flagged.length}`,
   "",
-  "## Flag Summary",
+  "## Production Issue Summary",
   "",
   ...Object.entries(
-    flagged.flatMap((row) => row.flags).reduce((acc, flag) => {
+    issueRows.flatMap((row) => row.issueFlags).reduce((acc, flag) => {
       acc[flag] = (acc[flag] ?? 0) + 1;
       return acc;
     }, {}),
   )
     .sort((a, b) => b[1] - a[1])
     .map(([flag, count]) => `- ${flag}: ${count}`),
+  ...(issueRows.length ? [] : ["- None"]),
   "",
-  "## Flagged URLs",
+  "## Warning Summary",
   "",
-  ...flagged.map((row) => `- ${row.requestedUrl} - ${row.flags.join(", ") || row.error}`),
+  ...Object.entries(
+    warningRows.flatMap((row) => row.warningFlags).reduce((acc, flag) => {
+      acc[flag] = (acc[flag] ?? 0) + 1;
+      return acc;
+    }, {}),
+  )
+    .sort((a, b) => b[1] - a[1])
+    .map(([flag, count]) => `- ${flag}: ${count}`),
+  ...(warningRows.length ? [] : ["- None"]),
+  "",
+  "## Production Issue URLs",
+  "",
+  ...issueRows.map((row) => `- ${row.requestedUrl} - ${(row.issueFlags.length ? row.issueFlags : [row.error]).join(", ")}`),
+  ...(issueRows.length ? [] : ["- None"]),
+  "",
+  "## Warning URLs",
+  "",
+  ...warningRows.map((row) => `- ${row.requestedUrl} - ${row.warningFlags.join(", ")}`),
+  ...(warningRows.length ? [] : ["- None"]),
   "",
 ].join("\n");
 
@@ -253,4 +318,7 @@ await writeFile(summaryPath, summary);
 console.log(`JSON: ${jsonPath}`);
 console.log(`CSV: ${csvPath}`);
 console.log(`Summary: ${summaryPath}`);
+console.log(`Production issues: ${issueRows.length}/${rows.length}`);
+console.log(`Warnings: ${warningRows.length}/${rows.length}`);
 console.log(`Flagged: ${flagged.length}/${rows.length}`);
+if (issueRows.length) process.exitCode = 1;
