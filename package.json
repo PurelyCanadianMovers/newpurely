@@ -8,6 +8,7 @@
     "mirror": "node tools/mirror-site.mjs https://purelycanadianmovers.com/ site-copy 20",
     "catalog": "node tools/build-knowledge-catalog.mjs site-copy",
     "routes": "node tools/generate-spa-routes.mjs site-copy",
-    "audit:seo": "node tools/audit-local-seo.mjs site-copy http://localhost:4175 LOCAL_SEO_AUDIT.md"
+    "audit:seo": "node tools/audit-local-seo.mjs site-copy http://localhost:4175 LOCAL_SEO_AUDIT.md",
+    "health:post-deploy": "node tools/audit-live-sitemap.mjs"
   }
 }
