@@ -244,6 +244,7 @@
     "/vancouver-to-toronto-movers/": "Vancouver to Toronto Movers | Cross-Canada Moving",
     "/victoria-long-distance-movers/": "Victoria Long-Distance Movers | Cross-Canada Moving",
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
+    "/west-vancouver/": "West Vancouver Movers | Local, Condo & House Moves",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
     "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Moving Cost | Movers, Distance & Transit Time",
     "/x-country/": "Cross-Country Moving Cost Guide | Canada Routes",
