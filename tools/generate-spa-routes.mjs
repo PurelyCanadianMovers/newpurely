@@ -6,6 +6,13 @@ const index = await readFile(join(outDir, "index.html"), "utf8");
 const bundle = await readFile(join(outDir, "assets", "index-CNBNs70h.js"), "utf8");
 const siteOrigin = "https://purelycanadianmovers.com";
 const privateRoutePrefixes = ["/admin/", "/404/"];
+const sitemapExcludedRoutes = new Set([
+  "/calgary-to-edmonton-movers/",
+  "/edmonton-to-calgary-movers/",
+  "/movers-calgary-to-edmonton/",
+  "/movers-edmonton-to-calgary/",
+  "/movers-vancouver-to-halifax/",
+]);
 const routeHeadOverrides = {
   "/local-movers-burnaby-bc/": {
     title: "Local Movers in Burnaby, BC | Purely Canadian Movers",
@@ -200,7 +207,9 @@ for (const route of routes) {
   await writeFile(target, html);
 }
 
-const publicRoutes = [...routes].filter((route) => !isPrivateRoute(route)).sort();
+const publicRoutes = [...routes]
+  .filter((route) => !isPrivateRoute(route) && !sitemapExcludedRoutes.has(route))
+  .sort();
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${publicRoutes

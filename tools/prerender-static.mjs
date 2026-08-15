@@ -36,8 +36,11 @@ const types = {
 
 const excludedRouteParts = new Set(["admin", "404", "siteblog", "wp-admin", "wp-content", "wp-includes"]);
 const excludedRoutes = new Set([
+  "/calgary-to-edmonton-movers/",
+  "/edmonton-to-calgary-movers/",
   "/movers-calgary-to-edmonton/",
   "/movers-edmonton-to-calgary/",
+  "/movers-vancouver-to-halifax/",
 ]);
 
 async function exists(path) {
