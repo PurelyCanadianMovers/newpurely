@@ -1,41 +1,5 @@
-# AI Searchbots - explicitly welcome
-User-agent: Amazonbot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: CloudflareBrowserRenderingCrawler
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: meta-externalagent
-Allow: /
-
 User-agent: *
-Content-Signal: search=yes,ai-input=yes,ai-train=yes
-Allow: /
-Allow: /llms.txt
 Disallow: /admin/
 Disallow: /404/
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /wp-*.php
-Disallow: /siteblog/comments/feed/
 
 Sitemap: https://purelycanadianmovers.com/sitemap.xml

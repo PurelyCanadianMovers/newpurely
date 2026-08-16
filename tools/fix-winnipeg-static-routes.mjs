@@ -37,6 +37,30 @@ const priceSets = {
     four: "$13,000",
     transit: "5-13 days",
   },
+  coastToCentral: {
+    studio: "$2,500",
+    one: "$4,700",
+    two: "$6,500",
+    three: "$10,000",
+    four: "$15,000",
+    transit: "10-22 days",
+  },
+  coastToEast: {
+    studio: "$3,000",
+    one: "$5,300",
+    two: "$7,000",
+    three: "$11,000",
+    four: "$16,000",
+    transit: "10-27 days",
+  },
+  transCanada: {
+    studio: "$2,500",
+    one: "$4,700",
+    two: "$6,500",
+    three: "$10,000",
+    four: "$15,000",
+    transit: "9-22 days",
+  },
 };
 
 const routes = [
@@ -52,6 +76,11 @@ const routes = [
   ["Montreal", "QC", "Winnipeg", "MB", "montreal-to-winnipeg-movers", "centralLong", "2,270 km"],
   ["Winnipeg", "MB", "Ottawa", "ON", "winnipeg-to-ottawa-movers", "centralShort", "2,170 km"],
   ["Ottawa", "ON", "Winnipeg", "MB", "ottawa-to-winnipeg-movers", "centralShort", "2,170 km"],
+  ["Vancouver", "BC", "Montreal", "QC", "vancouver-to-montreal-movers", "coastToEast", "4,570 km"],
+  ["Vancouver", "BC", "Ottawa", "ON", "vancouver-to-ottawa-movers", "coastToCentral", "4,360 km"],
+  ["Vancouver", "BC", "Halifax", "NS", "vancouver-to-halifax-movers", "coastToEast", "6,000 km"],
+  ["Toronto", "ON", "Vancouver", "BC", "toronto-to-vancouver-movers", "transCanada", "4,350 km"],
+  ["Vancouver", "BC", "Toronto", "ON", "vancouver-to-toronto-movers", "transCanada", "4,350 km"],
 ].map(([from, fromProvince, to, toProvince, slug, priceKey, distance]) => ({
   from,
   fromProvince,
@@ -67,6 +96,7 @@ const cityHub = {
   Edmonton: "/edmonton-long-distance-movers/",
   Montreal: "/montreal-long-distance-movers/",
   Ottawa: "/ottawa-long-distance-movers/",
+  Halifax: "/halifax-long-distance-movers/",
   Toronto: "/toronto-long-distance-movers/",
   Vancouver: "/vancouver-long-distance-movers/",
 };

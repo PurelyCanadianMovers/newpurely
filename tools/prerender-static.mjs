@@ -40,7 +40,11 @@ const excludedRoutes = new Set([
   "/edmonton-to-calgary-movers/",
   "/movers-calgary-to-edmonton/",
   "/movers-edmonton-to-calgary/",
+  "/movers-toronto-to-vancouver/",
+  "/movers-vancouver-to-montreal/",
+  "/movers-vancouver-to-ottawa/",
   "/movers-vancouver-to-halifax/",
+  "/movers-vancouver-to-toronto/",
 ]);
 
 async function exists(path) {

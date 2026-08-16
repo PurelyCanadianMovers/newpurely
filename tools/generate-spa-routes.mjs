@@ -11,8 +11,19 @@ const sitemapExcludedRoutes = new Set([
   "/edmonton-to-calgary-movers/",
   "/movers-calgary-to-edmonton/",
   "/movers-edmonton-to-calgary/",
+  "/movers-toronto-to-vancouver/",
+  "/movers-vancouver-to-montreal/",
+  "/movers-vancouver-to-ottawa/",
   "/movers-vancouver-to-halifax/",
+  "/movers-vancouver-to-toronto/",
 ]);
+const manualPublicRoutes = [
+  "/toronto-to-vancouver-movers/",
+  "/vancouver-to-montreal-movers/",
+  "/vancouver-to-ottawa-movers/",
+  "/vancouver-to-halifax-movers/",
+  "/vancouver-to-toronto-movers/",
+];
 const routeHeadOverrides = {
   "/local-movers-burnaby-bc/": {
     title: "Local Movers in Burnaby, BC | Purely Canadian Movers",
@@ -115,6 +126,9 @@ for (const pattern of routePatterns) {
   for (const match of bundle.matchAll(pattern)) {
     if (!match[1].startsWith("/assets/")) routes.add(match[1].endsWith("/") ? match[1] : `${match[1]}/`);
   }
+}
+for (const route of manualPublicRoutes) {
+  routes.add(route);
 }
 
 function isPrivateRoute(route) {
