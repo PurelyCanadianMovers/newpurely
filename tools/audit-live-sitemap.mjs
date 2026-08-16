@@ -157,7 +157,7 @@ function buildFlags(row) {
   if (!row.canonical) warningFlags.push("missing_canonical");
   if (isMalformedCanonical(row.canonical)) issueFlags.push("malformed_canonical");
   if (row.canonical && row.status === 200 && row.canonical.replace(/\/$/, "") !== row.finalUrl.replace(/\/$/, "")) {
-    warningFlags.push("canonical_not_final_url");
+    issueFlags.push("canonical_not_final_url");
   }
   if (row.noindex) issueFlags.push("noindex");
   if (row.rootEmpty) issueFlags.push("empty_root");

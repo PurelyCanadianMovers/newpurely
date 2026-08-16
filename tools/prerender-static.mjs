@@ -123,6 +123,24 @@ function isEmptyShell(html) {
   return html.includes('<div id="root"></div>') && !/<main[\s>]|<h1[\s>]/i.test(html);
 }
 
+function firstMatch(html, pattern) {
+  const match = html.match(pattern);
+  return match ? match[1].replace(/\s+/g, " ").trim() : "";
+}
+
+function isHomepageClone(route, html) {
+  if (route === "/") return false;
+
+  const title = firstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
+  const canonical = firstMatch(html, /<link\b[^>]*rel=["'][^"']*canonical[^"']*["'][^>]*href=["']([^"']+)["'][^>]*>/i)
+    || firstMatch(html, /<link\b[^>]*href=["']([^"']+)["'][^>]*rel=["'][^"']*canonical[^"']*["'][^>]*>/i);
+  const h1 = firstMatch(html, /<h1\b[^>]*>([\s\S]*?)<\/h1>/i).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+  return canonical.replace(/\/$/, "") === "https://purelycanadianmovers.com"
+    || title === "Vancouver Movers | Local & Long-Distance Moving"
+    || h1.startsWith("Professional Movers Serving Metro Vancouver");
+}
+
 async function discoverRoutes() {
   const indexFiles = await walkIndexFiles(sourceRoot);
   const routes = [];
@@ -130,7 +148,7 @@ async function discoverRoutes() {
     const route = fileToRoute(sourceRoot, file);
     if (!isPublicRoute(route)) continue;
     const html = await readFile(file, "utf8");
-    if (isEmptyShell(html)) {
+    if (isEmptyShell(html) || isHomepageClone(route, html)) {
       routes.push({ route, sourceFile: file, outputFile: join(outputRoot, file.slice(sourceRoot.length)) });
     }
   }
