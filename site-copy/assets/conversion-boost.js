@@ -1861,6 +1861,8 @@
     reassurance.textContent = "Free estimate. No obligation. No deposit required for a quote.";
     form.appendChild(reassurance);
 
+    form.appendChild(createEstimateBonus());
+
     var trustNote = document.createElement("div");
     trustNote.className = "pcm-estimate-trust-note";
     trustNote.innerHTML =
@@ -1873,6 +1875,48 @@
     });
 
     return section;
+  }
+
+  function createEstimateBonus() {
+    var bonus = document.createElement("div");
+    bonus.className = "pcm-estimate-bonus";
+    bonus.innerHTML =
+      '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span>' +
+      "<div>" +
+      "<strong>Online estimate bonus: save at least $100</strong>" +
+      '<span class="pcm-estimate-bonus__deadline">Book before August 31</span>' +
+      "<span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span>" +
+      "</div>";
+    return bonus;
+  }
+
+  function enhanceExistingEstimateForms() {
+    Array.prototype.forEach.call(document.querySelectorAll("form"), function (form) {
+      if (form.querySelector(".pcm-estimate-bonus")) return;
+
+      var formText = (form.textContent || "").replace(/\s+/g, " ");
+      var action = form.getAttribute("action") || "";
+      var looksLikeEstimateForm =
+        /contact/i.test(action) ||
+        /get written estimate|free moving estimate|submit estimate request|moving from|moving to/i.test(formText);
+
+      if (!looksLikeEstimateForm) return;
+
+      var bonus = createEstimateBonus();
+      var reassurance = form.querySelector(".pcm-estimate-reassurance, .pcm-contact-form-reassurance");
+      if (reassurance) {
+        reassurance.insertAdjacentElement("afterend", bonus);
+        return;
+      }
+
+      var trustNote = form.querySelector(".pcm-estimate-trust-note");
+      if (trustNote) {
+        trustNote.parentNode.insertBefore(bonus, trustNote);
+        return;
+      }
+
+      form.appendChild(bonus);
+    });
   }
 
   function createStickyCta() {
@@ -2547,6 +2591,7 @@
           contactAttempts += 1;
           showContactSummary();
           var reassuranceDone = addContactFormReassurance();
+          enhanceExistingEstimateForms();
           if (reassuranceDone || contactAttempts > 30) {
             window.clearInterval(contactTimer);
           }
@@ -2554,15 +2599,19 @@
       } else {
         showContactSummary();
         addContactFormReassurance();
+        enhanceExistingEstimateForms();
       }
       return;
     }
+
+    enhanceExistingEstimateForms();
 
     var attempts = 0;
     var timer = window.setInterval(function () {
       attempts += 1;
       normalizeLongDistanceTrustLanguage(path);
       if (insertLeadPanel(config) || attempts > 30) {
+        enhanceExistingEstimateForms();
         window.clearInterval(timer);
       }
     }, 250);
