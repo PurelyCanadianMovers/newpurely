@@ -91,6 +91,13 @@ const REDIRECTS = new Map([
   ["/movers-vancouver-to-ottawa/", "/vancouver-to-ottawa-movers/"],
   ["/movers-vancouver-to-toronto/", "/vancouver-to-toronto-movers/"],
   ["/tag/best-mover-in-burnaby/", "/local-movers-burnaby-bc/"],
+  ["/archive/", "/blog/"],
+  [
+    "/2025/07/31/purely-canadian-movers-canadas-best-long-distance-movers-we-move-homes-and-vehicles/",
+    "/long-distance/",
+  ],
+  ["/tag/mover-near-me/", "/local/"],
+  ["/moving-company-in-vancouver.html", "/vancouver/"],
 ]);
 
 function redirectLocation(requestUrl, destination) {
