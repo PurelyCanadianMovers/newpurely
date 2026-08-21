@@ -16,9 +16,9 @@
       body: "Get help with route timing, shipment size, packing, valuation coverage, and realistic long-distance pricing.",
     },
     "/long-distance-moving-cost-canada/": {
-      eyebrow: "Cost guide to quote",
-      title: "Use the cost guide, then request a route-specific quote.",
-      body: "Long-distance pricing depends on route, weight, access, season, packing, and storage. Send us your move details for a clearer range.",
+      eyebrow: "Free moving estimate",
+      title: "Start your move with a fast, no-obligation estimate.",
+      body: "Tell us the basics and we will help price the right crew, truck, and plan for your local or long-distance move.",
     },
     "/local/": {
       eyebrow: "Metro Vancouver local move",
@@ -383,29 +383,7 @@
     },
   ];
 
-  var TRUST_PROOF_BLOCKS = {
-    "/long-distance-moving-cost-canada/": {
-      title: "Why these long-distance moving cost ranges are reliable",
-      intro:
-        "Long-distance moving prices can vary widely, so the guide explains the factors behind each range instead of promising a one-size-fits-all price. Use it as a planning range, then request a written estimate based on your route, shipment size, access, and service needs.",
-      proof: [
-        ["Experience since 1991", "Purely Canadian Movers has helped Canadian families and businesses plan local and long-distance moves for more than three decades."],
-        ["Direct moving accountability", "No subcontractors. Your estimate, planning, pickup, and delivery are handled through one accountable moving team."],
-        ["National network support", "As a Great Canadian Van Lines agent, we combine local service with cross-Canada route support and long-distance coordination."],
-        ["BBB Accredited", "Trust signals matter on pricing pages. BBB accreditation, written estimates, and clear terms help customers compare movers more safely."],
-        ["Valuation options", "Basic valuation coverage is included, and additional protection options can be reviewed before booking."],
-        ["Pricing variables shown", "Final cost depends on weight or volume, distance, access, stairs, elevators, season, packing, storage, and specialty items."],
-      ],
-      links: [
-        ["Get a written estimate", "/contact/"],
-        ["Valuation coverage", "/valuation-coverage-protection/"],
-        ["Packing services", "/packing/"],
-        ["Storage options", "/storage/"],
-        ["Long-distance movers", "/long-distance/"],
-        ["Great Canadian Van Lines agent", "/great-canadian-vanlines-agent/"],
-      ],
-    },
-  };
+  var TRUST_PROOF_BLOCKS = {};
 
   var ROUTE_COST_BLOCKS = {
     "/movers-edmonton-to-toronto/": {
@@ -1858,7 +1836,7 @@
 
     var reassurance = document.createElement("div");
     reassurance.className = "pcm-estimate-reassurance";
-    reassurance.textContent = "Free estimate. No obligation. No deposit required for a quote.";
+    reassurance.textContent = "No spam. No pressure. Just your moving estimate. Questions? Call Purely Canadian Movers: 1-877-485-6683";
     form.appendChild(reassurance);
 
     form.appendChild(createEstimateBonus());
@@ -2349,17 +2327,45 @@
     anchor.parentNode.insertBefore(createCostGuideServiceAreasBlock(), anchor.nextSibling);
   }
 
-  function insertPricingSummaryBlock(path) {
-    if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-pricing-summary")) {
-      return;
+  function addCostGuideIncludedLine() {
+    var path = normalizePath();
+    if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-cost-includes-note")) {
+      return true;
     }
 
-    var leadPanel = document.querySelector(".pcm-lead-panel");
-    if (!leadPanel || !leadPanel.parentNode) return;
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      return (item.textContent || "").trim() === "Long-Distance Moving Costs by Route";
+    });
+    if (!heading) return false;
 
-    var pricingSummary = createPricingSummaryBlock();
-    leadPanel.parentNode.insertBefore(pricingSummary, leadPanel.nextSibling);
-    insertCostGuideServiceAreasBlock(pricingSummary);
+    var intro = heading.nextElementSibling;
+    if (!intro || intro.tagName !== "P") return false;
+
+    var note = document.createElement("p");
+    note.className = "pcm-cost-includes-note";
+    note.textContent =
+      "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible.";
+    intro.insertAdjacentElement("afterend", note);
+    return true;
+  }
+
+  function removeCostGuideBottomQuoteBlock() {
+    if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      return (item.textContent || "").replace(/\s+/g, " ").trim() === "Get a Real Long-Distance Moving Quote";
+    });
+    if (!heading) return false;
+
+    var section = heading.closest("section");
+    if (section) {
+      section.remove();
+    }
+    return true;
+  }
+
+  function insertPricingSummaryBlock(path) {
+    return;
   }
 
   function insertTrustProofBlock(path) {
@@ -2424,6 +2430,7 @@
     insertLocalSeoBlock(normalizePath());
     insertRouteCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());
+    addCostGuideIncludedLine();
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     normalizeLongDistanceTrustLanguage(normalizePath());
@@ -2553,7 +2560,7 @@
 
     var note = document.createElement("p");
     note.className = "pcm-contact-form-reassurance";
-    note.textContent = "Free estimate. No obligation. No deposit required for a quote. We use your details to prepare a more accurate moving estimate.";
+    note.textContent = "No spam. No pressure. Just your moving estimate. Questions? Call Purely Canadian Movers: 1-877-485-6683";
     submitButton.parentNode.insertBefore(note, submitButton.nextSibling);
     return true;
   }
@@ -2583,6 +2590,18 @@
         window.clearInterval(routeTimer);
       }
     }, 250);
+
+    if (path === "/long-distance-moving-cost-canada/") {
+      var costGuideAttempts = 0;
+      var costGuideTimer = window.setInterval(function () {
+        costGuideAttempts += 1;
+        var noteDone = addCostGuideIncludedLine();
+        var quoteRemoved = removeCostGuideBottomQuoteBlock();
+        if ((noteDone && quoteRemoved) || costGuideAttempts > 30) {
+          window.clearInterval(costGuideTimer);
+        }
+      }, 250);
+    }
 
     if (!config) {
       if (path === "/contact/") {

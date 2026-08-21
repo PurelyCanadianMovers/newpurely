@@ -1074,6 +1074,14 @@
   margin-top: 14px !important;
 }
 
+.pcm-cost-includes-note {
+  color: var(--pcm-ink);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin: -22px 0 28px;
+}
+
 .pcm-cost-service-areas {
   margin: 24px auto;
   max-width: 1180px;
