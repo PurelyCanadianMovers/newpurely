@@ -2565,6 +2565,60 @@
     return true;
   }
 
+  function findChatButton() {
+    var direct = document.querySelector('button[aria-label="Open chat assistant"], button[aria-label="Open chat"]');
+    if (direct) return direct;
+
+    return Array.prototype.find.call(document.querySelectorAll("button, a"), function (element) {
+      var label = [element.getAttribute("aria-label"), element.getAttribute("title"), element.textContent].filter(Boolean).join(" ");
+      return /chat|assistant/i.test(label);
+    });
+  }
+
+  function initChatNudge() {
+    if (document.querySelector(".pcm-chat-nudge")) return true;
+
+    try {
+      if (window.sessionStorage && window.sessionStorage.getItem("pcmChatNudgeSeen") === "1") return true;
+    } catch (error) {
+      // Session storage may be unavailable in some private browsing contexts.
+    }
+
+    var chatButton = findChatButton();
+    if (!chatButton) return false;
+
+    var nudge = document.createElement("button");
+    nudge.type = "button";
+    nudge.className = "pcm-chat-nudge";
+    nudge.setAttribute("aria-label", "Ask our Moving Assistant");
+    nudge.innerHTML = "<strong>Questions about your move?</strong><span>Ask our Moving Assistant</span>";
+
+    function hideNudge() {
+      nudge.classList.remove("is-visible");
+      try {
+        if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeSeen", "1");
+      } catch (error) {
+        // Ignore storage failures.
+      }
+      window.setTimeout(function () {
+        if (nudge.parentNode) nudge.parentNode.removeChild(nudge);
+      }, 260);
+    }
+
+    nudge.addEventListener("click", function () {
+      hideNudge();
+      chatButton.click();
+    });
+    chatButton.addEventListener("click", hideNudge, { once: true });
+
+    document.body.appendChild(nudge);
+    window.setTimeout(function () {
+      nudge.classList.add("is-visible");
+    }, 6500);
+    window.setTimeout(hideNudge, 18000);
+    return true;
+  }
+
   function init() {
     forceStaticBlogNavigation();
 
@@ -2602,6 +2656,14 @@
         }
       }, 250);
     }
+
+    var chatNudgeAttempts = 0;
+    var chatNudgeTimer = window.setInterval(function () {
+      chatNudgeAttempts += 1;
+      if (initChatNudge() || chatNudgeAttempts > 30) {
+        window.clearInterval(chatNudgeTimer);
+      }
+    }, 250);
 
     if (!config) {
       if (path === "/contact/") {
