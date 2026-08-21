@@ -2578,44 +2578,23 @@
   function initChatNudge() {
     if (document.querySelector(".pcm-chat-nudge")) return true;
 
-    try {
-      if (window.sessionStorage && window.sessionStorage.getItem("pcmChatNudgeSeen") === "1") return true;
-    } catch (error) {
-      // Session storage may be unavailable in some private browsing contexts.
-    }
-
     var chatButton = findChatButton();
     if (!chatButton) return false;
 
     var nudge = document.createElement("button");
     nudge.type = "button";
     nudge.className = "pcm-chat-nudge";
-    nudge.setAttribute("aria-label", "Ask our Moving Assistant");
-    nudge.innerHTML = "<strong>Questions about your move?</strong><span>Ask our Moving Assistant</span>";
-
-    function hideNudge() {
-      nudge.classList.remove("is-visible");
-      try {
-        if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeSeen", "1");
-      } catch (error) {
-        // Ignore storage failures.
-      }
-      window.setTimeout(function () {
-        if (nudge.parentNode) nudge.parentNode.removeChild(nudge);
-      }, 260);
-    }
+    nudge.setAttribute("aria-label", "Ask a moving question or get a quick price quote");
+    nudge.innerHTML = "<strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span>";
 
     nudge.addEventListener("click", function () {
-      hideNudge();
       chatButton.click();
     });
-    chatButton.addEventListener("click", hideNudge, { once: true });
 
     document.body.appendChild(nudge);
     window.setTimeout(function () {
       nudge.classList.add("is-visible");
     }, 6500);
-    window.setTimeout(hideNudge, 18000);
     return true;
   }
 
