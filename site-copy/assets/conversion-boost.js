@@ -2603,9 +2603,19 @@
     if (chatButton) chatButton.click();
   }
 
+  function bindChatNudgeDismissal(chatButton) {
+    if (!chatButton || chatButton.getAttribute("data-pcm-nudge-dismiss-bound")) return;
+    chatButton.setAttribute("data-pcm-nudge-dismiss-bound", "1");
+    chatButton.addEventListener("click", function () {
+      dismissChatNudge(document.querySelector(".pcm-chat-nudge"));
+    }, true);
+  }
+
   function initChatNudge() {
     var chatButton = findChatButton();
     var existingNudge = document.querySelector(".pcm-chat-nudge");
+    bindChatNudgeDismissal(chatButton);
+
     if (existingNudge) {
       if (isChatNudgeDismissed()) {
         dismissChatNudge(existingNudge);
