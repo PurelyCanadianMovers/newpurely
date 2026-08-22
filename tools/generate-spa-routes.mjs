@@ -18,12 +18,22 @@ const sitemapExcludedRoutes = new Set([
   "/movers-vancouver-to-toronto/",
 ]);
 const manualPublicRoutes = [
+  // This route is served by a standalone static page because the recovered React
+  // bundle has no matching client route and would otherwise replace it with /404.
+  "/halifax-to-calgary-movers/",
+  "/calgary-to-halifax-movers/",
+  "/halifax-to-vancouver-movers/",
   "/toronto-to-vancouver-movers/",
   "/vancouver-to-montreal-movers/",
   "/vancouver-to-ottawa-movers/",
   "/vancouver-to-halifax-movers/",
   "/vancouver-to-toronto-movers/",
 ];
+const standaloneStaticRoutes = new Set([
+  "/halifax-to-calgary-movers/",
+  "/calgary-to-halifax-movers/",
+  "/halifax-to-vancouver-movers/",
+]);
 const routeHeadOverrides = {
   "/local-movers-burnaby-bc/": {
     title: "Local Movers in Burnaby, BC | Purely Canadian Movers",
@@ -201,6 +211,7 @@ function depth(route) {
 }
 
 for (const route of routes) {
+  if (standaloneStaticRoutes.has(route)) continue;
   const file = routeFile(route);
   const prefix = depth(route) === 0 ? "." : Array(depth(route)).fill("..").join("/");
   let html = index

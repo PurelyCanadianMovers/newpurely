@@ -187,12 +187,16 @@
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
+    "/calgary-to-halifax-movers/": "Calgary to Halifax Movers | Cross-Canada Moving",
     "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Moving Cost | Movers, Distance & Transit Time",
     "/edmonton-long-distance-movers/": "Edmonton Long-Distance Movers | Cross-Canada Moving",
     "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/edmonton-to-vancouver-movers/": "Edmonton to Vancouver Movers | Alberta to BC Moving",
+    "/edmonton-to-montreal-movers/": "Edmonton to Montreal Moving Cost | Movers, Prices & Transit Time",
+    "/edmonton-to-ottawa-movers/": "Edmonton to Ottawa Movers | Long-Distance Moving",
     "/halifax-long-distance-movers/": "Halifax Long-Distance Movers | Cross-Canada Moving",
     "/halifax-to-toronto-movers/": "Halifax to Toronto Movers | Long-Distance Moving",
+    "/halifax-to-calgary-movers/": "Halifax to Calgary Movers | Cross-Canada Moving",
     "/long-distance-movers-montreal/": "Montreal Long-Distance Movers | Cross-Canada Moving",
     "/montreal-to-calgary-movers/": "Montreal to Calgary Movers | Cross-Canada Moving",
     "/montreal-to-edmonton-movers/": "Montreal to Edmonton Moving Cost | Movers, Prices & Transit Time",
@@ -321,7 +325,7 @@
     ["Calgary to Winnipeg", "$2,300", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
     ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
     ["Montreal to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-18 days"],
-    ["Montreal to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
+    ["Montreal to Vancouver", "$2,500+", "$4,700-$6,400+", "$10,000-$15,000+", "10-22 days"],
     ["Ottawa to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
     ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
   ];
@@ -507,7 +511,7 @@
       h1: "Montreal to Vancouver Moving Cost, Prices & Transit Time",
       title: "How much does it cost to move from Montreal to Vancouver?",
       intro:
-        "A Montreal to Vancouver move typically ranges from about <strong>$3,000</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,300-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+        "A Montreal to Vancouver move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$15,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,700-$6,400</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
       note:
         "Prices are planning ranges in CAD, not guaranteed quotes. Montreal to Vancouver pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
       links: [
@@ -517,11 +521,11 @@
         ["Get a written estimate", "/contact/"],
       ],
       rows: [
-        ["Studio or small shipment", "$3,000+", "Best for limited furniture or a partial shipment", "10-22 days"],
-        ["1-bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10-22 days"],
-        ["2-bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10-22 days"],
-        ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space", "10-22 days"],
-        ["4+ bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10-22 days"],
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "10-22 days"],
+        ["1-bedroom", "$4,700+", "Depends on inventory weight or volume, access, and packing", "10-22 days"],
+        ["2-bedroom", "$6,400+", "Common planning range for apartment or condo moves", "10-22 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "10-22 days"],
+        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "10-22 days"],
       ],
     },
     "/montreal-to-edmonton-movers/": {
@@ -1288,7 +1292,7 @@
     "/montreal-to-vancouver-movers/": {
       title: "Montreal to Vancouver moving cost, prices, and transit time",
       intro:
-        "A Montreal to Vancouver move typically ranges from about $3,000 for a small shipment to $16,000+ for a larger home. Many 1-2 bedroom Montreal to Vancouver moves are estimated around $5,300-$7,000, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+        "A Montreal to Vancouver move typically ranges from about $2,500 for a small shipment to $15,000+ for a larger home. Many 1-2 bedroom Montreal to Vancouver moves are estimated around $4,700-$6,400, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
       highlights: [
         ["Route cost factors", "Final price depends on weight or volume, Montreal pickup access, Vancouver delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
         ["Typical transit", "Montreal to Vancouver long-distance moves are commonly planned around a 10-22 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
@@ -1306,7 +1310,7 @@
         ["Get a Montreal to Vancouver Estimate", "/contact/"],
       ],
       faqs: [
-        ["How much does it cost to move from Montreal to Vancouver?", "A Montreal to Vancouver move is commonly estimated from about $3,000 for a small shipment to $16,000+ for a larger home. A 1-2 bedroom move is often estimated around $5,300-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How much does it cost to move from Montreal to Vancouver?", "A Montreal to Vancouver move is commonly estimated from about $2,500 for a small shipment to $15,000+ for a larger home. A 1-2 bedroom move is often estimated around $4,700-$6,400. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
         ["How long does a Montreal to Vancouver move take?", "A typical Montreal to Vancouver moving transit window is about 10-22 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of a Montreal to Vancouver move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Montreal to Vancouver moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
@@ -2327,6 +2331,28 @@
     anchor.parentNode.insertBefore(createCostGuideServiceAreasBlock(), anchor.nextSibling);
   }
 
+  function addCostGuideIncludedLine() {
+    var path = normalizePath();
+    if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-cost-includes-note")) {
+      return true;
+    }
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      return (item.textContent || "").trim() === "Long-Distance Moving Costs by Route";
+    });
+    if (!heading) return false;
+
+    var intro = heading.nextElementSibling;
+    if (!intro || intro.tagName !== "P") return false;
+
+    var note = document.createElement("p");
+    note.className = "pcm-cost-includes-note";
+    note.textContent =
+      "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible.";
+    intro.insertAdjacentElement("afterend", note);
+    return true;
+  }
+
   function addCostGuideRoutes() {
     if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
 
@@ -2359,27 +2385,6 @@
       body.appendChild(row);
     });
 
-    return true;
-  }
-  function addCostGuideIncludedLine() {
-    var path = normalizePath();
-    if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-cost-includes-note")) {
-      return true;
-    }
-
-    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
-      return (item.textContent || "").trim() === "Long-Distance Moving Costs by Route";
-    });
-    if (!heading) return false;
-
-    var intro = heading.nextElementSibling;
-    if (!intro || intro.tagName !== "P") return false;
-
-    var note = document.createElement("p");
-    note.className = "pcm-cost-includes-note";
-    note.textContent =
-      "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible.";
-    intro.insertAdjacentElement("afterend", note);
     return true;
   }
 
@@ -2722,9 +2727,10 @@
       var costGuideAttempts = 0;
       var costGuideTimer = window.setInterval(function () {
         costGuideAttempts += 1;
+        var routesDone = addCostGuideRoutes();
         var noteDone = addCostGuideIncludedLine();
         var quoteRemoved = removeCostGuideBottomQuoteBlock();
-        if ((noteDone && quoteRemoved) || costGuideAttempts > 30) {
+        if ((routesDone && noteDone && quoteRemoved) || costGuideAttempts > 30) {
           window.clearInterval(costGuideTimer);
         }
       }, 250);
@@ -2779,4 +2785,3 @@
     init();
   }
 })();
-

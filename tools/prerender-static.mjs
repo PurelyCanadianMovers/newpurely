@@ -141,6 +141,10 @@ function isHomepageClone(route, html) {
     || h1.startsWith("Professional Movers Serving Metro Vancouver");
 }
 
+function isCleanRoutePage(route) {
+  return /^\/[a-z0-9]+(?:-[a-z0-9]+)*-to-[a-z0-9]+(?:-[a-z0-9]+)*-movers\/$/.test(route);
+}
+
 async function discoverRoutes() {
   const indexFiles = await walkIndexFiles(sourceRoot);
   const routes = [];
@@ -148,7 +152,8 @@ async function discoverRoutes() {
     const route = fileToRoute(sourceRoot, file);
     if (!isPublicRoute(route)) continue;
     const html = await readFile(file, "utf8");
-    if (isEmptyShell(html) || isHomepageClone(route, html)) {
+    // Route snapshots can be non-empty but stale; refresh clean route pages every run.
+    if (isCleanRoutePage(route) || isEmptyShell(html) || isHomepageClone(route, html)) {
       routes.push({ route, sourceFile: file, outputFile: join(outputRoot, file.slice(sourceRoot.length)) });
     }
   }

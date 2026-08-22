@@ -105,6 +105,7 @@ Source report: `LOCAL_SEO_AUDIT.md`
 - [ ] Resolve the duplicate Edmonton-to-Toronto route URLs: choose the preferred page between `/edmonton-to-toronto-movers/` and `/movers-edmonton-to-toronto/`, strengthen the preferred page, and remove or redirect the duplicate to avoid canonical confusion.
 - [ ] Continue expanding city/service internal links across the local moving cluster.
 - [ ] Monitor Google Search Console validation while it is still running; no new redirect/indexing changes unless Soft 404, Page with redirect, Not found 404, Redirect error, or Crawled currently not indexed shows new failed examples with recent crawl dates.
+- [ ] Fix `/toronto-to-vancouver-movers/` static route rendering: after Cloudflare purge, the page shows the simplified manual route/prerender template instead of the normal PCM design and CTA styling. The Calgary wording is corrected, but the page should either use the proper PCM route-page layout/CTA module or be routed back through the normal prerendered React page if that version is clean.
 - [ ] Monitor GBP calls, website clicks, and direction clicks after each local SEO update.
 - [ ] Re-run `npm run audit:seo` after improvements and update `LOCAL_SEO_AUDIT.md`.
 
