@@ -2576,9 +2576,25 @@
   }
 
   function initChatNudge() {
-    if (document.querySelector(".pcm-chat-nudge")) return true;
-
     var chatButton = findChatButton();
+    var existingNudge = document.querySelector(".pcm-chat-nudge");
+    if (existingNudge) {
+      if (window.sessionStorage && window.sessionStorage.getItem("pcmChatNudgeDismissed") === "1") {
+        existingNudge.classList.remove("is-visible");
+      }
+
+      if (!existingNudge.getAttribute("data-pcm-nudge-bound")) {
+        existingNudge.setAttribute("data-pcm-nudge-bound", "1");
+        existingNudge.addEventListener("click", function () {
+          existingNudge.classList.remove("is-visible");
+          if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeDismissed", "1");
+          if (chatButton) chatButton.click();
+        });
+      }
+
+      return true;
+    }
+
     if (!chatButton) return false;
 
     var nudge = document.createElement("button");
@@ -2588,6 +2604,8 @@
     nudge.innerHTML = "<strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span>";
 
     nudge.addEventListener("click", function () {
+      nudge.classList.remove("is-visible");
+      if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeDismissed", "1");
       chatButton.click();
     });
 
