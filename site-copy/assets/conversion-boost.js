@@ -2570,6 +2570,7 @@
     if (direct) return direct;
 
     return Array.prototype.find.call(document.querySelectorAll("button, a"), function (element) {
+      if (element.classList && element.classList.contains("pcm-chat-nudge")) return false;
       var label = [element.getAttribute("aria-label"), element.getAttribute("title"), element.textContent].filter(Boolean).join(" ");
       return /chat|assistant/i.test(label);
     });
@@ -2584,7 +2585,12 @@
   }
 
   function dismissChatNudge(nudge) {
-    if (nudge) nudge.classList.remove("is-visible");
+    if (nudge) {
+      nudge.classList.remove("is-visible");
+      nudge.setAttribute("aria-hidden", "true");
+      nudge.hidden = true;
+      nudge.style.display = "none";
+    }
     try {
       if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeDismissed", "1");
     } catch (error) {
@@ -2602,7 +2608,11 @@
     var existingNudge = document.querySelector(".pcm-chat-nudge");
     if (existingNudge) {
       if (isChatNudgeDismissed()) {
-        existingNudge.classList.remove("is-visible");
+        dismissChatNudge(existingNudge);
+      } else {
+        existingNudge.hidden = false;
+        existingNudge.removeAttribute("aria-hidden");
+        existingNudge.style.display = "";
       }
 
       if (!existingNudge.getAttribute("data-pcm-nudge-bound")) {
@@ -2616,6 +2626,7 @@
       return true;
     }
 
+    if (isChatNudgeDismissed()) return true;
     if (!chatButton) return false;
 
     var nudge = document.createElement("button");
@@ -2631,7 +2642,7 @@
 
     document.body.appendChild(nudge);
     window.setTimeout(function () {
-      nudge.classList.add("is-visible");
+      if (!isChatNudgeDismissed()) nudge.classList.add("is-visible");
     }, 6500);
     return true;
   }
