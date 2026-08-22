@@ -2575,20 +2575,41 @@
     });
   }
 
+  function isChatNudgeDismissed() {
+    try {
+      return window.sessionStorage && window.sessionStorage.getItem("pcmChatNudgeDismissed") === "1";
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function dismissChatNudge(nudge) {
+    if (nudge) nudge.classList.remove("is-visible");
+    try {
+      if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeDismissed", "1");
+    } catch (error) {
+      // Ignore storage errors; hiding the current bubble is enough.
+    }
+  }
+
+  function openChatFromNudge() {
+    var chatButton = findChatButton();
+    if (chatButton) chatButton.click();
+  }
+
   function initChatNudge() {
     var chatButton = findChatButton();
     var existingNudge = document.querySelector(".pcm-chat-nudge");
     if (existingNudge) {
-      if (window.sessionStorage && window.sessionStorage.getItem("pcmChatNudgeDismissed") === "1") {
+      if (isChatNudgeDismissed()) {
         existingNudge.classList.remove("is-visible");
       }
 
       if (!existingNudge.getAttribute("data-pcm-nudge-bound")) {
         existingNudge.setAttribute("data-pcm-nudge-bound", "1");
         existingNudge.addEventListener("click", function () {
-          existingNudge.classList.remove("is-visible");
-          if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeDismissed", "1");
-          if (chatButton) chatButton.click();
+          dismissChatNudge(existingNudge);
+          openChatFromNudge();
         });
       }
 
@@ -2604,9 +2625,8 @@
     nudge.innerHTML = "<strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span>";
 
     nudge.addEventListener("click", function () {
-      nudge.classList.remove("is-visible");
-      if (window.sessionStorage) window.sessionStorage.setItem("pcmChatNudgeDismissed", "1");
-      chatButton.click();
+      dismissChatNudge(nudge);
+      openChatFromNudge();
     });
 
     document.body.appendChild(nudge);
@@ -2703,3 +2723,4 @@
     init();
   }
 })();
+
