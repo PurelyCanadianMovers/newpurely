@@ -2327,6 +2327,40 @@
     anchor.parentNode.insertBefore(createCostGuideServiceAreasBlock(), anchor.nextSibling);
   }
 
+  function addCostGuideRoutes() {
+    if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      return (item.textContent || "").trim() === "Long-Distance Moving Costs by Route";
+    });
+    if (!heading) return false;
+
+    var body = heading.parentElement && heading.parentElement.querySelector("table tbody");
+    var template = body && body.querySelector("tr");
+    if (!body || !template) return false;
+
+    [
+      ["Calgary → Halifax", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
+      ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"]
+    ].forEach(function (route) {
+      if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
+        return (row.textContent || "").indexOf(route[0]) !== -1;
+      })) {
+        return;
+      }
+
+      var row = template.cloneNode(true);
+      var cells = row.querySelectorAll("td");
+      if (cells.length < route.length) return;
+      route.forEach(function (value, index) {
+        cells[index].textContent = value;
+      });
+      row.classList.add("pcm-cost-guide-route");
+      body.appendChild(row);
+    });
+
+    return true;
+  }
   function addCostGuideIncludedLine() {
     var path = normalizePath();
     if (path !== "/long-distance-moving-cost-canada/" || document.querySelector(".pcm-cost-includes-note")) {
@@ -2430,6 +2464,7 @@
     insertLocalSeoBlock(normalizePath());
     insertRouteCostBlock(normalizePath());
     insertPricingSummaryBlock(normalizePath());
+    addCostGuideRoutes();
     addCostGuideIncludedLine();
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
