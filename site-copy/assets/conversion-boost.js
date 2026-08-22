@@ -1822,8 +1822,15 @@
     mobileStart.textContent = "Begin here";
     form.appendChild(mobileStart);
 
-    form.appendChild(createField("Moving from", createInput("from", "Toronto, ON")));
-    form.appendChild(createField("Moving to", createInput("to", "Calgary, AB")));
+    var routeDefaults = {
+      "/halifax-to-calgary-movers/": ["Halifax, NS", "Calgary, AB"],
+      "/calgary-to-halifax-movers/": ["Calgary, AB", "Halifax, NS"],
+      "/halifax-to-vancouver-movers/": ["Halifax, NS", "Vancouver, BC"],
+      "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
+      "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
+    }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
+    form.appendChild(createField("Moving from", createInput("from", routeDefaults[0])));
+    form.appendChild(createField("Moving to", createInput("to", routeDefaults[1])));
     form.appendChild(createField("Home size", createSizeSelect()));
     form.appendChild(createField("Move date", createInput("moveDate", "", "date")));
 

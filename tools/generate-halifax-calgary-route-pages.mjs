@@ -93,7 +93,7 @@ function routeSnapshot(route) {
   // The recovered React bundle has no route definitions for these two URLs. Keeping
   // its createRoot bootstrap would replace this complete snapshot with the app's 404.
   html = html.replace(
-    /\s*<script type="module"[^>]*src="\.\.\/assets\/index-CNBNs70h\.js"><\/script>/,
+    /\s*<script type="module"[^>]*src="\.\.\/assets\/index-[^"]+\.js"><\/script>/,
     "",
   );
 
