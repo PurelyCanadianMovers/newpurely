@@ -6,6 +6,7 @@ const routes = [
   "halifax-to-calgary-movers",
   "calgary-to-halifax-movers",
   "halifax-to-vancouver-movers",
+  "calgary-to-montreal-movers",
   "edmonton-to-montreal-movers",
   "edmonton-to-ottawa-movers",
 ];
@@ -14,6 +15,7 @@ const formDefaults = {
   "halifax-to-calgary-movers": ["Halifax, NS", "Calgary, AB"],
   "calgary-to-halifax-movers": ["Calgary, AB", "Halifax, NS"],
   "halifax-to-vancouver-movers": ["Halifax, NS", "Vancouver, BC"],
+  "calgary-to-montreal-movers": ["Calgary, AB", "Montreal, QC"],
   "edmonton-to-montreal-movers": ["Edmonton, AB", "Montreal, QC"],
   "edmonton-to-ottawa-movers": ["Edmonton, AB", "Ottawa, ON"],
 };
