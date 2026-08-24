@@ -2,7 +2,6 @@
   "use strict";
 
   if (window.__pcmStaticChatInitialized) return;
-  if (document.querySelector('[data-loc="client/src/components/AIChatWidget.tsx:97"]')) return;
   window.__pcmStaticChatInitialized = true;
 
   var assistantMessage = "Hi! I'm the Purely Canadian Movers virtual assistant. How can I help you today? Whether you have questions about our services, pricing, or service areas — I'm here to help! 🍁";
@@ -102,10 +101,14 @@
   }
 
   function init() {
-    launcher = document.createElement("button");
-    launcher.type = "button";
-    launcher.className = "pcm-static-chat-button";
-    launcher.setAttribute("aria-label", "Open chat assistant");
+    launcher = document.querySelector('button[data-loc="client/src/components/AIChatWidget.tsx:97"], button[aria-label="Open chat assistant"]');
+    if (!launcher) {
+      launcher = document.createElement("button");
+      launcher.type = "button";
+      launcher.className = "pcm-static-chat-button";
+      launcher.setAttribute("aria-label", "Open chat assistant");
+      document.body.appendChild(launcher);
+    }
     launcher.addEventListener("click", function () { setOpen(!isOpen); });
 
     panel = document.createElement("div");
@@ -147,7 +150,7 @@
     send.appendChild(icon("send", 15));
     form.appendChild(input); form.appendChild(send);
     panel.appendChild(header); panel.appendChild(messagesEl); panel.appendChild(form);
-    document.body.appendChild(panel); document.body.appendChild(launcher);
+    document.body.appendChild(panel);
     renderMessages(); setOpen(false);
   }
 
