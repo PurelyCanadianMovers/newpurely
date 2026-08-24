@@ -4,22 +4,45 @@
   var root = document;
   var navGroups = {
     Services: [
+      ["Services Overview", "/services/"],
       ["Local Moving", "/local/"],
       ["Long-Distance Moving", "/long-distance/"],
+      ["Cross-Country Moves", "/cross-country-movers/"],
+      ["Canada–USA Moves", "/canada-usa/"],
+      ["BC to Washington Movers", "/bc-to-washington-movers/"],
+      ["Overseas Moving", "/overseas/"],
+      ["Storage Solutions", "/storage/"],
+      ["Office & Corporate Moves", "/office/"],
       ["Packing Services", "/packing/"],
-      ["Storage", "/storage/"]
+      ["Valuation & Insurance Coverage", "/valuation-coverage-protection/"]
     ],
     "Local Moves": [
       ["Local Moving Overview", "/local/"],
       ["Vancouver", "/vancouver/"],
       ["Coquitlam", "/coquitlam/"],
-      ["Surrey", "/surrey/"]
+      ["Surrey", "/surrey/"],
+      ["Burnaby", "/burnaby/"],
+      ["North Vancouver", "/north-vancouver/"],
+      ["Langley", "/langley/"],
+      ["Richmond", "/richmond/"],
+      ["New Westminster", "/new-westminster/"],
+      ["Delta", "/delta/"],
+      ["Port Moody", "/port-moody/"],
+      ["White Rock", "/white-rock/"],
+      ["Abbotsford", "/moving-in-abbotsford-bc/"],
+      ["Maple Ridge", "/maple-ridge/"],
+      ["Pitt Meadows", "/pitt-meadows/"]
     ],
     "Long-Distance": [
-      ["Long-Distance Moving", "/long-distance/"],
-      ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
-      ["Toronto Routes", "/toronto-long-distance-movers/"],
-      ["Vancouver Routes", "/vancouver-long-distance-movers/"]
+      ["Long-Distance Overview", "/long-distance/"],
+      ["Vancouver Movers", "/vancouver-long-distance-movers/"],
+      ["Toronto Movers", "/toronto-long-distance-movers/"],
+      ["Montreal Movers", "/montreal-long-distance-movers/"],
+      ["Ottawa Movers", "/ottawa-long-distance-movers/"],
+      ["Calgary Movers", "/calgary-long-distance-movers/"],
+      ["Edmonton Movers", "/edmonton-long-distance-movers/"],
+      ["Victoria Movers", "/victoria-long-distance-movers/"],
+      ["Halifax Movers", "/halifax-long-distance-movers/"]
     ]
   };
 
@@ -76,8 +99,17 @@
     close.setAttribute("aria-label", "Close menu");
     close.textContent = "Close";
     panel.appendChild(close);
-    [["Home", "/"], ["Services", "/local/"], ["Local Moves", "/local/"], ["Long-Distance", "/long-distance/"], ["Pricing", "/long-distance-moving-cost-canada/"], ["Storage", "/storage/"], ["Blog", "/blog/"], ["Contact", "/contact/"]].forEach(function (item) {
-      panel.appendChild(makeLink(item[0], item[1]));
+    [["Home", "/"], ["Services", "/services/", navGroups.Services], ["Local Moves", "/local/", navGroups["Local Moves"]], ["Long-Distance", "/long-distance/", navGroups["Long-Distance"]], ["Storage", "/storage/"], ["Our Network", "/our-network/"], ["Blog", "/blog/"], ["Reviews", "/testimonials/"], ["Contact", "/contact/"]].forEach(function (item) {
+      var group = document.createElement("div");
+      var parentLink = makeLink(item[0], item[1]);
+      group.appendChild(parentLink);
+      if (item[2]) {
+        var subnav = document.createElement("div");
+        subnav.className = "pcm-static-mobile-subnav";
+        item[2].slice(1).forEach(function (child) { subnav.appendChild(makeLink(child[0], child[1])); });
+        group.appendChild(subnav);
+      }
+      panel.appendChild(group);
     });
     root.body.appendChild(panel);
     trigger.addEventListener("click", function (event) {
