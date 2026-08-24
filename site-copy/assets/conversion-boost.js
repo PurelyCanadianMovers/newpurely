@@ -4,6 +4,45 @@
   var CONTACT_URL = "/contact/";
   var GOOGLE_MAPS_ADDRESS_URL =
     "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
+
+  // Track only a confirmed successful final estimate request. The short estimate
+  // form stores intent and navigates to /contact/; it does not call this endpoint.
+  function installEstimateConversionTracking() {
+    if (window.__pcmEstimateConversionTrackingInstalled) return;
+    window.__pcmEstimateConversionTrackingInstalled = true;
+
+    var originalFetch = window.fetch;
+    if (typeof originalFetch !== "function") return;
+
+    window.fetch = function () {
+      var args = arguments;
+      var request = args[0];
+      var requestUrl = typeof request === "string" ? request : request && request.url;
+      var isEstimateRequest = /\/api\/trpc\/contact\.submit(?:[/?]|$)/i.test(requestUrl || "");
+
+      return originalFetch.apply(this, args).then(function (response) {
+        if (!isEstimateRequest || !response || !response.ok) return response;
+
+        response.clone().text().then(function (body) {
+          if (!/"success"\s*:\s*true|Estimate request received/i.test(body)) return;
+          if (window.__pcmEstimateSubmittedSent) return;
+          window.__pcmEstimateSubmittedSent = true;
+
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "estimate_submitted", {
+              event_category: "estimate",
+              conversion_type: "estimate_request",
+            });
+          }
+        }).catch(function () {
+          // A response that cannot be confirmed as successful is not a conversion.
+        });
+
+        return response;
+      });
+    };
+  }
+
   var TARGETS = {
     "/": {
       eyebrow: "Free moving estimate",
@@ -2705,6 +2744,7 @@
   }
 
   function init() {
+    installEstimateConversionTracking();
     forceStaticBlogNavigation();
 
     var path = normalizePath();
