@@ -101,26 +101,35 @@ const REDIRECTS = new Map([
 ]);
 
 function redirectLocation(requestUrl, destination) {
-  if (destination.startsWith("https://")) {
-    return destination;
-  }
-
   const url = new URL(requestUrl);
-  url.pathname = destination;
-  url.search = "";
-  return url.toString();
+  const target = new URL(destination, url.origin);
+  const oppref = url.searchParams.get("oppref");
+  if (!destination.startsWith("https://")) {
+    target.protocol = url.protocol;
+    target.hostname = url.hostname;
+  }
+  if (oppref) target.searchParams.set("oppref", oppref);
+  return target.toString();
 }
 
 function canonicalRedirectLocation(requestUrl, destination) {
-  if (destination.startsWith("https://")) {
-    return destination;
-  }
-
   const url = new URL(requestUrl);
-  url.protocol = "https:";
-  url.hostname = "purelycanadianmovers.com";
-  url.pathname = destination;
+  const target = new URL(destination, url.origin);
+  const oppref = url.searchParams.get("oppref");
+  if (!destination.startsWith("https://")) {
+    target.protocol = "https:";
+    target.hostname = "purelycanadianmovers.com";
+  }
+  if (oppref) target.searchParams.set("oppref", oppref);
+  return target.toString();
+}
+
+function trailingSlashRedirectLocation(requestUrl) {
+  const url = new URL(requestUrl);
+  const oppref = url.searchParams.get("oppref");
+  url.pathname = `${url.pathname}/`;
   url.search = "";
+  if (oppref) url.searchParams.set("oppref", oppref);
   return url.toString();
 }
 
@@ -946,9 +955,7 @@ export default {
     }
 
     if (!pathname.endsWith("/") && !hasFileExtension(pathname)) {
-      url.pathname = `${pathname}/`;
-      url.search = "";
-      return redirectWithSecurityHeaders(url.toString(), 301);
+      return redirectWithSecurityHeaders(trailingSlashRedirectLocation(request.url), 301);
     }
 
     if (pathname.endsWith("/")) {

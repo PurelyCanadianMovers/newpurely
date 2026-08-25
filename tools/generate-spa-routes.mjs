@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, posix } from "node:path";
+import { injectOpenAiAdsPixel } from "./openai-ads-pixel.mjs";
 
 const outDir = process.argv[2] ?? "site-copy";
 const index = await readFile(join(outDir, "index.html"), "utf8");
@@ -230,6 +231,7 @@ for (const route of routes) {
     );
   }
   html = applyHeadOverride(html, route);
+  html = injectOpenAiAdsPixel(html);
 
   const target = join(outDir, file);
   await mkdir(dirname(target), { recursive: true });

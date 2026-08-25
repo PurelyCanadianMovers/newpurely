@@ -4,6 +4,7 @@ import { createServer } from "node:http";
 import { dirname, extname, join, normalize, resolve, sep } from "node:path";
 import { spawn } from "node:child_process";
 import { tmpdir } from "node:os";
+import { injectOpenAiAdsPixel } from "./openai-ads-pixel.mjs";
 
 const sourceRoot = resolve(process.argv[2] ?? "site-copy");
 const outputRoot = resolve(process.argv[3] ?? "outputs/prerender-test");
@@ -247,8 +248,9 @@ async function main() {
       }
 
       await mkdir(dirname(item.outputFile), { recursive: true });
-      await writeFile(item.outputFile, rendered.stdout, "utf8");
-      const afterBytes = Buffer.byteLength(rendered.stdout, "utf8");
+      const renderedHtml = injectOpenAiAdsPixel(rendered.stdout);
+      await writeFile(item.outputFile, renderedHtml, "utf8");
+      const afterBytes = Buffer.byteLength(renderedHtml, "utf8");
       results.push({ route: item.route, status: "rendered", beforeBytes, afterBytes, error: "" });
       console.log(`[${index + 1}/${selectedRoutes.length}] rendered ${item.route} ${beforeBytes} -> ${afterBytes}`);
     }

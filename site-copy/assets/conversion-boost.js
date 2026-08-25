@@ -34,6 +34,13 @@
               conversion_type: "estimate_request",
             });
           }
+          if (typeof window.oaiq === "function") {
+            window.oaiq(
+              "measure",
+              "lead_created",
+              { type: "customer_action" }
+            );
+          }
         }).catch(function () {
           // A response that cannot be confirmed as successful is not a conversion.
         });
@@ -1558,7 +1565,13 @@
 
       event.preventDefault();
       event.stopImmediatePropagation();
-      window.location.assign("/blog/");
+      var oppref = "";
+      try {
+        oppref = new URLSearchParams(window.location.search).get("oppref") || sessionStorage.getItem("pcmOpenAiOppref") || "";
+      } catch (_) {
+        // Leave the existing navigation behavior unchanged when storage is unavailable.
+      }
+      window.location.assign(oppref ? "/blog/?oppref=" + encodeURIComponent(oppref) : "/blog/");
     }, true);
   }
 
