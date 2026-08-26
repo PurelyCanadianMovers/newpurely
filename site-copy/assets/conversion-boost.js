@@ -2512,6 +2512,11 @@
   }
 
   function insertLeadPanel(config) {
+    var path = normalizePath();
+    if (path === "/vancouver-to-toronto-movers/" || path === "/toronto-to-vancouver-movers/") {
+      return true;
+    }
+
     if (document.querySelector(".pcm-lead-panel")) return true;
     var root = document.getElementById("root");
     if (!root || !root.children.length) return false;
