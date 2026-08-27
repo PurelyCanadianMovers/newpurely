@@ -495,7 +495,7 @@
     "/calgary-to-toronto-movers/": {
       aria: "Calgary to Toronto moving cost estimates",
       eyebrow: "CALGARY TO TORONTO MOVING COST",
-      h1: "Calgary to Toronto Movers",
+      h1: "Calgary to Toronto Moving Cost, Prices & Transit Time",
       title: "How much does it cost to move from Calgary to Toronto?",
       intro:
         "A Calgary to Toronto move typically ranges from about <strong>$2,500+</strong> for a small shipment to <strong>$15,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$3,800-$6,400+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
