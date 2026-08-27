@@ -179,6 +179,11 @@
   .pcm-static-route .pcm-route-glance-section .pcm-glance-label{margin-bottom:8px;color:#64748b;font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
   .pcm-static-route .pcm-route-glance-section .pcm-glance-value{margin-bottom:8px;color:#d71920;font:700 1.45rem/1.1 Georgia,'Times New Roman',serif}
   .pcm-static-route .pcm-route-glance-section .pcm-glance-support{color:#64748b;font-size:.82rem;line-height:1.45}
+  .pcm-static-route .pcm-cost-table .pcm-home-size{font-weight:700;color:#172033}
+  .pcm-static-route .pcm-cost-table .pcm-cost-value{font-weight:800;color:#d71920}
+  .pcm-static-route .pcm-route-pricing-guide{margin:16px 0 0;text-align:center;font-size:.86rem}
+  .pcm-static-route .pcm-route-pricing-guide a{color:#d71920;font-weight:700;text-decoration:none}
+  .pcm-static-route .pcm-route-pricing-guide a:hover{text-decoration:underline}
   .pcm-site-header .pcm-topbar{padding:0;background:#b51218}
   .pcm-site-header .pcm-nav{padding:0;display:block}
   .pcm-site-header .pcm-topbar-inner,.pcm-site-header .pcm-nav-inner{width:100%;box-sizing:border-box;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;padding-left:24px;padding-right:24px}
@@ -326,35 +331,48 @@
         </div>
       </section>
 
-      <section class="pcm-section">
+      <section class="pcm-section pcm-cost-breakdown-section">
         <h2>Vancouver to Toronto Moving Cost Breakdown</h2>
         <p>These are planning ranges in CAD. Final pricing depends on shipment weight or volume, route distance, access, stairs, elevators, season, packing, storage, Declared Value Protection options, and any specialty items.</p>
         <div class="pcm-table-wrap">
-          <table>
+          <table class="pcm-cost-table">
             <thead>
               <tr>
-                <th>Route</th>
-                <th>Studio</th>
-                <th>1-Bedroom</th>
-                <th>2-Bedroom</th>
-                <th>3-Bedroom</th>
-                <th>4+ Bedroom</th>
-                <th>Typical transit</th>
+                <th>Home Size</th>
+                <th>Estimated Cost</th>
+                <th>Transit Time</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Vancouver to Toronto</td>
-                <td>$2,500</td>
-                <td>$4,700</td>
-                <td>$6,500</td>
-                <td>$10,000</td>
-                <td>$15,000</td>
-                <td>9-22 days</td>
+                <td class="pcm-home-size">Studio / Bachelor</td>
+                <td class="pcm-cost-value">$2,500+</td>
+                <td>9–22 days</td>
+              </tr>
+              <tr>
+                <td class="pcm-home-size">1-Bedroom</td>
+                <td class="pcm-cost-value">$4,700+</td>
+                <td>9–22 days</td>
+              </tr>
+              <tr>
+                <td class="pcm-home-size">2-Bedroom</td>
+                <td class="pcm-cost-value">$6,500+</td>
+                <td>9–22 days</td>
+              </tr>
+              <tr>
+                <td class="pcm-home-size">3-Bedroom</td>
+                <td class="pcm-cost-value">$10,000+</td>
+                <td>9–22 days</td>
+              </tr>
+              <tr>
+                <td class="pcm-home-size">4+ Bedroom</td>
+                <td class="pcm-cost-value">$15,000+</td>
+                <td>9–22 days</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p class="pcm-route-pricing-guide">Compare this route with the <a href="/long-distance-moving-cost-canada/">Long-Distance Moving Cost Guide</a>.</p>
       </section>
 
       <section class="pcm-section">
