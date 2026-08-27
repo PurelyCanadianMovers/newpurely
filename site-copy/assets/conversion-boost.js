@@ -71,6 +71,11 @@
       title: "Get a Calgary to Toronto quote.",
       body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
     },
+    "/toronto-to-calgary-movers/": {
+      eyebrow: "Free moving estimate",
+      title: "Get a Toronto to Calgary quote.",
+      body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+    },
     "/local/": {
       eyebrow: "Metro Vancouver local move",
       title: "Get a local moving estimate for Metro Vancouver.",
