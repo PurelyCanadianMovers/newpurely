@@ -141,9 +141,31 @@
         if (value && value.textContent.trim() !== '4,800 km') value.textContent = '4,800 km';
       });
     }
-    var observer = new MutationObserver(setCanonicalDistance);
+    function standardizeCostTable() {
+      var headings = document.querySelectorAll('h2');
+      headings.forEach(function (heading) {
+        if (heading.textContent.trim() !== 'Montreal to Vancouver Moving Cost Breakdown') return;
+        var section = heading.closest('section');
+        var table = section && section.querySelector('table');
+        if (!table) return;
+        var headers = table.querySelectorAll('thead th');
+        if (headers.length === 4 && headers[1].textContent.trim() === 'Est. Weight') {
+          table.querySelectorAll('tr').forEach(function (row) {
+            if (row.children[1]) row.children[1].remove();
+          });
+        }
+        table.querySelectorAll('thead th').forEach(function (header) {
+          if (header.textContent.trim() === 'Cost Range') header.textContent = 'Estimated Cost';
+        });
+      });
+    }
+    function applyRouteCorrections() {
+      setCanonicalDistance();
+      standardizeCostTable();
+    }
+    var observer = new MutationObserver(applyRouteCorrections);
     observer.observe(document.documentElement, { childList: true, subtree: true });
-    setCanonicalDistance();
-    window.setTimeout(function () { setCanonicalDistance(); observer.disconnect(); }, 5000);
+    applyRouteCorrections();
+    window.setTimeout(function () { applyRouteCorrections(); observer.disconnect(); }, 5000);
   })();
 </script></body></html>
