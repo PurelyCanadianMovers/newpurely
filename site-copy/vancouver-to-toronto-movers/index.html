@@ -233,6 +233,24 @@
     .pcm-hero-actions{align-items:stretch;flex-direction:column}
     .pcm-hero-actions .pcm-button{width:100%;box-sizing:border-box}
   }
+</style><style id="pcm-full-route-footer">
+  .pcm-static-route .pcm-closing-cta.pcm-static-closing-cta{max-width:none;margin:0;padding:68px max(24px,calc((100vw - 760px)/2));border:0;border-radius:0;background:#111827;color:#fff;text-align:center}
+  .pcm-static-route .pcm-closing-cta h2{margin:0 0 14px;color:#fff;font-size:clamp(2rem,3vw,2.65rem)}
+  .pcm-static-route .pcm-closing-cta p{margin:0 auto 28px;max-width:680px;color:#cbd5e1;font-size:1.08rem;line-height:1.65}
+  .pcm-static-route .pcm-closing-cta .pcm-links{justify-content:center;margin:0}
+  .pcm-static-route .pcm-closing-cta .pcm-links a{min-width:190px;padding:13px 22px;border-color:#fff;border-radius:6px;background:transparent;color:#fff}
+  .pcm-static-route .pcm-closing-cta .pcm-links a:first-child{border-color:#cc1a1a;background:#cc1a1a}
+  .pcm-static-route .pcm-closing-cta .pcm-local-line{margin:20px 0 0;color:#94a3b8;font-size:.9rem}
+  .pcm-static-route .pcm-closing-cta .pcm-local-line a{color:#fff}
+  .pcm-static-route .pcm-footer{max-width:none;margin:0;padding:0;background:linear-gradient(#111827,#080d18);color:#94a3b8;border-top:4px solid #cc1a1a}
+  .pcm-static-route .pcm-footer a{color:#94a3b8;text-decoration:none}.pcm-static-route .pcm-footer a:hover{color:#ef4444}
+  .pcm-footer__inner{max-width:1180px;margin:0 auto;padding:54px 24px 32px}.pcm-footer__grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.15fr;gap:44px}
+  .pcm-footer__brand{display:flex;align-items:center;gap:10px;margin-bottom:18px;color:#fff}.pcm-footer__mark{width:32px;height:32px;flex:0 0 32px}.pcm-footer__brand strong{display:block;font-family:Georgia,'Times New Roman',serif;font-size:1.12rem}.pcm-footer__brand span{display:block;margin-top:3px;color:#94a3b8;font-size:.7rem;letter-spacing:.16em}
+  .pcm-footer h3{margin:0 0 18px;color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:1.05rem}.pcm-footer p{margin:0;color:#94a3b8;line-height:1.65}.pcm-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}.pcm-footer li,.pcm-footer li a{font-size:.9rem;line-height:1.45}
+  .pcm-footer__credentials{margin-top:18px;color:#cbd5e1;font-size:.85rem;line-height:1.7}
+  .pcm-footer__bottom{border-top:1px solid #263244}.pcm-footer__bottom-inner{max-width:1180px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.78rem;color:#64748b}.pcm-footer__bottom-links{display:flex;gap:18px;flex-wrap:wrap}
+  @media(max-width:900px){.pcm-footer__grid{grid-template-columns:1fr 1fr;gap:38px}.pcm-static-route .pcm-closing-cta.pcm-static-closing-cta{padding:58px 24px}}
+  @media(max-width:560px){.pcm-footer__inner{padding:42px 20px 28px}.pcm-footer__grid{grid-template-columns:1fr;gap:32px}.pcm-static-route .pcm-closing-cta.pcm-static-closing-cta{padding:48px 20px}.pcm-static-route .pcm-closing-cta .pcm-links{display:grid}.pcm-static-route .pcm-closing-cta .pcm-links a{width:100%}.pcm-footer__bottom-inner{padding:18px 20px}}
 </style></head>
 <body class="pcm-static-route-ready">
   <div id="root" class="pcm-static-route pcm-static-route-ready">
@@ -449,18 +467,29 @@
 
       <section class="pcm-section pcm-closing-cta pcm-static-closing-cta">
         <h2>Ready to Move from Vancouver to Toronto?</h2>
-        <p>Request a written estimate based on your household, access, timing, and the services you need for your cross-country move.</p>
+        <p>Get a free, no-obligation estimate from Canada&rsquo;s most trusted long-distance movers. Call us or fill out our online form &mdash; we&rsquo;ll get back to you within one business day.</p>
         <div class="pcm-links"><a href="/contact/">Get a Written Estimate</a><a href="tel:18774856683">Call 1-877-485-6683</a></div>
+        <p class="pcm-local-line">Or call our local line: <a href="tel:16045227222">604-522-7222</a></p>
       </section>
     </main>
     </div>
     </div>
 
     <footer class="pcm-footer">
-      <strong>Purely Canadian Movers Inc.</strong><br>
-      Unit 16 - 91 Golden Dr., Coquitlam, BC V3K 6R2<br>
-      <a href="tel:18774856683">1-877-485-6683</a> - <a href="mailto:esales@pcmovers.ca">esales@pcmovers.ca</a>
-    <div class="pcm-footer-support-links"><h3>Customer Support</h3><a href="/company-proof/">Company Proof</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/estimate-booking-policy/">Estimate &amp; Booking Policy</a><a href="/claims-support/">Claims Support</a><a href="/valuation-coverage-protection/">Valuation Coverage</a><a href="/accessibility/">Accessibility</a></div></footer>
+      <div class="pcm-footer__inner">
+        <div class="pcm-footer__grid">
+          <section>
+            <div class="pcm-footer__brand"><svg class="pcm-footer__mark" width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2L20.5 10H29L22.5 15L25 23L18 18L11 23L13.5 15L7 10H15.5L18 2Z" fill="#CC1A1A"></path><path d="M16.5 23H19.5V34H16.5V23Z" fill="#CC1A1A"></path></svg><div><strong>Purely Canadian Movers</strong><span>MOVERS</span></div></div>
+            <p>Family-owned moving company serving Metro Vancouver and the Lower Mainland since 1991, with long-distance moving services across Canada.</p>
+            <div class="pcm-footer__credentials">5-Star Rated<br>BBB Accredited Business</div>
+          </section>
+          <section><h3>Our Services</h3><ul><li><a href="/local/">Local Moving</a></li><li><a href="/long-distance/">Long-Distance Moving</a></li><li><a href="/cross-country-movers/">Cross-Country Moves</a></li><li><a href="/canada-usa/">Canada-USA Moves</a></li><li><a href="/overseas/">Overseas Moving</a></li><li><a href="/storage/">Storage Solutions</a></li><li><a href="/office/">Office &amp; Corporate Moves</a></li><li><a href="/packing/">Packing &amp; Unpacking</a></li><li><a href="/great-canadian-vanlines-agent/">Great Canadian Van Lines Agent</a></li></ul></section>
+          <section><h3>Service Areas</h3><ul><li><a href="/vancouver/">Vancouver</a></li><li><a href="/coquitlam/">Coquitlam</a></li><li><a href="/surrey/">Surrey</a></li><li><a href="/burnaby/">Burnaby</a></li><li><a href="/north-vancouver/">North Vancouver</a></li><li><a href="/langley/">Langley</a></li><li><a href="/delta/">Delta</a></li><li><a href="/port-moody/">Port Moody</a></li><li><a href="/white-rock/">White Rock</a></li></ul></section>
+          <section><h3>Contact Us</h3><ul><li><a href="tel:18774856683">1-877-485-6683 (Toll-Free)</a></li><li><a href="tel:16045227222">604-522-7222 (Local)</a></li><li><a href="mailto:esales@pcmovers.ca">esales@pcmovers.ca</a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2" target="_blank" rel="noopener">Unit 16-91 Golden Dr.<br>Coquitlam, BC V3K 6R2</a></li><li>Office: Mon-Fri 9am-5pm<br>Moving Services: 24/7</li></ul></section>
+        </div>
+      </div>
+      <div class="pcm-footer__bottom"><div class="pcm-footer__bottom-inner"><span>&copy; 2026 Purely Canadian Movers. All rights reserved.</span><div class="pcm-footer__bottom-links"><a href="https://share.google/8CPKIYw6TOJB1W8rX" target="_blank" rel="noopener">Google Reviews</a><a href="https://www.yelp.com/biz/purely-canadian-movers" target="_blank" rel="noopener">Yelp</a><a href="/testimonials/">Read Our Reviews</a><a href="/contact/">Request a Free Estimate</a></div></div></div>
+    </footer>
   </div>
     <script defer="" src="/assets/conversion-boost.js"></script>
     <script defer src="/assets/static-nav.js"></script>
