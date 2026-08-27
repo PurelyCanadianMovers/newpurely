@@ -2008,14 +2008,15 @@
     document.body.appendChild(bar);
   }
 
-  function createBrokerComparison() {
+  function createBrokerComparison(path) {
+    var routeLabel = path === "/calgary-to-toronto-movers/" ? "Calgary to Toronto" : "Toronto to Calgary";
     var section = document.createElement("section");
     section.className = "pcm-lead-boost pcm-broker-compare";
     section.setAttribute("aria-label", "Direct mover versus broker comparison");
     section.innerHTML =
       '<div class="pcm-broker-compare__inner">' +
-      "<h2>Direct Toronto to Calgary mover, not a moving broker</h2>" +
-      "<p>For a long-distance move from Ontario to Alberta, who coordinates your shipment matters. Purely Canadian Movers gives you direct accountability from estimate to delivery through authorized Great Canadian Van Lines agent-network support.</p>" +
+      "<h2>Direct " + routeLabel + " mover, not a moving broker</h2>" +
+      "<p>For a long-distance move, who coordinates your shipment matters. Purely Canadian Movers gives you direct accountability from estimate to delivery through authorized Great Canadian Van Lines agent-network support.</p>" +
       '<div class="pcm-compare-grid">' +
       '<div class="pcm-compare-column">' +
       "<h3>Purely Canadian Movers</h3>" +
@@ -2521,7 +2522,7 @@
   }
 
   function insertBrokerComparison(path) {
-    if (path !== "/toronto-to-calgary-movers/" || document.querySelector(".pcm-broker-compare")) {
+    if (!["/toronto-to-calgary-movers/", "/calgary-to-toronto-movers/"].includes(path) || document.querySelector(".pcm-broker-compare")) {
       return;
     }
 
@@ -2530,7 +2531,7 @@
     var anchor = routeCost || leadPanel;
     if (!anchor || !anchor.parentNode) return;
 
-    anchor.parentNode.insertBefore(createBrokerComparison(), anchor.nextSibling);
+    anchor.parentNode.insertBefore(createBrokerComparison(path), anchor.nextSibling);
   }
 
   function insertRouteCostBlock(path) {
