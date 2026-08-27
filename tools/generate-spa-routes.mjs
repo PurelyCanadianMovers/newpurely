@@ -29,6 +29,7 @@ const manualPublicRoutes = [
   "/vancouver-to-seattle-movers/",
   "/toronto-to-vancouver-movers/",
   "/victoria-to-vancouver-movers/",
+  "/victoria-to-toronto-movers/",
   "/vancouver-to-montreal-movers/",
   "/vancouver-to-ottawa-movers/",
   "/vancouver-to-halifax-movers/",
@@ -42,6 +43,7 @@ const standaloneStaticRoutes = new Set([
   "/vancouver-to-bellevue-movers/",
   "/vancouver-to-seattle-movers/",
   "/victoria-to-vancouver-movers/",
+  "/victoria-to-toronto-movers/",
 ]);
 const routeHeadOverrides = {
   "/local-movers-burnaby-bc/": {
