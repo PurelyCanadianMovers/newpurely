@@ -66,6 +66,11 @@
       title: "Start your move with a fast, no-obligation estimate.",
       body: "Tell us the basics and we will help price the right crew, truck, and plan for your local or long-distance move.",
     },
+    "/calgary-to-toronto-movers/": {
+      eyebrow: "Free moving estimate",
+      title: "Get a Calgary to Toronto quote.",
+      body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+    },
     "/local/": {
       eyebrow: "Metro Vancouver local move",
       title: "Get a local moving estimate for Metro Vancouver.",
@@ -231,7 +236,7 @@
     "/long-distance-moving-cost-canada/": "Moving Cost Guide Canada",
     "/long-distance/": "Long-Distance Movers Canada | Cross-Country Moving",
     "/calgary-long-distance-movers/": "Calgary Long-Distance Movers",
-    "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Cross-Canada Moving",
+    "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Purely Canadian Movers",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
     "/calgary-to-halifax-movers/": "Calgary to Halifax Movers | Cross-Canada Moving",
     "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Moving Cost | Movers, Distance & Transit Time",
@@ -480,6 +485,29 @@
         ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-16 days"],
         ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-16 days"],
         ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-16 days"],
+      ],
+    },
+    "/calgary-to-toronto-movers/": {
+      aria: "Calgary to Toronto moving cost estimates",
+      eyebrow: "CALGARY TO TORONTO MOVING COST",
+      h1: "Calgary to Toronto Movers",
+      title: "How much does it cost to move from Calgary to Toronto?",
+      intro:
+        "A Calgary to Toronto move typically ranges from about <strong>$2,500+</strong> for a small shipment to <strong>$15,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$3,800-$6,400+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Calgary movers", "/calgary-long-distance-movers/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7–19 days"],
+        ["1-bedroom", "$3,800+", "Depends on inventory weight or volume, access, and packing", "7–19 days"],
+        ["2-bedroom", "$6,400+", "Common planning range for apartment or condo moves", "7–19 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7–19 days"],
+        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "7–19 days"],
       ],
     },
     "/toronto-to-calgary-movers/": {
@@ -1875,6 +1903,7 @@
     form.appendChild(mobileStart);
 
     var routeDefaults = {
+      "/calgary-to-toronto-movers/": ["Calgary, AB", "Toronto, ON"],
       "/halifax-to-calgary-movers/": ["Halifax, NS", "Calgary, AB"],
       "/calgary-to-halifax-movers/": ["Calgary, AB", "Halifax, NS"],
       "/halifax-to-vancouver-movers/": ["Halifax, NS", "Vancouver, BC"],
