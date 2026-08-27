@@ -141,40 +141,4 @@
 
 <div class="pcm-lead-boost pcm-sticky-cta"><a class="pcm-primary-button" href="/contact/">Get Estimate</a><a class="pcm-secondary-button" href="tel:18774856683">Call</a></div>
 
-<button type="button" class="pcm-chat-nudge is-visible" aria-label="Ask a moving question or get a quick price quote"><strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span></button>
-<script>
-  (function () {
-    function correctEstimatePanel() {
-      var panel = document.querySelector('.pcm-lead-panel[aria-label="Free moving estimate"]');
-      if (!panel) return;
-      var heading = panel.querySelector('h2');
-      var description = panel.querySelector('h2 + p');
-      var origin = panel.querySelector('input[name="from"]');
-      var destination = panel.querySelector('input[name="to"]');
-      if (heading && heading.textContent.trim() !== 'Get a Victoria to Toronto quote.') heading.textContent = 'Get a Victoria to Toronto quote.';
-      if (description && description.textContent.trim() !== 'Planning a move from Victoria, BC to Toronto, ON? Purely Canadian Movers helps customers plan ferry-dependent pickup logistics for a cross-Canada move, compare realistic pricing, and arrange a written estimate.') description.textContent = 'Planning a move from Victoria, BC to Toronto, ON? Purely Canadian Movers helps customers plan ferry-dependent pickup logistics for a cross-Canada move, compare realistic pricing, and arrange a written estimate.';
-      if (origin && origin.getAttribute('placeholder') !== 'Victoria, BC') origin.setAttribute('placeholder', 'Victoria, BC');
-      if (destination && destination.getAttribute('placeholder') !== 'Toronto, ON') destination.setAttribute('placeholder', 'Toronto, ON');
-    }
-    function standardizeCostTable() {
-      document.querySelectorAll('h2').forEach(function (heading) {
-        if (heading.textContent.trim() !== 'Victoria to Toronto Moving Cost Breakdown') return;
-        var section = heading.closest('section');
-        var table = section && section.querySelector('table');
-        if (!table) return;
-        var headers = table.querySelectorAll('thead th');
-        if (headers.length === 4 && headers[1].textContent.trim() === 'Est. Weight') {
-          table.querySelectorAll('tr').forEach(function (row) { if (row.children[1]) row.children[1].remove(); });
-        }
-        table.querySelectorAll('thead th').forEach(function (header) {
-          if (header.textContent.trim() === 'Estimated Cost') header.textContent = 'Estimated Cost';
-        });
-      });
-    }
-    function applyRouteCorrections() { correctEstimatePanel(); standardizeCostTable(); }
-    var observer = new MutationObserver(applyRouteCorrections);
-    observer.observe(document.documentElement, { childList: true, subtree: true });
-    applyRouteCorrections();
-    window.setTimeout(function () { applyRouteCorrections(); observer.disconnect(); }, 5000);
-  })();
-</script><script defer src="/assets/static-nav.js"></script><script defer src="/assets/static-chat.js"></script></body></html>
+<button type="button" class="pcm-chat-nudge is-visible" aria-label="Ask a moving question or get a quick price quote"><strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span></button><script defer src="/assets/static-nav.js"></script><script defer src="/assets/static-chat.js"></script></body></html>
