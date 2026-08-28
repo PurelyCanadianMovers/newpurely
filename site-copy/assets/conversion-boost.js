@@ -2581,6 +2581,17 @@
     leadPanel.parentNode.insertBefore(createRouteCostBlock(config), leadPanel.nextSibling);
   }
 
+  function removeTorontoEdmontonCostBreakdown(path) {
+    if (path !== "/toronto-to-edmonton-movers/") return true;
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      return (item.textContent || "").trim() === "Toronto to Edmonton Moving Cost Breakdown";
+    });
+    if (!heading) return false;
+    var section = heading.closest("section");
+    if (section && !section.classList.contains("pcm-route-cost")) section.remove();
+    return true;
+  }
+
   function insertLeadPanel(config) {
     var path = normalizePath();
     if (path === "/vancouver-to-toronto-movers/" || path === "/toronto-to-vancouver-movers/") {
@@ -2907,6 +2918,7 @@
       normalizeLongDistanceTrustLanguage(path);
       if (insertLeadPanel(config) || attempts > 30) {
         enhanceExistingEstimateForms();
+        removeTorontoEdmontonCostBreakdown(path);
         window.clearInterval(timer);
       }
     }, 250);
