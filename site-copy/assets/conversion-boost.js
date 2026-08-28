@@ -91,6 +91,11 @@
       title: "Get a Montreal to Victoria quote.",
       body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
     },
+    "/victoria-to-montreal-movers/": {
+      eyebrow: "Free moving estimate",
+      title: "Get a Victoria to Montreal quote.",
+      body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+    },
     "/local/": {
       eyebrow: "Metro Vancouver local move",
       title: "Get a local moving estimate for Metro Vancouver.",
@@ -274,6 +279,7 @@
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
+    "/victoria-to-montreal-movers/": "Victoria to Montreal Movers | Long-Distance Moving",
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
     "/movers-edmonton-to-toronto/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
@@ -528,6 +534,29 @@
         ["2-bedroom", "$6,400+", "Common planning range for apartment or condo moves", "7–19 days"],
         ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7–19 days"],
         ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "7–19 days"],
+      ],
+    },
+    "/victoria-to-montreal-movers/": {
+      aria: "Victoria to Montreal moving cost estimates",
+      eyebrow: "VICTORIA TO MONTREAL MOVING COST",
+      h1: "Victoria to Montreal Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Victoria to Montreal?",
+      intro:
+        "A Victoria to Montreal move typically ranges from about <strong>$3,000+</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,300-$7,000+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Victoria movers", "/victoria-long-distance-movers/"],
+        ["Montreal movers", "/montreal-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio / Bachelor", "$3,000+", "Best for a small shipment or limited furniture", "10–22 days"],
+        ["1-Bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10–22 days"],
+        ["2-Bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10–22 days"],
+        ["3-Bedroom", "$11,000+", "Larger household shipment with more labour and space", "10–22 days"],
+        ["4+ Bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10–22 days"],
       ],
     },
     "/montreal-to-victoria-movers/": {
@@ -1978,6 +2007,7 @@
       "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
       "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
+      "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
     }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
     form.appendChild(createField("Moving from", createInput("from", routeDefaults[0])));
     form.appendChild(createField("Moving to", createInput("to", routeDefaults[1])));
