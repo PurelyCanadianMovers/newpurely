@@ -530,6 +530,29 @@
         ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "7–19 days"],
       ],
     },
+    "/montreal-to-victoria-movers/": {
+      aria: "Montreal to Victoria moving cost estimates",
+      eyebrow: "Montreal to Victoria moving cost",
+      h1: "Montreal to Victoria Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Montreal to Victoria?",
+      intro:
+        "A Montreal to Victoria move typically ranges from about <strong>$3,000+</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,300-$7,000+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Montreal movers", "/montreal-long-distance-movers/"],
+        ["Victoria movers", "/victoria-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio / Bachelor", "$3,000+", "Best for a small shipment or limited furniture", "10–22 days"],
+        ["1-Bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10–22 days"],
+        ["2-Bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10–22 days"],
+        ["3-Bedroom", "$11,000+", "Larger household shipment with more labour and space", "10–22 days"],
+        ["4+ Bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10–22 days"],
+      ],
+    },
     "/toronto-to-edmonton-movers/": {
       aria: "Toronto to Edmonton moving cost estimates",
       eyebrow: "TORONTO TO EDMONTON MOVING COST",
