@@ -86,6 +86,11 @@
       title: "Get a Toronto to Calgary quote.",
       body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
     },
+    "/montreal-to-victoria-movers/": {
+      eyebrow: "Free moving estimate",
+      title: "Get a Montreal to Victoria quote.",
+      body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+    },
     "/local/": {
       eyebrow: "Metro Vancouver local move",
       title: "Get a local moving estimate for Metro Vancouver.",
@@ -1949,6 +1954,7 @@
       "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
       "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
+      "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
     }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
     form.appendChild(createField("Moving from", createInput("from", routeDefaults[0])));
     form.appendChild(createField("Moving to", createInput("to", routeDefaults[1])));
