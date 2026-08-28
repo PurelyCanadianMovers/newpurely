@@ -525,6 +525,29 @@
         ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "7–19 days"],
       ],
     },
+    "/toronto-to-edmonton-movers/": {
+      aria: "Toronto to Edmonton moving cost estimates",
+      eyebrow: "TORONTO TO EDMONTON MOVING COST",
+      h1: "Toronto to Edmonton Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Toronto to Edmonton?",
+      intro:
+        "A Toronto to Edmonton move typically ranges from about <strong>$2,500</strong> for a small shipment to <strong>$10,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$4,500-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "Prices are planning ranges in CAD, not guaranteed quotes. Toronto to Edmonton pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Toronto movers", "/toronto-long-distance-movers/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "7-16 days"],
+        ["1-bedroom", "$4,500-$5,500+", "Depends on inventory weight or volume, access, and packing", "7-16 days"],
+        ["2-bedroom", "$6,000-$7,000+", "Common planning range for apartment or condo moves", "7-16 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7-16 days"],
+        ["4+ bedroom", "$12,000-$15,000+", "Final quote depends heavily on inventory and services", "7-16 days"],
+      ],
+    },
     "/toronto-to-calgary-movers/": {
       aria: "Toronto to Calgary moving cost estimates",
       eyebrow: "Toronto to Calgary moving cost",
