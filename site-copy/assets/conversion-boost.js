@@ -76,6 +76,11 @@
       title: "Get an Edmonton to Toronto quote.",
       body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
     },
+    "/toronto-to-edmonton-movers/": {
+      eyebrow: "Free moving estimate",
+      title: "Get a Toronto to Edmonton quote.",
+      body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+    },
     "/toronto-to-calgary-movers/": {
       eyebrow: "Free moving estimate",
       title: "Get a Toronto to Calgary quote.",
@@ -1918,6 +1923,7 @@
       "/calgary-to-halifax-movers/": ["Calgary, AB", "Halifax, NS"],
       "/halifax-to-vancouver-movers/": ["Halifax, NS", "Vancouver, BC"],
       "/edmonton-to-toronto-movers/": ["Edmonton, AB", "Toronto, ON"],
+      "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
       "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
     }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
