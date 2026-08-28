@@ -2581,10 +2581,13 @@
     leadPanel.parentNode.insertBefore(createRouteCostBlock(config), leadPanel.nextSibling);
   }
 
-  function removeTorontoEdmontonCostBreakdown(path) {
-    if (path !== "/toronto-to-edmonton-movers/") return true;
+  function removeRouteCostBreakdown(path) {
+    if (path !== "/toronto-to-edmonton-movers/" && path !== "/edmonton-to-toronto-movers/") return true;
     var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
-      return (item.textContent || "").trim() === "Toronto to Edmonton Moving Cost Breakdown";
+      return (item.textContent || "").trim() ===
+        (path === "/toronto-to-edmonton-movers/"
+          ? "Toronto to Edmonton Moving Cost Breakdown"
+          : "Edmonton to Toronto Moving Cost Breakdown");
     });
     if (!heading) return false;
     var section = heading.closest("section");
@@ -2918,7 +2921,7 @@
       normalizeLongDistanceTrustLanguage(path);
       if (insertLeadPanel(config) || attempts > 30) {
         enhanceExistingEstimateForms();
-        removeTorontoEdmontonCostBreakdown(path);
+        removeRouteCostBreakdown(path);
         window.clearInterval(timer);
       }
     }, 250);
