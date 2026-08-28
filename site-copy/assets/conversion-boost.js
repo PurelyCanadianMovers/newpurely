@@ -2660,7 +2660,10 @@
       return true;
     }
 
-    if (document.querySelector(".pcm-lead-panel")) return true;
+    if (document.querySelector(".pcm-lead-panel")) {
+      insertRouteCostBlock(normalizePath());
+      return true;
+    }
     var root = document.getElementById("root");
     if (!root || !root.children.length) return false;
 
