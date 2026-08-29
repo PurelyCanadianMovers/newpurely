@@ -2938,17 +2938,23 @@
     forceStaticBlogNavigation();
 
     var path = normalizePath();
+
     var config = getConfig(path);
+    if (path === "/calgary-to-montreal-movers/") {
+      var routeRoot = document.getElementById("root");
+      var routePricing = routeRoot && routeRoot.querySelector(".pcm-route-cost");
+      var routeApp = routeRoot && routeRoot.querySelector(":scope > div");
+      if (routePricing && routeApp) routeRoot.insertBefore(routePricing, routeApp);
+      return;
+    }
     applyTitleOverride(path);
     normalizeLongDistanceTrustLanguage(path);
     if (path === "/calgary-to-montreal-movers/") {
       var calgaryPricing = document.querySelector(".pcm-route-cost");
-      var calgaryGlanceHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
-        return (item.textContent || "").trim() === "Calgary–Montreal Route at a Glance";
-      });
-      var calgaryGlance = calgaryGlanceHeading && calgaryGlanceHeading.closest("section");
-      if (calgaryPricing && calgaryGlance && calgaryPricing !== calgaryGlance) {
-        calgaryGlance.parentNode.insertBefore(calgaryPricing, calgaryGlance);
+      var calgaryRoot = document.getElementById("root");
+      var calgaryApp = calgaryRoot && calgaryRoot.querySelector(":scope > div");
+      if (calgaryPricing && calgaryRoot && calgaryApp && calgaryPricing.parentNode !== calgaryRoot) {
+        calgaryRoot.insertBefore(calgaryPricing, calgaryApp);
       }
       return;
     }
