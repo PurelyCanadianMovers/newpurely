@@ -2915,6 +2915,7 @@
     var config = getConfig(path);
     applyTitleOverride(path);
     normalizeLongDistanceTrustLanguage(path);
+    if (path === "/calgary-to-montreal-movers/") return;
 
     var footerAttempts = 0;
     var footerTimer = window.setInterval(function () {
