@@ -2632,9 +2632,9 @@
     var config = ROUTE_COST_BLOCKS[path];
     if (path === "/montreal-to-calgary-movers/") {
       var existing = document.querySelector(".pcm-route-cost");
-      var firstRouteSection = document.querySelector("main > section");
-      if (existing && firstRouteSection && existing !== firstRouteSection) {
-        firstRouteSection.parentNode.insertBefore(existing, firstRouteSection);
+      var appMain = document.querySelector("#root > div main");
+      if (existing && appMain && existing.parentNode !== appMain.parentNode) {
+        appMain.parentNode.insertBefore(existing, appMain);
       }
       return;
     }
@@ -2669,6 +2669,12 @@
     }
 
     if (document.querySelector(".pcm-lead-panel")) {
+      if (path === "/montreal-to-calgary-movers/") {
+        var existingPanel = document.querySelector(".pcm-lead-panel");
+        var existingApp = document.querySelector("#root > div");
+        var existingFooter = existingApp && existingApp.querySelector("footer");
+        if (existingPanel && existingFooter) existingApp.insertBefore(existingPanel, existingFooter);
+      }
       insertRouteCostBlock(normalizePath());
       return true;
     }
@@ -2677,6 +2683,18 @@
 
     normalizeLongDistanceTrustLanguage(normalizePath());
     var panel = createLeadPanel(config);
+    if (path === "/montreal-to-calgary-movers/") {
+      var routeApp = root.querySelector(":scope > div");
+      if (routeApp && routeApp.querySelector("footer")) {
+        routeApp.insertBefore(panel, routeApp.querySelector("footer"));
+      } else {
+        root.appendChild(panel);
+      }
+      enhanceRouteHeading(normalizePath());
+      insertLocalSeoBlock(normalizePath());
+      insertRouteCostBlock(normalizePath());
+      return true;
+    }
     var hero = root.querySelector("section");
     if (hero && hero.parentNode) {
       hero.parentNode.insertBefore(panel, hero.nextSibling);
