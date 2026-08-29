@@ -2958,6 +2958,9 @@
       }
       return; // Preserve the static Calgary-to-Montreal route structure.
     }
+    if (path === "/montreal-to-calgary-movers/") {
+      return; // Preserve the static Montreal-to-Calgary route structure.
+    }
 
     var footerAttempts = 0;
     var footerTimer = window.setInterval(function () {
