@@ -2956,7 +2956,7 @@
       if (calgaryPricing && calgaryRoot && calgaryApp && calgaryPricing.parentNode !== calgaryRoot) {
         calgaryRoot.insertBefore(calgaryPricing, calgaryApp);
       }
-      return;
+      return; // Preserve the static Calgary-to-Montreal route structure.
     }
 
     var footerAttempts = 0;
