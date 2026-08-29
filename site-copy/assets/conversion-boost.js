@@ -2630,6 +2630,14 @@
 
   function insertRouteCostBlock(path) {
     var config = ROUTE_COST_BLOCKS[path];
+    if (path === "/montreal-to-calgary-movers/") {
+      var existing = document.querySelector(".pcm-route-cost");
+      var firstRouteSection = document.querySelector("main > section");
+      if (existing && firstRouteSection && existing !== firstRouteSection) {
+        firstRouteSection.parentNode.insertBefore(existing, firstRouteSection);
+      }
+      return;
+    }
     if (!config || document.querySelector(".pcm-route-cost")) {
       return;
     }
@@ -2915,7 +2923,17 @@
     var config = getConfig(path);
     applyTitleOverride(path);
     normalizeLongDistanceTrustLanguage(path);
-    if (path === "/calgary-to-montreal-movers/") return;
+    if (path === "/calgary-to-montreal-movers/") {
+      var calgaryPricing = document.querySelector(".pcm-route-cost");
+      var calgaryGlanceHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+        return (item.textContent || "").trim() === "Calgary–Montreal Route at a Glance";
+      });
+      var calgaryGlance = calgaryGlanceHeading && calgaryGlanceHeading.closest("section");
+      if (calgaryPricing && calgaryGlance && calgaryPricing !== calgaryGlance) {
+        calgaryGlance.parentNode.insertBefore(calgaryPricing, calgaryGlance);
+      }
+      return;
+    }
 
     var footerAttempts = 0;
     var footerTimer = window.setInterval(function () {
