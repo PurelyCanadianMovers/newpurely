@@ -2748,6 +2748,7 @@
   function removeRouteCostBreakdown(path) {
     if (!["/toronto-to-edmonton-movers/", "/edmonton-to-toronto-movers/", "/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/", "/edmonton-to-vancouver-movers/"].includes(path)) return true;
     var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      if (path === "/edmonton-to-vancouver-movers/") return (item.textContent || "").trim() === "Edmonton to Vancouver Moving Cost Breakdown";
       return (item.textContent || "").trim() ===
         path.replace(/^\//, "").replace(/-movers\/$/, "").split("-").map(function (word) {
           return word.charAt(0).toUpperCase() + word.slice(1);
