@@ -2715,6 +2715,24 @@
     anchor.parentNode.insertBefore(createTrustProofBlock(config), anchor.nextSibling);
   }
 
+  function enforceVancouverEdmontonTopOrder(path) {
+    if (path !== "/vancouver-to-edmonton-movers/") return;
+    var root = document.getElementById("root");
+    var quote = document.querySelector(".pcm-lead-panel");
+    var pricing = document.querySelector(".pcm-route-cost");
+    var trust = document.querySelector(".pcm-trust-proof");
+    var hero = root && Array.prototype.find.call(root.children, function (child) {
+      return child.querySelector && child.querySelector("h1");
+    });
+    if (!root || !quote || !pricing || !trust || !hero) return;
+    var anchor = root.firstElementChild;
+    [quote, pricing, trust, hero].forEach(function (node) {
+      var top = node;
+      while (top.parentElement && top.parentElement !== root) top = top.parentElement;
+      if (top !== anchor) root.insertBefore(top, anchor);
+    });
+  }
+
   function insertLocalSeoBlock(path) {
     var config = LOCAL_SEO_BLOCKS[path];
     if (!config || document.querySelector(".pcm-local-seo")) return;
@@ -2834,6 +2852,7 @@
     addCostGuideIncludedLine();
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
+    enforceVancouverEdmontonTopOrder(normalizePath());
     normalizeLongDistanceTrustLanguage(normalizePath());
     return true;
   }
