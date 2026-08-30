@@ -1000,6 +1000,12 @@ export default {
       });
     }
 
+    if (pathname === "/assets/pcm-chatbot.js") {
+      return fetchStaticAsset(request, env, "/assets/pcm-chatbot.js", {
+        "Cache-Control": "no-cache, max-age=0, must-revalidate",
+      });
+    }
+
     if (pathname.startsWith("/blog/") && pathname.endsWith("/") && !pathname.startsWith("/blog/content/")) {
       return fetchStaticAsset(request, env, `${pathname}index.html`, {
         "Cache-Control": "no-cache, max-age=0, must-revalidate",
