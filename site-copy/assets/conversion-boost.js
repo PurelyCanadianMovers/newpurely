@@ -81,6 +81,11 @@
       title: "Get an Edmonton to Vancouver quote.",
       body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
     },
+    "/vancouver-to-edmonton-movers/": {
+      eyebrow: "Free moving estimate",
+      title: "Get a Vancouver to Edmonton quote.",
+      body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
+    },
     "/toronto-to-edmonton-movers/": {
       eyebrow: "Free moving estimate",
       title: "Get a Toronto to Edmonton quote.",
@@ -472,6 +477,15 @@
   var TRUST_PROOF_BLOCKS = {};
 
   var ROUTE_COST_BLOCKS = {
+    "/vancouver-to-edmonton-movers/": {
+      aria: "Vancouver to Edmonton moving cost estimates",
+      eyebrow: "Vancouver to Edmonton moving cost",
+      title: "How much does it cost to move from Vancouver to Edmonton?",
+      intro: "A Vancouver to Edmonton move typically ranges from about <strong>$2,200+</strong> for a small shipment to <strong>$7,000+</strong> for a larger home. Many 1–2 bedroom moves are estimated around <strong>$2,800–$3,800+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note: "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
+      links: [["Full cost guide", "/long-distance-moving-cost-canada/"], ["Vancouver movers", "/vancouver-long-distance-movers/"], ["Edmonton movers", "/edmonton-long-distance-movers/"], ["Get a written estimate", "/contact/"]],
+      rows: [["Studio or small shipment", "$2,200+", "Best for limited furniture or a partial shipment", "4–13 days"], ["1-bedroom", "$2,800+", "Depends on inventory weight or volume, access, and packing", "4–13 days"], ["2-bedroom", "$3,800+", "Common planning range for apartment or condo moves", "4–13 days"], ["3-bedroom", "$5,200+", "Larger household shipment with more labour and space", "4–13 days"], ["4+ bedroom", "$7,000+", "Final quote depends heavily on inventory and services", "4–13 days"]],
+    },
     "/edmonton-to-vancouver-movers/": {
       aria: "Edmonton to Vancouver moving cost estimates",
       eyebrow: "Edmonton to Vancouver moving cost",
@@ -2041,6 +2055,7 @@
       "/halifax-to-vancouver-movers/": ["Halifax, NS", "Vancouver, BC"],
       "/edmonton-to-toronto-movers/": ["Edmonton, AB", "Toronto, ON"],
       "/edmonton-to-vancouver-movers/": ["Edmonton, AB", "Vancouver, BC"],
+      "/vancouver-to-edmonton-movers/": ["Vancouver, BC", "Edmonton, AB"],
       "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
       "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
       "/montreal-to-edmonton-movers/": ["Montreal, QC", "Edmonton, AB"],
