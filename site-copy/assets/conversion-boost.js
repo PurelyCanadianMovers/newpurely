@@ -474,7 +474,18 @@
     },
   ];
 
-  var TRUST_PROOF_BLOCKS = {};
+  var TRUST_PROOF_BLOCKS = {
+    "/vancouver-to-edmonton-movers/": {
+      title: "A direct Vancouver to Edmonton mover — not a broker",
+      intro: "Your Vancouver to Edmonton move is coordinated by Purely Canadian Movers with clear documentation and one accountable team from pickup through delivery.",
+      proof: [
+        ["Family-owned since 1991", "A long-established mover serving Vancouver, Edmonton, and cross-Canada routes."],
+        ["No brokers or random subcontractors", "We do not sell your move to an unknown third party or add broker-style handoffs."],
+        ["Written estimates and protection", "Compare inventory-based pricing, valuation coverage options, and service details before booking."],
+      ],
+      links: [["Vancouver movers", "/vancouver-long-distance-movers/"], ["Edmonton movers", "/edmonton-long-distance-movers/"], ["Get a written estimate", "/contact/"]],
+    },
+  };
 
   var ROUTE_COST_BLOCKS = {
     "/vancouver-to-edmonton-movers/": {
@@ -2789,6 +2800,7 @@
         if (existingPanel && existingFooter) existingApp.insertBefore(existingPanel, existingFooter);
       }
       insertRouteCostBlock(normalizePath());
+      insertTrustProofBlock(normalizePath());
       return true;
     }
     var root = document.getElementById("root");
