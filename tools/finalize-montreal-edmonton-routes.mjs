@@ -50,10 +50,21 @@ const routes = [
   ["Montreal → Edmonton", "/montreal-to-edmonton-movers/"],
   ["Edmonton → Montreal", "/edmonton-to-montreal-movers/"],
 ];
-for (const [label, href] of routes) {
-  if (!tableBody.includes(`>${label}<`)) {
-    tableBody += `<tr class="pcm-cost-guide-popular-route"><td>${label}</td><td>3,500 km</td><td>7–19 days</td><td><a href="${href}">View Route</a></td></tr>`;
-  }
+for (const [label] of routes) {
+  tableBody = tableBody.replace(new RegExp(`<tr[^>]*>(?:(?!<\\/tr>)[\\s\\S])*?<td[^>]*>${label}<\\/td>(?:(?!<\\/tr>)[\\s\\S])*?<\\/tr>`), "");
+}
+const standardRows = [...tableBody.matchAll(/<tr[\s\S]*?<\/tr>/g)].map((match) => match[0]);
+const template = standardRows.at(-1);
+if (!template || !template.includes("Get a Quote")) throw new Error("Styled popular-route template not found");
+for (const [index, [label, href]] of routes.entries()) {
+  const row = template
+    .replace(/bg-(?:white|gray-50)/, index % 2 === 0 ? "bg-gray-50" : "bg-white")
+    .replace(/>Toronto → Victoria</, `>${label}<`)
+    .replace(">4,400 km<", ">3,500 km<")
+    .replace(">10–22 days<", ">7–19 days<")
+    .replace('/toronto-to-victoria-movers/', href)
+    .replace('class="border-b', 'class="pcm-cost-guide-popular-route border-b');
+  tableBody += row;
 }
 guide = guide.slice(0, tbodyOpenEnd) + tableBody + guide.slice(tbodyEnd);
 await writeFile(guideFile, guide);

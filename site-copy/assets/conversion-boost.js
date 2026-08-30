@@ -2606,25 +2606,35 @@
     var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
       return (item.textContent || "").trim() === "Popular Moving Routes in Canada";
     });
-    var body = heading && heading.parentElement && heading.parentElement.querySelector("table tbody");
-    var template = body && body.querySelector("tr");
+    var section = heading && heading.closest("section");
+    var body = section && section.querySelector("table tbody");
+    var template = body && Array.prototype.find.call(body.querySelectorAll("tr"), function (row) {
+      var label = (row.cells[0] && row.cells[0].textContent || "").trim();
+      return label !== "Montreal → Edmonton" && label !== "Edmonton → Montreal" && row.cells[3] && row.cells[3].querySelector("a");
+    });
     if (!body || !template) return false;
+
+    Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
+      var label = (row.cells[0] && row.cells[0].textContent || "").trim();
+      if (label === "Montreal → Edmonton" || label === "Edmonton → Montreal") row.remove();
+    });
 
     [
       ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
       ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"]
     ].forEach(function (route) {
-      if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
-        return (row.cells[0] && row.cells[0].textContent || "").trim() === route[0];
-      })) return;
-
       var row = template.cloneNode(true);
       var cells = row.querySelectorAll("td");
       if (cells.length < 4) return;
       cells[0].textContent = route[0];
       cells[1].textContent = route[1];
       cells[2].textContent = route[2];
-      cells[3].innerHTML = '<a href="' + route[3] + '">View Route</a>';
+      var link = cells[3].querySelector("a");
+      if (!link) return;
+      link.href = route[3];
+      var previousRow = body.querySelector("tr:last-child");
+      row.classList.remove("bg-white", "bg-gray-50");
+      row.classList.add(previousRow && previousRow.classList.contains("bg-gray-50") ? "bg-white" : "bg-gray-50");
       row.classList.add("pcm-cost-guide-popular-route");
       body.appendChild(row);
     });
@@ -3058,7 +3068,7 @@
         var popularRoutesDone = addCostGuidePopularRouteLinks();
         var noteDone = addCostGuideIncludedLine();
         var quoteRemoved = removeCostGuideBottomQuoteBlock();
-        if ((routesDone && popularRoutesDone && noteDone && quoteRemoved) || costGuideAttempts > 30) {
+        if ((routesDone && popularRoutesDone && noteDone && quoteRemoved && costGuideAttempts >= 12) || costGuideAttempts > 30) {
           window.clearInterval(costGuideTimer);
         }
       }, 250);
