@@ -86,6 +86,28 @@
       title: "Get a Toronto to Edmonton quote.",
       body: "Share your origin, destination, home size, and preferred date so Purely Canadian Movers can help with a realistic estimate.",
     },
+    "/edmonton-to-vancouver-movers/": {
+      aria: "Edmonton to Vancouver moving cost estimates",
+      eyebrow: "Edmonton to Vancouver moving cost",
+      title: "How much does it cost to move from Edmonton to Vancouver?",
+      intro:
+        "An Edmonton to Vancouver move typically ranges from about <strong>$2,200+</strong> for a small shipment to <strong>$7,000+</strong> for a larger home. Many 1–2 bedroom moves are estimated around <strong>$2,800–$3,800+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Vancouver movers", "/vancouver-long-distance-movers/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio or small shipment", "$2,200+", "Best for limited furniture or a partial shipment", "4–13 days"],
+        ["1-bedroom", "$2,800+", "Depends on inventory weight or volume, access, and packing", "4–13 days"],
+        ["2-bedroom", "$3,800+", "Common planning range for apartment or condo moves", "4–13 days"],
+        ["3-bedroom", "$5,200+", "Larger household shipment with more labour and space", "4–13 days"],
+        ["4+ bedroom", "$7,000+", "Final quote depends heavily on inventory and services", "4–13 days"],
+      ],
+    },
     "/toronto-to-calgary-movers/": {
       eyebrow: "Free moving estimate",
       title: "Get a Toronto to Calgary quote.",
