@@ -47,7 +47,7 @@ fs.writeFileSync(path.join(reverseDir, 'index.html'), reverse);
 
 const guidePath = path.join(root, 'long-distance-moving-cost-canada', 'index.html');
 let guide = fs.readFileSync(guidePath, 'utf8');
-const row = '<tr data-route="toronto-to-halifax"><td>Toronto → Halifax</td><td>$2,200+</td><td>$2,900+</td><td>$3,900+</td><td>$5,300+</td><td>$7,000+</td></tr>';
+const row = '<tr data-route="toronto-to-halifax" data-loc="client/src/pages/services/LongDistanceCost.tsx:319" class="border-b border-gray-200 bg-white hover:bg-red-50 pcm-cost-guide-route"><td data-loc="client/src/pages/services/LongDistanceCost.tsx:320" class="py-3 px-4 font-body text-gray-900 font-semibold">Toronto → Halifax</td><td data-loc="client/src/pages/services/LongDistanceCost.tsx:321" class="py-3 px-4 font-body text-gray-700">$2,200+</td><td data-loc="client/src/pages/services/LongDistanceCost.tsx:322" class="py-3 px-4 font-body text-gray-700">$2,900+</td><td data-loc="client/src/pages/services/LongDistanceCost.tsx:323" class="py-3 px-4 font-body text-gray-700">$3,900+</td><td data-loc="client/src/pages/services/LongDistanceCost.tsx:324" class="py-3 px-4 font-body text-gray-700">$5,300+</td><td data-loc="client/src/pages/services/LongDistanceCost.tsx:325" class="py-3 px-4 font-body text-[#CC1A1A] font-semibold">$7,000+</td></tr>';
 if (guide.includes('data-route="toronto-to-halifax"')) {
   guide = guide.replace(/<tr data-route="toronto-to-halifax">[\s\S]*?<\/tr>/, row);
   fs.writeFileSync(guidePath, guide);
