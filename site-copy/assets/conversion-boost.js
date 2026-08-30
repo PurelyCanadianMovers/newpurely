@@ -703,9 +703,9 @@
       h1: "Montreal to Edmonton Moving Cost, Prices & Transit Time",
       title: "How much does it cost to move from Montreal to Edmonton?",
       intro:
-        "A Montreal to Edmonton move typically ranges from about <strong>$2,800</strong> for a small shipment to <strong>$15,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,000-$6,800</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+        "A Montreal to Edmonton move typically ranges from about <strong>$2,500+</strong> for a studio to <strong>$15,000+</strong> for a 4+ bedroom home, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
       note:
-        "Prices are planning ranges in CAD, not guaranteed quotes. Montreal to Edmonton pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+        "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Prices are planning ranges in CAD, not guaranteed quotes. Montreal to Edmonton pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
       links: [
         ["Full cost guide", "/long-distance-moving-cost-canada/"],
         ["Montreal movers", "/long-distance-movers-montreal/"],
@@ -713,11 +713,34 @@
         ["Get a written estimate", "/contact/"],
       ],
       rows: [
-        ["Studio or small shipment", "$2,800+", "Best for limited furniture or a partial shipment", "8-18 days"],
-        ["1-bedroom", "$5,000+", "Depends on inventory weight or volume, access, and packing", "8-18 days"],
-        ["2-bedroom", "$6,800+", "Common planning range for apartment or condo moves", "8-18 days"],
-        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "8-18 days"],
-        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "8-18 days"],
+        ["Studio", "$2,500+", "Best for limited furniture or a partial shipment", "7–19 days"],
+        ["1-bedroom", "$4,700+", "Depends on inventory weight or volume, access, and packing", "7–19 days"],
+        ["2-bedroom", "$6,300+", "Common planning range for apartment or condo moves", "7–19 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7–19 days"],
+        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "7–19 days"],
+      ],
+    },
+    "/edmonton-to-montreal-movers/": {
+      aria: "Edmonton to Montreal moving cost estimates",
+      eyebrow: "Edmonton to Montreal moving cost",
+      h1: "Edmonton to Montreal Moving Cost, Prices & Transit Time",
+      title: "How much does it cost to move from Edmonton to Montreal?",
+      intro:
+        "An Edmonton to Montreal move typically ranges from about <strong>$2,500+</strong> for a studio to <strong>$15,000+</strong> for a 4+ bedroom home, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+      note:
+        "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Prices are planning ranges in CAD, not guaranteed quotes. Edmonton to Montreal pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
+      links: [
+        ["Full cost guide", "/long-distance-moving-cost-canada/"],
+        ["Edmonton movers", "/edmonton-long-distance-movers/"],
+        ["Montreal movers", "/long-distance-movers-montreal/"],
+        ["Get a written estimate", "/contact/"],
+      ],
+      rows: [
+        ["Studio", "$2,500+", "Best for limited furniture or a partial shipment", "7–19 days"],
+        ["1-bedroom", "$4,700+", "Depends on inventory weight or volume, access, and packing", "7–19 days"],
+        ["2-bedroom", "$6,300+", "Common planning range for apartment or condo moves", "7–19 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "7–19 days"],
+        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "7–19 days"],
       ],
     },
     "/ottawa-to-vancouver-movers/": {
@@ -1489,10 +1512,10 @@
     "/montreal-to-edmonton-movers/": {
       title: "Montreal to Edmonton moving cost, prices, and transit time",
       intro:
-        "A Montreal to Edmonton move typically ranges from about $2,800 for a small shipment to $15,000+ for a larger home. Many 1-2 bedroom Montreal to Edmonton moves are estimated around $5,000-$6,800, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+        "A Montreal to Edmonton move typically ranges from about $2,500+ for a studio to $15,000+ for a 4+ bedroom home, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
       highlights: [
         ["Route cost factors", "Final price depends on weight or volume, Montreal pickup access, Edmonton delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
-        ["Typical transit", "Montreal to Edmonton long-distance moves are commonly planned around an 8-18 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Typical transit", "Montreal to Edmonton long-distance moves are commonly planned around a 7–19 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
         ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
       ],
       links: [
@@ -1507,8 +1530,8 @@
         ["Get a Montreal to Edmonton Estimate", "/contact/"],
       ],
       faqs: [
-        ["How much does it cost to move from Montreal to Edmonton?", "A Montreal to Edmonton move is commonly estimated from about $2,800 for a small shipment to $15,000+ for a larger home. A 1-2 bedroom move is often estimated around $5,000-$6,800. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
-        ["How long does a Montreal to Edmonton move take?", "A typical Montreal to Edmonton moving transit window is about 8-18 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["How much does it cost to move from Montreal to Edmonton?", "A Montreal to Edmonton move is commonly estimated from about $2,500+ for a studio to $15,000+ for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does a Montreal to Edmonton move take?", "A typical Montreal to Edmonton moving transit window is about 7–19 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of a Montreal to Edmonton move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Montreal to Edmonton moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with a Montreal to Edmonton move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Montreal to Edmonton moving estimate."],
@@ -2005,6 +2028,7 @@
       "/edmonton-to-toronto-movers/": ["Edmonton, AB", "Toronto, ON"],
       "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
       "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
+      "/montreal-to-edmonton-movers/": ["Montreal, QC", "Edmonton, AB"],
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
       "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
       "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
@@ -2576,6 +2600,37 @@
     return true;
   }
 
+  function addCostGuidePopularRouteLinks() {
+    if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
+      return (item.textContent || "").trim() === "Popular Moving Routes in Canada";
+    });
+    var body = heading && heading.parentElement && heading.parentElement.querySelector("table tbody");
+    var template = body && body.querySelector("tr");
+    if (!body || !template) return false;
+
+    [
+      ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
+      ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"]
+    ].forEach(function (route) {
+      if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
+        return (row.cells[0] && row.cells[0].textContent || "").trim() === route[0];
+      })) return;
+
+      var row = template.cloneNode(true);
+      var cells = row.querySelectorAll("td");
+      if (cells.length < 4) return;
+      cells[0].textContent = route[0];
+      cells[1].textContent = route[1];
+      cells[2].textContent = route[2];
+      cells[3].innerHTML = '<a href="' + route[3] + '">View Route</a>';
+      row.classList.add("pcm-cost-guide-popular-route");
+      body.appendChild(row);
+    });
+    return true;
+  }
+
   function removeCostGuideBottomQuoteBlock() {
     if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
 
@@ -2648,13 +2703,28 @@
     leadPanel.parentNode.insertBefore(createRouteCostBlock(config), leadPanel.nextSibling);
   }
 
+  function normalizeMontrealEdmontonRouteContent(path) {
+    if (path !== "/montreal-to-edmonton-movers/" && path !== "/edmonton-to-montreal-movers/") return;
+    var root = document.getElementById("root");
+    if (!root) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var node;
+    while ((node = walker.nextNode())) {
+      if (node.parentElement && node.parentElement.closest(".pcm-route-cost")) continue;
+      node.nodeValue = node.nodeValue
+        .replace(/7[–-]18 days/g, "7–19 days")
+        .replace(/8[–-]18 days/g, "7–19 days")
+        .replace(/8[–-]20 days/g, "7–19 days");
+    }
+  }
+
   function removeRouteCostBreakdown(path) {
-    if (path !== "/toronto-to-edmonton-movers/" && path !== "/edmonton-to-toronto-movers/") return true;
+    if (!["/toronto-to-edmonton-movers/", "/edmonton-to-toronto-movers/", "/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/"].includes(path)) return true;
     var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
       return (item.textContent || "").trim() ===
-        (path === "/toronto-to-edmonton-movers/"
-          ? "Toronto to Edmonton Moving Cost Breakdown"
-          : "Edmonton to Toronto Moving Cost Breakdown");
+        path.replace(/^\//, "").replace(/-movers\/$/, "").split("-").map(function (word) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join(" ") + " Moving Cost Breakdown";
     });
     if (!heading) return false;
     var section = heading.closest("section");
@@ -2985,9 +3055,10 @@
       var costGuideTimer = window.setInterval(function () {
         costGuideAttempts += 1;
         var routesDone = addCostGuideRoutes();
+        var popularRoutesDone = addCostGuidePopularRouteLinks();
         var noteDone = addCostGuideIncludedLine();
         var quoteRemoved = removeCostGuideBottomQuoteBlock();
-        if ((routesDone && noteDone && quoteRemoved) || costGuideAttempts > 30) {
+        if ((routesDone && popularRoutesDone && noteDone && quoteRemoved) || costGuideAttempts > 30) {
           window.clearInterval(costGuideTimer);
         }
       }, 250);
@@ -3027,9 +3098,11 @@
     var timer = window.setInterval(function () {
       attempts += 1;
       normalizeLongDistanceTrustLanguage(path);
+      normalizeMontrealEdmontonRouteContent(path);
       if (insertLeadPanel(config) || attempts > 30) {
         enhanceExistingEstimateForms();
         removeRouteCostBreakdown(path);
+        normalizeMontrealEdmontonRouteContent(path);
         window.clearInterval(timer);
       }
     }, 250);
