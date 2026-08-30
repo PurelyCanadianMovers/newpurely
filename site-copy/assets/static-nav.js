@@ -10,6 +10,8 @@
       ["Cross-Country Moves", "/cross-country-movers/"],
       ["Canada–USA Moves", "/canada-usa/"],
       ["BC to Washington Movers", "/bc-to-washington-movers/"],
+      ["Vancouver to Seattle Movers", "/vancouver-to-seattle-movers/"],
+      ["Seattle to Vancouver Movers", "/seattle-to-vancouver-movers/"],
       ["Overseas Moving", "/overseas/"],
       ["Storage Solutions", "/storage/"],
       ["Office & Corporate Moves", "/office/"],
