@@ -50,13 +50,13 @@ function routeSnapshot(route) {
   html = replaceAll(html, "__DESTINATION_CITY_LOWER__", route.destination.toLowerCase());
 
   // Keep route-specific copy truthful when the destination changes from Calgary.
-  html = replaceAll(html, "Alberta", "__DESTINATION_PROVINCE__");
-  html = replaceAll(html, "AB", "__DESTINATION_CODE__");
-  html = replaceAll(html, "Ontario", "__ORIGIN_PROVINCE__");
+  html = replaceAll(html, "Alberta", "__DEST_PROV__");
+  html = replaceAll(html, "AB", "__DEST_CODE__");
+  html = replaceAll(html, "Ontario", "__ORIGIN_PROV__");
   html = replaceAll(html, "ON", "__ORIGIN_CODE__");
-  html = replaceAll(html, "__DESTINATION_PROVINCE__", route.destinationProvince);
-  html = replaceAll(html, "__DESTINATION_CODE__", route.destinationCode);
-  html = replaceAll(html, "__ORIGIN_PROVINCE__", route.originProvince);
+  html = replaceAll(html, "__DEST_PROV__", route.destinationProvince);
+  html = replaceAll(html, "__DEST_CODE__", route.destinationCode);
+  html = replaceAll(html, "__ORIGIN_PROV__", route.originProvince);
   html = replaceAll(html, "__ORIGIN_CODE__", route.originCode);
   html = replaceAll(html, "Choose a Calgary Neighbourhood with Access in Mind", `Choose a ${route.destination} Neighbourhood with Access in Mind`);
   html = replaceAll(html, "Update Your Alberta Health Coverage", `Update Your ${route.destination} Health Coverage`);
