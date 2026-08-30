@@ -129,12 +129,7 @@ function routeSnapshot(route) {
     `name="to" placeholder="${route.destination}, ${route.destinationCode}"`,
   );
 
-  // The recovered React bundle has no route definitions for these two URLs. Keeping
-  // its createRoot bootstrap would replace this complete snapshot with the app's 404.
-  html = html.replace(
-    /\s*<script type="module"[^>]*src="\.\.\/assets\/index-[^"]+\.js"><\/script>/,
-    "",
-  );
+  // Keep the React bundle so AIChatWidget remains interactive on these prerendered routes.
 
   const canonical = `https://purelycanadianmovers.com/${route.slug}/`;
   const checks = [
@@ -146,7 +141,6 @@ function routeSnapshot(route) {
     [(html.match(/type="application\/ld\+json"/g) ?? []).length >= 8, "JSON-LD blocks"],
     [(html.match(/<form\b/g) ?? []).length === 1, "estimate form"],
     [!html.includes("rel=\"canonical\" href=\"https://purelycanadianmovers.com/404"), "no 404 canonical"],
-    [!html.includes("index-CNBNs70h.js"), "no unsupported React route bootstrap"],
   ];
 
   const failed = checks.filter(([passed]) => !passed).map(([, name]) => name);
