@@ -3008,28 +3008,6 @@
     });
   }
 
-  function initStandaloneChat() {
-    if (normalizePath() !== "/vancouver-to-edmonton-movers/") return true;
-    var button = document.querySelector('button[aria-label="Open chat assistant"]');
-    if (!button || button.getAttribute("data-pcm-chat-bound")) return !!button;
-    button.setAttribute("data-pcm-chat-bound", "1");
-    button.addEventListener("click", function () {
-      var panel = document.querySelector(".pcm-standalone-chat");
-      if (panel) { panel.remove(); button.setAttribute("aria-label", "Open chat assistant"); return; }
-      panel = document.createElement("div");
-      panel.className = "pcm-standalone-chat fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden";
-      panel.style.maxHeight = "480px";
-      panel.innerHTML = '<div class="bg-[#CC1A1A] text-white px-4 py-3 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><span aria-hidden="true">♟</span></div><div><div class="font-body font-semibold text-sm">PCM Assistant</div><div class="font-body text-xs text-red-200">Purely Canadian Movers</div></div><button class="ml-auto hover:text-red-200 transition-colors" aria-label="Close">×</button></div><div class="flex-1 overflow-y-auto p-4 space-y-3" style="min-height:0"><div class="flex gap-2"><div class="w-7 h-7 rounded-full bg-[#CC1A1A] flex items-center justify-center"><span class="text-white">♟</span></div><div class="max-w-[75%] rounded-2xl px-3 py-2 text-sm font-body leading-relaxed bg-gray-100 text-gray-800 rounded-tl-sm">How can we help with your move?</div></div></div><div class="border-t border-gray-200 p-3 flex gap-2"><input type="text" placeholder="Ask about our services..." class="flex-1 text-sm font-body border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#CC1A1A] focus:border-transparent"><button class="w-9 h-9 rounded-full bg-[#CC1A1A] text-white flex items-center justify-center hover:bg-[#A31515] transition-colors disabled:opacity-50" aria-label="Send message">↑</button></div>';
-      document.body.appendChild(panel);
-      button.setAttribute("aria-label", "Close chat");
-      panel.querySelector('[aria-label="Close"]').addEventListener("click", function () { panel.remove(); button.setAttribute("aria-label", "Open chat assistant"); });
-      var input = panel.querySelector("input"), messages = panel.querySelector(".space-y-3"), send = panel.querySelector('[aria-label="Send message"]');
-      var submit = function () { var value = input.value.trim(); if (!value) return; var user = document.createElement("div"); user.className = "bg-[#CC1A1A] text-white rounded-2xl px-3 py-2 text-sm font-body ml-auto max-w-[75%]"; user.textContent = value; messages.appendChild(user); input.value = ""; var reply = document.createElement("div"); reply.className = "bg-gray-100 text-gray-800 rounded-2xl px-3 py-2 text-sm font-body"; reply.textContent = "Thanks — our team can help with that. Call 1-877-485-6683 or request a written estimate."; messages.appendChild(reply); };
-      send.addEventListener("click", submit); input.addEventListener("keydown", function (event) { if (event.key === "Enter") submit(); }); input.focus();
-    });
-    return true;
-  }
-
   function isChatNudgeDismissed() {
     try {
       return window.sessionStorage && window.sessionStorage.getItem("pcmChatNudgeDismissed") === "1";
@@ -3175,7 +3153,6 @@
     var chatNudgeAttempts = 0;
     var chatNudgeTimer = window.setInterval(function () {
       chatNudgeAttempts += 1;
-      initStandaloneChat();
       if (initChatNudge() || chatNudgeAttempts > 30) {
         window.clearInterval(chatNudgeTimer);
       }
