@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const outDir = process.argv[2] ?? "site-copy";
-const templatePath = join(outDir, "halifax-to-toronto-movers", "index.html");
+const templatePath = join(outDir, "toronto-to-calgary-movers", "index.html");
 const template = await readFile(templatePath, "utf8");
 
 const routes = [
@@ -27,7 +27,7 @@ const routes = [
 ];
 
 const pricing = ["$2,600+", "$3,900+", "$6,500+", "$11,000+", "$16,000+"];
-const oldPricing = ["$2,200+", "$2,900+", "$3,900+", "$5,300+", "$7,000+"];
+const oldPricing = ["$2,500+", "$3,800+", "$6,400+", "$10,000+", "$15,000+"];
 
 function replaceAll(text, search, replacement) {
   return text.split(search).join(replacement);
@@ -37,11 +37,11 @@ function routeSnapshot(route) {
   let html = template;
 
   // Use placeholders so reverse-direction routes do not collide during swaps.
-  html = replaceAll(html, "halifax-to-toronto-movers", "__ROUTE_SLUG__");
-  html = replaceAll(html, "Halifax", "__ORIGIN_CITY__");
-  html = replaceAll(html, "Toronto", "__DESTINATION_CITY__");
-  html = replaceAll(html, "halifax", "__ORIGIN_CITY_LOWER__");
-  html = replaceAll(html, "toronto", "__DESTINATION_CITY_LOWER__");
+  html = replaceAll(html, "toronto-to-calgary-movers", "__ROUTE_SLUG__");
+  html = replaceAll(html, "Toronto", "__ORIGIN_CITY__");
+  html = replaceAll(html, "Calgary", "__DESTINATION_CITY__");
+  html = replaceAll(html, "toronto", "__ORIGIN_CITY_LOWER__");
+  html = replaceAll(html, "calgary", "__DESTINATION_CITY_LOWER__");
 
   html = replaceAll(html, "__ROUTE_SLUG__", route.slug);
   html = replaceAll(html, "__ORIGIN_CITY__", route.origin);
@@ -49,14 +49,53 @@ function routeSnapshot(route) {
   html = replaceAll(html, "__ORIGIN_CITY_LOWER__", route.origin.toLowerCase());
   html = replaceAll(html, "__DESTINATION_CITY_LOWER__", route.destination.toLowerCase());
 
+  // Keep route-specific copy truthful when the destination changes from Calgary.
+  html = replaceAll(html, "Alberta", "__DESTINATION_PROVINCE__");
+  html = replaceAll(html, "AB", "__DESTINATION_CODE__");
+  html = replaceAll(html, "Ontario", "__ORIGIN_PROVINCE__");
+  html = replaceAll(html, "ON", "__ORIGIN_CODE__");
+  html = replaceAll(html, "__DESTINATION_PROVINCE__", route.destinationProvince);
+  html = replaceAll(html, "__DESTINATION_CODE__", route.destinationCode);
+  html = replaceAll(html, "__ORIGIN_PROVINCE__", route.originProvince);
+  html = replaceAll(html, "__ORIGIN_CODE__", route.originCode);
+  html = replaceAll(html, "Choose a Calgary Neighbourhood with Access in Mind", `Choose a ${route.destination} Neighbourhood with Access in Mind`);
+  html = replaceAll(html, "Update Your Alberta Health Coverage", `Update Your ${route.destination} Health Coverage`);
+  html = replaceAll(html, "Plan for Alberta’s Tax Difference", `Plan for ${route.destinationProvince}’s Tax Difference`);
+  html = replaceAll(html, "Prepare for Chinooks and Winter Weather", `Prepare for ${route.destination}'s Seasonal Weather`);
+  html = replaceAll(html, "/toronto-long-distance-movers/", `/${route.origin.toLowerCase()}-long-distance-movers/`);
+  html = replaceAll(html, "Confirm Condo, Parking, and Truck Access", "Confirm Condo, Parking, and Truck Access");
+  html = replaceAll(html, "Is my shipment insured during a Toronto to Calgary move?", "What protection is available for this move?");
+  html = replaceAll(html, "insurance", "Declared Value Protection");
+  html = replaceAll(html, "insured", "protected with Declared Value Protection");
+  html = replaceAll(html, "No. Local moves are handled by our own trained crews, and long-distance moves run through the Great Canadian Van Lines network rather than a broker handoff to unknown movers.", "Long-distance moves are coordinated through the Great Canadian Van Lines agent network, with route planning and service coordination handled by Purely Canadian Movers.");
+  html = replaceAll(html, "no subcontractors", "no moving-broker handoff");
+  html = replaceAll(html, "No subcontractors", "No moving-broker handoff");
+  html = replaceAll(html, "subcontractors", "unknown third-party movers");
+  html = replaceAll(html, "our own trained crew from pickup to delivery", "the Great Canadian Van Lines agent network from pickup through delivery");
+  html = replaceAll(html, "our own crews", "our moving team and Great Canadian Van Lines agent network");
+  html = replaceAll(html, "zero unknown third-party movers. Ever.", "coordinated agent-network service");
+
   // Preserve the existing route-page structure while making its facts authoritative.
   html = replaceAll(html, "6-14", "8-20 days");
   html = replaceAll(html, "6–14", "8–20 days");
   html = replaceAll(html, "5-12 days", "8-20 days");
   html = replaceAll(html, "5–12 days", "8–20 days");
+  html = replaceAll(html, "7–19 days", "8–20 days");
+  html = replaceAll(html, "7-19 days", "8-20 days");
   html = replaceAll(html, "~2000 km", "~4,800 km");
+  html = replaceAll(html, "~3,400 km", "~4,800 km");
+  html = replaceAll(html, "~3,500 km", "~4,800 km");
+  html = replaceAll(html, "approximately 3,400 km", "approximately 4,800 km");
+  html = replaceAll(html, "approximately 3,500 km", "approximately 4,800 km");
   html = replaceAll(html, "roughly 2000 km", "roughly 4,800 km");
   html = replaceAll(html, "$2000-$3800–$6000-$12000", "$2,600–$16,000+");
+
+  const inclusion = "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible.";
+  html = replaceAll(html, "These estimated moving costs include in-home pickup and delivery, fuel surcharge, insurance, and zero deductible.", inclusion);
+  html = html.replace(
+    /(<div class="pcm-route-cost__table-wrap">[\s\S]*?<\/div>)(<p class="pcm-route-cost__note">)/i,
+    `$1<p class="pcm-route-cost__inclusion">${inclusion}</p>$2`,
+  );
 
   for (let index = 0; index < oldPricing.length; index += 1) {
     html = replaceAll(html, oldPricing[index], `__ROUTE_PRICE_${index}__`);
