@@ -2735,6 +2735,7 @@
       while (top.parentElement && top.parentElement !== root) top = top.parentElement;
       if (top !== anchor) root.insertBefore(top, anchor);
     });
+    if (header.parentElement === root && hero.parentElement === root) root.insertBefore(header, hero);
   }
 
   function insertLocalSeoBlock(path) {
