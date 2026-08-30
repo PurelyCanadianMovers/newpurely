@@ -618,6 +618,8 @@ const HOME_SIZE_LABELS = {
   fourPlus: "4+ bedroom",
 };
 const COST_ROUTE_ESTIMATES = [
+  { route: "Vancouver to Winnipeg", from: "vancouver", to: "winnipeg", transit: "5-13 days", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$8,900", fourPlus: "$13,000" },
+  { route: "Winnipeg to Vancouver", from: "winnipeg", to: "vancouver", transit: "5-13 days", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$8,900", fourPlus: "$13,000" },
   { route: "Vancouver to Toronto", from: "vancouver", to: "toronto", transit: "9-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Toronto to Vancouver", from: "toronto", to: "vancouver", transit: "9-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Victoria/Nanaimo to Toronto", from: "victoria", to: "toronto", transit: "10-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
