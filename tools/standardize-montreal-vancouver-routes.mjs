@@ -57,6 +57,62 @@ const routes = [
       ["Plan for older buildings", "Measure stairwells, doorways, and elevator interiors. Tell the estimator about oversized furniture or items that may need special handling."],
       ["Organize Quebec arrival tasks", "Plan address updates, health coverage, vehicle and licence requirements, school records, and any French-language service needs before arrival."]
     ]
+  },
+  {
+    slug: "ottawa-to-vancouver-movers",
+    from: "Ottawa",
+    fromProvince: "ON",
+    to: "Vancouver",
+    toProvince: "BC",
+    transit: "11–22 days",
+    distance: "Approximately 4,360 km",
+    prices: ["$2,500+", "$4,700+", "$6,500+", "$10,000+", "$15,000+"],
+    intro: [
+      "An Ottawa–Vancouver move crosses several provinces and requires careful planning for inventory, access, packing, and delivery timing. A detailed written estimate helps set realistic expectations for the full route.",
+      "As an authorized Great Canadian Van Lines agent, Purely Canadian Movers combines an established Canadian network with one accountable point of contact for documentation, valuation choices, pickup planning, and delivery coordination.",
+      "Vancouver-bound moves often involve strata elevator reservations, loading windows, limited curb access, wet-weather protection, and delivery timing around a possession date."
+    ],
+    unique: [
+      ["Cross-country distance", "At approximately 4,360 km, this is a major cross-country move. Shipment size, access, route schedules, season, and the confirmed delivery window all affect planning."],
+      ["Vancouver building access", "Condos and apartments may require elevator bookings, loading-bay reservations, parking arrangements, and approved move-in hours."],
+      ["Weather across the route", "Conditions can vary sharply between Ontario, the Prairies, the Rockies, and coastal British Columbia, so flexible scheduling and protection from moisture matter."],
+      ["One coordinated plan", "Inventory, packing, pickup access, transit, and destination requirements are reviewed together so the written estimate reflects the route."]
+    ],
+    tips: [
+      ["Reserve Vancouver access", "Confirm strata rules, elevator times, loading-bay dimensions, parking restrictions, and long-carry details before delivery."],
+      ["Prepare for coastal weather", "Protect furniture, electronics, mattresses, and cartons from rain or moisture during unloading."],
+      ["Coordinate your arrival date", "Keep essentials with you and allow for the confirmed delivery spread when arranging keys, accommodation, work, and utilities."],
+      ["Measure the destination", "Check doors, elevators, stairwells, and room dimensions for large furniture and specialty items."],
+      ["Complete BC arrival tasks", "Plan address updates, health coverage, driver licensing, vehicle registration, schools, and utility changes after arrival."]
+    ]
+  },
+  {
+    slug: "vancouver-to-ottawa-movers",
+    from: "Vancouver",
+    fromProvince: "BC",
+    to: "Ottawa",
+    toProvince: "ON",
+    transit: "11–22 days",
+    distance: "Approximately 4,360 km",
+    prices: ["$2,500+", "$4,700+", "$6,500+", "$10,000+", "$15,000+"],
+    intro: [
+      "A Vancouver–Ottawa move is a major cross-country relocation that benefits from early inventory, access, packing, and delivery planning. A detailed written estimate helps keep the route and services clear.",
+      "As an authorized Great Canadian Van Lines agent, Purely Canadian Movers combines an established Canadian network with one accountable point of contact for documentation, valuation choices, pickup planning, and delivery coordination.",
+      "Ottawa-bound moves may involve downtown parking restrictions, condo elevator reservations, winter access, suburban delivery requirements, and possession-date timing."
+    ],
+    unique: [
+      ["Cross-country distance", "At approximately 4,360 km, this route crosses the Rockies and the Prairies before reaching Ontario. Route schedules, shipment size, access, and season shape the delivery plan."],
+      ["Different access conditions", "Vancouver strata requirements and Ottawa parking, elevator, stair, or suburban access details should be confirmed at the estimate stage."],
+      ["Seasonal planning", "Rain at pickup, mountain conditions, Prairie weather, and Ottawa snow or heat can all affect access and handling."],
+      ["Coordinated delivery", "Keep essential documents and medication with you, and plan keys, utilities, work, and temporary accommodation around the confirmed delivery spread."]
+    ],
+    tips: [
+      ["Confirm Ottawa access", "Review parking permits, loading zones, elevator bookings, stairs, long carries, and building move-in rules before delivery."],
+      ["Prepare for the season", "Protect floors and entrances from rain or snow and keep destination-appropriate clothing and essentials accessible."],
+      ["Measure large items", "Check doorways, stairwells, elevators, and room dimensions for oversized furniture or specialty items."],
+      ["Plan your arrival window", "Avoid scheduling critical appointments on the earliest possible delivery day and keep first-week necessities with you."],
+      ["Complete Ontario updates", "Plan address changes, health coverage, driver licensing, vehicle registration, schools, and utilities after arrival."]
+    ]
   }
 ];
 
@@ -65,9 +121,10 @@ const card = ([title, body]) => `<article class="pcm-card"><h3>${title}</h3><p>$
 
 function faqItems(route) {
   const { from, to, prices } = route;
+  const transit = route.transit ?? "10–22 days";
   return [
     [`How much does it cost to move from ${from} to ${to}?`, `Planning estimates range from ${prices[0]} for a studio or small shipment to ${prices[4]} for a 4+ bedroom home. Final pricing depends on shipment weight or volume, access, services, season, and confirmed move details.`],
-    [`How long does it take to move from ${from} to ${to}?`, `Typical transit is 10–22 days. The confirmed delivery spread depends on route scheduling, shipment size, seasonal conditions, access, and delivery availability.`],
+    [`How long does it take to move from ${from} to ${to}?`, `Typical transit is ${transit}. The confirmed delivery spread depends on route scheduling, shipment size, seasonal conditions, access, and delivery availability.`],
     [`Can packing and storage be included?`, `Yes. Full or partial packing, unpacking, short- or long-term storage, and Declared Value Protection options can be included in your written estimate.`],
     [`What protection is available for my shipment?`, `Standard carrier liability applies, and additional Declared Value Protection options are available. We explain the available protection choices before moving day.`],
     [`Do you use moving brokers or unknown subcontractors?`, `No. Purely Canadian Movers is an authorized Great Canadian Van Lines agent. Your move is coordinated through an established Canadian van line network rather than sold to an unknown broker.`],
@@ -85,7 +142,7 @@ function schema(route, faqs) {
   return JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", name: `${route.from} to ${route.to} movers`, serviceType: "Long-distance moving", areaServed: [{ "@type": "City", name: route.from }, { "@type": "City", name: route.to }], url, description: `${route.from} to ${route.to} long-distance moving with written estimates, route planning, packing, storage, Declared Value Protection options, and typical transit of 10–22 days.` },
+      { "@type": "Service", name: `${route.from} to ${route.to} movers`, serviceType: "Long-distance moving", areaServed: [{ "@type": "City", name: route.from }, { "@type": "City", name: route.to }], url, description: `${route.from} to ${route.to} long-distance moving with written estimates, route planning, packing, storage, Declared Value Protection options, and typical transit of ${route.transit ?? "10–22 days"}.` },
       { "@type": "FAQPage", mainEntity: faqs.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) }
     ]
   }).replaceAll("<", "\\u003c");
@@ -97,9 +154,11 @@ function html(route) {
   const routeDash = `${from}–${to}`;
   const url = `https://purelycanadianmovers.com/${slug}/`;
   const faqs = faqItems(route);
+  const routeDistance = route.distance ?? distance;
+  const transit = route.transit ?? "10–22 days";
   const range = `${prices[0].replace("+", "")}–${prices[4]}`;
   const heroTitle = `${routeName} Moving Cost, Prices &amp; Transit Time`;
-  const rows = ["Studio or small shipment", "1 bedroom", "2 bedroom", "3 bedroom", "4+ bedroom"].map((label, i) => `<tr><td>${label}</td><td class="pcm-cost">${prices[i]}</td><td>${i === 0 ? "Best for limited furniture or a partial shipment" : i === 1 ? "Depends on inventory weight or volume, access, and packing" : i === 2 ? "Common planning range for an apartment or condo move" : i === 3 ? "Larger household shipment with more labour and space" : "Final estimate depends on inventory, access, and services"}</td><td>10–22 days</td></tr>`).join("");
+  const rows = ["Studio or small shipment", "1 bedroom", "2 bedroom", "3 bedroom", "4+ bedroom"].map((label, i) => `<tr><td>${label}</td><td class="pcm-cost">${prices[i]}</td><td>${i === 0 ? "Best for limited furniture or a partial shipment" : i === 1 ? "Depends on inventory weight or volume, access, and packing" : i === 2 ? "Common planning range for an apartment or condo move" : i === 3 ? "Larger household shipment with more labour and space" : "Final estimate depends on inventory, access, and services"}</td><td>${transit}</td></tr>`).join("");
   const pricingMarkup = `<section class="pcm-section pcm-pricing pcm-route-cost"><div class="pcm-kicker">${routeName} moving cost</div><h2>How much does it cost to move from ${from} to ${to}?</h2><p>A ${routeName} move typically ranges from ${prices[0]} for a studio or small shipment to ${prices[4]} for a 4+ bedroom home. Final pricing depends on shipment weight or volume, access, packing, storage, season, and confirmed services.</p><p class="pcm-inclusion">${inclusion}</p><div class="pcm-table-wrap"><table class="pcm-table"><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div><p><small>Planning ranges are in CAD and are not guaranteed quotes. Request a written estimate based on your inventory and move details.</small></p></section>`;
   const brokerMarkup = `<section class="pcm-broker-compare pcm-lead-boost" aria-label="Direct mover versus broker comparison"><h2>Direct ${routeName} mover, not a moving broker</h2><p>For a cross-country move from ${fromProvince} to ${toProvince}, who coordinates your shipment matters. Purely Canadian Movers provides direct accountability from estimate to delivery through authorized Great Canadian Van Lines agent-network support.</p><div class="pcm-compare-grid"><div class="pcm-compare-column"><h3>Purely Canadian Movers</h3><ul><li>No moving-broker handoff</li><li>Family-owned since 1991</li><li>Authorized agent of Great Canadian Van Lines</li><li>Clear written estimate and route-specific planning</li></ul></div><div class="pcm-compare-column"><h3>Typical moving broker</h3><ul><li>May sell the move to another carrier</li><li>Pickup and delivery responsibility may change</li><li>Accountability can be split between companies</li><li>Low initial quotes may exclude important services</li></ul></div></div></section>`;
   const brokerComponent = brokerMarkup.replace('<section class="pcm-broker-compare pcm-lead-boost" aria-label="Direct mover versus broker comparison">', '<section class="pcm-broker-compare pcm-lead-boost" aria-label="Direct mover versus broker comparison"><div class="pcm-broker-compare__inner">').replace('</div></div></section>', '</div></div></div></section>');
@@ -110,7 +169,7 @@ function html(route) {
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${routeName} Movers | Cost, Transit Time &amp; Estimate</title>
-<meta name="description" content="Plan a ${routeName} long-distance move with route-specific costs, ${esc(distance)}, 10–22 day transit guidance, packing, storage, and written estimates.">
+<meta name="description" content="Plan a ${routeName} long-distance move with route-specific costs, ${esc(routeDistance)}, ${transit.replace(" days", " day")} transit guidance, packing, storage, and written estimates.">
 <link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:title" content="${routeName} Movers | Cost, Transit Time &amp; Estimate"><meta property="og:description" content="Route-specific planning, pricing, packing, storage, and written estimates for a ${routeName} move."><meta property="og:url" content="${url}">
 <link rel="stylesheet" href="/assets/index-DOGLBY_X.css"><link rel="stylesheet" href="/assets/conversion-boost.css"><link rel="stylesheet" href="/assets/static-nav.css"><link rel="stylesheet" href="/assets/static-chat.css">
 <script type="application/ld+json" id="route-schema">${schema(route, faqs)}</script>
@@ -127,7 +186,7 @@ function html(route) {
 <header class="pcm-site-header"><div class="pcm-topbar"><div class="pcm-topbar-inner"><span>Family-owned since 1991 · Based in Coquitlam, BC · Great Canadian Van Lines agent</span><span class="pcm-topbar-contact"><a href="tel:18774856683">1-877-485-6683</a><a href="mailto:esales@pcmovers.ca">esales@pcmovers.ca</a></span></div></div><nav class="pcm-nav" aria-label="Main navigation"><div class="pcm-nav-inner"><a href="/" aria-label="Purely Canadian Movers home"><img class="pcm-logo" src="/pcm-logo.png" alt="Purely Canadian Movers"></a><div class="pcm-desktop-nav"><a href="/">Home</a><span><button type="button">Services</button></span><span><button type="button">Local Moves</button></span><span><button type="button">Long-Distance</button></span><a href="/storage/">Storage</a><a href="/our-network/">Our Network</a><a href="/blog/">Blog</a><a href="/testimonials/">Reviews</a><a href="/contact/">Contact</a></div><div class="pcm-nav-actions"><a class="pcm-phone" href="tel:6045227222">604-522-7222</a><a class="pcm-cta" href="/contact/">Get Free Estimate</a><button class="pcm-menu-toggle" type="button" aria-label="Open menu">☰</button></div></div></nav></header>
 <main><section class="pcm-hero"><div class="pcm-kicker">${routeName} movers</div><h1>${routeName} Movers</h1><p>Professional cross-country moving from ${from}, ${fromProvince} to ${to}, ${toProvince}, with realistic planning ranges, written estimates, packing and storage options, and one accountable point of contact.</p><p>Purely Canadian Movers has been family-owned since 1991 and is an authorized Great Canadian Van Lines agent. Your move is coordinated through an established Canadian van line network rather than sold to an unknown broker.</p><div class="pcm-pills"><span class="pcm-pill">BBB Accredited</span><span class="pcm-pill">30+ years of experience</span><span class="pcm-pill">No broker handoff</span><span class="pcm-pill">Written estimates</span></div><div class="pcm-hero-actions"><a class="pcm-button primary" href="/contact/">Get Written Estimate</a><a class="pcm-button secondary" href="tel:18774856683">Call 1-877-485-6683</a></div></section>
 <section class="pcm-section"><h2>Moving from ${from} to ${to}</h2>${route.intro.map(p => `<p>${p}</p>`).join("")}</section>
-<section class="pcm-section alt"><h2>${routeDash} Route at a Glance</h2><div class="pcm-glance"><div class="pcm-glance-item"><span class="pcm-glance-label">Distance</span><strong class="pcm-glance-value">${distance}</strong><span>${from} to ${to}</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Est. transit time</span><strong class="pcm-glance-value">10–22 days</strong><span>Depending on shipment size and scheduling</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Typical cost range</span><strong class="pcm-glance-value">${range}</strong><span>Studio to 4+ bedroom home</span></div></div></section>
+<section class="pcm-section alt"><h2>${routeDash} Route at a Glance</h2><div class="pcm-glance"><div class="pcm-glance-item"><span class="pcm-glance-label">Distance</span><strong class="pcm-glance-value">${routeDistance}</strong><span>${from} to ${to}</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Est. transit time</span><strong class="pcm-glance-value">${transit}</strong><span>Depending on shipment size and scheduling</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Typical cost range</span><strong class="pcm-glance-value">${range}</strong><span>Studio to 4+ bedroom home</span></div></div></section>
 <section class="pcm-section pcm-pricing pcm-route-cost"><div class="pcm-kicker">${routeName} moving cost</div><h2>How much does it cost to move from ${from} to ${to}?</h2><p>A ${routeName} move typically ranges from ${prices[0]} for a studio or small shipment to ${prices[4]} for a 4+ bedroom home. Final pricing depends on shipment weight or volume, access, packing, storage, season, and confirmed services.</p><p class="pcm-inclusion">${inclusion}</p><div class="pcm-table-wrap"><table class="pcm-table"><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div><p><small>Planning ranges are in CAD and are not guaranteed quotes. Request a written estimate based on your inventory and move details.</small></p></section>
 <section class="pcm-section alt"><h2>What Makes a ${routeDash} Move Unique</h2><div class="pcm-grid">${route.unique.map(card).join("")}</div></section>
 <section class="pcm-section"><h2>Tips for Moving to ${to}</h2><div class="pcm-grid">${route.tips.map(card).join("")}</div></section>
@@ -143,6 +202,7 @@ function html(route) {
   output = output.replace(/<main><section class="pcm-hero">.*?<\/section>/, heroMarkup);
   output = output.replace('<a href="/company-proof/">Company Proof</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/claims-support/">Claims Support</a><a href="/accessibility/">Accessibility</a><a href="/testimonials/">Reviews</a>', '<a href="https://share.google/8CPKIYw6TOJB1W8rX" target="_blank" rel="noopener noreferrer">Google Reviews</a><a href="https://www.yelp.com/biz/purely-canadian-movers" target="_blank" rel="noopener noreferrer">Yelp</a><a href="/testimonials/">Read Our Reviews</a>');
   output = output.replace('</footer></div>\n<script', `</footer>${postFooterComponent}</div>\n<script`);
+  if (from === "Ottawa") output = output.replaceAll("a Ottawa", "an Ottawa");
   return output;
 }
 
