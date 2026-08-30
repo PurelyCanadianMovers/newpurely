@@ -2721,12 +2721,15 @@
     var quote = document.querySelector(".pcm-lead-panel");
     var pricing = document.querySelector(".pcm-route-cost");
     var trust = document.querySelector(".pcm-trust-proof");
+    var redBar = root && Array.prototype.find.call(root.children, function (child) {
+      return String(child.className).indexOf("bg-[#CC1A1A]") !== -1;
+    });
     var hero = root && Array.prototype.find.call(root.children, function (child) {
       return child.querySelector && child.querySelector("h1");
     });
-    if (!root || !quote || !pricing || !trust || !hero) return;
+    if (!root || !quote || !pricing || !trust || !redBar || !hero) return;
     var anchor = root.firstElementChild;
-    [quote, pricing, trust, hero].forEach(function (node) {
+    [quote, pricing, trust, redBar, hero].forEach(function (node) {
       var top = node;
       while (top.parentElement && top.parentElement !== root) top = top.parentElement;
       if (top !== anchor) root.insertBefore(top, anchor);
