@@ -8,6 +8,8 @@ const SECURITY_HEADERS = {
 };
 
 const REDIRECTS = new Map([
+  ["/vancouver-to-bellevue-movers/", "/vancouver-to-seattle-movers/"],
+  ["/vancouver-to-redmond-movers/", "/vancouver-to-seattle-movers/"],
   ["/admin/blog", MANUS_BLOG_LOGIN],
   ["/admin/blog/", MANUS_BLOG_LOGIN],
   ["/admin/login", MANUS_BLOG_LOGIN],
