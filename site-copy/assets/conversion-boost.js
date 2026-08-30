@@ -2746,7 +2746,7 @@
   }
 
   function removeRouteCostBreakdown(path) {
-    if (!["/toronto-to-edmonton-movers/", "/edmonton-to-toronto-movers/", "/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/"].includes(path)) return true;
+    if (!["/toronto-to-edmonton-movers/", "/edmonton-to-toronto-movers/", "/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/", "/edmonton-to-vancouver-movers/"].includes(path)) return true;
     var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
       return (item.textContent || "").trim() ===
         path.replace(/^\//, "").replace(/-movers\/$/, "").split("-").map(function (word) {
