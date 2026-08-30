@@ -2413,7 +2413,7 @@
     var config = ROUTE_COST_BLOCKS[path];
     if (!config) return;
     var h1 = document.querySelector("h1");
-    if (h1) {
+    if (h1 && config.h1) {
       h1.textContent = config.h1;
     }
   }
