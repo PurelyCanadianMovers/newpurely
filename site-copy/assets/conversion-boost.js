@@ -2610,18 +2610,20 @@
     var body = section && section.querySelector("table tbody");
     var template = body && Array.prototype.find.call(body.querySelectorAll("tr"), function (row) {
       var label = (row.cells[0] && row.cells[0].textContent || "").trim();
-      return label !== "Montreal → Edmonton" && label !== "Edmonton → Montreal" && row.cells[3] && row.cells[3].querySelector("a");
+      return !["Montreal → Edmonton", "Edmonton → Montreal", "Ottawa → Vancouver", "Vancouver → Ottawa"].includes(label) && row.cells[3] && row.cells[3].querySelector("a");
     });
     if (!body || !template) return false;
 
     Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
       var label = (row.cells[0] && row.cells[0].textContent || "").trim();
-      if (label === "Montreal → Edmonton" || label === "Edmonton → Montreal") row.remove();
+      if (["Montreal → Edmonton", "Edmonton → Montreal", "Ottawa → Vancouver", "Vancouver → Ottawa"].includes(label)) row.remove();
     });
 
     [
       ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
-      ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"]
+      ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
+      ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
+      ["Vancouver → Ottawa", "4,360 km", "11–22 days", "/vancouver-to-ottawa-movers/"]
     ].forEach(function (route) {
       var row = template.cloneNode(true);
       var cells = row.querySelectorAll("td");

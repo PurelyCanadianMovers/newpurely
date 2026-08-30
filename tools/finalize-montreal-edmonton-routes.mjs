@@ -47,8 +47,10 @@ const tbodyEnd = guide.indexOf("</tbody>", tbodyOpenEnd);
 if (headingIndex < 0 || tbodyStart < 0 || tbodyEnd < 0) throw new Error("Popular routes table not found");
 let tableBody = guide.slice(tbodyOpenEnd, tbodyEnd);
 const routes = [
-  ["Montreal → Edmonton", "/montreal-to-edmonton-movers/"],
-  ["Edmonton → Montreal", "/edmonton-to-montreal-movers/"],
+  ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
+  ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
+  ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
+  ["Vancouver → Ottawa", "4,360 km", "11–22 days", "/vancouver-to-ottawa-movers/"],
 ];
 for (const [label] of routes) {
   tableBody = tableBody.replace(new RegExp(`<tr[^>]*>(?:(?!<\\/tr>)[\\s\\S])*?<td[^>]*>${label}<\\/td>(?:(?!<\\/tr>)[\\s\\S])*?<\\/tr>`), "");
@@ -56,12 +58,12 @@ for (const [label] of routes) {
 const standardRows = [...tableBody.matchAll(/<tr[\s\S]*?<\/tr>/g)].map((match) => match[0]);
 const template = standardRows.at(-1);
 if (!template || !template.includes("Get a Quote")) throw new Error("Styled popular-route template not found");
-for (const [index, [label, href]] of routes.entries()) {
+for (const [index, [label, distance, transit, href]] of routes.entries()) {
   const row = template
     .replace(/bg-(?:white|gray-50)/, index % 2 === 0 ? "bg-gray-50" : "bg-white")
     .replace(/>Toronto → Victoria</, `>${label}<`)
-    .replace(">4,400 km<", ">3,500 km<")
-    .replace(">10–22 days<", ">7–19 days<")
+    .replace(">4,400 km<", `>${distance}<`)
+    .replace(">10–22 days<", `>${transit}<`)
     .replace('/toronto-to-victoria-movers/', href)
     .replace('class="border-b', 'class="pcm-cost-guide-popular-route border-b');
   tableBody += row;
