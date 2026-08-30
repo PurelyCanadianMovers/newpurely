@@ -2619,6 +2619,8 @@
     if (!body || !template) return false;
 
     [
+      ["Vancouver → Winnipeg", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
+      ["Winnipeg → Vancouver", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
       ["Calgary → Halifax", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
       ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"]
     ].forEach(function (route) {
@@ -2661,11 +2663,16 @@
     });
 
     [
+      ["Vancouver → Winnipeg", "2,300 km", "5–13 days", "/vancouver-to-winnipeg-movers/"],
+      ["Winnipeg → Vancouver", "2,300 km", "5–13 days", "/winnipeg-to-vancouver-movers/"],
       ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
       ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
       ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
       ["Vancouver → Ottawa", "4,360 km", "11–22 days", "/vancouver-to-ottawa-movers/"]
     ].forEach(function (route) {
+      if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
+        return (row.cells[0] && row.cells[0].textContent || "").trim() === route[0];
+      })) return;
       var row = template.cloneNode(true);
       var cells = row.querySelectorAll("td");
       if (cells.length < 4) return;
