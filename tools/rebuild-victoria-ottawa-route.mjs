@@ -254,7 +254,6 @@ function routeBody() {
   <div class="pcm-static-band pcm-static-band--hero"><section class="pcm-hero pcm-static-hero"><div><div class="pcm-kicker">${routeDash} movers</div><h1>Victoria to Ottawa Movers</h1><p>Planning a long-distance move from Victoria, BC to Ottawa, ON? Purely Canadian Movers helps you plan a ~4,700+ km relocation with ferry coordination, realistic pricing, 10–22 days of transit guidance, packing, storage, Declared Value Protection options, and written estimate details.</p><p>Family-owned since 1991 and an authorized Great Canadian Van Lines agent. Your Victoria pickup, BC Ferries crossing, cross-country transit, and Ottawa delivery are coordinated through an established Canadian network with one accountable point of contact.</p><div class="pcm-pills"><span class="pcm-pill">BBB Accredited business</span><span class="pcm-pill">Family-owned since 1991</span><span class="pcm-pill">No broker handoff</span><span class="pcm-pill">Written estimates</span></div><div class="pcm-hero-actions"><a class="pcm-button primary" href="/contact/">Get Written Estimate</a><a class="pcm-button secondary" href="tel:18774856683">Call 1-877-485-6683</a></div></div></section></div>
   <section class="pcm-section"><h2>Moving from Victoria to Ottawa</h2><p>Leaving Vancouver Island for Ottawa is a major interprovincial relocation. The move covers approximately ${route.distance.replace("~", "")} and includes a BC Ferries crossing, so pickup timing, terminal scheduling, shipment size, access, and delivery availability should be reviewed together.</p><p>Purely Canadian Movers coordinates Victoria-origin moves with support through the Great Canadian Van Lines agent network. We help you compare realistic costs, transit timing, packing, storage, ferry logistics, Declared Value Protection options, and written estimate details before moving day.</p><p>Nanaimo can also be discussed as an additional Vancouver Island pickup area, but this dedicated page is focused on the ${routeName} route.</p></section>
   <section class="pcm-section pcm-route-glance-section"><h2>${routeDash} Route at a Glance</h2><div class="pcm-route-glance"><div class="pcm-glance-item"><span class="pcm-glance-label">Distance</span><strong class="pcm-glance-value">${route.distance}</strong><span class="pcm-glance-support">Victoria, BC to Ottawa, ON</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Est. Transit Time</span><strong class="pcm-glance-value">${route.transit}</strong><span class="pcm-glance-support">Depending on shipment size and scheduling</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Typical Cost Range</span><strong class="pcm-glance-value">$3,000–$16,000+</strong><span class="pcm-glance-support">Studio to 4+ bedroom home</span></div></div></section>
-  ${pricingSection()}
   <section class="pcm-section"><h2>What makes a Victoria to Ottawa move different?</h2><div class="pcm-grid">${unique.map(card).join("")}</div></section>
   <section class="pcm-section"><h2>Tips for moving from Victoria to Ottawa</h2><div class="pcm-grid">${tips.map(card).join("")}</div></section>
   <section class="pcm-section"><h2>Why choose Purely Canadian Movers?</h2><ul class="pcm-checklist"><li>Family-owned since 1991 with long-distance moving experience</li><li>Authorized Great Canadian Van Lines agent with established Canadian network support</li><li>No broker handoff to unknown movers or random subcontractors</li><li>Written estimates that review route, inventory, access, ferry timing, packing, storage, and delivery</li><li>Declared Value Protection choices explained before moving day, with zero deductible where applicable</li><li>Full or partial packing and short- or long-term storage options available</li></ul><div class="pcm-warning"><strong>Be cautious with unusually low cross-country quotes.</strong> Confirm fuel, ferry logistics, access, packing, storage, protection choices, and other included services in writing before signing.</div></section>
@@ -280,6 +279,7 @@ ${buildHead(template)}
 <body class="pcm-static-route-ready">
   <div id="root" class="pcm-static-route pcm-static-route-ready">
     ${quotePanel()}
+    ${pricingSection()}
     ${header}
     <div class="pcm-static-page">
       ${routeBody()}
@@ -331,6 +331,17 @@ async function updateReverseRouteLink() {
     if (!legacyPattern.test(html)) throw new Error("Ottawa to Victoria legacy pricing block not found");
     html = html.replace(legacyPattern, `${ottawaVictoriaPricingSection()}\n`);
   }
+  const pricingMatch = html.match(modernPattern);
+  if (!pricingMatch) throw new Error("Ottawa to Victoria pricing block not found");
+  const pricingStart = pricingMatch.index;
+  const pricing = pricingMatch[0];
+  const withoutPricing = html.slice(0, pricingStart) + html.slice(pricingStart + pricing.length);
+  const quoteStart = withoutPricing.indexOf('<section class="pcm-lead-boost pcm-lead-panel"');
+  if (quoteStart < 0) throw new Error("Ottawa to Victoria quote block not found");
+  const quoteEnd = withoutPricing.indexOf("</section>", quoteStart);
+  if (quoteEnd < 0) throw new Error("Ottawa to Victoria quote block end not found");
+  const insertion = quoteEnd + "</section>".length;
+  html = withoutPricing.slice(0, insertion) + pricing + withoutPricing.slice(insertion);
   html = html
     .replace(/Professional, fully insured long-distance moves to Vancouver Island\./gi, "Professional long-distance moves to Vancouver Island with Declared Value Protection options.")
     .replace(/Professional, fully insured long-distance moving from Ottawa to Vancouver Island/gi, "Professional long-distance moving from Ottawa to Vancouver Island with Declared Value Protection options")

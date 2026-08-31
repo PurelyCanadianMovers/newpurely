@@ -2774,19 +2774,22 @@
     if (header.parentElement === root && hero.parentElement === root) root.insertBefore(header, hero);
   }
 
-  function enforceVictoriaOttawaPricingOrder(path) {
-    if (path !== "/victoria-to-ottawa-movers/") return;
+  function moveVictoriaOttawaPricingAfterQuote(path) {
+    if (path !== "/victoria-to-ottawa-movers/" && path !== "/ottawa-to-victoria-movers/") return false;
 
-    var pricing = document.querySelector(".pcm-route-cost");
-    var glanceHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
-      return (heading.textContent || "").replace(/\s+/g, " ").trim() === "Victoria → Ottawa Route at a Glance";
-    });
-    var glance = glanceHeading && glanceHeading.closest("section");
-    if (!pricing || !glance || !glance.parentNode) return;
+    var root = document.getElementById("root");
+    var pricing = root && root.querySelector(".pcm-route-cost");
+    var quote = root && (root.querySelector(".pcm-top-estimate-wrap") || root.querySelector(".pcm-top-estimate") || root.querySelector(".pcm-lead-panel"));
+    if (!root || !pricing || !quote) return false;
 
-    if (pricing.parentNode === glance.parentNode && pricing !== glance.nextElementSibling) {
-      glance.parentNode.insertBefore(pricing, glance.nextElementSibling);
+    var quoteBlock = quote;
+    while (quoteBlock.parentElement && quoteBlock.parentElement !== root) quoteBlock = quoteBlock.parentElement;
+    if (quoteBlock.parentElement !== root || pricing === quoteBlock) return false;
+
+    if (pricing.parentElement !== root || pricing !== quoteBlock.nextElementSibling) {
+      root.insertBefore(pricing, quoteBlock.nextElementSibling);
     }
+    return true;
   }
 
   function replaceOttawaVictoriaPricing(path) {
@@ -2838,10 +2841,11 @@
   function insertRouteCostBlock(path) {
     if (path === "/ottawa-to-victoria-movers/") {
       replaceOttawaVictoriaPricing(path);
+      moveVictoriaOttawaPricingAfterQuote(path);
       return;
     }
     if (path === "/victoria-to-ottawa-movers/") {
-      enforceVictoriaOttawaPricingOrder(path);
+      moveVictoriaOttawaPricingAfterQuote(path);
       return;
     }
     var config = ROUTE_COST_BLOCKS[path];
@@ -2942,7 +2946,7 @@
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     enforceVancouverEdmontonTopOrder(normalizePath());
-    enforceVictoriaOttawaPricingOrder(normalizePath());
+    moveVictoriaOttawaPricingAfterQuote(normalizePath());
     normalizeLongDistanceTrustLanguage(normalizePath());
     return true;
   }
