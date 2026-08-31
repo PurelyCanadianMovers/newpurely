@@ -644,8 +644,8 @@ const COST_ROUTE_ESTIMATES = [
   { route: "Calgary to Toronto", from: "calgary", to: "toronto", transit: "7-19 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Toronto to Edmonton", from: "toronto", to: "edmonton", transit: "7-18 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Edmonton to Toronto", from: "edmonton", to: "toronto", transit: "7-18 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Ottawa to Calgary", from: "ottawa", to: "calgary", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Calgary to Ottawa", from: "calgary", to: "ottawa", pageUrl: COST_GUIDE_URL, transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Ottawa to Calgary", from: "ottawa", to: "calgary", distance: "3,500 km", transit: "7–19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
+  { route: "Calgary to Ottawa", from: "calgary", to: "ottawa", distance: "3,500 km", transit: "7–19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Ottawa to Edmonton", from: "ottawa", to: "edmonton", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Edmonton to Ottawa", from: "edmonton", to: "ottawa", transit: "7-19 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Montreal to Calgary", from: "montreal", to: "calgary", transit: "8-20 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,300", threeBed: "$10,000", fourPlus: "$15,000" },
@@ -739,12 +739,17 @@ function costGuideChatReply(inputText) {
   const routeLink = routeEstimate.pageUrl
     ? `[Long-Distance Moving Cost Canada](${routePageUrl})`
     : `[${routeEstimate.route} Movers](${routePageUrl})`;
+  const routeFacts = [
+    routeEstimate.distance ? `approximately ${routeEstimate.distance}` : "",
+    routeEstimate.transit ? `typical transit of ${routeEstimate.transit}` : "",
+  ].filter(Boolean).join(" and ");
+  const routeFactSentence = routeFacts ? ` This route is ${routeFacts}.` : "";
 
   if (homeSize) {
-    return `For a ${HOME_SIZE_LABELS[homeSize]} move from ${routeEstimate.route}, our estimated moving cost starts at ${routeEstimate[homeSize]}+. Final cost depends on actual shipment weight or volume, access, stairs or elevators, packing, storage, specialty items, and move dates. This is a planning estimate, not a guaranteed long-distance price.\n\nSee the authoritative pricing source here: ${routeLink}.`;
+    return `For a ${HOME_SIZE_LABELS[homeSize]} move from ${routeEstimate.route}, our estimated moving cost starts at ${routeEstimate[homeSize]}+.${routeFactSentence} Final cost depends on actual shipment weight or volume, access, stairs or elevators, packing, storage, specialty items, and move dates. This is a planning estimate, not a guaranteed long-distance price.\n\nSee the authoritative pricing source here: ${routeLink}.`;
   }
 
-  return `For a move from ${routeEstimate.route}, our route-specific estimated costs start at: studio ${routeEstimate.studio}+, 1-bedroom ${routeEstimate.oneBed}+, 2-bedroom ${routeEstimate.twoBed}+, 3-bedroom ${routeEstimate.threeBed}+, and 4+ bedroom ${routeEstimate.fourPlus}+. Final cost depends on actual shipment weight or volume and move requirements. These are planning estimates, not guaranteed long-distance prices.\n\nSee the authoritative pricing source here: ${routeLink}.`;
+  return `For a move from ${routeEstimate.route}, our route-specific estimated costs start at: studio ${routeEstimate.studio}+, 1-bedroom ${routeEstimate.oneBed}+, 2-bedroom ${routeEstimate.twoBed}+, 3-bedroom ${routeEstimate.threeBed}+, and 4+ bedroom ${routeEstimate.fourPlus}+.${routeFactSentence} Final cost depends on actual shipment weight or volume and move requirements. These are planning estimates, not guaranteed long-distance prices.\n\nSee the authoritative pricing source here: ${routeLink}.`;
 }
 
 function extractTextFromChatPayload(payload) {

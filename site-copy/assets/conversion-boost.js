@@ -303,7 +303,8 @@
     "/office-movers-vancouver-bc/": "Office Movers Vancouver BC | Commercial Moving",
     "/office/": "Office Movers Metro Vancouver | Corporate Moving",
     "/ottawa-long-distance-movers/": "Ottawa Long-Distance Movers | Cross-Canada Moving",
-    "/ottawa-to-calgary-movers/": "Ottawa to Calgary Movers | Cross-Canada Moving",
+    "/calgary-to-ottawa-movers/": "Calgary to Ottawa Movers | Cost, Transit Time & Estimate",
+    "/ottawa-to-calgary-movers/": "Ottawa to Calgary Movers | Cost, Transit Time & Estimate",
     "/ottawa-to-edmonton-movers/": "Ottawa to Edmonton Movers | Long-Distance Moving",
     "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Long-Distance Moving",
     "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Moving Cost | Movers, Prices & Transit Time",
@@ -346,6 +347,8 @@
       "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no moving brokers.",
     "/calgary-to-winnipeg-movers/":
       "Calgary to Winnipeg moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
+    "/calgary-to-ottawa-movers/":
+      "Plan a Calgary to Ottawa long-distance move with route-specific pricing from $2,500+, approximately 3,500 km, 7–19 days transit guidance, packing, storage, and written estimates.",
     "/corporate-moves-employee-relocation-in-coquitlam-bc/":
       "Corporate movers in Coquitlam for employee relocation, office moves, packing, storage, and long-distance support. Since 1991, BBB Accredited, no subcontractors.",
     "/coquitlam/":
@@ -396,6 +399,8 @@
       "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/ottawa-to-vancouver-movers/":
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/ottawa-to-calgary-movers/":
+      "Plan an Ottawa to Calgary long-distance move with route-specific pricing from $2,500+, approximately 3,500 km, 7–19 days transit guidance, packing, storage, and written estimates.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/winnipeg-to-calgary-movers/":

@@ -128,6 +128,27 @@ test("required route spot checks use guide prices", () => {
   }
 });
 
+test("Calgary and Ottawa route replies include the shared route facts in both directions", () => {
+  for (const [from, to, routeName] of [
+    ["calgary", "ottawa", "Calgary to Ottawa"],
+    ["ottawa", "calgary", "Ottawa to Calgary"],
+  ]) {
+    const sizedReply = costGuideChatReply(`how much to move a 2 bedroom from ${from} to ${to}`);
+    assert.match(sizedReply, new RegExp(routeName));
+    assert.match(sizedReply, /3,500 km/);
+    assert.match(sizedReply, /7–19 days/);
+    assert.match(sizedReply, /\$6,300\+/);
+
+    const genericReply = costGuideChatReply(`how much to move from ${from} to ${to}`);
+    assert.match(genericReply, new RegExp(routeName));
+    assert.match(genericReply, /3,500 km/);
+    assert.match(genericReply, /7–19 days/);
+    for (const price of ["$2,500+", "$4,700+", "$6,300+", "$10,000+", "$15,000+"]) {
+      assert.match(genericReply, new RegExp(price.replace("$", "\\$").replace("+", "\\+")));
+    }
+  }
+});
+
 test("recognized pricing bypasses upstream while unrelated chat still reaches it", async () => {
   const originalFetch = globalThis.fetch;
   let upstreamCalls = 0;
