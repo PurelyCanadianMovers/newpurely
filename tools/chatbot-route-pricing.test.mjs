@@ -149,6 +149,24 @@ test("Calgary and Ottawa route replies include the shared route facts in both di
   }
 });
 
+test("Victoria to Ottawa uses the dedicated route page and current route facts", () => {
+  for (const prompt of [
+    "Victoria to Ottawa",
+    "moving from Victoria to Ottawa",
+    "how much to move a 2 bedroom from Victoria to Ottawa",
+  ]) {
+    const reply = costGuideChatReply(prompt);
+    assert.match(reply, /Victoria\/Nanaimo to Ottawa/);
+    assert.match(reply, /~4,700\+ km/);
+    assert.match(reply, /10–22 days/);
+    assert.match(reply, /\$7,000\+/);
+    assert.match(reply, /https:\/\/purelycanadianmovers\.com\/victoria-to-ottawa-movers\//);
+  }
+  const reverseReply = costGuideChatReply("how much to move a 2 bedroom from Ottawa to Victoria");
+  assert.match(reverseReply, /Ottawa to Victoria\/Nanaimo/);
+  assert.match(reverseReply, /\$7,000\+/);
+});
+
 test("recognized pricing bypasses upstream while unrelated chat still reaches it", async () => {
   const originalFetch = globalThis.fetch;
   let upstreamCalls = 0;

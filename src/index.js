@@ -628,8 +628,8 @@ const COST_ROUTE_ESTIMATES = [
   { route: "Toronto to Victoria/Nanaimo", from: "toronto", to: "nanaimo", pageTo: "victoria", transit: "10-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
   { route: "Vancouver to Ottawa", from: "vancouver", to: "ottawa", transit: "11-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Ottawa to Vancouver", from: "ottawa", to: "vancouver", transit: "11-22 days", studio: "$2,500", oneBed: "$4,700", twoBed: "$6,500", threeBed: "$10,000", fourPlus: "$15,000" },
-  { route: "Victoria/Nanaimo to Ottawa", from: "victoria", to: "ottawa", pageUrl: COST_GUIDE_URL, transit: "11-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
-  { route: "Victoria/Nanaimo to Ottawa", from: "nanaimo", to: "ottawa", pageUrl: COST_GUIDE_URL, transit: "11-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
+  { route: "Victoria/Nanaimo to Ottawa", from: "victoria", to: "ottawa", pageUrl: "https://purelycanadianmovers.com/victoria-to-ottawa-movers/", distance: "~4,700+ km", transit: "10–22 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
+  { route: "Victoria/Nanaimo to Ottawa", from: "nanaimo", to: "ottawa", pageUrl: "https://purelycanadianmovers.com/victoria-to-ottawa-movers/", distance: "~4,700+ km", transit: "10–22 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
   { route: "Ottawa to Victoria/Nanaimo", from: "ottawa", to: "victoria", transit: "11-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
   { route: "Ottawa to Victoria/Nanaimo", from: "ottawa", to: "nanaimo", pageTo: "victoria", transit: "11-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
   { route: "Vancouver to Calgary", from: "vancouver", to: "calgary", transit: "4-13 days", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
@@ -737,10 +737,12 @@ function costGuideChatReply(inputText) {
   const homeSize = parseHomeSize(inputText);
   const routePageUrl = routeEstimate.pageUrl || `https://purelycanadianmovers.com/${routeEstimate.pageFrom || routeEstimate.from}-to-${routeEstimate.pageTo || routeEstimate.to}-movers/`;
   const routeLink = routeEstimate.pageUrl
-    ? `[Long-Distance Moving Cost Canada](${routePageUrl})`
+    ? routeEstimate.pageUrl === COST_GUIDE_URL
+      ? `[Long-Distance Moving Cost Canada](${routePageUrl})`
+      : `[${routeEstimate.route} Movers](${routePageUrl})`
     : `[${routeEstimate.route} Movers](${routePageUrl})`;
   const routeFacts = [
-    routeEstimate.distance ? `approximately ${routeEstimate.distance}` : "",
+    routeEstimate.distance ? (routeEstimate.distance.startsWith("~") ? routeEstimate.distance : `approximately ${routeEstimate.distance}`) : "",
     routeEstimate.transit ? `typical transit of ${routeEstimate.transit}` : "",
   ].filter(Boolean).join(" and ");
   const routeFactSentence = routeFacts ? ` This route is ${routeFacts}.` : "";

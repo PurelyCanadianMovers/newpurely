@@ -16,7 +16,7 @@
       ["Storage Solutions", "/storage/"],
       ["Office & Corporate Moves", "/office/"],
       ["Packing Services", "/packing/"],
-      ["Valuation & Insurance Coverage", "/valuation-coverage-protection/"]
+      ["Valuation & Declared Value Protection", "/valuation-coverage-protection/"]
     ],
     "Local Moves": [
       ["Local Moving Overview", "/local/"],
