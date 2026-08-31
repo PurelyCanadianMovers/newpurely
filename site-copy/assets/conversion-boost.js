@@ -246,6 +246,16 @@
       title: "Plan your Port Moody move with a Tri-Cities moving team.",
       body: "Get help with Port Moody apartments, condos, townhomes, packing, storage, office moves, and long-distance relocation.",
     },
+    "/toronto-to-montreal-movers/": {
+      eyebrow: "FREE MOVING ESTIMATE",
+      title: "Get a Toronto to Montreal quote.",
+      body: "Planning a long-distance move from Toronto, ON to Montreal, QC? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+    },
+    "/montreal-to-toronto-movers/": {
+      eyebrow: "FREE MOVING ESTIMATE",
+      title: "Get a Montreal to Toronto quote.",
+      body: "Planning a long-distance move from Montreal, QC to Toronto, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+    },
   };
 
   var TITLE_OVERRIDES = {
@@ -493,6 +503,25 @@
   };
 
   var ROUTE_COST_BLOCKS = {
+  "/toronto-to-montreal-movers/": {
+    aria: "Toronto to Montreal moving cost estimates",
+    eyebrow: "TORONTO TO MONTREAL MOVING COST",
+    title: "How much does it cost to move from Toronto to Montreal?",
+    intro: "This Toronto to Montreal route is approximately <strong>540 km</strong>. Planning figures start at <strong>$2,300+</strong> for a studio and vary by home size, inventory, access, packing, storage, timing, and requested services. Typical transit is <strong>2–5 days</strong>.",
+    note: "Prices are planning estimates in CAD, not guaranteed final long-distance pricing. Estimated moving costs include route planning and Declared Value Protection options; a written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, protection choices, and service dates.",
+    links: [["Full cost guide", "/long-distance-moving-cost-canada/"], ["Toronto movers", "/toronto-long-distance-movers/"], ["Montreal movers", "/long-distance-movers-montreal/"], ["Get a written estimate", "/contact/"]],
+    rows: [["Studio", "$2,300+", "Best for a studio or small shipment", "2–5 days"], ["1-bedroom", "$3,900+", "Depends on inventory, access, and requested services", "2–5 days"], ["2-bedroom", "$5,200+", "Common planning figure for an apartment or condo move", "2–5 days"], ["3-bedroom", "$8,300+", "Larger household shipment with more labour and space", "2–5 days"], ["4+ bedroom", "$12,000+", "Final estimate depends on inventory, access, and services", "2–5 days"]],
+  },
+  "/montreal-to-toronto-movers/": {
+    aria: "Montreal to Toronto moving cost estimates",
+    eyebrow: "MONTREAL TO TORONTO MOVING COST",
+    title: "How much does it cost to move from Montreal to Toronto?",
+    intro: "This Montreal to Toronto route is approximately <strong>540 km</strong>. Planning figures start at <strong>$2,300+</strong> for a studio and vary by home size, inventory, access, packing, storage, timing, and requested services. Typical transit is <strong>2–5 days</strong>.",
+    note: "Prices are planning estimates in CAD, not guaranteed final long-distance pricing. Estimated moving costs include route planning and Declared Value Protection options; a written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, protection choices, and service dates.",
+    links: [["Full cost guide", "/long-distance-moving-cost-canada/"], ["Montreal movers", "/long-distance-movers-montreal/"], ["Toronto movers", "/toronto-long-distance-movers/"], ["Get a written estimate", "/contact/"]],
+    rows: [["Studio", "$2,300+", "Best for a studio or small shipment", "2–5 days"], ["1-bedroom", "$3,900+", "Depends on inventory, access, and requested services", "2–5 days"], ["2-bedroom", "$5,200+", "Common planning figure for an apartment or condo move", "2–5 days"], ["3-bedroom", "$8,300+", "Larger household shipment with more labour and space", "2–5 days"], ["4+ bedroom", "$12,000+", "Final estimate depends on inventory, access, and services", "2–5 days"]],
+  },
+
     "/ottawa-to-victoria-movers/": {
       aria: "Ottawa to Victoria moving cost estimates",
       eyebrow: "OTTAWA TO VICTORIA MOVING COST",
@@ -2151,6 +2180,73 @@
     return bonus;
   }
 
+  function normalizeTorontoMontrealQuotePanel(path) {
+    var route = {
+      "/toronto-to-montreal-movers/": {
+        title: "Get a Toronto to Montreal quote.",
+        body: "Planning a long-distance move from Toronto, ON to Montreal, QC? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+        defaults: ["Toronto, ON", "Montreal, QC"],
+      },
+      "/montreal-to-toronto-movers/": {
+        title: "Get a Montreal to Toronto quote.",
+        body: "Planning a long-distance move from Montreal, QC to Toronto, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+        defaults: ["Montreal, QC", "Toronto, ON"],
+      },
+    }[path];
+    if (!route) return true;
+
+    var panel = document.querySelector(".pcm-lead-panel, .pcm-top-estimate-wrap");
+    if (!panel) return false;
+    var intro = panel.querySelector(".pcm-lead-panel__inner > div:first-child, .pcm-top-estimate__intro");
+    if (!intro) return false;
+
+    var eyebrow = intro.querySelector(".pcm-lead-panel__eyebrow, .pcm-kicker");
+    if (eyebrow) eyebrow.textContent = "FREE MOVING ESTIMATE";
+    var heading = intro.querySelector("h2");
+    if (heading) heading.textContent = route.title;
+    var body = intro.querySelector(":scope > p") || intro.querySelector("p");
+    if (body) body.textContent = route.body;
+
+    var trust = intro.querySelector(".pcm-trust-row, .pcm-pills");
+    if (trust) {
+      var labels = [
+        "Family-owned since 1991",
+        "Coquitlam office",
+        "BBB Accredited business",
+        "No brokers or subcontractors",
+        "Declared Value Protection",
+        "Great Canadian Van Lines agent",
+      ];
+      labels.forEach(function (label, index) {
+        var pill = trust.children[index];
+        if (!pill) {
+          pill = document.createElement("span");
+          trust.appendChild(pill);
+        }
+        pill.textContent = label;
+      });
+      while (trust.children.length > labels.length) trust.removeChild(trust.lastElementChild);
+    }
+
+    var form = panel.querySelector("form");
+    if (form) {
+      ["from", "to"].forEach(function (name, index) {
+        var input = form.querySelector('input[name="' + name + '"]');
+        if (!input) return;
+        input.value = route.defaults[index];
+        input.setAttribute("value", route.defaults[index]);
+        input.removeAttribute("placeholder");
+      });
+    }
+
+    replaceTextInElement(document.getElementById("root") || document.body, [
+      [/valuation coverage options/gi, "Declared Value Protection options"],
+      [/valuation coverage/gi, "Declared Value Protection"],
+      [/fully insured/gi, "with Declared Value Protection options"],
+    ]);
+    return true;
+  }
+
   function normalizeOttawaVictoriaQuotePanel(path) {
     if (path !== "/ottawa-to-victoria-movers/") return false;
 
@@ -3044,6 +3140,7 @@
     }
 
     if (document.querySelector(".pcm-lead-panel")) {
+      normalizeTorontoMontrealQuotePanel(path);
       normalizeOttawaVictoriaQuotePanel(path);
       if (path === "/montreal-to-calgary-movers/") {
         var existingPanel = document.querySelector(".pcm-lead-panel");
@@ -3078,6 +3175,7 @@
     } else {
       root.insertBefore(panel, root.firstChild);
     }
+    normalizeTorontoMontrealQuotePanel(path);
     enhanceRouteHeading(normalizePath());
     insertLocalSeoBlock(normalizePath());
     insertRouteCostBlock(normalizePath());
