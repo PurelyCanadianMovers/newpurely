@@ -1486,8 +1486,11 @@
   display: grid;
   gap: 5px;
   color: #172033;
-  font-size: 0.72rem;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 12px;
   font-weight: 800;
+  line-height: 20px;
+  letter-spacing: normal;
 }
 
 .pcm-top-estimate input,
