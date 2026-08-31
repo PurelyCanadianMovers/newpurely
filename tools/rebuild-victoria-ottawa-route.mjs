@@ -420,6 +420,15 @@ async function updateCostGuide() {
     const row = '<tr data-route="victoria-to-ottawa-movers" class="border-b border-gray-200 bg-white hover:bg-red-50"><td class="py-3 px-4 font-body text-gray-900 font-semibold">Victoria → Ottawa</td><td class="py-3 px-4 font-body text-gray-700">~4,700+ km</td><td class="py-3 px-4 font-body text-gray-700">10–22 days</td><td class="py-3 px-4 text-right"><a href="/victoria-to-ottawa-movers/" class="inline-flex items-center justify-center whitespace-nowrap text-sm h-8 rounded-md gap-1.5 px-3 bg-[#CC1A1A] text-white font-body font-semibold">Get a Quote</a></td></tr>';
     html = html.slice(0, bodyEnd) + row + html.slice(bodyEnd);
   }
+  if (!html.includes('data-route="ottawa-to-victoria-movers"') && !html.includes(">Ottawa → Victoria</td>")) {
+    const headingIndex = html.indexOf(">Popular Moving Routes in Canada</h2>");
+    if (headingIndex < 0) throw new Error("Cost guide popular-routes heading not found");
+    const tableStart = html.indexOf("<table", headingIndex);
+    const bodyEnd = html.indexOf("</tbody>", tableStart);
+    if (tableStart < 0 || bodyEnd < 0) throw new Error("Cost guide popular-routes table not found");
+    const row = '<tr data-route="ottawa-to-victoria-movers" class="border-b border-gray-200 bg-gray-50 hover:bg-red-50"><td class="py-3 px-4 font-body text-gray-900 font-semibold">Ottawa → Victoria</td><td class="py-3 px-4 font-body text-gray-700">~4,700+ km</td><td class="py-3 px-4 font-body text-gray-700">10–22 days</td><td class="py-3 px-4 text-right"><a href="/ottawa-to-victoria-movers/" class="inline-flex items-center justify-center whitespace-nowrap text-sm h-8 rounded-md gap-1.5 px-3 bg-[#CC1A1A] text-white font-body font-semibold">Get a Quote</a></td></tr>';
+    html = html.slice(0, bodyEnd) + row + html.slice(bodyEnd);
+  }
   await writeFile(costGuidePath, html, "utf8");
 }
 
