@@ -60,9 +60,38 @@ const referenceCostGuideRoutes = [
   },
 ];
 
+const ROUTE_TYPOGRAPHY_STYLE = `<style id="pcm-route-typography-normalization">
+  body.pcm-static-route-ready{font-family:"Source Sans 3",sans-serif;font-size:16px;line-height:1.6;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-static-main h1,body.pcm-static-route-ready .pcm-static-main h2,body.pcm-static-route-ready .pcm-static-main h3{font-family:"Playfair Display",serif;font-weight:700;line-height:1.2;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-static-main h1{font-size:36px;line-height:45px}
+  body.pcm-static-route-ready .pcm-static-main h2{font-size:30px;line-height:36px}
+  body.pcm-static-route-ready .pcm-static-main h3{font-size:18px;line-height:28px;margin-bottom:8px}
+  body.pcm-static-route-ready .pcm-static-main p{font-family:"Source Sans 3",sans-serif;font-size:18px;line-height:29.25px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-static-main .pcm-card p{font-size:14px;line-height:22.75px}
+  body.pcm-static-route-ready .pcm-static-main .pcm-kicker{font-family:"Source Sans 3",sans-serif;font-size:14px;font-weight:600;line-height:20px;letter-spacing:.7px}
+  body.pcm-static-route-ready .pcm-static-main .pcm-route-glance-section .pcm-glance-label{font-family:"Source Sans 3",sans-serif;font-size:14px;font-weight:400;line-height:20px;letter-spacing:.7px}
+  body.pcm-static-route-ready .pcm-static-main .pcm-route-glance-section .pcm-glance-value{font-family:"Source Sans 3",sans-serif;font-size:24px;font-weight:700;line-height:32px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-static-main .pcm-route-glance-section .pcm-glance-support{font-family:"Source Sans 3",sans-serif;font-size:14px;font-weight:400;line-height:20px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-top-estimate__intro h2{font-family:"Playfair Display",Georgia,serif;font-size:30px;font-weight:700;line-height:34.5px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-top-estimate__intro>p{font-family:"Source Sans 3",Arial,sans-serif;font-size:17px;line-height:25.5px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-top-estimate .pcm-kicker{font-family:"Source Sans 3",Arial,sans-serif;font-size:13px;font-weight:800;line-height:20.8px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-top-estimate label{font-family:"Source Sans 3",Arial,sans-serif;font-size:12px;line-height:20px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-route-cost h2,body.pcm-static-route-ready .pcm-closing-cta h2{font-family:"Playfair Display",Georgia,serif;font-size:30px;font-weight:700;line-height:36px;letter-spacing:normal}
+  body.pcm-static-route-ready .pcm-closing-cta p{font-family:"Source Sans 3",sans-serif;font-size:18px;line-height:28px;letter-spacing:normal}
+  @media(min-width:1024px){body.pcm-static-route-ready .pcm-static-main h1{font-size:48px;line-height:60px}}
+  @media(max-width:520px){body.pcm-static-route-ready .pcm-top-estimate__intro h2{font-size:25px;line-height:28.75px}}
+</style>`;
+
 function replaceAllLiteral(value, search, replacement) {
   if (!value.includes(search)) throw new Error(`Expected template text not found: ${search}`);
   return value.split(search).join(replacement);
+}
+
+function normalizeRouteTypography(html) {
+  const stylePattern = /<style id="pcm-route-typography-normalization">[\s\S]*?<\/style>/;
+  if (stylePattern.test(html)) return html.replace(stylePattern, ROUTE_TYPOGRAPHY_STYLE);
+  if (!html.includes("</head>")) throw new Error("Route template head closing tag not found");
+  return html.replace("</head>", `${ROUTE_TYPOGRAPHY_STYLE}</head>`);
 }
 
 function relatedLinks(route) {
@@ -118,6 +147,8 @@ function transformRoute(template, route) {
   html = html.replaceAll("2,300 km", route.distance);
   html = html.replaceAll("5–13 days", route.transit);
   html = html.replaceAll("5-13 days", route.transitHyphen);
+  html = html.replaceAll("5–13", route.transit.replace(/ days$/, ""));
+  html = html.replaceAll("5-13", route.transitHyphen.replace(/ days$/, ""));
   html = html.replaceAll("$8,900+", "$9,000+");
   html = html.replaceAll("$8,900", "$9,000");
   html = html.replaceAll("FREE MOVING ESTIMATE", "FREE MOVING ESTIMATE");
@@ -133,6 +164,7 @@ function transformRoute(template, route) {
   html = html.replaceAll(">Winnipeg movers<", `>${routeName} movers<`);
 
   html = replaceRelatedLinks(html, route);
+  html = normalizeRouteTypography(html);
   html = html.replaceAll(
     `<link rel="canonical" href="${siteOrigin}/${route.oldRouteSlug}/">`,
     `<link rel="canonical" href="${siteOrigin}/${routeSlug}/">`,
@@ -157,6 +189,7 @@ function transformRoute(template, route) {
   }
   if ((html.match(/<h1\b/gi) || []).length !== 1) throw new Error(`${route.slug}: expected exactly one H1`);
   if ((html.match(/class="[^"]*\bpcm-route-cost\b/g) || []).length !== 1) throw new Error(`${route.slug}: expected exactly one pricing block`);
+  if (html.includes("5–13") || html.includes("5-13")) throw new Error(`${route.slug}: stale 5–13 transit value remains`);
   return html;
 }
 
