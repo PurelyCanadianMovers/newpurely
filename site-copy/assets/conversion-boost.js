@@ -2621,6 +2621,8 @@
     [
       ["Vancouver → Winnipeg", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
       ["Winnipeg → Vancouver", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
+      ["Toronto → Winnipeg", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
+      ["Winnipeg → Toronto", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Calgary → Halifax", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
       ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"]
     ].forEach(function (route) {
@@ -2665,6 +2667,8 @@
     [
       ["Vancouver → Winnipeg", "2,300 km", "5–13 days", "/vancouver-to-winnipeg-movers/"],
       ["Winnipeg → Vancouver", "2,300 km", "5–13 days", "/winnipeg-to-vancouver-movers/"],
+      ["Toronto → Winnipeg", "2,225 km", "4–12 days", "/toronto-to-winnipeg-movers/"],
+      ["Winnipeg → Toronto", "2,225 km", "4–12 days", "/winnipeg-to-toronto-movers/"],
       ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
       ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
       ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
@@ -2818,7 +2822,7 @@
 
   function insertLeadPanel(config) {
     var path = normalizePath();
-    if (path === "/vancouver-to-toronto-movers/" || path === "/toronto-to-vancouver-movers/" || path === "/vancouver-to-winnipeg-movers/" || path === "/winnipeg-to-vancouver-movers/") {
+    if (path === "/vancouver-to-toronto-movers/" || path === "/toronto-to-vancouver-movers/" || path === "/vancouver-to-winnipeg-movers/" || path === "/winnipeg-to-vancouver-movers/" || path === "/toronto-to-winnipeg-movers/" || path === "/winnipeg-to-toronto-movers/") {
       return true;
     }
 

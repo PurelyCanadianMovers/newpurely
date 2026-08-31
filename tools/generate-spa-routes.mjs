@@ -34,6 +34,8 @@ const manualPublicRoutes = [
   "/vancouver-to-ottawa-movers/",
   "/vancouver-to-halifax-movers/",
   "/vancouver-to-toronto-movers/",
+  "/toronto-to-winnipeg-movers/",
+  "/winnipeg-to-toronto-movers/",
 ];
 const standaloneStaticRoutes = new Set([
   "/halifax-to-calgary-movers/",
@@ -44,6 +46,8 @@ const standaloneStaticRoutes = new Set([
   "/seattle-to-vancouver-movers/",
   "/victoria-to-vancouver-movers/",
   "/victoria-to-toronto-movers/",
+  "/toronto-to-winnipeg-movers/",
+  "/winnipeg-to-toronto-movers/",
 ]);
 const routeHeadOverrides = {
   "/local-movers-burnaby-bc/": {
