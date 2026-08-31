@@ -197,15 +197,33 @@ function pricingSection() {
     ["4+ bedroom", route.prices[4], "Final estimate depends on inventory, access, and services"],
   ].map(([size, price, note]) => `<tr><td class="pcm-home-size">${size}</td><td class="pcm-cost-value">${price}</td><td>${esc(note)}</td><td>${route.transit}</td></tr>`).join("");
 
-  return `<section class="pcm-section pcm-route-cost pcm-lead-boost" aria-label="Victoria to Ottawa moving cost estimates">
-  <div class="pcm-kicker">VICTORIA TO OTTAWA MOVING COST</div>
+  return `<section class="pcm-lead-boost pcm-route-cost" aria-label="Victoria to Ottawa moving cost estimates"><div class="pcm-route-cost__inner">
+  <div class="pcm-route-cost__eyebrow">VICTORIA TO OTTAWA MOVING COST</div>
   <h2>How much does it cost to move from Victoria to Ottawa?</h2>
-  <p>A Victoria to Ottawa move typically ranges from about $3,000+ for a small shipment to $16,000+ for a larger home. Many 1–2 bedroom moves are estimated around $5,300–$7,000+, depending on shipment weight or volume, access, packing, storage, ferry logistics, season, and requested services.</p>
-  <div class="pcm-table-wrap"><table class="pcm-table"><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div>
-  <p class="pcm-inclusion">These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible.</p>
-  <p><small>Prices are planning estimates in CAD, not guaranteed long-distance quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, ferry logistics, packing needs, storage timing, protection choices, and service dates.</small></p>
-  <div class="pcm-links"><a href="/long-distance-moving-cost-canada/">Full moving cost guide</a><a href="/victoria-long-distance-movers/">Victoria long-distance movers</a><a href="/long-distance-movers-ottawa/">Ottawa long-distance movers</a><a href="/ottawa-to-victoria-movers/">Ottawa to Victoria movers</a><a href="/contact/">Get a written estimate</a></div>
-</section>`;
+  <p>A Victoria to Ottawa move typically ranges from about <strong>$3,000+</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1–2 bedroom moves are estimated around <strong>$5,300–$7,000+</strong>, depending on shipment weight or volume, access, packing, storage, ferry logistics, season, and requested services.</p>
+  <div class="pcm-route-cost__table-wrap"><table><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <p class="pcm-route-cost__note">These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Then: Prices are planning estimates in CAD, not guaranteed long-distance quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, ferry logistics, packing needs, storage timing, protection choices, and service dates.</p>
+  <div class="pcm-route-cost__links"><a href="/long-distance-moving-cost-canada/">Full cost guide</a><a href="/victoria-long-distance-movers/">Victoria long-distance movers</a><a href="/long-distance-movers-ottawa/">Ottawa long-distance movers</a><a href="/ottawa-to-victoria-movers/">Ottawa to Victoria movers</a><a href="/contact/">Get a written estimate</a></div>
+  </div></section>`;
+}
+
+function ottawaVictoriaPricingSection() {
+  const rows = [
+    ["Studio / small shipment", "$3,000+", "Best for limited furniture or a partial shipment"],
+    ["1-bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing"],
+    ["2-bedroom", "$7,000+", "Common planning range for an apartment or condo move"],
+    ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space"],
+    ["4+ bedroom", "$16,000+", "Final estimate depends on inventory, access, and services"],
+  ].map(([size, price, note]) => `<tr><td>${size}</td><td>${price}</td><td>${esc(note)}</td><td>10–22 days</td></tr>`).join("");
+
+  return `<section class="pcm-lead-boost pcm-route-cost" data-pcm-route="ottawa-to-victoria" aria-label="Ottawa to Victoria moving cost estimates"><div class="pcm-route-cost__inner">
+  <div class="pcm-route-cost__eyebrow">OTTAWA TO VICTORIA MOVING COST</div>
+  <h2>How much does it cost to move from Ottawa to Victoria?</h2>
+  <p>An Ottawa to Victoria move typically ranges from about <strong>$3,000+</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1–2 bedroom moves are estimated around <strong>$5,300–$7,000+</strong>, depending on shipment weight or volume, access, packing, storage, ferry logistics, season, and requested services.</p>
+  <div class="pcm-route-cost__table-wrap"><table><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <p class="pcm-route-cost__note">These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Then: Prices are planning estimates in CAD, not guaranteed long-distance quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, ferry logistics, packing needs, storage timing, protection choices, and service dates.</p>
+  <div class="pcm-route-cost__links"><a href="/long-distance-moving-cost-canada/">Full cost guide</a><a href="/long-distance-movers-ottawa/">Ottawa long-distance movers</a><a href="/victoria-long-distance-movers/">Victoria long-distance movers</a><a href="/contact/">Get a written estimate</a></div>
+  </div></section>`;
 }
 
 function routeBody() {
@@ -282,7 +300,7 @@ function ensureQuality(html) {
     [html.includes("<h1>Victoria to Ottawa Movers</h1>"), "route H1"],
     [(html.match(/<h1\b/gi) || []).length === 1, "exactly one H1"],
     [(html.match(/<div class="pcm-top-estimate">/g) || []).length === 1, "exactly one quote panel"],
-    [(html.match(/class="[^"]*pcm-route-cost[^"]*"/g) || []).length === 1, "exactly one pricing section"],
+    [(html.match(/<section[^>]+class="[^"]*pcm-route-cost[^"]*"/gi) || []).length === 1, "exactly one pricing section"],
     [(html.match(/<table\b/gi) || []).length === 1, "exactly one pricing table"],
     [html.includes("FAQPage"), "FAQ schema"],
     [html.includes('name="from" value="Victoria, BC"'), "Victoria quote default"],
@@ -305,6 +323,22 @@ function appendOnce(html, marker, addition, label) {
 
 async function updateReverseRouteLink() {
   let html = await readFile(reverseRoutePath, "utf8");
+  const modernPattern = /<section[^>]+data-pcm-route="ottawa-to-victoria"[\s\S]*?<\/section>/i;
+  if (modernPattern.test(html)) {
+    html = html.replace(modernPattern, ottawaVictoriaPricingSection());
+  } else {
+    const legacyPattern = /<h2[^>]*>Ottawa to Victoria\/Nanaimo Moving Cost Breakdown<\/h2>[\s\S]*?(?=<h2[^>]*>Moving Tips for Your Vancouver Island Arrival<\/h2>)/i;
+    if (!legacyPattern.test(html)) throw new Error("Ottawa to Victoria legacy pricing block not found");
+    html = html.replace(legacyPattern, `${ottawaVictoriaPricingSection()}\n`);
+  }
+  html = html
+    .replace(/Professional, fully insured long-distance moves to Vancouver Island\./gi, "Professional long-distance moves to Vancouver Island with Declared Value Protection options.")
+    .replace(/Professional, fully insured long-distance moving from Ottawa to Vancouver Island/gi, "Professional long-distance moving from Ottawa to Vancouver Island with Declared Value Protection options")
+    .replace(/same professional, fully insured service/gi, "the same professional service with Declared Value Protection options")
+    .replace(/basic valuation coverage/gi, "standard carrier liability")
+    .replace(/full-value protection options/gi, "Declared Value Protection options")
+    .replace(/full-value protection/gi, "Declared Value Protection")
+    .replace(/private health insurance/gi, "private health coverage");
   const addition = '<p class="pcm-reverse-route-link"><a href="/victoria-to-ottawa-movers/">Moving from Victoria to Ottawa?</a> See the dedicated Victoria to Ottawa route page for current pricing, ferry planning, and estimate details.</p>';
   const relatedHeading = ">Related Destinations</h2>";
   const relatedIndex = html.indexOf(relatedHeading);

@@ -493,6 +493,15 @@
   };
 
   var ROUTE_COST_BLOCKS = {
+    "/ottawa-to-victoria-movers/": {
+      aria: "Ottawa to Victoria moving cost estimates",
+      eyebrow: "OTTAWA TO VICTORIA MOVING COST",
+      title: "How much does it cost to move from Ottawa to Victoria?",
+      intro: "An Ottawa to Victoria move typically ranges from about <strong>$3,000+</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1–2 bedroom moves are estimated around <strong>$5,300–$7,000+</strong>, depending on shipment weight or volume, access, packing, storage, ferry logistics, season, and requested services.",
+      note: "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Then: Prices are planning estimates in CAD, not guaranteed long-distance quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, ferry logistics, packing needs, storage timing, protection choices, and service dates.",
+      links: [["Full cost guide", "/long-distance-moving-cost-canada/"], ["Ottawa long-distance movers", "/long-distance-movers-ottawa/"], ["Victoria long-distance movers", "/victoria-long-distance-movers/"], ["Get a written estimate", "/contact/"]],
+      rows: [["Studio / small shipment", "$3,000+", "Best for limited furniture or a partial shipment", "10–22 days"], ["1-bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10–22 days"], ["2-bedroom", "$7,000+", "Common planning range for an apartment or condo move", "10–22 days"], ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space", "10–22 days"], ["4+ bedroom", "$16,000+", "Final estimate depends on inventory, access, and services", "10–22 days"]],
+    },
     "/vancouver-to-edmonton-movers/": {
       aria: "Vancouver to Edmonton moving cost estimates",
       eyebrow: "Vancouver to Edmonton moving cost",
@@ -1831,6 +1840,17 @@
       [/direct moving accountability and no subcontractors/gi, "direct accountability from estimate to delivery"],
     ];
 
+    if (path === "/ottawa-to-victoria-movers/") {
+      replacements.push(
+        [/Professional, fully insured long-distance moving from Ottawa to Vancouver Island/gi, "Professional long-distance moving from Ottawa to Vancouver Island with Declared Value Protection options"],
+        [/same professional, fully insured service/gi, "the same professional service with Declared Value Protection options"],
+        [/basic valuation coverage/gi, "standard carrier liability"],
+        [/full-value protection options/gi, "Declared Value Protection options"],
+        [/full-value protection/gi, "Declared Value Protection"],
+        [/private health insurance/gi, "private health coverage"]
+      );
+    }
+
     replaceTextInElement(root, replacements);
   }
 
@@ -2754,6 +2774,46 @@
     if (header.parentElement === root && hero.parentElement === root) root.insertBefore(header, hero);
   }
 
+  function enforceVictoriaOttawaPricingOrder(path) {
+    if (path !== "/victoria-to-ottawa-movers/") return;
+
+    var pricing = document.querySelector(".pcm-route-cost");
+    var glanceHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
+      return (heading.textContent || "").replace(/\s+/g, " ").trim() === "Victoria → Ottawa Route at a Glance";
+    });
+    var glance = glanceHeading && glanceHeading.closest("section");
+    if (!pricing || !glance || !glance.parentNode) return;
+
+    if (pricing.parentNode === glance.parentNode && pricing !== glance.nextElementSibling) {
+      glance.parentNode.insertBefore(pricing, glance.nextElementSibling);
+    }
+  }
+
+  function replaceOttawaVictoriaPricing(path) {
+    if (path !== "/ottawa-to-victoria-movers/") return true;
+    if (document.querySelector('.pcm-route-cost[data-pcm-route="ottawa-to-victoria"]')) return true;
+
+    var legacyHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
+      return (heading.textContent || "").replace(/\s+/g, " ").trim() === "Ottawa to Victoria/Nanaimo Moving Cost Breakdown";
+    });
+    var tipsHeading = Array.prototype.find.call(document.querySelectorAll("h2"), function (heading) {
+      return (heading.textContent || "").replace(/\s+/g, " ").trim() === "Moving Tips for Your Vancouver Island Arrival";
+    });
+    if (!legacyHeading || !tipsHeading || legacyHeading.parentNode !== tipsHeading.parentNode) return false;
+
+    var pricing = createRouteCostBlock(ROUTE_COST_BLOCKS[path]);
+    pricing.setAttribute("data-pcm-route", "ottawa-to-victoria");
+
+    var node = legacyHeading;
+    while (node && node !== tipsHeading) {
+      var next = node.nextElementSibling;
+      node.remove();
+      node = next;
+    }
+    tipsHeading.parentNode.insertBefore(pricing, tipsHeading);
+    return true;
+  }
+
   function insertLocalSeoBlock(path) {
     var config = LOCAL_SEO_BLOCKS[path];
     if (!config || document.querySelector(".pcm-local-seo")) return;
@@ -2776,6 +2836,14 @@
   }
 
   function insertRouteCostBlock(path) {
+    if (path === "/ottawa-to-victoria-movers/") {
+      replaceOttawaVictoriaPricing(path);
+      return;
+    }
+    if (path === "/victoria-to-ottawa-movers/") {
+      enforceVictoriaOttawaPricingOrder(path);
+      return;
+    }
     var config = ROUTE_COST_BLOCKS[path];
     if (path === "/montreal-to-calgary-movers/") {
       var existing = document.querySelector(".pcm-route-cost");
@@ -2874,6 +2942,7 @@
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     enforceVancouverEdmontonTopOrder(normalizePath());
+    enforceVictoriaOttawaPricingOrder(normalizePath());
     normalizeLongDistanceTrustLanguage(normalizePath());
     return true;
   }
