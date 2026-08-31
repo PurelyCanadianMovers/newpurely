@@ -170,11 +170,12 @@ function extract(template, pattern, label) {
 
 function quotePanel(route) {
   const name = routeName(route);
+  const article = route.from === "Ottawa" ? "an" : "a";
   return `<section class="pcm-top-estimate-wrap" aria-label="Moving estimate">
       <div class="pcm-top-estimate">
         <div class="pcm-top-estimate__intro">
           <div class="pcm-kicker">FREE MOVING ESTIMATE</div>
-          <h2>Get a ${escapeHtml(name)} quote.</h2>
+          <h2>Get ${article} ${escapeHtml(name)} quote.</h2>
           <p>Planning a long-distance move from ${escapeHtml(route.from)}, ${route.fromProvince} to ${escapeHtml(route.to)}, ${route.toProvince}? Purely Canadian Movers helps customers compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.</p>
           <div class="pcm-pills" aria-label="Estimate trust signals">
             <span class="pcm-pill">Family-owned since 1991</span>
