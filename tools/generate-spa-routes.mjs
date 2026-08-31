@@ -21,6 +21,7 @@ const sitemapExcludedRoutes = new Set([
 const manualPublicRoutes = [
   // This route is served by a standalone static page because the recovered React
   // bundle has no matching client route and would otherwise replace it with /404.
+  "/port-coquitlam/",
   "/halifax-to-calgary-movers/",
   "/calgary-to-halifax-movers/",
   "/halifax-to-vancouver-movers/",
@@ -38,6 +39,7 @@ const manualPublicRoutes = [
   "/winnipeg-to-toronto-movers/",
 ];
 const standaloneStaticRoutes = new Set([
+  "/port-coquitlam/",
   "/halifax-to-calgary-movers/",
   "/calgary-to-halifax-movers/",
   "/halifax-to-vancouver-movers/",
