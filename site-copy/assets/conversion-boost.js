@@ -2093,6 +2093,8 @@
       "/edmonton-to-vancouver-movers/": ["Edmonton, AB", "Vancouver, BC"],
       "/vancouver-to-edmonton-movers/": ["Vancouver, BC", "Edmonton, AB"],
       "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
+      "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
+      "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
       "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
       "/montreal-to-edmonton-movers/": ["Montreal, QC", "Edmonton, AB"],
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
@@ -2150,7 +2152,22 @@
   }
 
   function enhanceExistingEstimateForms() {
+    var existingRouteDefaults = {
+      "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
+      "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
+    }[normalizePath()];
+
     Array.prototype.forEach.call(document.querySelectorAll("form"), function (form) {
+      if (existingRouteDefaults) {
+        ["from", "to"].forEach(function (name, index) {
+          var input = form.querySelector('input[name="' + name + '"]');
+          if (!input || input.value || !existingRouteDefaults[index]) return;
+          input.value = existingRouteDefaults[index];
+          input.setAttribute("value", existingRouteDefaults[index]);
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          input.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+      }
       if (form.querySelector(".pcm-estimate-bonus")) return;
 
       var formText = (form.textContent || "").replace(/\s+/g, " ");
@@ -2883,7 +2900,7 @@
   }
 
   function removeRouteCostBreakdown(path) {
-    if (!["/toronto-to-edmonton-movers/", "/edmonton-to-toronto-movers/", "/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/", "/edmonton-to-vancouver-movers/"].includes(path)) return true;
+    if (!["/toronto-to-edmonton-movers/", "/edmonton-to-toronto-movers/", "/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/", "/edmonton-to-vancouver-movers/", "/toronto-to-montreal-movers/", "/montreal-to-toronto-movers/"].includes(path)) return true;
     var heading = Array.prototype.find.call(document.querySelectorAll("h2"), function (item) {
       if (path === "/edmonton-to-vancouver-movers/") return (item.textContent || "").trim() === "Edmonton to Vancouver Moving Cost Breakdown";
       return (item.textContent || "").trim() ===
