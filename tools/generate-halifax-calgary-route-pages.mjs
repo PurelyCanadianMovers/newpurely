@@ -28,9 +28,40 @@ const routes = [
 
 const pricing = ["$2,600+", "$3,900+", "$6,500+", "$11,000+", "$16,000+"];
 const oldPricing = ["$2,500+", "$3,800+", "$6,400+", "$10,000+", "$15,000+"];
+const unsupportedReactBootstrap = /\s*<script\b[^>]*\btype="module"[^>]*\bsrc="(?:\.\.\/)?assets\/index-[^"]+\.js"[^>]*><\/script>/i;
+const unsupportedReactBootstrapMarker = /<script\b[^>]*\bsrc="[^\"]*\/assets\/index-[^\"]+\.js"[^>]*>/i;
+const staticHeadAssets = [
+  '<link rel="stylesheet" href="/assets/static-nav.css">',
+  '<link rel="stylesheet" href="/assets/static-chat.css">',
+].join("\n");
+const staticBodyAssets = [
+  '<script defer src="/assets/static-nav.js"></script>',
+  '<script defer src="/assets/static-chat.js"></script>',
+].join("\n");
 
 function replaceAll(text, search, replacement) {
   return text.split(search).join(replacement);
+}
+
+function makeStandalone(html, route) {
+  const withoutReactBootstrap = html.replace(unsupportedReactBootstrap, "");
+  if (unsupportedReactBootstrapMarker.test(withoutReactBootstrap)) {
+    throw new Error(`${route.slug}: unsupported React bootstrap could not be removed`);
+  }
+
+  let next = withoutReactBootstrap;
+  if (!next.includes('href="/assets/static-nav.css"')) {
+    next = next.replace("</head>", `  ${staticHeadAssets}\n</head>`);
+  }
+  if (!next.includes('src="/assets/static-nav.js"')) {
+    const conversionScript = /(<script[^>]*src="\/assets\/conversion-boost\.js"[^>]*><\/script>)/i;
+    if (!conversionScript.test(next)) {
+      throw new Error(`${route.slug}: conversion script anchor missing for static assets`);
+    }
+    next = next.replace(conversionScript, `${staticBodyAssets}\n$1`);
+  }
+
+  return next;
 }
 
 function routeSnapshot(route) {
@@ -129,7 +160,9 @@ function routeSnapshot(route) {
     `name="to" placeholder="${route.destination}, ${route.destinationCode}"`,
   );
 
-  // Keep the React bundle so AIChatWidget remains interactive on these prerendered routes.
+  // These URLs are not implemented in React. Keep the prerender authoritative and
+  // use the static nav/chat enhancements for the functionality those routes need.
+  html = makeStandalone(html, route);
 
   const canonical = `https://purelycanadianmovers.com/${route.slug}/`;
   const checks = [
@@ -141,6 +174,11 @@ function routeSnapshot(route) {
     [(html.match(/type="application\/ld\+json"/g) ?? []).length >= 8, "JSON-LD blocks"],
     [(html.match(/<form\b/g) ?? []).length === 1, "estimate form"],
     [!html.includes("rel=\"canonical\" href=\"https://purelycanadianmovers.com/404"), "no 404 canonical"],
+    [!unsupportedReactBootstrapMarker.test(html), "no unsupported React route bootstrap"],
+    [html.includes('href="/assets/static-nav.css"'), "static nav stylesheet"],
+    [html.includes('href="/assets/static-chat.css"'), "static chat stylesheet"],
+    [html.includes('src="/assets/static-nav.js"'), "static nav script"],
+    [html.includes('src="/assets/static-chat.js"'), "static chat script"],
   ];
 
   const failed = checks.filter(([passed]) => !passed).map(([, name]) => name);
