@@ -312,6 +312,14 @@ async function updateReverseRouteLink() {
   const sectionEnd = html.indexOf("</section>", relatedIndex);
   if (sectionEnd < 0) throw new Error("Ottawa to Victoria related-destinations section end not found");
   if (!html.includes("/victoria-to-ottawa-movers/")) html = html.slice(0, sectionEnd) + addition + html.slice(sectionEnd);
+  const hydratedAddition = '<p class="pcm-reverse-route-link-after-hydration"><a href="/victoria-to-ottawa-movers/">Moving from Victoria to Ottawa?</a> See the dedicated Victoria to Ottawa route page for current pricing, ferry planning, and estimate details.</p>';
+  if (!html.includes("pcm-reverse-route-link-after-hydration")) {
+    const scriptsMarker = '    <script defer="" src="https://manus-analytics.com/umami"';
+    const scriptsIndex = html.lastIndexOf(scriptsMarker);
+    if (scriptsIndex < 0) throw new Error("Ottawa to Victoria analytics script marker not found");
+    html = html.slice(0, scriptsIndex) + `</div>\n    ${hydratedAddition}\n\n` + html.slice(scriptsIndex);
+  }
+  html = html.replace(/\s*<script defer src="\/assets\/victoria-ottawa-reverse-link\.js"><\/script>/g, "");
   await writeFile(reverseRoutePath, html, "utf8");
 }
 
