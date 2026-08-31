@@ -204,7 +204,7 @@ function updateCostGuide() {
     const popularRoutes = costGuideRoutes.map((route) => ({ ...route, render: (alternate) => popularRow(route, alternate) }));
     html = insertRowsIntoTable(html, "Long-Distance Moving Costs by Route", pricingRoutes);
     html = insertRowsIntoTable(html, "Popular Moving Routes in Canada", popularRoutes);
-    html = html.replace("Estimated pricing for 40 popular Canadian routes.", "Estimated pricing for 44 popular Canadian routes.");
+    html = html.replace(/Estimated pricing for \d+ popular Canadian routes\./, "Estimated pricing for 44 popular Canadian routes.");
     await writeFile(costGuidePath, html, "utf8");
   })();
 }
