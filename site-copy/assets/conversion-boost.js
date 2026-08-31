@@ -2151,6 +2151,129 @@
     return bonus;
   }
 
+  function normalizeOttawaVictoriaQuotePanel(path) {
+    if (path !== "/ottawa-to-victoria-movers/") return false;
+
+    var root = document.getElementById("root");
+    var panel = root && (root.querySelector(":scope > .pcm-lead-panel") || root.querySelector(":scope > .pcm-top-estimate-wrap"));
+    var inner = panel && (panel.querySelector(".pcm-lead-panel__inner") || panel.querySelector(".pcm-top-estimate"));
+    var intro = inner && (inner.querySelector(":scope > div:first-child") || inner.querySelector(".pcm-top-estimate__intro"));
+    var form = inner && inner.querySelector("form");
+    if (!panel || !inner || !intro || !form) return false;
+
+    panel.className = "pcm-top-estimate-wrap pcm-lead-boost";
+    panel.setAttribute("aria-label", "Moving estimate");
+    inner.className = "pcm-top-estimate";
+    intro.className = "pcm-top-estimate__intro";
+
+    var eyebrow = intro.querySelector(".pcm-lead-panel__eyebrow, .pcm-kicker");
+    if (eyebrow) {
+      eyebrow.className = "pcm-kicker";
+      eyebrow.textContent = "FREE MOVING ESTIMATE";
+    }
+    var heading = intro.querySelector("h2");
+    if (heading) heading.textContent = "Get a Ottawa to Victoria quote.";
+    var introText = intro.querySelector(":scope > p");
+    if (introText) {
+      introText.textContent = "Planning a long-distance move from Ottawa, ON to Victoria, BC? Purely Canadian Movers can help you compare realistic pricing, transit timing, ferry logistics, packing, storage, Declared Value Protection options, and written estimate details before moving day.";
+    }
+
+    var trust = intro.querySelector(".pcm-trust-row, .pcm-pills");
+    if (trust) {
+      trust.className = "pcm-pills";
+      [
+        "Family-owned since 1991",
+        "Coquitlam office",
+        "BBB Accredited business",
+        "Great Canadian Van Lines agent",
+        "Written estimates",
+        "Declared Value Protection available",
+      ].forEach(function (label, index) {
+        var pill = trust.children[index];
+        if (!pill) {
+          pill = document.createElement("span");
+          trust.appendChild(pill);
+        }
+        pill.className = "pcm-pill";
+        pill.textContent = label;
+      });
+      while (trust.children.length > 6) trust.removeChild(trust.lastElementChild);
+    }
+
+    form.className = "pcm-estimate pcm-lead-panel";
+    var formGrid = form.querySelector(".pcm-form-grid");
+    var labels = formGrid ? Array.prototype.slice.call(formGrid.children) : Array.prototype.filter.call(form.children, function (child) {
+      return child.tagName === "LABEL";
+    });
+    if (!formGrid) {
+      formGrid = document.createElement("div");
+      formGrid.className = "pcm-form-grid";
+      var firstLabel = labels[0];
+      form.insertBefore(formGrid, firstLabel || form.firstChild);
+      labels.forEach(function (label) { formGrid.appendChild(label); });
+    } else {
+      formGrid.className = "pcm-form-grid";
+    }
+
+    var defaults = ["Ottawa, ON", "Victoria, BC"];
+    ["from", "to"].forEach(function (name, index) {
+      var input = form.querySelector('input[name="' + name + '"]');
+      if (!input) return;
+      input.value = defaults[index];
+      input.setAttribute("value", defaults[index]);
+      input.removeAttribute("placeholder");
+    });
+
+    var size = form.querySelector('select[name="homeSize"]');
+    if (size) {
+      while (size.firstChild) size.removeChild(size.firstChild);
+      [["", "Select size"], ["Studio", "Studio"], ["1 Bedroom", "1 Bedroom"], ["2 Bedrooms", "2 Bedrooms"], ["3 Bedrooms", "3 Bedrooms"], ["4+ Bedrooms", "4+ Bedrooms"]].forEach(function (optionData) {
+        var option = document.createElement("option");
+        option.value = optionData[0];
+        option.textContent = optionData[1];
+        size.appendChild(option);
+      });
+    }
+
+    var buttonRow = form.querySelector(".pcm-button-row, .pcm-buttons");
+    if (buttonRow) {
+      buttonRow.className = "pcm-buttons";
+      var primary = buttonRow.querySelector("button");
+      if (primary) {
+        primary.className = "pcm-button primary";
+        primary.textContent = "Get Written Estimate";
+      }
+      var secondary = buttonRow.querySelector("a");
+      if (secondary) secondary.className = "pcm-button secondary";
+    }
+
+    var reassurance = form.querySelector(".pcm-estimate-reassurance, .pcm-form-note");
+    if (reassurance) {
+      reassurance.className = "pcm-form-note";
+      reassurance.innerHTML = "<strong>No spam. No pressure. Just your moving estimate.</strong> Questions? Call Purely Canadian Movers: 1-877-485-6683";
+    }
+
+    var bonus = form.querySelector(".pcm-estimate-bonus");
+    if (bonus) {
+      bonus.innerHTML = '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, ferry logistics, services, and timing are reviewed before pricing is confirmed in writing.</span></div>';
+    }
+
+    var trustNote = form.querySelector(".pcm-estimate-trust-note, .pcm-verified-details");
+    if (trustNote) {
+      trustNote.className = "pcm-verified-details";
+      trustNote.innerHTML = '<strong>Verified company details:</strong> Unit 16-91 Golden Dr., Coquitlam, BC · Local phone <a href="tel:6045227222">604-522-7222</a> · Direct mover since 1991';
+    }
+
+    if (!form.__pcmRouteQuoteSubmitBound) {
+      form.__pcmRouteQuoteSubmitBound = true;
+      form.addEventListener("submit", function () {
+        saveEstimateIntent(form);
+        removeBlankEstimateFields(form);
+      });
+    }
+    return true;
+  }
+
   function enhanceExistingEstimateForms() {
     var existingRouteDefaults = {
       "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
@@ -2921,6 +3044,7 @@
     }
 
     if (document.querySelector(".pcm-lead-panel")) {
+      normalizeOttawaVictoriaQuotePanel(path);
       if (path === "/montreal-to-calgary-movers/") {
         var existingPanel = document.querySelector(".pcm-lead-panel");
         var existingApp = document.querySelector("#root > div");
@@ -2963,6 +3087,7 @@
     insertTrustProofBlock(normalizePath());
     insertBrokerComparison(normalizePath());
     enforceVancouverEdmontonTopOrder(normalizePath());
+    normalizeOttawaVictoriaQuotePanel(normalizePath());
     moveVictoriaOttawaPricingAfterQuote(normalizePath());
     normalizeLongDistanceTrustLanguage(normalizePath());
     return true;

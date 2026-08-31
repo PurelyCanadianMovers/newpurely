@@ -1404,3 +1404,228 @@
     right: 28px;
   }
 }
+
+/* Keep the Ottawa-to-Victoria route quote card aligned with the static Victoria route page. */
+.pcm-top-estimate-wrap {
+  box-sizing: border-box;
+  padding: 24px 20px 26px;
+  background: #ffffff;
+}
+
+.pcm-top-estimate {
+  box-sizing: border-box;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #d71920;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(410px, 0.82fr);
+  gap: 42px;
+  align-items: center;
+}
+
+.pcm-top-estimate__intro h2 {
+  margin: 9px 0 10px;
+  color: #0f172a;
+  font: 700 2rem/1.08 Georgia, "Times New Roman", serif;
+}
+
+.pcm-top-estimate__intro > p {
+  max-width: 590px;
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.pcm-top-estimate .pcm-kicker {
+  color: #d71920;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.pcm-top-estimate .pcm-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pcm-top-estimate .pcm-pill {
+  padding: 8px 11px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pcm-top-estimate .pcm-estimate {
+  max-width: none;
+  margin: 24px 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pcm-top-estimate .pcm-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pcm-top-estimate label {
+  display: grid;
+  gap: 5px;
+  color: #172033;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.pcm-top-estimate input,
+.pcm-top-estimate select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #334155;
+  font: inherit;
+}
+
+.pcm-top-estimate .pcm-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.pcm-top-estimate .pcm-button {
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #d71920;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.pcm-top-estimate .pcm-button.primary {
+  background: #d71920;
+  color: #ffffff;
+}
+
+.pcm-top-estimate .pcm-button.secondary {
+  background: #ffffff;
+  color: #d71920;
+}
+
+.pcm-top-estimate .pcm-form-note {
+  margin: 7px 0 0;
+  color: #172033;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.pcm-top-estimate .pcm-estimate-bonus {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #ef9a9a;
+  border-radius: 6px;
+  background: #fff7f7;
+  color: #475569;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.pcm-top-estimate .pcm-estimate-bonus__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #d71920;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.pcm-top-estimate .pcm-estimate-bonus > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.pcm-top-estimate .pcm-estimate-bonus strong {
+  color: #d71920;
+  font-size: 0.76rem;
+}
+
+.pcm-top-estimate .pcm-verified-details {
+  margin-top: 8px;
+  padding: 9px 11px;
+  border: 1px solid #d9dee7;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.pcm-top-estimate .pcm-verified-details strong {
+  color: #172033;
+}
+
+.pcm-top-estimate .pcm-verified-details a {
+  color: #d71920;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .pcm-top-estimate {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pcm-top-estimate-wrap {
+    padding: 14px 12px 18px;
+  }
+
+  .pcm-top-estimate {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .pcm-top-estimate__intro h2 {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .pcm-top-estimate .pcm-form-grid,
+  .pcm-top-estimate .pcm-buttons {
+    grid-template-columns: 1fr;
+  }
+}

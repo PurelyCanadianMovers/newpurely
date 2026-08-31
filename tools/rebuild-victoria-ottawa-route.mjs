@@ -138,13 +138,18 @@ function buildHead(template) {
   return head.replace("</head>", `${schemaScript}\n</head>`);
 }
 
-function quotePanel() {
+function quotePanel({
+  title = "Get a Victoria to Ottawa quote.",
+  intro = "Planning a long-distance move from Victoria, BC to Ottawa, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, ferry logistics, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+  from = "Victoria, BC",
+  to = "Ottawa, ON",
+} = {}) {
   return `<section class="pcm-top-estimate-wrap pcm-lead-boost" aria-label="Moving estimate">
   <div class="pcm-top-estimate">
     <div class="pcm-top-estimate__intro">
       <div class="pcm-kicker">FREE MOVING ESTIMATE</div>
-      <h2>Get a Victoria to Ottawa quote.</h2>
-      <p>Planning a long-distance move from Victoria, BC to Ottawa, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, ferry logistics, packing, storage, Declared Value Protection options, and written estimate details before moving day.</p>
+      <h2>${title}</h2>
+      <p>${intro}</p>
       <div class="pcm-pills" aria-label="Estimate trust signals">
         <span class="pcm-pill">Family-owned since 1991</span>
         <span class="pcm-pill">Coquitlam office</span>
@@ -157,10 +162,10 @@ function quotePanel() {
     <form class="pcm-estimate pcm-lead-panel" action="/contact/" method="get">
       <div class="pcm-form-grid">
         <label>Moving from
-          <input name="from" value="Victoria, BC">
+          <input name="from" value="${from}">
         </label>
         <label>Moving to
-          <input name="to" value="Ottawa, ON">
+          <input name="to" value="${to}">
         </label>
         <label>Home size
           <select name="homeSize">
@@ -186,6 +191,15 @@ function quotePanel() {
     </form>
   </div>
 </section>`;
+}
+
+function reverseQuotePanel() {
+  return quotePanel({
+    title: "Get a Ottawa to Victoria quote.",
+    intro: "Planning a long-distance move from Ottawa, ON to Victoria, BC? Purely Canadian Movers can help you compare realistic pricing, transit timing, ferry logistics, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+    from: "Ottawa, ON",
+    to: "Victoria, BC",
+  });
 }
 
 function pricingSection() {
@@ -323,6 +337,9 @@ function appendOnce(html, marker, addition, label) {
 
 async function updateReverseRouteLink() {
   let html = await readFile(reverseRoutePath, "utf8");
+  const quotePattern = /<section class="pcm-top-estimate-wrap pcm-lead-boost"[\s\S]*?<\/section>|<section class="pcm-lead-boost pcm-lead-panel"[\s\S]*?<\/section>/i;
+  if (!quotePattern.test(html)) throw new Error("Ottawa to Victoria quote panel not found");
+  html = html.replace(quotePattern, reverseQuotePanel());
   const modernPattern = /<section[^>]+data-pcm-route="ottawa-to-victoria"[\s\S]*?<\/section>/i;
   if (modernPattern.test(html)) {
     html = html.replace(modernPattern, ottawaVictoriaPricingSection());
@@ -336,7 +353,10 @@ async function updateReverseRouteLink() {
   const pricingStart = pricingMatch.index;
   const pricing = pricingMatch[0];
   const withoutPricing = html.slice(0, pricingStart) + html.slice(pricingStart + pricing.length);
-  const quoteStart = withoutPricing.indexOf('<section class="pcm-lead-boost pcm-lead-panel"');
+  const quoteStart = Math.max(
+    withoutPricing.indexOf('<section class="pcm-top-estimate-wrap pcm-lead-boost"'),
+    withoutPricing.indexOf('<section class="pcm-lead-boost pcm-lead-panel"')
+  );
   if (quoteStart < 0) throw new Error("Ottawa to Victoria quote block not found");
   const quoteEnd = withoutPricing.indexOf("</section>", quoteStart);
   if (quoteEnd < 0) throw new Error("Ottawa to Victoria quote block end not found");
