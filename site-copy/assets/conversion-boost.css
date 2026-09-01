@@ -36,7 +36,8 @@
   margin-bottom: 6px;
 }
 
-.pcm-lead-panel h2 {
+.pcm-lead-panel h2,
+.pcm-lead-panel h3 {
   color: var(--pcm-ink);
   font-family: "Playfair Display", Georgia, serif;
   font-size: 30px;
@@ -760,6 +761,7 @@
 }
 
 .pcm-local-seo__links h2,
+.pcm-local-seo__links h3,
 .pcm-local-seo__faqs h2 {
   color: var(--pcm-ink);
   font-family: "Source Sans 3", Arial, sans-serif;
@@ -1259,7 +1261,8 @@
     padding: 18px;
   }
 
-  .pcm-lead-panel h2 {
+.pcm-lead-panel h2,
+  .pcm-lead-panel h3 {
     font-size: 25px;
   }
 

@@ -250,6 +250,8 @@ function breadcrumbSchema(trail) {
 }
 
 function contentSection(path, spec) {
+  const localSeoSubheadingTag = path === "/" ? "h3" : "h2";
+  const localSeoFaqHeading = path === "/" ? "" : "<h2>Frequently asked questions</h2>";
   const cards = (spec.cards || [])
     .map((c) => `<article><h3>${esc(c.h3)}</h3><p>${esc(c.p)}</p></article>`)
     .join("");
@@ -264,8 +266,8 @@ function contentSection(path, spec) {
         <h2>${esc(spec.h1)}</h2>
         <p>${esc(spec.intro)}</p>
         ${cards ? `<div class="pcm-local-seo__cards">${cards}</div>` : ""}
-        ${links ? `<div class="pcm-local-seo__links">\n          <h2>${esc(spec.linksHeading || "Related moving services")}</h2>\n          <div>\n            ${links}\n          </div>\n        </div>` : ""}
-        ${details ? `<div class="pcm-local-seo__faqs">\n          <h2>Frequently asked questions</h2>\n          ${details}\n        </div>` : ""}
+        ${links ? `<div class="pcm-local-seo__links">\n          <${localSeoSubheadingTag}>${esc(spec.linksHeading || "Related moving services")}</${localSeoSubheadingTag}>\n          <div>\n            ${links}\n          </div>\n        </div>` : ""}
+        ${details ? `<div class="pcm-local-seo__faqs">\n          ${localSeoFaqHeading}\n          ${details}\n        </div>` : ""}
       </div>
     </section>
 `;

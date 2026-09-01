@@ -2146,11 +2146,12 @@
     section.className = "pcm-lead-boost pcm-lead-panel";
     section.setAttribute("aria-label", "Free moving estimate");
 
+    var leadHeadingTag = window.location.pathname === "/" ? "h3" : "h2";
     section.innerHTML =
       '<div class="pcm-lead-panel__inner">' +
       '<div>' +
       '<div class="pcm-lead-panel__eyebrow"></div>' +
-      "<h2></h2>" +
+      "<" + leadHeadingTag + "></" + leadHeadingTag + ">" +
       "<p></p>" +
       '<div class="pcm-trust-row">' +
       "<span>Family-owned since 1991</span>" +
@@ -2168,7 +2169,7 @@
       "</div>";
 
     section.querySelector(".pcm-lead-panel__eyebrow").textContent = config.eyebrow;
-    section.querySelector("h2").textContent = config.title;
+    section.querySelector(leadHeadingTag).textContent = config.title;
     section.querySelector("p").textContent = config.body;
 
     var form = section.querySelector("form");
