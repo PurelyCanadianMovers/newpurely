@@ -3051,7 +3051,7 @@
 
     ["Calgary → Winnipeg", "Winnipeg → Calgary"].forEach(function (label) {
       var matches = Array.prototype.filter.call(body.querySelectorAll("tr"), function (row) {
-        return row.cells[0] && (row.cells[0].textContent || "").trim() === label;
+        return row.cells[0] && (row.cells[0].textContent || "").trim().startsWith(label);
       });
       if (matches.length > 1) {
         matches.sort(function (a, b) {
@@ -3125,7 +3125,7 @@
     if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
     ["Calgary → Winnipeg", "Winnipeg → Calgary"].forEach(function (label) {
       var matches = Array.prototype.filter.call(document.querySelectorAll("table tbody tr"), function (row) {
-        return row.cells[0] && (row.cells[0].textContent || "").trim() === label;
+        return row.cells[0] && (row.cells[0].textContent || "").trim().startsWith(label);
       });
       if (matches.length > 1) {
         matches.sort(function (a, b) {
