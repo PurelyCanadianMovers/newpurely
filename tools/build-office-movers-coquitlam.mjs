@@ -85,8 +85,6 @@ html = html.replace(/<script type="module"[^>]+src="\.\.\/assets\/index-[^"]+\.j
 html = html.replace(/<section class="pcm-lead-boost pcm-lead-panel"[\s\S]*?<\/section>/g, "");
 html = html.replace(/<input name="from"[^>]*>/g, '<input name="from" value="Coquitlam, BC" />');
 html = html.replace(/<input name="to"[^>]*>/g, '<input name="to" placeholder="City or address" />');
-html = html.replace("</body>", `<script>(function(){var b=document.querySelector('[aria-label="Open menu"]');if(!b)return;b.addEventListener('click',function(){var m=document.getElementById('pcm-mobile-menu');if(!m){m=document.createElement('div');m.id='pcm-mobile-menu';m.hidden=true;m.style.cssText='position:absolute;right:16px;top:112px;background:#fff;padding:18px;box-shadow:0 8px 24px #0003;display:grid;gap:12px;z-index:60';m.innerHTML='<a href="/services/">Services</a><a href="/local/">Local Moves</a><a href="/office-movers-coquitlam/">Coquitlam Office Moves</a><a href="/storage/">Storage</a><a href="/contact/">Contact</a>';document.querySelector('header').appendChild(m)}m.hidden=!m.hidden;b.setAttribute('aria-expanded',String(!m.hidden))})})();</script></body>`);
-html = html.replace(/<script>\(function\(\)\{var b=document\.querySelector\('\[aria-label="Open menu"\]'\)[\s\S]*?<\/script>/, "");
 html = html.replace("</body>", '<script defer src="/assets/static-nav.js"></script><script defer src="/assets/static-chat.js"></script></body>');
 
 await mkdir(join(outDir, "office-movers-coquitlam"), { recursive: true });
