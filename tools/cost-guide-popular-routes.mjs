@@ -63,6 +63,34 @@ export const DEDICATED_POPULAR_ROUTES = Object.freeze([
     distance: "2,270 km",
     transit: "5–13 days",
   },
+  {
+    slug: "calgary-to-winnipeg-movers",
+    label: "Calgary → Winnipeg",
+    distance: "1,320 km",
+    transit: "3–11 days",
+    pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
+  },
+  {
+    slug: "winnipeg-to-calgary-movers",
+    label: "Winnipeg → Calgary",
+    distance: "1,320 km",
+    transit: "3–11 days",
+    pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
+  },
+  {
+    slug: "edmonton-to-winnipeg-movers",
+    label: "Edmonton → Winnipeg",
+    distance: "1,300 km",
+    transit: "3–11 days",
+    pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
+  },
+  {
+    slug: "winnipeg-to-edmonton-movers",
+    label: "Winnipeg → Edmonton",
+    distance: "1,300 km",
+    transit: "3–11 days",
+    pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
+  },
 ]);
 
 function routeRowDetails(row) {
@@ -72,7 +100,8 @@ function routeRowDetails(row) {
 }
 
 function renderRow(route, rowClasses) {
-  return `<tr data-route="${route.slug}" class="${rowClasses}"><td class="py-3 px-4 font-body text-gray-900 font-semibold">${route.label}</td><td class="py-3 px-4 font-body text-gray-700">${route.distance}</td><td class="py-3 px-4 font-body text-gray-700">${route.transit}</td><td class="py-3 px-4 text-right"><a href="/${route.slug}/" class="${BUTTON_CLASS}">Get a Quote ${ARROW_ICON}</a></td></tr>`;
+  const pricing = route.pricing ? `<br><small>${route.pricing}</small>` : "";
+  return `<tr data-route="${route.slug}" class="${rowClasses}"><td class="py-3 px-4 font-body text-gray-900 font-semibold">${route.label}${pricing}</td><td class="py-3 px-4 font-body text-gray-700">${route.distance}</td><td class="py-3 px-4 font-body text-gray-700">${route.transit}</td><td class="py-3 px-4 text-right"><a href="/${route.slug}/" class="${BUTTON_CLASS}">Get a Quote ${ARROW_ICON}</a></td></tr>`;
 }
 
 export function ensureDedicatedPopularRoutes(html) {

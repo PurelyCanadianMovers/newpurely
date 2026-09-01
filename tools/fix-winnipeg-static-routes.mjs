@@ -58,8 +58,6 @@ const priceSets = {
 const routes = [
   ["Winnipeg", "MB", "Calgary", "AB", "winnipeg-to-calgary-movers", "prairie", "1,320 km"],
   ["Calgary", "AB", "Winnipeg", "MB", "calgary-to-winnipeg-movers", "prairie", "1,320 km"],
-  ["Winnipeg", "MB", "Edmonton", "AB", "winnipeg-to-edmonton-movers", "prairie", "1,300 km"],
-  ["Edmonton", "AB", "Winnipeg", "MB", "edmonton-to-winnipeg-movers", "prairie", "1,300 km"],
   ["Winnipeg", "MB", "Vancouver", "BC", "winnipeg-to-vancouver-movers", "westCoast", "2,300 km"],
   ["Vancouver", "BC", "Winnipeg", "MB", "vancouver-to-winnipeg-movers", "westCoast", "2,300 km"],
   ["Winnipeg", "MB", "Toronto", "ON", "winnipeg-to-toronto-movers", "centralShort", "2,225 km"],

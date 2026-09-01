@@ -1,3 +1,5 @@
+import { EDMONTON_WINNIPEG_ROUTES } from "../tools/edmonton-winnipeg-route-data.mjs";
+
 const MANUS_BLOG_LOGIN =
   "https://manus.im/app-auth?appId=FhisZ7WXCdcqNnJdX5VyAC&redirectUri=https%3A%2F%2Fpurelycanada-fhisz7wx.manus.space%2Fapi%2Foauth%2Fcallback&state=eyJyZWRpcmVjdFVyaSI6Imh0dHBzOi8vcHVyZWx5Y2FuYWRhLWZoaXN6N3d4Lm1hbnVzLnNwYWNlL2FwaS9vYXV0aC9jYWxsYmFjayIsInJldHVyblBhdGgiOiIvYWRtaW4vYmxvZyJ9&type=signIn";
 const MANUS_ORIGIN = "https://purelycanada-fhisz7wx.manus.space";
@@ -10,6 +12,7 @@ const SECURITY_HEADERS = {
 const REDIRECTS = new Map([
   ["/vancouver-to-bellevue-movers/", "/vancouver-to-seattle-movers/"],
   ["/vancouver-to-redmond-movers/", "/vancouver-to-seattle-movers/"],
+  ["/abbotsford/", "/moving-in-abbotsford-bc/"],
   ["/admin/blog", MANUS_BLOG_LOGIN],
   ["/admin/blog/", MANUS_BLOG_LOGIN],
   ["/admin/login", MANUS_BLOG_LOGIN],
@@ -174,7 +177,13 @@ async function fetchStaticAsset(request, env, assetPath, extraHeaders = {}) {
   assetUrl.pathname = assetPath;
   assetUrl.search = "";
 
-  const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+  const assetRequest = new Request(assetUrl.toString(), {
+    method: request.method,
+    headers: request.headers,
+    redirect: request.redirect,
+    cf: { cacheTtl: 0, cacheEverything: false },
+  });
+  const response = await env.ASSETS.fetch(assetRequest);
   const secured = withSecurityHeaders(response);
   const headers = new Headers(secured.headers);
 
@@ -635,14 +644,27 @@ const COST_ROUTE_ESTIMATES = [
   { route: "Ottawa to Victoria/Nanaimo", from: "ottawa", to: "nanaimo", pageTo: "victoria", transit: "11-24 days", studio: "$3,000", oneBed: "$5,300", twoBed: "$7,000", threeBed: "$11,000", fourPlus: "$16,000" },
   { route: "Vancouver to Calgary", from: "vancouver", to: "calgary", transit: "4-13 days", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
   { route: "Calgary to Vancouver", from: "calgary", to: "vancouver", transit: "4-13 days", studio: "$2,000", oneBed: "$2,600", twoBed: "$3,500", threeBed: "$4,800", fourPlus: "$6,500" },
-  { route: "Winnipeg to Calgary", from: "winnipeg", to: "calgary", transit: "3-11 days", studio: "$2,300", oneBed: "$3,200", twoBed: "$5,100", threeBed: "$8,200", fourPlus: "$12,000" },
-  { route: "Calgary to Winnipeg", from: "calgary", to: "winnipeg", transit: "3-11 days", studio: "$2,300", oneBed: "$3,200", twoBed: "$5,100", threeBed: "$8,200", fourPlus: "$12,000" },
+  { route: "Winnipeg to Calgary", from: "winnipeg", to: "calgary", distance: "1,320 km", transit: "3–11 days", studio: "$2,300", oneBed: "$3,200", twoBed: "$5,100", threeBed: "$8,200", fourPlus: "$12,000" },
+  { route: "Calgary to Winnipeg", from: "calgary", to: "winnipeg", distance: "1,320 km", transit: "3–11 days", studio: "$2,300", oneBed: "$3,200", twoBed: "$5,100", threeBed: "$8,200", fourPlus: "$12,000" },
   { route: "Winnipeg to Toronto", from: "winnipeg", to: "toronto", transit: "4-12 days", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
   { route: "Toronto to Winnipeg", from: "toronto", to: "winnipeg", transit: "4-12 days", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
   { route: "Winnipeg to Montreal", from: "winnipeg", to: "montreal", distance: "2,270 km", transit: "5–13 days", pageUrl: "https://purelycanadianmovers.com/winnipeg-to-montreal-movers/", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
   { route: "Montreal to Winnipeg", from: "montreal", to: "winnipeg", distance: "2,270 km", transit: "5–13 days", pageUrl: "https://purelycanadianmovers.com/montreal-to-winnipeg-movers/", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
   { route: "Vancouver to Edmonton", from: "vancouver", to: "edmonton", pageUrl: COST_GUIDE_URL, transit: "4-13 days", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
   { route: "Edmonton to Vancouver", from: "edmonton", to: "vancouver", transit: "4-13 days", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
+  ...EDMONTON_WINNIPEG_ROUTES.map((route) => ({
+    route: `${route.from} to ${route.to}`,
+    from: route.from.toLowerCase(),
+    to: route.to.toLowerCase(),
+    distance: route.distance,
+    transit: route.transit,
+    studio: route.prices[0].replace("+", ""),
+    oneBed: route.prices[1].replace("+", ""),
+    twoBed: route.prices[2].replace("+", ""),
+    threeBed: route.prices[3].replace("+", ""),
+    fourPlus: route.prices[4].replace("+", ""),
+    pageUrl: `https://purelycanadianmovers.com/${route.slug}/`,
+  })),
   { route: "Toronto to Calgary", from: "toronto", to: "calgary", transit: "7-19 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Calgary to Toronto", from: "calgary", to: "toronto", transit: "7-19 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
   { route: "Toronto to Edmonton", from: "toronto", to: "edmonton", transit: "7-18 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
