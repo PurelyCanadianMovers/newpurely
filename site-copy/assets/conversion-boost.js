@@ -3025,7 +3025,9 @@
       ["Winnipeg → Montreal", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Montreal → Winnipeg", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Calgary → Halifax", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
-      ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"]
+      ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
+      ["Calgary → Winnipeg", "$2,300", "$3,200", "$5,100", "$8,200", "$12,000"],
+      ["Winnipeg → Calgary", "$2,300", "$3,200", "$5,100", "$8,200", "$12,000"]
     ].forEach(function (route) {
       if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
         return (row.textContent || "").indexOf(route[0]) !== -1;
@@ -3076,7 +3078,9 @@
       ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
       ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
       ["Vancouver → Ottawa", "4,360 km", "11–22 days", "/vancouver-to-ottawa-movers/"],
-      ["Toronto → Ottawa", "~450 km", "2–5 days", "/toronto-to-ottawa-movers/"]
+      ["Toronto → Ottawa", "~450 km", "2–5 days", "/toronto-to-ottawa-movers/"],
+      ["Calgary → Winnipeg", "1,320 km", "3–11 days", "/calgary-to-winnipeg-movers/"],
+      ["Winnipeg → Calgary", "1,320 km", "3–11 days", "/winnipeg-to-calgary-movers/"]
     ].forEach(function (route) {
       if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
         return (row.cells[0] && row.cells[0].textContent || "").trim() === route[0];
