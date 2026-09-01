@@ -3406,6 +3406,22 @@
     return true;
   }
 
+  function enhanceCalgaryHubRouteLink(path) {
+    if (path !== "/calgary-long-distance-movers/") return true;
+    if (document.querySelector('[data-pcm-calgary-route-list="1"]')) return true;
+
+    var main = document.querySelector("main");
+    if (!main) return false;
+
+    var section = document.createElement("section");
+    section.className = "pcm-section";
+    section.setAttribute("data-pcm-calgary-route-list", "1");
+    section.setAttribute("aria-labelledby", "calgary-route-list-heading-live");
+    section.innerHTML = '<h2 id="calgary-route-list-heading-live">Popular Calgary Moving Routes</h2><div class="pcm-links"><a href="/calgary-to-edmonton-movers/">Calgary to Edmonton Movers</a><a href="/calgary-to-vancouver-movers/">Calgary to Vancouver Movers</a><a href="/calgary-to-toronto-movers/">Calgary to Toronto Movers</a><a href="/calgary-to-montreal-movers/">Calgary to Montreal Movers</a><a href="/calgary-to-halifax-movers/">Calgary to Halifax Movers</a><a href="/calgary-to-winnipeg-movers/">Calgary to Winnipeg Movers</a></div>';
+    main.appendChild(section);
+    return true;
+  }
+
   function enhanceLongDistanceRouteLinks(path) {
     if (path !== "/long-distance/") return true;
     if (document.querySelector(".pcm-route-link-callout")) return true;
@@ -3621,7 +3637,8 @@
       routeAttempts += 1;
       var routeLinksDone = enhanceLongDistanceRouteLinks(path);
       var montrealHubLinkDone = enhanceMontrealHubRouteLink(path);
-      if ((routeLinksDone && montrealHubLinkDone) || routeAttempts > 30) {
+      var calgaryHubLinkDone = enhanceCalgaryHubRouteLink(path);
+      if ((routeLinksDone && montrealHubLinkDone && calgaryHubLinkDone) || routeAttempts > 30) {
         window.clearInterval(routeTimer);
       }
     }, 250);
