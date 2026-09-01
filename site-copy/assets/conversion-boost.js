@@ -341,7 +341,7 @@
     "/packing-services-vancouver-bc/": "Packing Services Vancouver BC | Moving & Unpacking",
     "/packing/": "Packing Services Metro Vancouver | Moving & Unpacking",
     "/pitt-meadows/": "Pitt Meadows Movers | Local & Long-Distance Moving",
-    "/port-moody/": "Port Moody Movers | Local Moving Company in Port Moody BC",
+    "/port-moody/": "Movers in Port Moody, BC | Local & Long-Distance Moving | Purely Canadian Movers",
     "/richmond/": "Richmond Movers | Local & Long-Distance Moving",
     "/surrey/": "Long-Distance Movers in Surrey BC | Moving Quotes",
     "/testimonials/": "Customer Reviews | Purely Canadian Movers",
@@ -403,7 +403,7 @@
     "/packing/":
       "Packing services in Metro Vancouver for local and long-distance moves, fragile items, supplies, unpacking, and storage timing. Since 1991, BBB Accredited.",
     "/port-moody/":
-      "Port Moody movers for apartments, condos, townhomes, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
+      "Movers in Port Moody, BC for local and long-distance moves from our nearby Coquitlam base. Family-owned since 1991, with packing, storage, and trained crews.",
     "/port-coquitlam/":
       "Port Coquitlam movers for condos, houses, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/storage/":
@@ -1710,28 +1710,48 @@
       ],
     },
     "/port-moody/": {
-      title: "Port Moody movers for condos, apartments, townhomes, and long-distance moves",
+      title: "Port Moody moving resources",
       intro:
-        "Purely Canadian Movers serves Port Moody as part of the Tri-Cities and Metro Vancouver moving network. This Port Moody hub supports customers comparing local movers, packing, storage, and long-distance relocation help.",
+        "Purely Canadian Movers serves Port Moody from our nearby Coquitlam home base as part of the core Tri-Cities local moving area. We handle local and long-distance moves, packing, and storage for Port Moody homes and buildings.",
       highlights: [
-        ["Port Moody move scenarios", "Apartment moves, condo moves, townhomes, detached homes, seniors moves, office moves, furniture moves, and packing-supported moves."],
-        ["Neighbourhood and access notes", "Moody Centre, Newport Village, Suter Brook, Heritage Mountain, Ioco, Anmore, Belcarra, and nearby Tri-Cities communities often require elevator bookings, loading access planning, and strata coordination."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, and Great Canadian Van Lines agent support."],
+        ["Port Moody buildings and homes", "Condo and apartment moves in Port Moody Centre, Suter Brook Village, and Newport Village, plus townhouse and house moves in Heritage Mountain, Heritage Woods, College Park, Glenayre, Pleasantside, and the Ioco/north-shore area."],
+        ["Practical access planning", "Elevator bookings, underground parking, loading access, reserved move-in or move-out windows where applicable, hills, driveways, and building requirements are reviewed as part of the move plan."],
+        ["Direct local moving accountability", "Family-owned since 1991, based in Coquitlam, with local moves handled by our own trained crews. Trusted by thousands of families and BBB Accredited."],
+      ],
+      sections: [
+        {
+          title: "Common Port Moody moves",
+          body: "Port Moody customers commonly move within the Tri-Cities or to nearby Lower Mainland communities, as well as across Canada.",
+          bullets: [
+            "Port Moody to Coquitlam or Port Coquitlam for local household moves.",
+            "Port Moody to Burnaby or Vancouver for apartments, condos, townhouses, and houses.",
+            "Port Moody to Maple Ridge or Pitt Meadows for moves to nearby eastern communities.",
+            "Long-distance moves from Port Moody across Canada with route planning, packing, storage, and written estimates.",
+          ],
+        },
       ],
       links: [
-        ["Local Movers in Port Moody", "/local-movers-port-moody-bc/"],
-        ["Coquitlam Movers", "/local-movers-in-coquitlam-bc/"],
+        ["Coquitlam Movers", "/coquitlam/"],
         ["Port Coquitlam Movers", "/port-coquitlam/"],
+        ["Local Moving", "/local/"],
+        ["Long-Distance Moving", "/long-distance/"],
         ["Packing Services", "/packing/"],
         ["Storage Services", "/storage/"],
-        ["Long-Distance Moving", "/long-distance/"],
+        ["Company Proof", "/company-proof/"],
+        ["Testimonials", "/testimonials/"],
+        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
+        ["Get a Free Estimate", "/contact/"],
       ],
       faqs: [
-        ["Do you provide local movers in Port Moody?", "Yes. Purely Canadian Movers handles local Port Moody moves for apartments, condos, townhomes, detached homes, offices, seniors moves, and furniture-only moves."],
-        ["What areas near Port Moody do you serve?", "We serve Port Moody, Coquitlam, Port Coquitlam, Anmore, Belcarra, Burnaby, New Westminster, and the wider Metro Vancouver area."],
-        ["Can you help with Port Moody condo and strata moves?", "Yes. We help plan elevator bookings, loading access, parking, strata requirements, and timing for Port Moody condo and apartment moves."],
-        ["How much do Port Moody movers cost?", "The cost depends on crew size, truck time, access, stairs, elevators, packing, storage, travel time, and the amount being moved. A written estimate is the best way to price the move accurately."],
-        ["Do you use subcontractors for Port Moody moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
+        ["How much do movers cost in Port Moody?", "Port Moody local moving prices are quoted based on crew size, time, home size, access, stairs or elevators, packing, storage, and the amount being moved. A written estimate is the best way to price your move accurately."],
+        ["Is Purely Canadian Movers located in Port Moody?", "Purely Canadian Movers is based nearby in Coquitlam, BC. Port Moody is part of our core Tri-Cities local moving service area."],
+        ["Do you provide local moving within Port Moody?", "Yes. We provide local moving within Port Moody and between Port Moody, Coquitlam, Port Coquitlam, and nearby Lower Mainland communities."],
+        ["Do you move condos and apartments in Port Moody?", "Yes. We move condos and apartments in Port Moody, including planning for elevator bookings, underground parking, loading access, and building move windows where applicable."],
+        ["Do you handle townhouses and houses in Heritage Woods and Heritage Mountain?", "Yes. We handle townhouse and house moves in Heritage Woods and Heritage Mountain, with access planning for hills, driveways, and larger household moves."],
+        ["Do you move between Port Moody and Coquitlam or Port Coquitlam?", "Yes. Port Moody to Coquitlam and Port Coquitlam moves are common local Tri-Cities moves, and we can plan the crew, timing, access, and household size for the route."],
+        ["Do you provide packing and storage?", "Yes. Packing, unpacking, and short- or long-term storage can be included in a Port Moody moving plan when needed."],
+        ["Do you provide long-distance moving from Port Moody?", "Yes. We coordinate long-distance and cross-Canada moves from Port Moody with route planning, written estimates, packing, storage, and Great Canadian Van Lines agent-network support."],
+        ["Do you use subcontractors?", "No. Local Port Moody moves are handled by Purely Canadian Movers’ own trained crews. Long-distance moves are coordinated through our Great Canadian Van Lines agent network, with direct accountability and no broker-style handoff to unknown movers."],
       ],
     },
     "/local-movers-white-rock-bc/": {
@@ -2162,6 +2182,7 @@
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
       "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
       "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
+      "/port-moody/": ["Port Moody, BC", ""],
     }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
     form.appendChild(createField("Moving from", createInput("from", routeDefaults[0])));
     form.appendChild(createField("Moving to", createInput("to", routeDefaults[1])));
@@ -2407,6 +2428,7 @@
     var existingRouteDefaults = {
       "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
       "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
+      "/port-moody/": ["Port Moody, BC", ""],
     }[normalizePath()];
 
     Array.prototype.forEach.call(document.querySelectorAll("form"), function (form) {
@@ -2601,6 +2623,78 @@
     addFaqSchema(config, path);
     addServiceSchema(config, path);
     return section;
+  }
+
+  function ensurePortMoodyPageContent(path) {
+    if (path !== "/port-moody/") return true;
+
+    var main = document.querySelector("#root main");
+    if (!main) return false;
+
+    var hero = main.querySelector('section[data-loc="client/src/pages/cities/PortMoody.tsx:14"]');
+    if (hero) {
+      var heroHeading = hero.querySelector("h1");
+      var heroCopy = hero.querySelector("p");
+      if (heroHeading) heroHeading.textContent = "Movers in Port Moody, BC";
+      if (heroCopy) {
+        heroCopy.textContent =
+          "Purely Canadian Movers provides local and long-distance moving services in Port Moody, BC from our nearby Coquitlam home base. Family-owned since 1991, we move apartments, condos, townhouses, and houses throughout Port Moody and the Tri-Cities, with packing and storage available.";
+      }
+    }
+
+    var moving = main.querySelector('section[data-loc="client/src/pages/cities/PortMoody.tsx:34"]');
+    if (moving) {
+      moving.innerHTML =
+        '<div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-6 text-slate-900">Moving services for Port Moody homes and buildings</h2><p class="text-lg text-gray-700 mb-4">Port Moody is part of Purely Canadian Movers’ core Tri-Cities service area. From our Coquitlam base, our own trained crews plan condo and apartment moves in Port Moody Centre, Suter Brook Village, and Newport Village, including elevator bookings, underground parking, loading access, and reserved move-in or move-out windows where applicable.</p><p class="text-lg text-gray-700 mb-4">For houses and townhomes in Heritage Mountain and Heritage Woods, we plan around hills, driveways, and larger household access. We also handle established residential homes and townhouse moves in College Park and Glenayre, plus residential moves in Pleasantside and the Ioco/north-shore Port Moody area. Our team is familiar with Port Moody’s parking restrictions and building requirements.</p></div>';
+    }
+
+    var proof = main.querySelector('section[data-loc="client/src/pages/cities/PortMoody.tsx:47"]');
+    if (proof) {
+      proof.innerHTML =
+        '<div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-12 text-slate-900">Why choose Purely Canadian Movers for Port Moody?</h2><div class="grid md:grid-cols-2 gap-8"><div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#CC1A1A]"><h3 class="text-xl font-bold text-slate-900 mb-3">Local expertise</h3><p class="text-gray-700">Port Moody is part of our core Tri-Cities service area. PCM has operated since 1991 from nearby Coquitlam, with practical local access planning for homes and buildings.</p></div><div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#CC1A1A]"><h3 class="text-xl font-bold text-slate-900 mb-3">No subcontractors</h3><p class="text-gray-700">Our own trained crew handles every local move — no outsourcing, no surprises.</p></div><div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#CC1A1A]"><h3 class="text-xl font-bold text-slate-900 mb-3">BBB Accredited</h3><p class="text-gray-700">Trusted by thousands of families. BBB Accredited with an excellent track record.</p></div><div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#CC1A1A]"><h3 class="text-xl font-bold text-slate-900 mb-3">Free estimates</h3><p class="text-gray-700">Local moving quotes account for crew size, time, home size, access, packing, and storage. We explain the estimate before you book.</p></div></div></div>';
+    }
+
+    var services = main.querySelector('section[data-loc="client/src/pages/cities/PortMoody.tsx:72"]');
+    if (services) {
+      services.innerHTML =
+        '<div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-12 text-slate-900">Port Moody moving services</h2><ul class="space-y-4 text-lg text-gray-700"><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Local residential moving:</strong> <a href="/local/">Within Port Moody</a> and surrounding Tri-Cities areas.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Condo and apartment moving:</strong> Elevator bookings, underground parking, loading access, and building move windows where applicable.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Townhouse and house moving:</strong> Hillside, driveway, and larger household access planning.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Office and commercial moving:</strong> Move planning for offices, equipment, and building access with <a href="/office/">commercial moving support</a>.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Packing and unpacking:</strong> Full or partial packing support through our <a href="/packing/">packing service</a>.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Storage:</strong> Short- and long-term storage options; see our <a href="/storage/">storage solutions</a>.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Long-distance moving:</strong> Route planning and written estimates for moves from Port Moody across Canada through <a href="/long-distance/">long-distance moving</a> support.</span></li><li class="flex items-start gap-3"><span class="text-[#CC1A1A] font-bold">✓</span><span><strong>Senior moves:</strong> Careful planning for seniors and their families.</span></li></ul></div>';
+    }
+
+    var config = LOCAL_SEO_BLOCKS[path];
+    var portMoodyFaqs = config && Array.isArray(config.faqs) && config.faqs.length ? config.faqs : [
+      ["How much do movers cost in Port Moody?", "Port Moody local moving prices are quoted based on crew size, time, home size, access, stairs or elevators, packing, storage, and the amount being moved. A written estimate is the best way to price your move accurately."],
+      ["Is Purely Canadian Movers located in Port Moody?", "Purely Canadian Movers is based nearby in Coquitlam, BC. Port Moody is part of our core Tri-Cities local moving service area."],
+      ["Do you provide local moving within Port Moody?", "Yes. We provide local moving within Port Moody and between Port Moody, Coquitlam, Port Coquitlam, and nearby Lower Mainland communities."],
+      ["Do you move condos and apartments in Port Moody?", "Yes. We move condos and apartments in Port Moody, including planning for elevator bookings, underground parking, loading access, and building move windows where applicable."],
+      ["Do you handle townhouses and houses in Heritage Woods and Heritage Mountain?", "Yes. We handle townhouse and house moves in Heritage Woods and Heritage Mountain, with access planning for hills, driveways, and larger household moves."],
+      ["Do you move between Port Moody and Coquitlam or Port Coquitlam?", "Yes. Port Moody to Coquitlam and Port Coquitlam moves are common local Tri-Cities moves, and we can plan the crew, timing, access, and household size for the route."],
+      ["Do you provide packing and storage?", "Yes. Packing, unpacking, and short- or long-term storage can be included in a Port Moody moving plan when needed."],
+      ["Do you provide long-distance moving from Port Moody?", "Yes. We coordinate long-distance and cross-Canada moves from Port Moody with route planning, written estimates, packing, storage, and Great Canadian Van Lines agent-network support."],
+      ["Do you use subcontractors?", "No. Local Port Moody moves are handled by Purely Canadian Movers’ own trained crews. Long-distance moves are coordinated through our Great Canadian Van Lines agent network, with direct accountability and no broker-style handoff to unknown movers."],
+    ];
+    var faqSection = main.querySelector('section[data-pcm-port-moody-faq="1"]');
+    if (faqSection && portMoodyFaqs.length) {
+      faqSection.innerHTML =
+        '<div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-6 text-slate-900">Port Moody moving FAQ</h2><div class="space-y-4">' +
+        portMoodyFaqs
+          .map(function (item) {
+            return '<details><summary class="font-semibold cursor-pointer">' + item[0] + '</summary><p class="text-lg text-gray-700 mt-3">' + item[1] + "</p></details>";
+          })
+          .join("") +
+        "</div></div>";
+    }
+
+    if (!main.querySelector('[data-pcm-port-moody-supporting="1"]')) {
+      var ready = main.querySelector('section[data-loc="client/src/pages/cities/PortMoody.tsx:97"]');
+      if (ready) {
+        ready.insertAdjacentHTML(
+          "beforebegin",
+          '<section data-pcm-port-moody-supporting="1" class="py-16 px-4 bg-gray-50"><div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-6 text-slate-900">Common Port Moody moves</h2><p class="text-lg text-gray-700 mb-5">We help Port Moody customers move locally across the Tri-Cities and Lower Mainland, or plan a long-distance move across Canada.</p><ul class="space-y-3 text-lg text-gray-700"><li><a href="/coquitlam/" class="font-semibold text-[#CC1A1A]">Port Moody → Coquitlam</a> — a common Tri-Cities move from one nearby community to another.</li><li><a href="/port-coquitlam/" class="font-semibold text-[#CC1A1A]">Port Moody → Port Coquitlam</a> — local household moves with crew and access planning.</li><li><a href="/burnaby/" class="font-semibold text-[#CC1A1A]">Port Moody → Burnaby</a> — apartments, condos, townhouses, and houses across the Lower Mainland.</li><li><a href="/vancouver/" class="font-semibold text-[#CC1A1A]">Port Moody → Vancouver</a> — local residential moves with building or street access reviewed in advance.</li><li><a href="/maple-ridge/" class="font-semibold text-[#CC1A1A]">Port Moody → Maple Ridge</a> or <a href="/pitt-meadows/" class="font-semibold text-[#CC1A1A]">Pitt Meadows</a> — household moves between Tri-Cities and nearby eastern communities.</li><li><a href="/long-distance/" class="font-semibold text-[#CC1A1A]">Port Moody → destinations across Canada</a> — long-distance planning, packing, storage, and written estimates.</li></ul></div></section><section class="py-16 px-4 bg-white"><div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-6 text-slate-900">How much do movers cost in Port Moody?</h2><p class="text-lg text-gray-700">Port Moody local moving prices are quoted based on crew size, time, home size, access, stairs or elevators, packing, storage, and the amount being moved. We do not use long-distance route pricing for local Port Moody work.</p><p class="text-lg text-gray-700 mt-4"><a href="/contact/" class="font-semibold text-[#CC1A1A]">Request a written estimate</a> or read the <a href="/long-distance-moving-cost-canada/" class="font-semibold text-[#CC1A1A]">moving cost guide</a> for general planning and long-distance route ranges.</p></div></section><section data-pcm-port-moody-faq="1" class="py-16 px-4 bg-gray-50"><div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-6 text-slate-900">Port Moody moving FAQ</h2><div class="space-y-4"></div></div></section>',
+        );
+      }
+    }
+
+    return !faqSection || faqSection.querySelectorAll("details").length > 0;
   }
 
   function addFaqSchema(config, path) {
@@ -3541,7 +3635,9 @@
       attempts += 1;
       normalizeLongDistanceTrustLanguage(path);
       normalizeMontrealEdmontonRouteContent(path);
-      if (insertLeadPanel(config) || attempts > 30) {
+      var leadReady = insertLeadPanel(config);
+      var contentReady = ensurePortMoodyPageContent(path);
+      if ((leadReady && contentReady && attempts >= 20) || attempts > 30) {
         enhanceExistingEstimateForms();
         removeRouteCostBreakdown(path);
         normalizeMontrealEdmontonRouteContent(path);
