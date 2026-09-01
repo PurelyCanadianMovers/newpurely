@@ -294,7 +294,7 @@
     "/calgary-to-toronto-movers/": "Calgary to Toronto Movers | Purely Canadian Movers",
     "/calgary-to-vancouver-movers/": "Calgary to Vancouver Movers | Alberta to BC Moving",
     "/calgary-to-halifax-movers/": "Calgary to Halifax Movers | Cross-Canada Moving",
-    "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Moving Cost | Movers, Distance & Transit Time",
+    "/calgary-to-winnipeg-movers/": "Calgary to Winnipeg Movers | Cost, Transit Time & Estimate",
     "/edmonton-long-distance-movers/": "Edmonton Long-Distance Movers | Cross-Canada Moving",
     "/edmonton-to-toronto-movers/": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time",
     "/edmonton-to-vancouver-movers/": "Edmonton to Vancouver Movers | Alberta to BC Moving",
@@ -361,7 +361,7 @@
     "/victoria-to-vancouver-movers/": "Victoria to Vancouver Movers | Island to Mainland Moving",
     "/west-vancouver/": "West Vancouver Movers | Local, Condo & House Moves",
     "/white-rock/": "White Rock Movers | Local Moving Company in White Rock BC",
-    "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Moving Cost | Movers, Distance & Transit Time",
+    "/winnipeg-to-calgary-movers/": "Winnipeg to Calgary Movers | Cost, Transit Time & Estimate",
     "/x-country/": "Cross-Country Moving Cost Guide | Canada Routes",
   };
 
@@ -369,7 +369,7 @@
     "/canada-usa/":
       "Canada-USA movers for cross-border relocation, packing, valuation coverage, route planning, and written estimates. Since 1991, BBB Accredited, no moving brokers.",
     "/calgary-to-winnipeg-movers/":
-      "Calgary to Winnipeg moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
+      "Plan a Calgary to Winnipeg long-distance move with estimated costs by home size, 1,320 km route planning, 3–11 days transit guidance, packing, storage, and written quotes.",
     "/calgary-to-ottawa-movers/":
       "Plan a Calgary to Ottawa long-distance move with route-specific pricing from $2,500+, approximately 3,500 km, 7–19 days transit guidance, packing, storage, and written estimates.",
     "/corporate-moves-employee-relocation-in-coquitlam-bc/":
@@ -435,7 +435,7 @@
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/winnipeg-to-calgary-movers/":
-      "Winnipeg to Calgary moving cost guide with estimated prices by home size, 1,320 km route distance, 3-11 day transit planning, packing, storage, and written quotes.",
+      "Plan a Winnipeg to Calgary long-distance move with estimated costs by home size, 1,320 km route planning, 3–11 days transit guidance, packing, storage, and written quotes.",
     "/x-country/":
       "Cross-country moving cost guide for Canada routes with packing, storage, valuation coverage, and written estimate planning. Since 1991, BBB Accredited.",
   };
