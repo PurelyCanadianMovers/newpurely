@@ -28,6 +28,30 @@ export const DEDICATED_POPULAR_ROUTES = Object.freeze([
     transit: "2–5 days",
   },
   {
+    slug: "toronto-to-winnipeg-movers",
+    label: "Toronto → Winnipeg",
+    distance: "2,225 km",
+    transit: "4–12 days",
+  },
+  {
+    slug: "winnipeg-to-toronto-movers",
+    label: "Winnipeg → Toronto",
+    distance: "2,225 km",
+    transit: "4–12 days",
+  },
+  {
+    slug: "vancouver-to-winnipeg-movers",
+    label: "Vancouver → Winnipeg",
+    distance: "2,300 km",
+    transit: "5–13 days",
+  },
+  {
+    slug: "winnipeg-to-vancouver-movers",
+    label: "Winnipeg → Vancouver",
+    distance: "2,300 km",
+    transit: "5–13 days",
+  },
+  {
     slug: "winnipeg-to-montreal-movers",
     label: "Winnipeg → Montreal",
     distance: "2,270 km",
