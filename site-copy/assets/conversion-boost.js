@@ -3049,6 +3049,20 @@
       body.appendChild(row);
     });
 
+    ["Calgary → Winnipeg", "Winnipeg → Calgary"].forEach(function (label) {
+      var matches = Array.prototype.filter.call(body.querySelectorAll("tr"), function (row) {
+        return row.cells[0] && (row.cells[0].textContent || "").trim() === label;
+      });
+      if (matches.length > 1) {
+        matches.sort(function (a, b) {
+          return (b.textContent || "").length - (a.textContent || "").length;
+        });
+        matches.slice(1).forEach(function (row) {
+          row.remove();
+        });
+      }
+    });
+
     return true;
   }
 
