@@ -175,7 +175,13 @@ async function fetchStaticAsset(request, env, assetPath, extraHeaders = {}) {
   assetUrl.pathname = assetPath;
   assetUrl.search = "";
 
-  const response = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+  const assetRequest = new Request(assetUrl.toString(), {
+    method: request.method,
+    headers: request.headers,
+    redirect: request.redirect,
+    cf: { cacheTtl: 0, cacheEverything: false },
+  });
+  const response = await env.ASSETS.fetch(assetRequest);
   const secured = withSecurityHeaders(response);
   const headers = new Headers(secured.headers);
 
