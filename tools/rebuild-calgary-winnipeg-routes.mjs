@@ -69,6 +69,7 @@ for (const route of routes) {
     .replaceAll("Vancouver and Toronto", `${route.from} and ${route.to}`)
     .replaceAll("Toronto Movers", `${route.to} Movers`)
     .replaceAll("Metro Toronto", "across Canada")
+    .replaceAll("Book before August 31", "Book before September 30")
     .replaceAll("4,400 km", "1,320 km")
     .replaceAll("9-22 days", "3–11 days")
     .replaceAll("9–22 days", "3–11 days")
