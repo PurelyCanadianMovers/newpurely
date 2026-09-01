@@ -86,6 +86,10 @@ for (const route of routes) {
     .replace(/<section class="pcm-lead-boost pcm-route-cost"[\s\S]*?<\/section>/i, pricing(route));
 
   html = html.replace(/<article class="pcm-card"><h3>How is the final moving price calculated\?<\/h3>[\s\S]*?<\/article>/i, (match) => match + extraFaq(route));
+  html = html.replace(/<\/head>/i, `<style id="pcm-calgary-winnipeg-form-overflow-fix">
+  .pcm-top-estimate .pcm-form-grid > label { min-width: 0; }
+  .pcm-top-estimate input, .pcm-top-estimate select, .pcm-top-estimate .pcm-button { box-sizing: border-box; width: 100%; max-width: 100%; }
+</style></head>`);
   html = html.replace(/<\/head>/i, schema(route) + "</head>");
   await mkdir(join(root, route.slug), { recursive: true });
   await writeFile(join(root, route.slug, "index.html"), html);
