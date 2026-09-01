@@ -77,6 +77,20 @@ export const DEDICATED_POPULAR_ROUTES = Object.freeze([
     transit: "3–11 days",
     pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
   },
+  {
+    slug: "edmonton-to-winnipeg-movers",
+    label: "Edmonton → Winnipeg",
+    distance: "1,300 km",
+    transit: "3–11 days",
+    pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
+  },
+  {
+    slug: "winnipeg-to-edmonton-movers",
+    label: "Winnipeg → Edmonton",
+    distance: "1,300 km",
+    transit: "3–11 days",
+    pricing: "$2,300+ studio · $3,200+ 1-bedroom · $5,100+ 2-bedroom · $8,200+ 3-bedroom · $12,000+ 4+ bedroom",
+  },
 ]);
 
 function routeRowDetails(row) {
