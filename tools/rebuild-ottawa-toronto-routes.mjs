@@ -328,21 +328,7 @@ function ensureOttawaHubRoute(html) {
 }
 
 function appendCostGuidePopularRoute(html) {
-  html = ensureDedicatedPopularRoutes(html);
-  if (html.includes('href="/toronto-to-ottawa-movers/"')) return html;
-  const heading = html.indexOf("Popular Moving Routes in Canada");
-  if (heading < 0) throw new Error("Cost guide popular routes heading not found");
-  const tableStart = html.indexOf("<table", heading);
-  const bodyStart = html.indexOf("<tbody", tableStart);
-  const bodyEnd = html.indexOf("</tbody>", bodyStart);
-  if (tableStart < 0 || bodyStart < 0 || bodyEnd < 0) throw new Error("Cost guide popular routes table not found");
-  const template = html.slice(bodyStart, bodyEnd).match(/<tr[\s\S]*?<\/tr>/i)?.[0];
-  if (!template) throw new Error("Cost guide popular routes row template not found");
-  const rowClass = template.match(/<tr[^>]*class="([^"]*)"/i)?.[1] ?? "border-b border-gray-200 bg-white hover:bg-red-50";
-  const cellClasses = [...template.matchAll(/<td[^>]*class="([^"]*)"/gi)].map((match) => match[1]);
-  const linkClass = template.match(/<a[^>]*class="([^"]*)"/i)?.[1] ?? "inline-flex items-center justify-center whitespace-nowrap text-sm h-8 rounded-md gap-1.5 px-3 bg-[#CC1A1A] text-white font-body font-semibold";
-  const row = `<tr class="${rowClass}"><td class="${cellClasses[0] ?? "py-3 px-4 font-body text-gray-900 font-semibold"}">Toronto → Ottawa</td><td class="${cellClasses[1] ?? "py-3 px-4 font-body text-gray-700"}">${distance}</td><td class="${cellClasses[2] ?? "py-3 px-4 font-body text-gray-700"}">${transit}</td><td class="${cellClasses[3] ?? "py-3 px-4 text-right"}"><a href="/toronto-to-ottawa-movers/" class="${linkClass}">Get a Quote</a></td></tr>`;
-  return html.slice(0, bodyEnd) + row + html.slice(bodyEnd);
+  return ensureDedicatedPopularRoutes(html);
 }
 
 async function ensureSitemapRoutes() {

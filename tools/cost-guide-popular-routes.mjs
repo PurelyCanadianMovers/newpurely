@@ -1,17 +1,18 @@
 const DEFAULT_ROW_CLASSES = "border-b border-gray-200 bg-white hover:bg-red-50";
 const BUTTON_CLASS = "inline-flex items-center justify-center whitespace-nowrap text-sm transition-all h-8 rounded-md gap-1.5 px-3 bg-[#CC1A1A] hover:bg-[#A31515] text-white font-body font-semibold";
+const ARROW_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>';
 
 export const DEDICATED_POPULAR_ROUTES = Object.freeze([
   {
     slug: "victoria-to-ottawa-movers",
     label: "Victoria → Ottawa",
-    distance: "~4,700+ km",
+    distance: "4,700 km",
     transit: "10–22 days",
   },
   {
     slug: "ottawa-to-victoria-movers",
     label: "Ottawa → Victoria",
-    distance: "~4,700+ km",
+    distance: "4,700 km",
     transit: "10–22 days",
   },
   {
@@ -19,6 +20,24 @@ export const DEDICATED_POPULAR_ROUTES = Object.freeze([
     label: "Calgary → Ottawa",
     distance: "3,500 km",
     transit: "7–19 days",
+  },
+  {
+    slug: "toronto-to-ottawa-movers",
+    label: "Toronto → Ottawa",
+    distance: "450 km",
+    transit: "2–5 days",
+  },
+  {
+    slug: "winnipeg-to-montreal-movers",
+    label: "Winnipeg → Montreal",
+    distance: "2,270 km",
+    transit: "5–13 days",
+  },
+  {
+    slug: "montreal-to-winnipeg-movers",
+    label: "Montreal → Winnipeg",
+    distance: "2,270 km",
+    transit: "5–13 days",
   },
 ]);
 
@@ -29,11 +48,12 @@ function routeRowDetails(row) {
 }
 
 function renderRow(route, rowClasses) {
-  return `<tr data-route="${route.slug}" class="${rowClasses}"><td class="py-3 px-4 font-body text-gray-900 font-semibold">${route.label}</td><td class="py-3 px-4 font-body text-gray-700">${route.distance}</td><td class="py-3 px-4 font-body text-gray-700">${route.transit}</td><td class="py-3 px-4 text-right"><a href="/${route.slug}/" class="${BUTTON_CLASS}">Get a Quote</a></td></tr>`;
+  return `<tr data-route="${route.slug}" class="${rowClasses}"><td class="py-3 px-4 font-body text-gray-900 font-semibold">${route.label}</td><td class="py-3 px-4 font-body text-gray-700">${route.distance}</td><td class="py-3 px-4 font-body text-gray-700">${route.transit}</td><td class="py-3 px-4 text-right"><a href="/${route.slug}/" class="${BUTTON_CLASS}">Get a Quote ${ARROW_ICON}</a></td></tr>`;
 }
 
 export function ensureDedicatedPopularRoutes(html) {
-  const headingIndex = html.indexOf(">Popular Moving Routes in Canada</h2>");
+  const headingMatch = html.match(/<h2\b[^>]*>Popular Moving Routes in Canada<\/h2>/i);
+  const headingIndex = headingMatch?.index ?? -1;
   if (headingIndex < 0) throw new Error("Cost guide popular-routes heading not found");
 
   const tableStart = html.indexOf("<table", headingIndex);
