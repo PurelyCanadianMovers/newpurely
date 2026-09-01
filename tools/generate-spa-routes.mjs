@@ -45,6 +45,7 @@ const manualPublicRoutes = [
 ];
 const standaloneStaticRoutes = new Set([
   "/port-coquitlam/",
+  "/long-distance-moving-cost-canada/",
   "/halifax-to-calgary-movers/",
   "/calgary-to-halifax-movers/",
   "/halifax-to-vancouver-movers/",

@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
+import { ensureDedicatedPopularRoutes } from "./cost-guide-popular-routes.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
 const siteOrigin = "https://purelycanadianmovers.com";
@@ -327,6 +328,7 @@ function ensureOttawaHubRoute(html) {
 }
 
 function appendCostGuidePopularRoute(html) {
+  html = ensureDedicatedPopularRoutes(html);
   if (html.includes('href="/toronto-to-ottawa-movers/"')) return html;
   const heading = html.indexOf("Popular Moving Routes in Canada");
   if (heading < 0) throw new Error("Cost guide popular routes heading not found");

@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
+import { ensureDedicatedPopularRoutes } from "./cost-guide-popular-routes.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
 const siteOrigin = "https://purelycanadianmovers.com";
@@ -335,6 +336,8 @@ function ensureCostGuideRoutes(html) {
 
   const popularTableEnd = html.indexOf("</tbody>", popularTableStart);
   if (popularTableEnd < 0) throw new Error("Cost guide popular route table body not found");
+
+  html = ensureDedicatedPopularRoutes(html);
 
   for (const [index, route] of routes.entries()) {
     const start = html.indexOf("<table", popularHeading);
