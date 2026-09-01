@@ -256,6 +256,16 @@
       title: "Get a Montreal to Toronto quote.",
       body: "Planning a long-distance move from Montreal, QC to Toronto, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
     },
+    "/ottawa-to-toronto-movers/": {
+      eyebrow: "FREE MOVING ESTIMATE",
+      title: "Get an Ottawa to Toronto quote.",
+      body: "Planning a long-distance move from Ottawa, ON to Toronto, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+    },
+    "/toronto-to-ottawa-movers/": {
+      eyebrow: "FREE MOVING ESTIMATE",
+      title: "Get a Toronto to Ottawa quote.",
+      body: "Planning a long-distance move from Toronto, ON to Ottawa, ON? Purely Canadian Movers can help you compare realistic pricing, transit timing, packing, storage, Declared Value Protection options, and written estimate details before moving day.",
+    },
   };
 
   var TITLE_OVERRIDES = {
@@ -316,7 +326,8 @@
     "/calgary-to-ottawa-movers/": "Calgary to Ottawa Movers | Cost, Transit Time & Estimate",
     "/ottawa-to-calgary-movers/": "Ottawa to Calgary Movers | Cost, Transit Time & Estimate",
     "/ottawa-to-edmonton-movers/": "Ottawa to Edmonton Movers | Long-Distance Moving",
-    "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Long-Distance Moving",
+    "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Cost, Transit Time & Estimate",
+    "/toronto-to-ottawa-movers/": "Toronto to Ottawa Movers | Cost, Transit Time & Estimate",
     "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/ottawa-to-victoria-movers/": "Ottawa to Victoria Movers | Long-Distance Moving",
     "/our-network/": "Moving Network Across Canada | Purely Canadian Movers",
@@ -411,6 +422,10 @@
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/ottawa-to-calgary-movers/":
       "Plan an Ottawa to Calgary long-distance move with route-specific pricing from $2,500+, approximately 3,500 km, 7–19 days transit guidance, packing, storage, and written estimates.",
+    "/ottawa-to-toronto-movers/":
+      "Plan an Ottawa to Toronto move with route-specific pricing from $800+, approximately 450 km, 2–5 days transit guidance, packing, storage, and written estimates.",
+    "/toronto-to-ottawa-movers/":
+      "Plan a Toronto to Ottawa move with route-specific pricing from $800+, approximately 450 km, 2–5 days transit guidance, packing, storage, and written estimates.",
     "/white-rock/":
       "White Rock movers for condos, houses, seniors moves, packing, storage, and long-distance moves. Family-owned since 1991, BBB Accredited, no subcontractors.",
     "/winnipeg-to-calgary-movers/":
@@ -503,7 +518,25 @@
   };
 
   var ROUTE_COST_BLOCKS = {
-  "/toronto-to-montreal-movers/": {
+    "/ottawa-to-toronto-movers/": {
+      aria: "Ottawa to Toronto moving cost estimates",
+      eyebrow: "OTTAWA TO TORONTO MOVING COST",
+      title: "How much does it cost to move from Ottawa to Toronto?",
+      intro: "This Ottawa to Toronto route is approximately <strong>450 km</strong>. Planning figures start at <strong>$800+</strong> for a studio and vary by home size, inventory, access, packing, storage, timing, and requested services. Typical transit is <strong>2–5 days</strong>.",
+      note: "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Prices are planning estimates in CAD, not guaranteed quotes. An Ottawa to Toronto written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, protection choices, and service dates.",
+      links: [["Full cost guide", "/long-distance-moving-cost-canada/"], ["Ottawa movers", "/long-distance-movers-ottawa/"], ["Toronto movers", "/toronto-long-distance-movers/"], ["Get a written estimate", "/contact/"]],
+      rows: [["Studio", "$800+", "Best for a studio or small shipment", "2–5 days"], ["1 Bedroom", "$1,100+", "Depends on inventory, access, and requested services", "2–5 days"], ["2 Bedroom", "$1,500+", "Common planning range for an apartment or condo move", "2–5 days"], ["3 Bedroom", "$2,000+", "Larger household shipment with more labour and space", "2–5 days"], ["4+ Bedroom", "$2,800+", "Final estimate depends on inventory, access, and services", "2–5 days"]],
+    },
+    "/toronto-to-ottawa-movers/": {
+      aria: "Toronto to Ottawa moving cost estimates",
+      eyebrow: "TORONTO TO OTTAWA MOVING COST",
+      title: "How much does it cost to move from Toronto to Ottawa?",
+      intro: "This Toronto to Ottawa route is approximately <strong>450 km</strong>. Planning figures start at <strong>$800+</strong> for a studio and vary by home size, inventory, access, packing, storage, timing, and requested services. Typical transit is <strong>2–5 days</strong>.",
+      note: "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. Prices are planning estimates in CAD, not guaranteed quotes. A Toronto to Ottawa written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, protection choices, and service dates.",
+      links: [["Full cost guide", "/long-distance-moving-cost-canada/"], ["Toronto movers", "/toronto-long-distance-movers/"], ["Ottawa movers", "/long-distance-movers-ottawa/"], ["Get a written estimate", "/contact/"]],
+      rows: [["Studio", "$800+", "Best for a studio or small shipment", "2–5 days"], ["1 Bedroom", "$1,100+", "Depends on inventory, access, and requested services", "2–5 days"], ["2 Bedroom", "$1,500+", "Common planning range for an apartment or condo move", "2–5 days"], ["3 Bedroom", "$2,000+", "Larger household shipment with more labour and space", "2–5 days"], ["4+ Bedroom", "$2,800+", "Final estimate depends on inventory, access, and services", "2–5 days"]],
+    },
+    "/toronto-to-montreal-movers/": {
     aria: "Toronto to Montreal moving cost estimates",
     eyebrow: "TORONTO TO MONTREAL MOVING COST",
     title: "How much does it cost to move from Toronto to Montreal?",
@@ -2933,7 +2966,8 @@
       ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
       ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
       ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
-      ["Vancouver → Ottawa", "4,360 km", "11–22 days", "/vancouver-to-ottawa-movers/"]
+      ["Vancouver → Ottawa", "4,360 km", "11–22 days", "/vancouver-to-ottawa-movers/"],
+      ["Toronto → Ottawa", "~450 km", "2–5 days", "/toronto-to-ottawa-movers/"]
     ].forEach(function (route) {
       if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
         return (row.cells[0] && row.cells[0].textContent || "").trim() === route[0];

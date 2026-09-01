@@ -40,6 +40,8 @@ const manualPublicRoutes = [
   "/calgary-to-ottawa-movers/",
   "/ottawa-to-calgary-movers/",
   "/victoria-to-ottawa-movers/",
+  "/ottawa-to-toronto-movers/",
+  "/toronto-to-ottawa-movers/",
 ];
 const standaloneStaticRoutes = new Set([
   "/port-coquitlam/",
@@ -56,6 +58,8 @@ const standaloneStaticRoutes = new Set([
   "/calgary-to-ottawa-movers/",
   "/ottawa-to-calgary-movers/",
   "/victoria-to-ottawa-movers/",
+  "/ottawa-to-toronto-movers/",
+  "/toronto-to-ottawa-movers/",
 ]);
 const routeHeadOverrides = {
   "/local-movers-burnaby-bc/": {
