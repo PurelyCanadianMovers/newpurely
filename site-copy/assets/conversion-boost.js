@@ -3017,6 +3017,12 @@
     var template = body && body.querySelector("tr");
     if (!body || !template) return false;
 
+    Array.prototype.forEach.call(body.querySelectorAll("tr"), function (row) {
+      if (/^(Calgary|Winnipeg) → (Winnipeg|Calgary)$/.test((row.textContent || "").replace(/s+/g, " ").trim().split("$")[0])) {
+        row.remove();
+      }
+    });
+
     [
       ["Vancouver → Winnipeg", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
       ["Winnipeg → Vancouver", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
@@ -3025,9 +3031,7 @@
       ["Winnipeg → Montreal", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Montreal → Winnipeg", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Calgary → Halifax", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
-      ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
-      ["Calgary → Winnipeg", "$2,300", "$3,200", "$5,100", "$8,200", "$12,000"],
-      ["Winnipeg → Calgary", "$2,300", "$3,200", "$5,100", "$8,200", "$12,000"]
+      ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"]
     ].forEach(function (route) {
       if (Array.prototype.some.call(body.querySelectorAll("tr"), function (row) {
         return (row.textContent || "").indexOf(route[0]) !== -1;
