@@ -1571,7 +1571,7 @@
       ],
       faqs: [
         ["How much does it cost to move from Winnipeg to Calgary?", "Planning figures for Winnipeg to Calgary are $2,300 for a studio, $3,200 for a 1-bedroom, $5,100 for a 2-bedroom, $8,200 for a 3-bedroom, and $12,000 for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
-        ["How long does a Winnipeg to Calgary move take?", "A typical Winnipeg to Calgary moving transit window is about 3-11 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["How long does a Winnipeg to Calgary move take?", "A typical Winnipeg to Calgary moving transit window is about 3–11 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of a Winnipeg to Calgary move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Winnipeg to Calgary moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with a Winnipeg to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Winnipeg to Calgary moving estimate."],
@@ -1598,7 +1598,7 @@
       ],
       faqs: [
         ["How much does it cost to move from Calgary to Winnipeg?", "Planning figures for Calgary to Winnipeg are $2,300 for a studio, $3,200 for a 1-bedroom, $5,100 for a 2-bedroom, $8,200 for a 3-bedroom, and $12,000 for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
-        ["How long does a Calgary to Winnipeg move take?", "A typical Calgary to Winnipeg moving transit window is about 3-11 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["How long does a Calgary to Winnipeg move take?", "A typical Calgary to Winnipeg moving transit window is about 3–11 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of a Calgary to Winnipeg move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Calgary to Winnipeg moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with a Calgary to Winnipeg move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Calgary to Winnipeg moving estimate."],
