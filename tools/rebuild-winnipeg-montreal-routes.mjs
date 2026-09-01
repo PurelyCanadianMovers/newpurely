@@ -22,6 +22,8 @@ const routes = [
     fromProvince: "MB",
     to: "Montreal",
     toProvince: "QC",
+    distance: "2,270 km",
+    transit: "5–13 days",
     metaDescription:
       "Plan a Winnipeg to Montreal long-distance move with route-specific pricing from $2,400+, approximately 2,270 km, 5–13 days transit guidance, packing, storage, and written estimates.",
     intro: [
@@ -59,6 +61,8 @@ const routes = [
     fromProvince: "QC",
     to: "Winnipeg",
     toProvince: "MB",
+    distance: "2,270 km",
+    transit: "5–13 days",
     metaDescription:
       "Plan a Montreal to Winnipeg long-distance move with route-specific pricing from $2,400+, approximately 2,270 km, 5–13 days transit guidance, packing, storage, and written estimates.",
     intro: [
@@ -339,6 +343,7 @@ function normalizeSharedCostGuideCopy(html) {
 }
 
 function ensureRoutePage(html, route) {
+  if (html.includes("undefined")) throw new Error(`${route.slug}: generated page contains undefined`);
   const required = [
     `<h1>${routeName(route)} Movers</h1>`,
     `class="pcm-top-estimate"`,
