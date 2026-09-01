@@ -3121,6 +3121,24 @@
     return true;
   }
 
+  function dedupeCalgaryWinnipegCostGuideRows() {
+    if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
+    ["Calgary → Winnipeg", "Winnipeg → Calgary"].forEach(function (label) {
+      var matches = Array.prototype.filter.call(document.querySelectorAll("table tbody tr"), function (row) {
+        return row.cells[0] && (row.cells[0].textContent || "").trim() === label;
+      });
+      if (matches.length > 1) {
+        matches.sort(function (a, b) {
+          return (b.textContent || "").length - (a.textContent || "").length;
+        });
+        matches.slice(1).forEach(function (row) {
+          row.remove();
+        });
+      }
+    });
+    return true;
+  }
+
   function removeCostGuideBottomQuoteBlock() {
     if (normalizePath() !== "/long-distance-moving-cost-canada/") return true;
 
@@ -3671,9 +3689,10 @@
         costGuideAttempts += 1;
         var routesDone = addCostGuideRoutes();
         var popularRoutesDone = addCostGuidePopularRouteLinks();
+        var dedupeDone = dedupeCalgaryWinnipegCostGuideRows();
         var noteDone = addCostGuideIncludedLine();
         var quoteRemoved = removeCostGuideBottomQuoteBlock();
-        if ((routesDone && popularRoutesDone && noteDone && quoteRemoved && costGuideAttempts >= 12) || costGuideAttempts > 30) {
+        if ((routesDone && popularRoutesDone && dedupeDone && noteDone && quoteRemoved && costGuideAttempts >= 12) || costGuideAttempts > 30) {
           window.clearInterval(costGuideTimer);
         }
       }, 250);
