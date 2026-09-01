@@ -207,9 +207,9 @@
       body: "Support employee moves, office relocation, packing, storage, long-distance coordination, and clear accountability from one team.",
     },
     "/surrey/": {
-      eyebrow: "Surrey long-distance movers",
-      title: "Plan a long-distance move from Surrey, BC.",
-      body: "Get help with Surrey long-distance routes, packing, storage, valuation coverage, route timing, and a written estimate from a direct mover.",
+      eyebrow: "Surrey movers",
+      title: "Plan your Surrey move with local and long-distance support.",
+      body: "Get help with local Surrey moves, long-distance routes, packing, storage, access planning, and a written estimate from our Coquitlam-based team.",
     },
     "/local-movers-burnaby-bc/": {
       eyebrow: "Burnaby local movers",
@@ -345,7 +345,7 @@
     "/pitt-meadows/": "Pitt Meadows Movers | Local & Long-Distance Moving",
     "/port-moody/": "Movers in Port Moody, BC | Local & Long-Distance Moving | Purely Canadian Movers",
     "/richmond/": "Richmond Movers | Local & Long-Distance Moving",
-    "/surrey/": "Long-Distance Movers in Surrey BC | Moving Quotes",
+    "/surrey/": "Movers in Surrey, BC | Local & Long-Distance Moving",
     "/testimonials/": "Customer Reviews | Purely Canadian Movers",
     "/toronto-long-distance-movers/": "Toronto Long-Distance Movers",
     "/toronto-to-calgary-movers/": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time",
@@ -411,7 +411,7 @@
     "/storage/":
       "Moving storage in Coquitlam and Metro Vancouver with packing, pickup, delivery, valuation options, and direct accountability. Since 1991, BBB Accredited.",
     "/surrey/":
-      "Long-distance movers in Surrey, BC for cross-Canada moves, packing, storage, valuation coverage, written estimates, and no broker-style handoffs.",
+      "Movers in Surrey, BC for local and long-distance moves. Family-owned since 1991, based in Coquitlam, with packing, storage, and written estimates available.",
     "/testimonials/":
       "Read Purely Canadian Movers trust signals, service areas, and review guidance before booking a Metro Vancouver or long-distance move. Since 1991, BBB Accredited.",
     "/toronto-to-calgary-movers/":
@@ -1686,35 +1686,6 @@
         ["What affects the price of an Ottawa to Vancouver move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Ottawa to Vancouver moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with an Ottawa to Vancouver move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in an Ottawa to Vancouver moving estimate."],
-      ],
-    },
-    "/surrey/": {
-      title: "Long-distance movers in Surrey, BC with direct accountability",
-      intro:
-        "Purely Canadian Movers helps Surrey customers plan long-distance moves across BC and Canada with route-specific estimates, packing, storage, valuation coverage options, and direct moving accountability. This Surrey hub now gives Google and customers a clearer match for long distance movers in Surrey, BC.",
-      highlights: [
-        ["Surrey long-distance routes", "Surrey to Calgary, Edmonton, Toronto, Ottawa, Montreal, Halifax, Victoria, Vancouver Island, and other cross-Canada destinations."],
-        ["Surrey access planning", "Condos, townhomes, detached homes, strata move windows, elevator bookings, parking, loading access, packing, storage timing, and specialty items are reviewed before booking."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, no subcontractors, valuation coverage options, written estimates, and Great Canadian Van Lines agent support."],
-      ],
-      links: [
-        ["Long-Distance Moving", "/long-distance/"],
-        ["Cross-Country Movers", "/cross-country-movers/"],
-        ["Moving Cost Guide", "/long-distance-moving-cost-canada/"],
-        ["Surrey Local Movers", "/local-movers-surrey-bc/"],
-        ["Packing Services Surrey", "/packing-services-surrey-bc/"],
-        ["Storage Services", "/storage/"],
-        ["Valuation Coverage", "/valuation-coverage-protection/"],
-        ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
-        ["Get a Surrey Estimate", "/contact/"],
-      ],
-      faqs: [
-        ["Do you provide long-distance movers in Surrey, BC?", "Yes. Purely Canadian Movers helps Surrey customers plan long-distance moves across BC and Canada with written estimates, packing, storage, valuation coverage options, and direct accountability."],
-        ["What long-distance routes do you serve from Surrey?", "We help with Surrey to Calgary, Edmonton, Toronto, Ottawa, Montreal, Halifax, Vancouver Island, Victoria, and other long-distance Canadian routes."],
-        ["How much does a long-distance move from Surrey cost?", "Cost depends on route, shipment size, weight or volume, access, stairs, elevators, season, packing, storage, specialty items, and delivery timing. A written estimate is the best way to price the move accurately."],
-        ["Can packing and storage be included with a Surrey long-distance move?", "Yes. Packing, unpacking, short-term storage, long-term storage, and valuation coverage options can be included in a Surrey long-distance moving estimate."],
-        ["Do you use subcontractors for Surrey long-distance moves?", "No. Purely Canadian Movers focuses on direct moving accountability and does not subcontract moves."],
-        ["Are you connected to a national moving network?", "Yes. Purely Canadian Movers is a Great Canadian Van Lines agent, combining local service with cross-Canada route support."],
       ],
     },
     "/port-moody/": {
