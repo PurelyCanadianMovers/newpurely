@@ -2167,6 +2167,8 @@
       "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
       "/winnipeg-to-montreal-movers/": ["Winnipeg, MB", "Montreal, QC"],
       "/montreal-to-winnipeg-movers/": ["Montreal, QC", "Winnipeg, MB"],
+      "/winnipeg-to-calgary-movers/": ["Winnipeg, MB", "Calgary, AB"],
+      "/calgary-to-winnipeg-movers/": ["Calgary, AB", "Winnipeg, MB"],
       "/ottawa-to-toronto-movers/": ["Ottawa, ON", "Toronto, ON"],
       "/toronto-to-ottawa-movers/": ["Toronto, ON", "Ottawa, ON"],
       "/port-moody/": ["Port Moody, BC", ""],
@@ -3276,6 +3278,9 @@
 
   function insertLeadPanel(config) {
     var path = normalizePath();
+    if ((path === "/calgary-to-winnipeg-movers/" || path === "/winnipeg-to-calgary-movers/") && document.querySelector(".pcm-estimate")) {
+      return true;
+    }
     if (path === "/vancouver-to-toronto-movers/" || path === "/toronto-to-vancouver-movers/" || path === "/vancouver-to-winnipeg-movers/" || path === "/winnipeg-to-vancouver-movers/" || path === "/toronto-to-winnipeg-movers/" || path === "/winnipeg-to-toronto-movers/") {
       return true;
     }
