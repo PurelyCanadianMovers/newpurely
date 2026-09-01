@@ -7,10 +7,11 @@
     "serve": "node tools/serve-static.mjs site-copy 4174",
     "mirror": "node tools/mirror-site.mjs https://purelycanadianmovers.com/ site-copy 20",
     "catalog": "node tools/build-knowledge-catalog.mjs site-copy",
-    "routes": "node tools/generate-spa-routes.mjs site-copy && node tools/rebuild-cost-guide-popular-routes.mjs site-copy && node tools/rebuild-victoria-ottawa-route.mjs site-copy && node tools/rebuild-calgary-ottawa-routes.mjs site-copy && node tools/rebuild-ottawa-toronto-routes.mjs site-copy && node tools/generate-halifax-calgary-route-pages.mjs site-copy && node tools/strip-unsupported-route-bootstrap.mjs site-copy",
+    "routes": "node tools/generate-spa-routes.mjs site-copy && node tools/rebuild-cost-guide-popular-routes.mjs site-copy && node tools/rebuild-victoria-ottawa-route.mjs site-copy && node tools/rebuild-calgary-ottawa-routes.mjs site-copy && node tools/rebuild-ottawa-toronto-routes.mjs site-copy && node tools/rebuild-winnipeg-montreal-routes.mjs site-copy && node tools/generate-halifax-calgary-route-pages.mjs site-copy && node tools/strip-unsupported-route-bootstrap.mjs site-copy",
     "routes:cost-guide": "node tools/rebuild-cost-guide-popular-routes.mjs site-copy",
     "routes:halifax-calgary": "node tools/generate-halifax-calgary-route-pages.mjs site-copy",
     "routes:toronto-winnipeg": "node tools/rebuild-toronto-winnipeg-routes.mjs site-copy",
+    "routes:winnipeg-montreal": "node tools/rebuild-winnipeg-montreal-routes.mjs site-copy",
     "audit:seo": "node tools/audit-local-seo.mjs site-copy http://localhost:4175 LOCAL_SEO_AUDIT.md",
     "health:post-deploy": "node tools/audit-live-sitemap.mjs"
   }

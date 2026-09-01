@@ -29,14 +29,6 @@ const priceSets = {
     four: "$13,000",
     transit: "4-12 days",
   },
-  centralLong: {
-    studio: "$2,400",
-    one: "$3,400",
-    two: "$5,500",
-    three: "$9,000",
-    four: "$13,000",
-    transit: "5-13 days",
-  },
   coastToCentral: {
     studio: "$2,500",
     one: "$4,700",
@@ -72,8 +64,6 @@ const routes = [
   ["Vancouver", "BC", "Winnipeg", "MB", "vancouver-to-winnipeg-movers", "westCoast", "2,300 km"],
   ["Winnipeg", "MB", "Toronto", "ON", "winnipeg-to-toronto-movers", "centralShort", "2,225 km"],
   ["Toronto", "ON", "Winnipeg", "MB", "toronto-to-winnipeg-movers", "centralShort", "2,225 km"],
-  ["Winnipeg", "MB", "Montreal", "QC", "winnipeg-to-montreal-movers", "centralLong", "2,270 km"],
-  ["Montreal", "QC", "Winnipeg", "MB", "montreal-to-winnipeg-movers", "centralLong", "2,270 km"],
   ["Winnipeg", "MB", "Ottawa", "ON", "winnipeg-to-ottawa-movers", "centralShort", "2,170 km"],
   ["Ottawa", "ON", "Winnipeg", "MB", "ottawa-to-winnipeg-movers", "centralShort", "2,170 km"],
   ["Vancouver", "BC", "Montreal", "QC", "vancouver-to-montreal-movers", "coastToEast", "4,570 km"],
@@ -476,3 +466,7 @@ for (const route of routes) {
 }
 await writeFile(sitemapPath, sitemap, "utf8");
 console.log("Updated sitemap.xml");
+
+// The Winnipeg–Montreal pair is maintained by the standardized generator so
+// this legacy repair script cannot overwrite it with the retired layout.
+await import("./rebuild-winnipeg-montreal-routes.mjs");

@@ -309,6 +309,8 @@
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
+    "/winnipeg-to-montreal-movers/": "Winnipeg to Montreal Movers | Cost, Transit Time & Estimate",
+    "/montreal-to-winnipeg-movers/": "Montreal to Winnipeg Movers | Cost, Transit Time & Estimate",
     "/victoria-to-montreal-movers/": "Victoria to Montreal Movers | Long-Distance Moving",
     "/movers-calgary-to-edmonton/": "Calgary to Edmonton Movers | Alberta Moving Route",
     "/movers-edmonton-to-calgary/": "Edmonton to Calgary Movers | Alberta Moving Route",
@@ -418,6 +420,10 @@
       "Montreal to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/montreal-to-edmonton-movers/":
       "Montreal to Edmonton moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+    "/winnipeg-to-montreal-movers/":
+      "Plan a Winnipeg to Montreal long-distance move with route-specific pricing from $2,400+, approximately 2,270 km, 5–13 days transit guidance, packing, storage, and written estimates.",
+    "/montreal-to-winnipeg-movers/":
+      "Plan a Montreal to Winnipeg long-distance move with route-specific pricing from $2,400+, approximately 2,270 km, 5–13 days transit guidance, packing, storage, and written estimates.",
     "/ottawa-to-vancouver-movers/":
       "Ottawa to Vancouver moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
     "/ottawa-to-calgary-movers/":
@@ -438,12 +444,14 @@
     ["Vancouver to Toronto", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
     ["Toronto to Vancouver", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "9-22 days"],
     ["Vancouver to Calgary", "$1,100+", "$1,500-$2,000+", "$2,800+", "2-5 days"],
-    ["Winnipeg to Calgary", "$2,300", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
-    ["Calgary to Winnipeg", "$2,300", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
+      ["Winnipeg to Calgary", "$2,300", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
+      ["Calgary to Winnipeg", "$2,300", "$3,200-$5,100", "$8,200-$12,000", "3-11 days"],
+      ["Winnipeg to Montreal", "$2,400+", "$3,400-$5,500+", "$9,000-$13,000+", "5–13 days"],
+      ["Montreal to Winnipeg", "$2,400+", "$3,400-$5,500+", "$9,000-$13,000+", "5–13 days"],
     ["Toronto to Calgary", "$2,500+", "$4,500-$7,000+", "$10,000+", "7-14 days"],
     ["Montreal to Edmonton", "$2,800+", "$5,000-$6,800+", "$10,000-$15,000+", "8-18 days"],
     ["Montreal to Vancouver", "$2,500+", "$4,700-$6,400+", "$10,000-$15,000+", "10-22 days"],
-    ["Ottawa to Vancouver", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
+    ["Ottawa to Vancouver", "$2,500+", "$4,700-$6,500+", "$10,000-$15,000+", "11–22 days"],
     ["Victoria/Nanaimo to Toronto", "$3,000+", "$5,300-$7,000+", "$11,000-$16,000+", "10-22 days"],
   ];
 
@@ -864,7 +872,7 @@
       h1: "Ottawa to Vancouver Moving Cost, Prices & Transit Time",
       title: "How much does it cost to move from Ottawa to Vancouver?",
       intro:
-        "An Ottawa to Vancouver move typically ranges from about <strong>$3,000</strong> for a small shipment to <strong>$16,000+</strong> for a larger home. Many 1-2 bedroom moves are estimated around <strong>$5,300-$7,000</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+        "An Ottawa to Vancouver move typically ranges from <strong>$2,500+</strong> for a studio or small shipment to <strong>$15,000+</strong> for a 4+ bedroom home. Many 1-2 bedroom moves are estimated around <strong>$4,700-$6,500+</strong>, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
       note:
         "Prices are planning ranges in CAD, not guaranteed quotes. Ottawa to Vancouver pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates.",
       links: [
@@ -874,11 +882,11 @@
         ["Get a written estimate", "/contact/"],
       ],
       rows: [
-        ["Studio or small shipment", "$3,000+", "Best for limited furniture or a partial shipment", "10-22 days"],
-        ["1-bedroom", "$5,300+", "Depends on inventory weight or volume, access, and packing", "10-22 days"],
-        ["2-bedroom", "$7,000+", "Common planning range for apartment or condo moves", "10-22 days"],
-        ["3-bedroom", "$11,000+", "Larger household shipment with more labour and space", "10-22 days"],
-        ["4+ bedroom", "$16,000+", "Final quote depends heavily on inventory and services", "10-22 days"],
+        ["Studio or small shipment", "$2,500+", "Best for limited furniture or a partial shipment", "11–22 days"],
+        ["1-bedroom", "$4,700+", "Depends on inventory weight or volume, access, and packing", "11–22 days"],
+        ["2-bedroom", "$6,500+", "Common planning range for apartment or condo moves", "11–22 days"],
+        ["3-bedroom", "$10,000+", "Larger household shipment with more labour and space", "11–22 days"],
+        ["4+ bedroom", "$15,000+", "Final quote depends heavily on inventory and services", "11–22 days"],
       ],
     },
   };
@@ -1655,10 +1663,10 @@
     "/ottawa-to-vancouver-movers/": {
       title: "Ottawa to Vancouver moving cost, prices, and transit time",
       intro:
-        "An Ottawa to Vancouver move typically ranges from about $3,000 for a small shipment to $16,000+ for a larger home. Many 1-2 bedroom Ottawa to Vancouver moves are estimated around $5,300-$7,000, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+        "An Ottawa to Vancouver move typically ranges from $2,500+ for a studio or small shipment to $15,000+ for a 4+ bedroom home. Many 1-2 bedroom Ottawa to Vancouver moves are estimated around $4,700-$6,500+, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
       highlights: [
         ["Route cost factors", "Final price depends on weight or volume, Ottawa pickup access, Vancouver delivery access, stairs, elevators, long carries, packing, storage, season, and specialty items."],
-        ["Typical transit", "Ottawa to Vancouver long-distance moves are commonly planned around a 10-22 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Typical transit", "Ottawa to Vancouver long-distance moves are commonly planned around an 11–22 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
         ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
       ],
       links: [
@@ -1673,8 +1681,8 @@
         ["Get an Ottawa to Vancouver Estimate", "/contact/"],
       ],
       faqs: [
-        ["How much does it cost to move from Ottawa to Vancouver?", "An Ottawa to Vancouver move is commonly estimated from about $3,000 for a small shipment to $16,000+ for a larger home. A 1-2 bedroom move is often estimated around $5,300-$7,000. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
-        ["How long does an Ottawa to Vancouver move take?", "A typical Ottawa to Vancouver moving transit window is about 10-22 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
+        ["How much does it cost to move from Ottawa to Vancouver?", "An Ottawa to Vancouver move is commonly estimated from $2,500+ for a studio or small shipment to $15,000+ for a 4+ bedroom home. A 1-2 bedroom move is often estimated around $4,700-$6,500+. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How long does an Ottawa to Vancouver move take?", "A typical Ottawa to Vancouver moving transit window is about 11–22 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of an Ottawa to Vancouver move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Ottawa to Vancouver moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
         ["Can packing or storage be included with an Ottawa to Vancouver move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in an Ottawa to Vancouver moving estimate."],
@@ -1920,6 +1928,9 @@
       [/direct moving accountability and no moving brokers or random subcontractors/gi, "direct accountability from estimate to delivery"],
       [/Direct moving accountability and no subcontractors/gi, "Direct accountability from estimate to delivery"],
       [/direct moving accountability and no subcontractors/gi, "direct accountability from estimate to delivery"],
+      [/valuation coverage options/gi, "Declared Value Protection options"],
+      [/valuation coverage/gi, "Declared Value Protection"],
+      [/Valuation Coverage/g, "Declared Value Protection"],
     ];
 
     if (path === "/ottawa-to-victoria-movers/") {
@@ -2146,7 +2157,7 @@
       "<span>Coquitlam office</span>" +
       "<span>BBB Accredited business</span>" +
       "<span>No brokers or subcontractors</span>" +
-      "<span>Valuation coverage available</span>" +
+      "<span>Declared Value Protection available</span>" +
       "<span>Great Canadian Van Lines agent</span>" +
       "</div>" +
       "</div>" +
@@ -2182,6 +2193,10 @@
       "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
       "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
       "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
+      "/winnipeg-to-montreal-movers/": ["Winnipeg, MB", "Montreal, QC"],
+      "/montreal-to-winnipeg-movers/": ["Montreal, QC", "Winnipeg, MB"],
+      "/ottawa-to-toronto-movers/": ["Ottawa, ON", "Toronto, ON"],
+      "/toronto-to-ottawa-movers/": ["Toronto, ON", "Ottawa, ON"],
       "/port-moody/": ["Port Moody, BC", ""],
     }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
     form.appendChild(createField("Moving from", createInput("from", routeDefaults[0])));
@@ -2227,9 +2242,8 @@
     bonus.innerHTML =
       '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span>' +
       "<div>" +
-      "<strong>Online estimate bonus: save at least $100</strong>" +
-      '<span class="pcm-estimate-bonus__deadline">Book before August 31</span>' +
-      "<span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span>" +
+      "<strong>Written estimate planning</strong>" +
+      "<span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span>" +
       "</div>";
     return bonus;
   }
@@ -2428,10 +2442,33 @@
     var existingRouteDefaults = {
       "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
       "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
+      "/winnipeg-to-montreal-movers/": ["Winnipeg, MB", "Montreal, QC"],
+      "/montreal-to-winnipeg-movers/": ["Montreal, QC", "Winnipeg, MB"],
+      "/ottawa-to-toronto-movers/": ["Ottawa, ON", "Toronto, ON"],
+      "/toronto-to-ottawa-movers/": ["Toronto, ON", "Ottawa, ON"],
       "/port-moody/": ["Port Moody, BC", ""],
     }[normalizePath()];
 
     Array.prototype.forEach.call(document.querySelectorAll("form"), function (form) {
+      if (normalizePath() === "/port-moody/" && form.getAttribute("data-pcm-port-moody-defaults") !== "1") {
+        var portFrom = form.querySelector('input[name="from"]');
+        var portTo = form.querySelector('input[name="to"]');
+        if (portFrom && (!portFrom.value || portFrom.value === "Toronto, ON")) {
+          portFrom.value = "Port Moody, BC";
+          portFrom.setAttribute("value", "Port Moody, BC");
+          portFrom.dispatchEvent(new Event("input", { bubbles: true }));
+          portFrom.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        if (portFrom) portFrom.removeAttribute("placeholder");
+        if (portTo && (!portTo.value || portTo.value === "Calgary, AB")) {
+          if (portTo.value === "Calgary, AB") {
+            portTo.value = "";
+            portTo.removeAttribute("value");
+          }
+          portTo.setAttribute("placeholder", "City or province");
+        }
+        form.setAttribute("data-pcm-port-moody-defaults", "1");
+      }
       if (existingRouteDefaults) {
         ["from", "to"].forEach(function (name, index) {
           var input = form.querySelector('input[name="' + name + '"]');
@@ -3011,6 +3048,8 @@
       ["Winnipeg → Vancouver", "$2,400", "$3,400", "$5,500", "$8,900", "$13,000"],
       ["Toronto → Winnipeg", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Winnipeg → Toronto", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
+      ["Winnipeg → Montreal", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
+      ["Montreal → Winnipeg", "$2,400", "$3,400", "$5,500", "$9,000", "$13,000"],
       ["Calgary → Halifax", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"],
       ["Halifax → Calgary", "$2,600", "$3,900", "$6,500", "$11,000", "$16,000"]
     ].forEach(function (route) {
@@ -3057,6 +3096,8 @@
       ["Winnipeg → Vancouver", "2,300 km", "5–13 days", "/winnipeg-to-vancouver-movers/"],
       ["Toronto → Winnipeg", "2,225 km", "4–12 days", "/toronto-to-winnipeg-movers/"],
       ["Winnipeg → Toronto", "2,225 km", "4–12 days", "/winnipeg-to-toronto-movers/"],
+      ["Winnipeg → Montreal", "2,270 km", "5–13 days", "/winnipeg-to-montreal-movers/"],
+      ["Montreal → Winnipeg", "2,270 km", "5–13 days", "/montreal-to-winnipeg-movers/"],
       ["Montreal → Edmonton", "3,500 km", "7–19 days", "/montreal-to-edmonton-movers/"],
       ["Edmonton → Montreal", "3,500 km", "7–19 days", "/edmonton-to-montreal-movers/"],
       ["Ottawa → Vancouver", "4,360 km", "11–22 days", "/ottawa-to-vancouver-movers/"],
@@ -3357,7 +3398,7 @@
       '<a href="/terms/">Terms of Use</a>' +
       '<a href="/estimate-booking-policy/">Estimate & Booking Policy</a>' +
       '<a href="/claims-support/">Claims Support</a>' +
-      '<a href="/valuation-coverage-protection/">Valuation Coverage</a>' +
+      '<a href="/valuation-coverage-protection/">Declared Value Protection</a>' +
       '<a href="/accessibility/">Accessibility</a>';
 
     if (columns) {
@@ -3365,6 +3406,26 @@
     } else {
       footer.appendChild(support);
     }
+    return true;
+  }
+
+  function enhanceMontrealHubRouteLink(path) {
+    if (path !== "/montreal-long-distance-movers/" && path !== "/long-distance-movers-montreal/") return true;
+
+    var heading = Array.prototype.find.call(document.querySelectorAll("h3"), function (item) {
+      return (item.textContent || "").replace(/\s+/g, " ").trim() === "Routes From Montreal";
+    });
+    var container = heading && heading.nextElementSibling;
+    if (container && container.querySelector('a[href="/montreal-to-winnipeg-movers/"]')) return true;
+    var template = container && container.querySelector("a[href]");
+    if (!container || !template) return false;
+
+    var link = template.cloneNode(true);
+    link.href = "/montreal-to-winnipeg-movers/";
+    link.setAttribute("data-pcm-montreal-winnipeg-link", "1");
+    var label = link.querySelector("span") || link;
+    label.textContent = "Montreal → Winnipeg";
+    container.appendChild(link);
     return true;
   }
 
@@ -3581,7 +3642,9 @@
     var routeAttempts = 0;
     var routeTimer = window.setInterval(function () {
       routeAttempts += 1;
-      if (enhanceLongDistanceRouteLinks(path) || routeAttempts > 30) {
+      var routeLinksDone = enhanceLongDistanceRouteLinks(path);
+      var montrealHubLinkDone = enhanceMontrealHubRouteLink(path);
+      if ((routeLinksDone && montrealHubLinkDone) || routeAttempts > 30) {
         window.clearInterval(routeTimer);
       }
     }, 250);

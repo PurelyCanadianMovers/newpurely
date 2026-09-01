@@ -34,6 +34,8 @@ const guideRows = [
   ["calgary", "winnipeg", "2300", "3200", "5100", "8200", "12000"],
   ["winnipeg", "toronto", "2400", "3400", "5500", "9000", "13000"],
   ["toronto", "winnipeg", "2400", "3400", "5500", "9000", "13000"],
+  ["winnipeg", "montreal", "2400", "3400", "5500", "9000", "13000"],
+  ["montreal", "winnipeg", "2400", "3400", "5500", "9000", "13000"],
   ["vancouver", "edmonton", "2200", "2800", "3800", "5200", "7000"],
   ["edmonton", "vancouver", "2200", "2800", "3800", "5200", "7000"],
   ["toronto", "calgary", "2500", "3800", "6400", "10000", "15000"],
@@ -144,6 +146,28 @@ test("Calgary and Ottawa route replies include the shared route facts in both di
     assert.match(genericReply, /3,500 km/);
     assert.match(genericReply, /7–19 days/);
     for (const price of ["$2,500+", "$4,700+", "$6,300+", "$10,000+", "$15,000+"]) {
+      assert.match(genericReply, new RegExp(price.replace("$", "\\$").replace("+", "\\+")));
+    }
+  }
+});
+
+test("Winnipeg and Montreal route replies include the shared route facts in both directions", () => {
+  for (const [from, to, routeName, slug] of [
+    ["winnipeg", "montreal", "Winnipeg to Montreal", "winnipeg-to-montreal-movers"],
+    ["montreal", "winnipeg", "Montreal to Winnipeg", "montreal-to-winnipeg-movers"],
+  ]) {
+    const sizedReply = costGuideChatReply(`how much to move a 2 bedroom from ${from} to ${to}`);
+    assert.match(sizedReply, new RegExp(routeName));
+    assert.match(sizedReply, /approximately 2,270 km/);
+    assert.match(sizedReply, /typical transit of 5–13 days/);
+    assert.match(sizedReply, /\$5,500\+/);
+    assert.match(sizedReply, new RegExp(`https://purelycanadianmovers\\.com/${slug}/`));
+
+    const genericReply = costGuideChatReply(`how much to move from ${from} to ${to}`);
+    assert.match(genericReply, new RegExp(routeName));
+    assert.match(genericReply, /approximately 2,270 km/);
+    assert.match(genericReply, /typical transit of 5–13 days/);
+    for (const price of ["$2,400+", "$3,400+", "$5,500+", "$9,000+", "$13,000+"]) {
       assert.match(genericReply, new RegExp(price.replace("$", "\\$").replace("+", "\\+")));
     }
   }

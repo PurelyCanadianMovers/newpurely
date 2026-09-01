@@ -638,6 +638,8 @@ const COST_ROUTE_ESTIMATES = [
   { route: "Calgary to Winnipeg", from: "calgary", to: "winnipeg", transit: "3-11 days", studio: "$2,300", oneBed: "$3,200", twoBed: "$5,100", threeBed: "$8,200", fourPlus: "$12,000" },
   { route: "Winnipeg to Toronto", from: "winnipeg", to: "toronto", transit: "4-12 days", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
   { route: "Toronto to Winnipeg", from: "toronto", to: "winnipeg", transit: "4-12 days", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
+  { route: "Winnipeg to Montreal", from: "winnipeg", to: "montreal", distance: "2,270 km", transit: "5–13 days", pageUrl: "https://purelycanadianmovers.com/winnipeg-to-montreal-movers/", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
+  { route: "Montreal to Winnipeg", from: "montreal", to: "winnipeg", distance: "2,270 km", transit: "5–13 days", pageUrl: "https://purelycanadianmovers.com/montreal-to-winnipeg-movers/", studio: "$2,400", oneBed: "$3,400", twoBed: "$5,500", threeBed: "$9,000", fourPlus: "$13,000" },
   { route: "Vancouver to Edmonton", from: "vancouver", to: "edmonton", pageUrl: COST_GUIDE_URL, transit: "4-13 days", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
   { route: "Edmonton to Vancouver", from: "edmonton", to: "vancouver", transit: "4-13 days", studio: "$2,200", oneBed: "$2,800", twoBed: "$3,800", threeBed: "$5,200", fourPlus: "$7,000" },
   { route: "Toronto to Calgary", from: "toronto", to: "calgary", transit: "7-19 days", studio: "$2,500", oneBed: "$3,800", twoBed: "$6,400", threeBed: "$10,000", fourPlus: "$15,000" },
