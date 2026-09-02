@@ -83,6 +83,7 @@ for (const route of routes) {
     .replace("Vancouver Long-Distance Movers", `${route.from} Long-Distance Movers`)
     .replaceAll("/vancouver-long-distance-movers/", `/${route.from.toLowerCase()}-long-distance-movers/`)
     .replaceAll("/toronto-long-distance-movers/", `/${route.to.toLowerCase()}-long-distance-movers/`)
+    .replace(/\s*<section class="pcm-section pcm-cost-breakdown-section">[\s\S]*?<\/section>/i, "")
     .replace(/<section class="pcm-lead-boost pcm-route-cost"[\s\S]*?<\/section>/i, pricing(route));
 
   html = html.replace(/<article class="pcm-card"><h3>How is the final moving price calculated\?<\/h3>[\s\S]*?<\/article>/i, (match) => match + extraFaq(route));
