@@ -87,6 +87,9 @@ for (const route of routes) {
 
   html = html.replace(/<article class="pcm-card"><h3>How is the final moving price calculated\?<\/h3>[\s\S]*?<\/article>/i, (match) => match + extraFaq(route));
   html = html.replace(/<\/head>/i, `<style id="pcm-calgary-winnipeg-form-overflow-fix">
+  .pcm-top-estimate { width: 100%; box-sizing: border-box; grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr); }
+  .pcm-top-estimate > * { min-width: 0; }
+  .pcm-top-estimate .pcm-form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pcm-top-estimate .pcm-form-grid > label { min-width: 0; }
   .pcm-top-estimate input, .pcm-top-estimate select, .pcm-top-estimate .pcm-button { box-sizing: border-box; width: 100%; max-width: 100%; }
 </style></head>`);
