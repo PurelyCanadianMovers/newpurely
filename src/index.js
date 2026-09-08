@@ -80,7 +80,6 @@ const REDIRECTS = new Map([
   ],
   ["/vancouver/best-long-distance-mover-in-the-vancouver-area/", "/vancouver-long-distance-movers/"],
   ["/tag/moving-and-storage-in-vancouver/", "/storage/"],
-  ["/blog/how-long-to-move-across-canada-timelines/", "/long-distance/"],
   ["/tag/best-usa-mover/", "/canada-usa/"],
   ["/locations/", "/local/"],
   [
