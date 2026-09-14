@@ -223,7 +223,7 @@ function quotePanel(route) {
           </div>
           <div class="pcm-buttons"><button class="pcm-button primary" type="submit">Get Written Estimate</button><a class="pcm-button secondary" href="tel:18774856683">Call 1-877-485-6683</a></div>
           <p class="pcm-form-note"><strong>No spam. No pressure. Just your moving estimate.</strong> Questions? Call Purely Canadian Movers: 1-877-485-6683</p>
-          <div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span></div></div>
+          <div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div></div>
           <div class="pcm-verified-details"><strong>Verified company details:</strong> Unit 16-91 Golden Dr., Coquitlam, BC · Local phone <a href="tel:6045227222">604-522-7222</a> · Direct mover since 1991</div>
         </form>
       </div>
@@ -363,7 +363,7 @@ async function ensureSitemapRoutes() {
 
 function normalizeSharedCostGuideCopy(html) {
   return html
-    .replace(/<strong>Online estimate bonus: save at least \$100<\/strong><span class="pcm-estimate-bonus__deadline">Book before\\s+August\\s+3(?:0|1)<\/span><span>Complete an online estimate and book your move with Purely Canadian Movers\. Discount confirmed with your written estimate\.<\/span>/g, "<strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span>")
+    .replace(/<strong>Online estimate bonus: save at least \$100<\/strong><span class="pcm-estimate-bonus__deadline">Book before\\s+August\\s+3(?:0|1)<\/span><span>Complete an online estimate and book your move with Purely Canadian Movers\. Discount confirmed with your written estimate\.<\/span>/g, '<strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span>')
     .replace(/valuation coverage options/gi, "Declared Value Protection options")
     .replace(/valuation coverage/gi, "Declared Value Protection")
     .replace(/insurance coverage options/gi, "Declared Value Protection options")

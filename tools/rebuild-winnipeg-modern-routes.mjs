@@ -47,7 +47,6 @@ function canonicalizeTemplate(html, route) {
     .replace(/<div class="pcm-kicker">TORONTO TO VANCOUVER MOVERS<\/div>/i, `<div class="pcm-kicker">${route.from.toUpperCase()} TO ${route.to.toUpperCase()} MOVERS</div>`)
     .replace(/<a href="\/toronto-long-distance-movers\/">(?:Winnipeg|Vancouver) Long-Distance Movers<\/a>/gi, (match) => match.includes("Winnipeg") ? '<a href="/winnipeg-long-distance-movers/">Winnipeg Long-Distance Movers</a>' : '<a href="/vancouver-long-distance-movers/">Vancouver Long-Distance Movers</a>')
     .replace(/<a href="\/vancouver-long-distance-movers\/">Winnipeg Long-Distance Movers<\/a>/gi, '<a href="/winnipeg-long-distance-movers/">Winnipeg Long-Distance Movers</a>')
-    .replace(/<div class="pcm-estimate-bonus">[\s\S]*?<\/div><\/div>\s*(?=<div class="pcm-verified-details">)/i, '<div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">✓</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed.</span></div></div>\n          ')
     .replace(/<\/head>/i, '<link rel="stylesheet" href="/assets/step40-vancouver-winnipeg.css"></head>')
     .replace(/<\/body>/i, '<script defer src="/assets/step40-vancouver-winnipeg.js"></script></body>');
   return addFaqSchema(canonical);

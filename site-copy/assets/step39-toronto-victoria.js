@@ -85,7 +85,6 @@
       if (quote && app && quote.parentElement === root && root.firstElementChild !== quote) root.insertBefore(quote, app);
       if (quote) {
         quote.classList.add("pcm-step39-quote");
-        quote.querySelectorAll(".pcm-estimate-bonus").forEach(function (item) { item.remove(); });
         var pills = quote.querySelectorAll(".pcm-trust-row span,.pcm-pills .pcm-pill");
         for (var index = pills.length - 1; index >= 6; index -= 1) pills[index].remove();
         setInput(quote.querySelector('[name="from"]'), config.originValue);

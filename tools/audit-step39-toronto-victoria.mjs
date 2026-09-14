@@ -48,7 +48,7 @@ async function snapshot(page) {
       faqParity: schemas.length === 1 && JSON.stringify(faq) === JSON.stringify(schemas[0]),
       facts: { distance: relevantText.includes("~4,400 km"), transit: relevantText.includes("10–22 days"), range: relevantText.includes("$3,000–$16,000+"), prices: ["$3,000+", "$5,300+", "$7,000+", "$11,000+", "$16,000+"].every((value) => relevantText.includes(value)) },
       contamination: /Victoria–Vancouver|Vancouver to Victoria moves|Do you move from Vancouver to Victoria|1–3 for delivery|\$2,200|\$14,000|professional, professional/i.test(relevantText),
-      staleTerminology: /\bfully insured\b|\bvaluation coverage\b|Online estimate bonus|Book before September/i.test(relevantText + " " + clean(quote?.innerText)),
+      staleTerminology: /\bfully insured\b|\bvaluation coverage\b|Book before\s+August|Book before September 30(?!, 2026)/i.test(relevantText + " " + clean(quote?.innerText)),
       undefined: /\bundefined\b/i.test(document.body.innerText), homepage: /Your Move\. Our Family\. One Standard:/i.test(document.body.innerText), soft404: /Page Not Found/i.test(document.body.innerText),
     };
   });

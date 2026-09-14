@@ -54,7 +54,7 @@ const staticBodyAssets = [
   '<script defer src="/assets/static-chat.js"></script>',
 ].join("\n");
 
-const writtenEstimatePlanning = '<div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span></div></div>';
+const writtenEstimatePlanning = '<div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div></div>';
 
 function replaceRequired(html, pattern, replacement, label) {
   if (!pattern.test(html)) throw new Error(`${label}: required source anchor missing`);
@@ -317,8 +317,8 @@ function validateSnapshot(html, route) {
     [!html.includes("undefined"), "no undefined"],
     [!html.includes("Page Not Found") && !html.includes("/404"), "no React 404"],
     [!html.includes("data-pcm-static-local-seo"), "no local-SEO contamination"],
-    [!/<span class="pcm-estimate-bonus__deadline">/i.test(html), "no stale promotion"],
-    [html.includes("Written estimate planning"), "written-estimate planning treatment"],
+    [(html.match(/class="pcm-estimate-bonus"/g) ?? []).length === 1, "one promo card"],
+    [html.includes("Book before September 30, 2026"), "approved promo deadline"],
     [html.includes("Declared Value Protection"), "Declared Value Protection terminology"],
     [!sectionContaining(html, "pcm-route-cost").html.includes("valuation coverage"), "no legacy pricing protection terminology"],
     [!unsupportedReactBootstrapMarker.test(html), "no unsupported React route bootstrap"],

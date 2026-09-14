@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import { basename, join, resolve } from "node:path";
 import { checkedInStaticSource, routePageOwnership } from "./route-page-ownership.mjs";
 import { aggregateRouteBuildOrder, routeWriterManifest } from "./route-writer-manifest.mjs";
+import { ROUTE_PROMO_DEADLINE, ROUTE_PROMO_HEADING, ROUTE_PROMO_SUPPORT, validateRoutePromo } from "./finalize-route-promo.mjs";
 
 export function validateOwnershipModel(entries, writers, inventory = entries.map((entry) => entry.routeUrl)) {
   const errors = [];
@@ -65,12 +66,30 @@ export function validateRepository(root = "site-copy") {
   for (const entry of routePageOwnership) {
     const routeFile = join(resolvedRoot, entry.routeUrl.slice(1), "index.html");
     if (!existsSync(routeFile)) errors.push(`${entry.routeUrl} owner input/output page is missing.`);
-    else errors.push(...validateRouteArchitecture(entry, readFileSync(routeFile, "utf8")));
+    else {
+      const html = readFileSync(routeFile, "utf8");
+      errors.push(...validateRouteArchitecture(entry, html));
+      const hasMaterializedEstimateForm = /<form\b[^>]*(?:pcm-estimate|pcm-lead-panel|pcm-estimate-form)[^>]*>[\s\S]*?(?:moving from|homeSize|home size)[\s\S]*?<\/form>/i.test(html);
+      if (hasMaterializedEstimateForm) {
+        try { validateRoutePromo(html, entry.routeUrl); } catch (error) { errors.push(error.message); }
+      } else if (!/\/assets\/conversion-boost\.js/i.test(html)) {
+        errors.push(`${entry.routeUrl} has neither a materialized promo form nor the shared promo runtime.`);
+      }
+    }
     if (entry.owner !== checkedInStaticSource && !existsSync(join("tools", entry.owner))) errors.push(`Owner script is missing: tools/${entry.owner}.`);
     for (const postProcessor of entry.postProcessors) if (!existsSync(join("tools", postProcessor))) errors.push(`Post-processor is missing: tools/${postProcessor}.`);
     for (const dependency of [...entry.runtimeEnhancers, ...entry.runtimeStyles]) {
       if (!existsSync(dependency)) errors.push(`${entry.routeUrl} runtime dependency is missing: ${dependency}.`);
     }
+  }
+  const promoRuntimeFile = join(resolvedRoot, "assets", "conversion-boost.js");
+  if (!existsSync(promoRuntimeFile)) errors.push("Shared promo runtime is missing: assets/conversion-boost.js.");
+  else {
+    const promoRuntime = readFileSync(promoRuntimeFile, "utf8");
+    for (const text of [ROUTE_PROMO_HEADING, ROUTE_PROMO_DEADLINE, ROUTE_PROMO_SUPPORT]) {
+      if (!promoRuntime.includes(text)) errors.push(`Shared promo runtime is missing approved text: ${text}`);
+    }
+    if (promoRuntime.includes("<strong>Written estimate planning</strong>")) errors.push("Shared promo runtime still writes planning copy into the promo card.");
   }
   for (const script of aggregateRouteBuildOrder) if (!existsSync(join("tools", script))) errors.push(`Aggregate route build script is missing: tools/${script}.`);
   for (const writer of routeWriterManifest.filter((item) => item.mode === "post-processor")) {

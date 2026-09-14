@@ -48,7 +48,7 @@ function faqSection(faqs) {
 function quotePanel(config) {
   const from = `${config.from}, ${config.fromProvince}`;
   const to = `${config.to}, ${config.toProvince}`;
-  return `<section class="pcm-lead-boost pcm-lead-panel" aria-label="Free moving estimate"><div class="pcm-lead-panel__inner"><div><div class="pcm-lead-panel__eyebrow">Free moving estimate</div><h2>Start your move with a fast, no-obligation estimate.</h2><p>Tell us the basics and we will help price the right crew, truck, and plan for your long-distance move.</p><div class="pcm-trust-row"><span>Family-owned since 1991</span><span>BBB Accredited business</span><span>No broker-style handoffs</span><span>Declared Value Protection available</span></div></div><form class="pcm-estimate-form" action="/contact/" method="get"><label>Moving from<input name="from" type="text" value="${from}" placeholder="${from}"></label><label>Moving to<input name="to" type="text" value="${to}" placeholder="${to}"></label><label>Home size<select name="homeSize"><option value="">Select size</option><option>Studio</option><option>1 bedroom</option><option>2 bedroom</option><option>3 bedroom</option><option>4+ bedroom</option></select></label><label>Move date<input name="moveDate" type="date"></label><div class="pcm-button-row"><button class="pcm-primary-button" type="submit">Continue Estimate</button><a class="pcm-secondary-button" href="tel:18774856683">Call 1-877-485-6683</a></div></form></div></section>`;
+  return `<section class="pcm-lead-boost pcm-lead-panel" aria-label="Free moving estimate"><div class="pcm-lead-panel__inner"><div><div class="pcm-lead-panel__eyebrow">Free moving estimate</div><h2>Start your move with a fast, no-obligation estimate.</h2><p>Tell us the basics and we will help price the right crew, truck, and plan for your long-distance move.</p><div class="pcm-trust-row"><span>Family-owned since 1991</span><span>BBB Accredited business</span><span>No broker-style handoffs</span><span>Declared Value Protection available</span></div></div><form class="pcm-estimate-form" action="/contact/" method="get"><label>Moving from<input name="from" type="text" value="${from}" placeholder="${from}"></label><label>Moving to<input name="to" type="text" value="${to}" placeholder="${to}"></label><label>Home size<select name="homeSize"><option value="">Select size</option><option>Studio</option><option>1 bedroom</option><option>2 bedroom</option><option>3 bedroom</option><option>4+ bedroom</option></select></label><label>Move date<input name="moveDate" type="date"></label><div class="pcm-button-row"><button class="pcm-primary-button" type="submit">Continue Estimate</button><a class="pcm-secondary-button" href="tel:18774856683">Call 1-877-485-6683</a></div><div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div></div></form></div></section>`;
 }
 
 function pricingSection(config) {
@@ -73,6 +73,13 @@ function ensureRawComponents(html, config) {
   if (!hasPricing) {
     const rootIndex = html.indexOf('<div id="root">');
     html = `${html.slice(0, rootIndex)}${pricingSection(config)}${html.slice(rootIndex)}`;
+  }
+  const quoteMatch = html.match(/<section\b(?=[^>]*\bclass="[^"]*\bpcm-lead-panel\b)[^>]*>[\s\S]*?<\/section>/i);
+  const pricingIndex = html.search(/<section\b(?=[^>]*\bclass="[^"]*\bpcm-route-cost\b)/i);
+  if (quoteMatch && quoteMatch.index > pricingIndex && pricingIndex >= 0) {
+    html = html.slice(0, quoteMatch.index) + html.slice(quoteMatch.index + quoteMatch[0].length);
+    const updatedPricingIndex = html.search(/<section\b(?=[^>]*\bclass="[^"]*\bpcm-route-cost\b)/i);
+    html = html.slice(0, updatedPricingIndex) + quoteMatch[0] + html.slice(updatedPricingIndex);
   }
   const refreshed = html.replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, "");
   if (!/Route at a Glance/i.test(refreshed)) html = html.replace('<section id="pcm-step62-route-faq"', `${glanceSection(config)}<section id="pcm-step62-route-faq"`);

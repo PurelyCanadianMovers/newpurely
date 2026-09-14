@@ -121,7 +121,7 @@ function assertCanonical(html, route, facts) {
   if (count(/class="pcm-local-seo"/g) !== 0) throw new Error(`${route.slug} retains pcm-local-seo`);
   if (/<script\b[^>]*type=["']module["']/i.test(html)) throw new Error(`${route.slug} must not load React`);
   if (/\bundefined\b/i.test(html)) throw new Error(`${route.slug} contains undefined`);
-  if (/Online estimate bonus|Book before September 30/i.test(html)) throw new Error(`${route.slug} retains a dated promotion`);
+  if (/Book before\s+August|Book before September 30(?!, 2026)/i.test(html)) throw new Error(`${route.slug} retains a dated promotion`);
 }
 
 for (const [routeUrl, authority] of Object.entries(calgaryEdmontonRoutes)) {
@@ -145,7 +145,6 @@ for (const [routeUrl, authority] of Object.entries(calgaryEdmontonRoutes)) {
   }
   html = html.replace("Get a Edmonton to Calgary quote.", "Get an Edmonton to Calgary quote.");
   html = html.replaceAll("Valuation coverage available", "Declared Value Protection available");
-  html = html.replace(/<div class="pcm-estimate-bonus">[\s\S]*?<\/span><\/div><\/div>/g, "");
   assertCanonical(html, route, authority.facts);
   await writeFile(file, html, "utf8");
   console.log(`Finalized Step 35 static route: ${routeUrl}`);

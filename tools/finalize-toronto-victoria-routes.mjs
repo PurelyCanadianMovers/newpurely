@@ -77,7 +77,6 @@ function applyStaticBodyCorrections(html) {
     .replace(/How Your Victoria–Vancouver Move Works/g, "How Your Victoria–Toronto Move Works")
     .replace("Vancouver's climate: Vancouver's mild, wet winters mean we protect electronics and wood furniture from moisture during transit. Summer moves are popular but require early scheduling. Elevator bookings and condo rules add another layer of planning.", "Seasonal corridor planning: Vancouver Island rain, mountain weather, prairie conditions, and Toronto winters can all affect the route. Protect temperature-sensitive items and allow realistic scheduling flexibility.")
     .replace(/Cross-Country Transit/g, "Interprovincial Transit")
-    .replace(/<div class="pcm-estimate-bonus">[\s\S]*?(?=<div class="pcm-estimate-trust-note">)/i, "")
     .replace("Direct mover since 1991", "Family-owned since 1991");
 }
 

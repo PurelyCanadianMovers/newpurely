@@ -71,8 +71,7 @@ for (const [route, config] of Object.entries(montrealCalgaryRoutes)) {
     .replace(/\$6,400\+/g, "$6,300+")
     .replace(/valuation coverage options/gi, "Declared Value Protection options")
     .replace(/basic valuation coverage/gi, "basic carrier liability")
-    .replace(/Is my shipment insured during/gi, "What protection is available during")
-    .replace(/<div class="pcm-estimate-bonus">[\s\S]*?<\/div><div class="pcm-verified-details">/i, '<div class="pcm-verified-details">');
+    .replace(/Is my shipment insured during/gi, "What protection is available during");
 
   if (route === "/calgary-to-montreal-movers/") {
     html = removeCalgaryLegacyGlance(html);

@@ -65,13 +65,13 @@ test("Winnipeg-Montreal facts are complete, frozen, and reject missing values", 
 
 test("representative SPA, dedicated, conflict, finalizer, and ordinary routes are classified", () => {
   assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").owner, "generate-spa-routes.mjs");
-  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").postProcessors, ["finalize-calgary-toronto-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-vancouver-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/vancouver-to-calgary-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").postProcessors, ["finalize-calgary-toronto-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/victoria-to-montreal-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").postProcessors, ["finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").postProcessors, ["finalize-calgary-toronto-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-vancouver-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/vancouver-to-calgary-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").postProcessors, ["finalize-calgary-toronto-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/victoria-to-montreal-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.equal(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").owner, "rebuild-calgary-winnipeg-routes.mjs");
   assert.equal(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").rendering, "static");
   assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").runtimeEnhancers, [
@@ -108,7 +108,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
       "site-copy/assets/static-nav.css",
       "site-copy/assets/static-chat.css",
     ]);
-    assert.deepEqual(entry.postProcessors, ["finalize-calgary-edmonton-routes.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+    assert.deepEqual(entry.postProcessors, ["finalize-calgary-edmonton-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   }
   assert.deepEqual(routeOwnershipByUrl.get("/vancouver-to-halifax-movers/").runtimeEnhancers, [
     "site-copy/assets/conversion-boost.js",
@@ -146,7 +146,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   ]);
   assert.deepEqual(victoriaVancouver.postProcessors, [
     "finalize-victoria-vancouver-route.mjs",
-    "finalize-route-faq-architecture.mjs",
+    "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs",
     "normalize-route-title-metadata.mjs",
   ]);
   assert.equal(routeOwnershipByUrl.get("/edmonton-to-vancouver-movers/").owner, "generate-spa-routes.mjs");
@@ -446,7 +446,7 @@ test("the Winnipeg-pair owners use explicit templates and are order-independent"
       assert.match(html, /2,300 km/);
       assert.match(html, /5–13 days/);
       for (const price of ["$2,400+", "$3,400+", "$5,500+", "$8,900+", "$13,000+"]) assert.ok(html.includes(price));
-      assert.doesNotMatch(html, /TORONTO TO VANCOUVER MOVERS|toronto-long-distance-movers|Online estimate bonus|Book before September/i);
+      assert.doesNotMatch(html, /TORONTO TO VANCOUVER MOVERS|toronto-long-distance-movers/i);
       assert.doesNotMatch(html, /<script\b[^>]*type=["']module["']/i);
       assert.equal((html.match(/"@type":"FAQPage"/g) ?? []).length, 1);
       assert.deepEqual(faqParityDifferences(html).differences, []);
@@ -566,7 +566,7 @@ test("the Step 49 Seattle-Vancouver finalizer is deterministic and preserves sta
       assert.equal((html.match(/class="[^"]*pcm-route-cost\b/g) ?? []).length, 1);
       assert.equal((html.match(/<tbody><tr>/g) ?? []).length, 1);
       assert.equal((html.match(/<tr>/g) ?? []).length >= 6, true);
-      assert.doesNotMatch(html, /pcm-local-seo|\bundefined\b|interprovincial|online estimate bonus|book before/i);
+      assert.doesNotMatch(html, /pcm-local-seo|\bundefined\b|interprovincial/i);
       for (const [, price] of SEATTLE_VANCOUVER_FACTS.pricing) assert.ok(html.includes(price));
     }
     assert.match(twice[0], /VANCOUVER → SEATTLE/);
@@ -604,7 +604,7 @@ test("the Step 50 Victoria-Vancouver finalizer is deterministic, route-scoped, a
     const twice = await readFile(join(tempRoot, slug, "index.html"), "utf8");
     assert.equal(twice, once);
     assert.equal(await readFile(join(tempRoot, unrelatedSlug, "index.html"), "utf8"), "sentinel:unrelated");
-    assert.doesNotMatch(twice, /<script\b[^>]*type=["']module["']|MutationObserver|pcm-local-seo|\bundefined\b|book before/i);
+    assert.doesNotMatch(twice, /<script\b[^>]*type=["']module["']|MutationObserver|pcm-local-seo|\bundefined\b/i);
     const main = twice.match(/<main\b[\s\S]*?<\/main>/i)?.[0] ?? "";
     assert.doesNotMatch(main, /interprovincial|cross-country|cross-border|Toronto|Calgary|Edmonton|Montreal|Ottawa|Halifax|Winnipeg|Seattle/i);
     assert.match(twice, /step50-victoria-vancouver\.(?:css|js)/);

@@ -3,6 +3,7 @@ const CHECKED_IN_STATIC_SOURCE = "checked-in-static-route-source";
 const VANCOUVER_EDMONTON_STATIC_FINALIZER = "finalize-vancouver-edmonton-routes.mjs";
 const TITLE_METADATA_NORMALIZER = "normalize-route-title-metadata.mjs";
 const FAQ_ARCHITECTURE_FINALIZER = "finalize-route-faq-architecture.mjs";
+const ROUTE_PROMO_FINALIZER = "finalize-route-promo.mjs";
 const VICTORIA_VANCOUVER_FINALIZER = "finalize-victoria-vancouver-route.mjs";
 const HALIFAX_VANCOUVER_STATIC_GENERATOR = "rebuild-halifax-vancouver-routes.mjs";
 
@@ -522,7 +523,7 @@ export const routePageOwnership = Object.freeze(
         : owner === VANCOUVER_EDMONTON_STATIC_FINALIZER
           ? "static-finalizer"
           : "full-page-generator",
-      postProcessors: Object.freeze([...(routePostProcessors[slug] ?? []), FAQ_ARCHITECTURE_FINALIZER, TITLE_METADATA_NORMALIZER]),
+      postProcessors: Object.freeze([...(routePostProcessors[slug] ?? []), ROUTE_PROMO_FINALIZER, FAQ_ARCHITECTURE_FINALIZER, TITLE_METADATA_NORMALIZER]),
       runtimeEnhancers: Object.freeze(routeRuntimeEnhancers[slug] ?? ["site-copy/assets/conversion-boost.js"]),
       runtimeStyles: Object.freeze(routeRuntimeStyles[slug] ?? []),
       architectureExceptions: Object.freeze(routeArchitectureExceptions[slug] ?? []),

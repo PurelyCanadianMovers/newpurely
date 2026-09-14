@@ -49,8 +49,7 @@ function applyContentCorrections(html, route) {
     .replace(/Cross-Country Transit/g, "Interprovincial Transit")
     .replace(/Professional, fully insured long-distance moving/g, "Professional interprovincial moving")
     .replace(/Valuation coverage available/g, "Declared Value Protection available")
-    .replace(/No brokers or subcontractors/g, "No broker-style handoffs")
-    .replace(/<div class="pcm-estimate-bonus">[\s\S]*?(?=<div class="pcm-estimate-trust-note">)/i, "");
+    .replace(/No brokers or subcontractors/g, "No broker-style handoffs");
   if (route === "/edmonton-to-ottawa-movers/") {
     next = next
       .replace("Whether you're relocating for work in Ontario's energy sector, moving closer to family, or seeking a fresh start in Western Canada", "Whether you are relocating for work, moving closer to family, or planning an eastbound move to the National Capital Region")

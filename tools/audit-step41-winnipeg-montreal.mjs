@@ -37,7 +37,7 @@ function rawAudit(html, route) {
     description: pick(/<meta name="description" content="([^"]*)"/i), canonical: pick(/<link rel="canonical"[^>]*href="([^"]*)"/i), ogUrl: pick(/<meta property="og:url" content="([^"]*)"/i),
     h1: clean(body.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1]),
     counts: { h1:(body.match(/<h1\b/gi) ?? []).length, quote:(body.match(/pcm-top-estimate-wrap/gi) ?? []).length, form:(body.match(/<form\b/gi) ?? []).length, pricing:(body.match(/class="[^"]*pcm-route-cost\b/gi) ?? []).length, table:(body.match(/<table\b/gi) ?? []).length, glance:(body.match(/Route at a Glance/gi) ?? []).length, faqHeading:(body.match(/Frequently Asked Questions/gi) ?? []).length, faqPage:schemas.length, localSeo:(body.match(/pcm-local-seo/gi) ?? []).length, footer:(body.match(/<footer\b/gi) ?? []).length },
-    contamination: { torontoBody:/TORONTO TO VANCOUVER MOVERS|toronto-long-distance-movers/i.test(body), expiredPromotion:/Book before September|Online estimate bonus/i.test(body), undefined:/\bundefined\b/i.test(body) },
+    contamination: { torontoBody:/TORONTO TO VANCOUVER MOVERS|toronto-long-distance-movers/i.test(body), expiredPromotion:/Book before\s+August|Book before September 30(?!, 2026)/i.test(body), undefined:/\bundefined\b/i.test(body) },
   };
 }
 
@@ -63,7 +63,7 @@ async function snapshot(page) {
       counts:{ quote:document.querySelectorAll(".pcm-top-estimate-wrap").length, form:quote?.querySelectorAll("form").length ?? 0, trustPills:quote?.querySelectorAll(".pcm-trust-row span,.pcm-pills span").length ?? 0, pricing:document.querySelectorAll(".pcm-step41-pricing").length, table:pricing?.querySelectorAll("table").length ?? 0, rows:pricing?.querySelectorAll("tbody tr").length ?? 0, glance:document.querySelectorAll(".pcm-step41-glance").length, faq:document.querySelectorAll(".pcm-step41-faq").length, faqHeading:[...document.querySelectorAll("h2")].filter((node) => /^Frequently Asked Questions$/i.test(cleanText(node.textContent))).length, faqSchema:schemas.length, localSeo:document.querySelectorAll(".pcm-local-seo").length, footer:document.querySelectorAll("footer").length, launcher:document.querySelectorAll('button[aria-label="Open chat assistant"]').length },
       facts:{ distance:relevant.includes("2,270 km"), transit:relevant.includes("5–13 days"), range:relevant.includes("$2,400–$13,000+"), prices:["$2,400+","$3,400+","$5,500+","$9,000+","$13,000+"].every((value) => relevant.includes(value)) },
       faqParity:schemas.length === 1 && JSON.stringify(visibleFaq) === JSON.stringify(schemas[0]),
-      contamination:/TORONTO TO VANCOUVER MOVERS|Book before September|Online estimate bonus|Moving Cost Breakdown|Route Pricing/i.test(document.body.innerText) || Boolean(document.querySelector('main a[href="/toronto-long-distance-movers/"]')),
+      contamination:/TORONTO TO VANCOUVER MOVERS|Moving Cost Breakdown|Route Pricing/i.test(document.body.innerText) || Boolean(document.querySelector('main a[href="/toronto-long-distance-movers/"]')),
       staleTerminology:/\bfully insured\b|\bvaluation coverage\b/i.test(relevant), undefined:/\bundefined\b/i.test(document.body.innerText), homepage:/Your Move\. Our Family\. One Standard:/i.test(document.body.innerText), soft404:/Page Not Found/i.test(document.body.innerText),
     };
   });

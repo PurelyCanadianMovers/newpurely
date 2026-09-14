@@ -138,7 +138,7 @@ function runtime(config) {
     schema.textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:entities});return true;
   }
   function normalizePricing(){var note=document.querySelector(".pcm-route-cost__note");if(!note)return false;note.textContent=pricingNote;return true}
-  function normalizeEstimatePlanning(){var bonus=document.querySelector(".pcm-estimate-bonus");if(!bonus)return false;bonus.innerHTML='<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span></div>';return true}
+  function normalizeEstimatePlanning(){var bonus=document.querySelector(".pcm-estimate-bonus");if(!bonus)return false;bonus.innerHTML='<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div>';return true}
   function syncStaticNavAria(){
     var menu=document.querySelector(".pcm-static-mobile");var trigger=document.querySelector('button[aria-label="Open menu"]');if(!menu||!trigger)return true;
     function sync(){trigger.setAttribute("aria-expanded",menu.classList.contains("is-open")?"true":"false")}
@@ -175,7 +175,7 @@ for (const config of routes) {
     .replace(/<section\s+class="pcm-lead-boost pcm-local-seo"[\s\S]*?<\/section>\s*/gi, "")
     .replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\s*/gi, (script) => isFaqSchema(script) ? "" : script)
     .replace(/(<p class="pcm-route-cost__note">)[\s\S]*?(<\/p>)/i, `$1${pricingNote}$2`)
-    .replace(/<strong>Online estimate bonus: save at least \$100<\/strong><span class="pcm-estimate-bonus__deadline">Book before September 30<\/span><span>Complete an online estimate and book your move with Purely Canadian Movers\. Discount confirmed with your written estimate\.<\/span>/gi, "<strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span>");
+    .replace(/<strong>Online estimate bonus: save at least \$100<\/strong><span class="pcm-estimate-bonus__deadline">Book before September 30<\/span><span>Complete an online estimate and book your move with Purely Canadian Movers\. Discount confirmed with your written estimate\.<\/span>/gi, '<strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span>');
 
   html = setInputIdentity(setInputIdentity(html, "from", config.from), "to", config.to);
   if (config.slug === "montreal-to-victoria-movers") html = replaceFaq(html, config.faqs, config.slug);

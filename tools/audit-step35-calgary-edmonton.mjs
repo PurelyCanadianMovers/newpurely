@@ -66,7 +66,7 @@ async function snapshot(page) {
       faqParity: schemaFaq.length === 1 && JSON.stringify(visibleFaq) === JSON.stringify(schemaFaq[0]),
       facts: { distance: bodyText.includes("~300 km") && bodyText.includes("approximately 300 km"), transit: bodyText.includes("2–4 days"), range: bodyText.includes("$800–$2,800+"), prices: ["$800+", "$1,100+", "$1,500+", "$2,000+", "$2,800+"].every((value) => bodyText.includes(value)) },
       contaminated: /4[,.]?[89]00 km|7\s*[–-]\s*19 days|8\s*[–-]\s*20 days|\$2,600|\$3,900|\$6,500|\$11,000|\$16,000|OHIP|13% HST|King West|Distillery District|Scarborough|Etobicoke|North York/i.test(bodyText),
-      datedPromotion: /Online estimate bonus|Book before September 30/i.test(bodyText),
+      datedPromotion: /Book before\s+August|Book before September 30(?!, 2026)/i.test(bodyText),
       undefinedCount: (bodyText.match(/undefined/gi) ?? []).length,
       homepage: /Your Move\. Our Family\. One Standard:/i.test(bodyText),
       soft404: /Page Not Found|\b404\b/i.test(bodyText),

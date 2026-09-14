@@ -228,7 +228,7 @@ function quotePanel(route) {
             <a class="pcm-button secondary" href="tel:18774856683">Call 1-877-485-6683</a>
           </div>
           <p class="pcm-form-note"><strong>No spam. No pressure. Just your moving estimate.</strong> Questions? Call Purely Canadian Movers: 1-877-485-6683</p>
-          <div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span></div></div>
+          <div class="pcm-estimate-bonus"><span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div></div>
           <div class="pcm-verified-details"><strong>Verified company details:</strong> Unit 16-91 Golden Dr., Coquitlam, BC · Local phone <a href="tel:6045222722">604-522-7222</a> · Direct mover since 1991</div>
         </form>
       </div>
@@ -308,7 +308,7 @@ function ensureRoutePage(html, route) {
   if (legacyProtectionMatches) {
     throw new Error(`${route.slug}: legacy protection wording remains (${legacyProtectionMatches.join(", ")})`);
   }
-  if (/save at least \$100|Book before\\s+August\\s+3(?:0|1)/i.test(html)) throw new Error(`${route.slug}: stale dated promotion remains`);
+  if (/Book before\\s+August\\s+3(?:0|1)|Book before\\s+September\\s+30(?!,\\s+2026)/i.test(html)) throw new Error(`${route.slug}: stale dated promotion remains`);
   for (const value of ["3,500 km", "7–19 days", "$2,500+", "$4,700+", "$6,300+", "$10,000+", "$15,000+"]) {
     if (!html.includes(value)) throw new Error(`${route.slug}: missing ${value}`);
   }

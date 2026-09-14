@@ -2240,8 +2240,8 @@
     bonus.innerHTML =
       '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span>' +
       "<div>" +
-      "<strong>Written estimate planning</strong>" +
-      "<span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span>" +
+      '<strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span>' +
+      "<span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span>" +
       "</div>";
     return bonus;
   }
@@ -2417,7 +2417,7 @@
 
     var bonus = form.querySelector(".pcm-estimate-bonus");
     if (bonus) {
-      bonus.innerHTML = '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Written estimate planning</strong><span>Route, inventory, access, ferry logistics, services, and timing are reviewed before pricing is confirmed in writing.</span></div>';
+      bonus.innerHTML = '<span class="pcm-estimate-bonus__icon" aria-hidden="true">$</span><div><strong>Online estimate bonus: save at least $100</strong><span class="pcm-estimate-bonus__deadline">Book before September 30, 2026</span><span>Complete an online estimate and book your move with Purely Canadian Movers. Discount confirmed with your written estimate.</span></div>';
     }
 
     var trustNote = form.querySelector(".pcm-estimate-trust-note, .pcm-verified-details");
