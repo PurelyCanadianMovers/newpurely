@@ -13,7 +13,7 @@
     <script defer src="/assets/openai-ads-attribution.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>Victoria to Ottawa Movers | Long-Distance Moving</title>
+    <title data-pcm-authoritative-route-title="Victoria to Ottawa Movers | Long-Distance Moving | Purely Canadian Movers">Victoria to Ottawa Movers | Long-Distance Moving | Purely Canadian Movers</title>
     <meta name="description" content="Victoria to Ottawa movers for long-distance relocations from Victoria, BC to Ottawa, ON. Compare ferry logistics, estimated costs, 10–22 day transit guidance, packing, storage, and written estimates from a direct moving company.">
     <meta name="keywords" content="Victoria to Ottawa movers, moving from Victoria to Ottawa, Victoria BC to Ottawa ON moving company, Victoria Ottawa moving cost, Victoria Ottawa moving quote">
     <meta name="author" content="Purely Canadian Movers Inc.">
@@ -22,7 +22,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Purely Canadian Movers">
-    <meta property="og:title" content="Victoria to Ottawa Movers | Long-Distance Moving">
+    <meta property="og:title" content="Victoria to Ottawa Movers | Long-Distance Moving | Purely Canadian Movers">
     <meta property="og:description" content="Victoria to Ottawa movers for long-distance relocations from Victoria, BC to Ottawa, ON. Compare ferry logistics, estimated costs, 10–22 day transit guidance, packing, storage, and written estimates from a direct moving company.">
     <meta property="og:url" content="https://purelycanadianmovers.com/victoria-to-ottawa-movers/">
     <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663508689911/FhisZ7WXCdcqNnJdX5VyAC/hero-truck_dad4e475.png">
@@ -33,7 +33,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Victoria to Ottawa Movers | Long-Distance Moving">
+    <meta name="twitter:title" content="Victoria to Ottawa Movers | Long-Distance Moving | Purely Canadian Movers">
     <meta name="twitter:description" content="Victoria to Ottawa movers for long-distance relocations from Victoria, BC to Ottawa, ON. Compare ferry logistics, estimated costs, 10–22 day transit guidance, packing, storage, and written estimates from a direct moving company.">
     <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663508689911/FhisZ7WXCdcqNnJdX5VyAC/hero-truck_dad4e475.png">
 
@@ -80,7 +80,7 @@
 <link rel="stylesheet" crossorigin="" href="/assets/index-DOGLBY_X.css">
     <link rel="stylesheet" href="/assets/conversion-boost.css">
     <link rel="stylesheet" href="/assets/static-nav.css">
-    <link rel="stylesheet" href="/assets/static-chat.css">
+<link rel="stylesheet" href="/assets/static-chat.css">
     <script src="/assets/static-chat.js" defer></script>
 
 
@@ -373,5 +373,37 @@
   </div>
   <script defer src="/assets/conversion-boost.js"></script>
   <script defer src="/assets/static-nav.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    function init() {
+      var trigger = document.querySelector('header button[aria-label="Open menu"]');
+      var panel = document.querySelector(".pcm-static-mobile");
+      if (!trigger || !panel || trigger.dataset.pcmRouteMenuReady === "true") return;
+      var close = panel.querySelector('button[aria-label="Close menu"]');
+
+      trigger.dataset.pcmRouteMenuReady = "true";
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.addEventListener("click", function () {
+        trigger.setAttribute("aria-expanded", String(panel.classList.contains("is-open")));
+      });
+      if (close) {
+        close.addEventListener("click", function () {
+          trigger.setAttribute("aria-expanded", "false");
+        });
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape" || !panel.classList.contains("is-open")) return;
+        panel.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.focus();
+      });
+    }
+
+    if (document.readyState === "complete") init();
+    else window.addEventListener("load", init, { once: true });
+  })();
+  </script>
 </body>
 </html>

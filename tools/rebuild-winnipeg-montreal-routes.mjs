@@ -1,27 +1,31 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { ensureDedicatedPopularRoutes } from "./cost-guide-popular-routes.mjs";
+import { assertRouteOwnership } from "./route-ownership-guard.mjs";
+import {
+  WINNIPEG_MONTREAL_FACTS,
+  WINNIPEG_MONTREAL_ROUTES,
+  assertWinnipegMontrealRouteData,
+} from "./winnipeg-montreal-route-data.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
 const siteOrigin = "https://purelycanadianmovers.com";
-const referencePath = join(root, "toronto-to-winnipeg-movers", "index.html");
+const referencePath = new URL("./templates/winnipeg-routes/toronto-to-winnipeg-movers.html", import.meta.url);
 const costGuidePath = join(root, "long-distance-moving-cost-canada", "index.html");
 
-const prices = [
-  ["Studio or small shipment", "$2,400+", "Best for limited furniture or a partial shipment"],
-  ["1-bedroom", "$3,400+", "Depends on inventory weight or volume, access, and packing"],
-  ["2-bedroom", "$5,500+", "Common planning range for an apartment or condo move"],
-  ["3-bedroom", "$9,000+", "Larger household shipment with more labour and space"],
-  ["4+ bedroom", "$13,000+", "Final estimate depends on inventory, access, and services"],
-];
+const prices = WINNIPEG_MONTREAL_FACTS.priceRows.map(({ label, price, note }) => [label, price, note]);
 
-const routes = [
+const routeContent = [
   {
+    ...WINNIPEG_MONTREAL_FACTS,
     slug: "winnipeg-to-montreal-movers",
     from: "Winnipeg",
+    fromFull: "Winnipeg, MB",
     fromProvince: "MB",
     to: "Montreal",
+    toFull: "Montreal, QC",
     toProvince: "QC",
+    direction: "eastbound",
     metaDescription:
       "Plan a Winnipeg to Montreal long-distance move with route-specific pricing from $2,400+, approximately 2,270 km, 5–13 days transit guidance, packing, storage, and written estimates.",
     intro: [
@@ -54,11 +58,15 @@ const routes = [
     ],
   },
   {
+    ...WINNIPEG_MONTREAL_FACTS,
     slug: "montreal-to-winnipeg-movers",
     from: "Montreal",
+    fromFull: "Montreal, QC",
     fromProvince: "QC",
     to: "Winnipeg",
+    toFull: "Winnipeg, MB",
     toProvince: "MB",
+    direction: "westbound",
     metaDescription:
       "Plan a Montreal to Winnipeg long-distance move with route-specific pricing from $2,400+, approximately 2,270 km, 5–13 days transit guidance, packing, storage, and written estimates.",
     intro: [
@@ -91,6 +99,14 @@ const routes = [
     ],
   },
 ];
+const directionalData = new Map(WINNIPEG_MONTREAL_ROUTES.map((route) => [route.slug, route]));
+const routes = routeContent.map((route) => ({
+  ...route,
+  ...directionalData.get(route.slug),
+  ...WINNIPEG_MONTREAL_FACTS,
+}));
+routes.forEach(assertWinnipegMontrealRouteData);
+assertRouteOwnership("rebuild-winnipeg-montreal-routes.mjs", routes);
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   "&": "&amp;",
@@ -151,9 +167,9 @@ function buildHead(template, route) {
   const bodyStart = template.indexOf("<body");
   if (bodyStart < 0) throw new Error("Reference route template has no body");
   const name = routeName(route);
-  const title = `${name} Movers | Cost, Transit Time & Estimate`;
+  const title = `${name} Movers | Cost, Transit Time & Estimate | Purely Canadian Movers`;
   let head = template.slice(0, bodyStart)
-    .replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
+    .replace(/<title\b[^>]*>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
     .replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/i, `$1${routeUrl(route)}$2`);
 
   head = replaceMeta(head, 'name="description"', route.metaDescription);
@@ -164,7 +180,7 @@ function buildHead(template, route) {
   head = replaceMeta(head, 'name="twitter:title"', title);
   head = replaceMeta(head, 'name="twitter:description"', route.metaDescription);
   head = head.replace(/<script\s+type="application\/ld\+json"[\s\S]*?<\/script>/gi, "");
-  return head.replace("</head>", `    <script type="application/ld+json" id="route-schema">${JSON.stringify(schema(route))}</script>\n</head>`);
+  return head.replace("</head>", `    <link rel="stylesheet" href="/assets/step41-winnipeg-montreal.css">\n    <script type="application/ld+json" id="route-schema">${JSON.stringify(schema(route))}</script>\n</head>`);
 }
 
 function extract(template, pattern, label) {
@@ -251,7 +267,7 @@ function page(template, route) {
   const header = extract(template, /<header class="pcm-site-header">[\s\S]*?<\/header>/i, "site header");
   const footer = extract(template, /<footer class="pcm-footer">[\s\S]*?<\/footer>/i, "site footer");
   return `${buildHead(template, route)}<body class="pcm-static-route-ready">
-  <div id="root" class="pcm-static-route pcm-static-route-ready">
+  <div id="root" class="pcm-static-route pcm-static-route-ready" data-pcm-static-route="${route.slug}">
     ${quotePanel(route)}
     ${pricingSection(route)}
     ${header}
@@ -260,6 +276,22 @@ function page(template, route) {
   </div>
   <script defer src="/assets/conversion-boost.js"></script>
   <script defer src="/assets/static-nav.js"></script>
+  <script type="application/json" id="pcm-step41-route-data">${JSON.stringify({
+    slug: route.slug,
+    from: route.from,
+    fromFull: route.fromFull,
+    to: route.to,
+    toFull: route.toFull,
+    direction: route.direction,
+    pickup: route.pickup,
+    delivery: route.delivery,
+    corridor: route.corridor,
+    distance: route.distance,
+    transit: route.transit,
+    range: route.range,
+    prices: route.priceRows.map((row) => row.price),
+  })}</script>
+  <script defer src="/assets/step41-winnipeg-montreal.js"></script>
   <div class="pcm-lead-boost pcm-sticky-cta"><a class="pcm-primary-button" href="/contact/">Get Estimate</a><a class="pcm-secondary-button" href="tel:18774856683">Call</a></div>
   <button type="button" class="pcm-chat-nudge is-visible" aria-label="Ask a moving question or get a quick price quote"><strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span></button>
 </body></html>`;
@@ -331,7 +363,7 @@ async function ensureSitemapRoutes() {
 
 function normalizeSharedCostGuideCopy(html) {
   return html
-    .replace(/<strong>Online estimate bonus: save at least \$100<\/strong><span class="pcm-estimate-bonus__deadline">Book before August 31<\/span><span>Complete an online estimate and book your move with Purely Canadian Movers\. Discount confirmed with your written estimate\.<\/span>/g, "<strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span>")
+    .replace(/<strong>Online estimate bonus: save at least \$100<\/strong><span class="pcm-estimate-bonus__deadline">Book before\\s+August\\s+3(?:0|1)<\/span><span>Complete an online estimate and book your move with Purely Canadian Movers\. Discount confirmed with your written estimate\.<\/span>/g, "<strong>Written estimate planning</strong><span>Route, inventory, access, services, and timing are reviewed before pricing is confirmed in writing.</span>")
     .replace(/valuation coverage options/gi, "Declared Value Protection options")
     .replace(/valuation coverage/gi, "Declared Value Protection")
     .replace(/insurance coverage options/gi, "Declared Value Protection options")
@@ -348,6 +380,8 @@ function ensureRoutePage(html, route) {
     "Frequently Asked Questions",
     route.distance,
     route.transit,
+    `"slug":"${route.slug}"`,
+    'id="pcm-step41-route-data"',
     ...prices.map(([, price]) => price),
     "Declared Value Protection",
   ];
@@ -356,7 +390,10 @@ function ensureRoutePage(html, route) {
   if ((html.match(/<form\b/gi) || []).length !== 1) throw new Error(`${route.slug}: expected exactly one quote form`);
   if ((html.match(/class="[^"]*\bpcm-route-cost\b/g) || []).length !== 1) throw new Error(`${route.slug}: expected exactly one pricing block`);
   if ((html.match(/Route at a Glance/g) || []).length !== 1) throw new Error(`${route.slug}: expected exactly one route glance`);
-  if (html.match(/Book before August 31/gi)?.length) throw new Error(`${route.slug}: stale dated promotion remains`);
+  if (html.includes("undefined")) throw new Error(`${route.slug}: generated page contains undefined`);
+  if (!html.includes(`data-pcm-static-route="${route.slug}"`)) throw new Error(`${route.slug}: missing route identity marker`);
+  if (!html.includes("/assets/step41-winnipeg-montreal.css") || !html.includes("/assets/step41-winnipeg-montreal.js")) throw new Error(`${route.slug}: missing Step 41 assets`);
+  if (html.match(/Book before\\s+August\\s+3(?:0|1)/gi)?.length) throw new Error(`${route.slug}: stale dated promotion remains`);
   if (/fully insured|\binsurance\b|basic valuation coverage|full-value protection|Moving Cost Breakdown/i.test(html)) throw new Error(`${route.slug}: legacy protection or pricing wording remains`);
   if (/Toronto, ON|Calgary, AB/.test(html)) throw new Error(`${route.slug}: generic route leakage remains`);
   return html;

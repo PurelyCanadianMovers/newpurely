@@ -1,0 +1,15 @@
+.pcm-step46-trust {
+  padding:16px 20px;
+  background:#991b1b;
+  color:#fff;
+  text-align:center;
+  font-family:"Source Sans 3",Arial,sans-serif;
+  font-size:15px;
+  font-weight:700;
+}
+
+@media (max-width:639px) {
+  .pcm-static-chat-button { bottom:84px; }
+  .pcm-static-chat-panel { bottom:156px; max-height:calc(100vh - 172px); }
+  .pcm-chat-nudge { display:none !important; }
+}

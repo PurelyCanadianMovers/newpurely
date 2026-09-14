@@ -1,10 +1,14 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { ensureDedicatedPopularRoutes } from "./cost-guide-popular-routes.mjs";
+import { updateOttawaHubRoutes } from "./ottawa-hub-routes.mjs";
+import { assertRouteOwnership } from "./route-ownership-guard.mjs";
+import { updateTorontoHubRoutes } from "./toronto-hub-routes.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
 const siteOrigin = "https://purelycanadianmovers.com";
-const referencePath = join(root, "calgary-to-ottawa-movers", "index.html");
+// Pair-owned frozen shell: never read another route's generated HTML.
+const referencePath = new URL("./templates/ottawa-toronto-routes/canonical-static-shell.html", import.meta.url);
 const distance = "~450 km";
 const transit = "2–5 days";
 const prices = [
@@ -91,6 +95,7 @@ const routes = [
     ],
   },
 ];
+assertRouteOwnership("rebuild-ottawa-toronto-routes.mjs", routes);
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   "&": "&amp;",
@@ -157,9 +162,9 @@ function buildHead(template, route) {
   if (bodyStart < 0) throw new Error("Reference route template has no body");
 
   const name = routeName(route);
-  const title = `${name} Movers | Cost, Transit Time & Estimate`;
+  const title = `${name} Movers | Cost, Transit Time & Estimate | Purely Canadian Movers`;
   let head = template.slice(0, bodyStart)
-    .replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(title)}</title>`)
+    .replace(/<title\b[^>]*>[\s\S]*?<\/title>/i, `<title data-pcm-authoritative-route-title="${escapeHtml(title)}">${escapeHtml(title)}</title>`)
     .replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/i, `$1${routeUrl(route)}$2`);
 
   head = replaceMeta(head, 'name="description"', route.metaDescription);
@@ -170,7 +175,9 @@ function buildHead(template, route) {
   head = replaceMeta(head, 'name="twitter:title"', title);
   head = replaceMeta(head, 'name="twitter:description"', route.metaDescription);
   head = head.replace(/<script\s+type="application\/ld\+json"[\s\S]*?<\/script>/gi, "");
-  head = head.replace("</head>", `    <script type="application/ld+json" id="route-schema">${JSON.stringify(schema(route))}</script>\n</head>`);
+  head = head.replace("</style></head>", "</style>\n</head>");
+  head = head.replace(/\s*<link[^>]+step(?:4[0-4]|3[3-9])-[^>]+\.css[^>]*>/gi, "");
+  head = head.replace("</head>", `    <link rel="stylesheet" href="/assets/step45-ottawa-toronto.css">\n    <script type="application/ld+json" id="route-schema">${JSON.stringify(schema(route))}</script>\n</head>`);
   return head.replace(/[ \t]+$/gm, "");
 }
 
@@ -228,7 +235,7 @@ function quotePanel(route) {
 function pricingSection(route) {
   const name = routeName(route);
   const rows = prices.map(([size, price, note]) => `<tr><td>${size}</td><td>${price}</td><td>${escapeHtml(note)}</td><td>${transit}</td></tr>`).join("");
-  return `<section class="pcm-lead-boost pcm-route-cost" aria-label="${escapeHtml(name.toUpperCase())} moving cost estimates"><div class="pcm-route-cost__inner"><div class="pcm-route-cost__eyebrow">${escapeHtml(name.toUpperCase())} MOVING COST</div><h2>How much does it cost to move from ${escapeHtml(route.from)} to ${escapeHtml(route.to)}?</h2><p>${articleFor(route)[0].toUpperCase() + articleFor(route).slice(1)} ${escapeHtml(name)} move typically ranges from about <strong>$800+</strong> for a studio to <strong>$2,800+</strong> for a 4+ bedroom home. Final pricing depends on shipment weight or volume, access, packing, storage, season, protection choices, and confirmed services.</p><div class="pcm-route-cost__table-wrap"><table><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div><p class="pcm-route-cost__inclusion">These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible where applicable.</p><p class="pcm-route-cost__note">Prices are planning ranges in CAD, not guaranteed quotes. A written estimate requires inventory details, pickup and delivery addresses, access conditions, packing needs, storage timing, protection choices, and service dates.</p><div class="pcm-route-cost__links"><a href="/long-distance-moving-cost-canada/">Full moving cost guide</a><a href="/${route.from.toLowerCase()}-long-distance-movers/">${escapeHtml(route.from)} long-distance movers</a><a href="/${route.to.toLowerCase()}-long-distance-movers/">${escapeHtml(route.to)} long-distance movers</a><a href="/${route.slug === "ottawa-to-toronto-movers" ? "toronto-to-ottawa-movers" : "ottawa-to-toronto-movers"}/">${route.slug === "ottawa-to-toronto-movers" ? "Toronto to Ottawa" : "Ottawa to Toronto"} movers</a><a href="/contact/">Get a written estimate</a></div></div></section>`;
+  return `<section class="pcm-lead-boost pcm-route-cost pcm-step45-pricing" aria-label="${escapeHtml(name.toUpperCase())} moving cost estimates"><div class="pcm-route-cost__inner"><div class="pcm-route-cost__eyebrow">${escapeHtml(name.toUpperCase())} MOVING COST</div><h2>How much does it cost to move from ${escapeHtml(route.from)} to ${escapeHtml(route.to)}?</h2><p class="pcm-route-cost__intro">${articleFor(route)[0].toUpperCase() + articleFor(route).slice(1)} ${escapeHtml(name)} move typically ranges from about <strong>$800+</strong> for a studio to <strong>$2,800+</strong> for a 4+ bedroom home. Final pricing depends on shipment weight or volume, access, packing, storage, season, protection choices, and confirmed services.</p><div class="pcm-route-cost__table-wrap"><table><thead><tr><th>Home size</th><th>Estimated cost</th><th>Notes</th><th>Typical transit</th></tr></thead><tbody>${rows}</tbody></table></div><p class="pcm-route-cost__note">These figures are planning ranges in CAD, not guaranteed quotes. Final pricing depends on shipment weight or volume, origin and destination access, season, packing, storage, and requested services. Basic carrier liability applies; available <strong>Declared Value Protection</strong> options are confirmed in writing before moving day.</p><div class="pcm-route-cost__links"><a href="/long-distance-moving-cost-canada/">Full moving cost guide</a><a href="/${route.from.toLowerCase()}-long-distance-movers/">${escapeHtml(route.from)} long-distance movers</a><a href="/${route.to.toLowerCase()}-long-distance-movers/">${escapeHtml(route.to)} long-distance movers</a><a href="/${route.slug === "ottawa-to-toronto-movers" ? "toronto-to-ottawa-movers" : "ottawa-to-toronto-movers"}/">${route.slug === "ottawa-to-toronto-movers" ? "Toronto to Ottawa" : "Ottawa to Toronto"} movers</a><a href="/contact/">Get a written estimate</a></div></div></section>`;
 }
 
 function hero(route) {
@@ -237,24 +244,20 @@ function hero(route) {
 }
 
 function routeGlance(route) {
-  return `<section class="pcm-section pcm-route-glance-section pcm-static-route-glance"><h2>${escapeHtml(routeDash(route))} Route at a Glance</h2><div class="pcm-route-glance"><div class="pcm-glance-item"><span class="pcm-glance-label">Distance</span><strong class="pcm-glance-value">${distance}</strong><span class="pcm-glance-support">${escapeHtml(routeName(route))}</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Est. transit time</span><strong class="pcm-glance-value">${transit}</strong><span class="pcm-glance-support">Depending on shipment size and scheduling</span></div><div class="pcm-glance-item"><span class="pcm-glance-label">Typical cost range</span><strong class="pcm-glance-value">$800+–$2,800+</strong><span class="pcm-glance-support">Studio to 4+ bedroom home</span></div></div></section>`;
+  return `<div class="pcm-step45-glance"><h3>Route at a Glance</h3><div class="pcm-step45-glance__grid"><div><span class="pcm-step45-icon" aria-hidden="true">↔</span><p><small>Distance</small><strong>${distance}</strong><span>${escapeHtml(routeName(route))}</span></p></div><div><span class="pcm-step45-icon" aria-hidden="true">◷</span><p><small>Estimated transit</small><strong>${transit}</strong><span>Depending on shipment and schedule</span></p></div><div><span class="pcm-step45-icon" aria-hidden="true">$</span><p><small>Typical cost range</small><strong>$800+–$2,800+</strong><span>Studio through 4+ bedroom</span></p></div></div></div>`;
 }
 
 function routeBody(route) {
   const name = routeName(route);
   const opposite = route.slug === "ottawa-to-toronto-movers" ? "Toronto to Ottawa" : "Ottawa to Toronto";
   const oppositeSlug = route.slug === "ottawa-to-toronto-movers" ? "toronto-to-ottawa-movers" : "ottawa-to-toronto-movers";
-  return `<main class="pcm-static-main">
+  return `<main class="pcm-static-main pcm-step45-shell">
       ${hero(route)}
-      <section class="pcm-section"><h2>Moving from ${escapeHtml(route.from)} to ${escapeHtml(route.to)}</h2>${route.intro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</section>
-      ${routeGlance(route)}
-      <section class="pcm-section"><h2>What Makes ${articleFor(route)} ${escapeHtml(routeDash(route))} Move Unique</h2><div class="pcm-grid">${route.unique.map(card).join("")}</div></section>
-      <section class="pcm-section"><h2>Tips for Moving to ${escapeHtml(route.to)}</h2><div class="pcm-grid">${route.tips.map(card).join("")}</div></section>
-      <section class="pcm-section"><h2>Why Choose Purely Canadian Movers</h2><ul class="pcm-checklist"><li>Family-owned since 1991 with more than 30 years of moving experience</li><li>One accountable point of contact for route planning, documentation, and delivery coordination</li><li>Written estimates review inventory, access, packing, storage, timing, and protection choices</li><li>Declared Value Protection choices are explained before moving day</li><li>Full or partial packing and storage options are available</li></ul><div class="pcm-warning"><strong>Review unusually low moving quotes carefully.</strong> Ask for a written estimate and confirm fuel, access, packing, storage, protection choices, and other included services before signing.</div></section>
-      <section class="pcm-section"><h2>How Your ${escapeHtml(routeDash(route))} Move Works</h2><div class="pcm-steps"><article class="pcm-card"><h3>1. Free estimate</h3><p>Tell us about the route, home size, inventory, access, services, and preferred moving date.</p></article><article class="pcm-card"><h3>2. Pack and load</h3><p>Confirm packing, loading, elevator, parking, stair, and long-carry details before pickup.</p></article><article class="pcm-card"><h3>3. Route transit</h3><p>Your shipment is scheduled for the Ontario route with the timing and services confirmed in writing.</p></article><article class="pcm-card"><h3>4. Delivery and placement</h3><p>Delivery timing and destination access are coordinated in writing; the delivery team places items in the rooms you identify.</p></article></div></section>
-      <section class="pcm-section"><h2>Frequently Asked Questions</h2><div class="pcm-faq-list">${route.faqs.map(card).join("")}</div></section>
-      <section class="pcm-section"><h2>Related Destinations and Resources</h2><div class="pcm-links"><a href="/${route.from.toLowerCase()}-long-distance-movers/">${escapeHtml(route.from)} Long-Distance Movers</a><a href="/${route.to.toLowerCase()}-long-distance-movers/">${escapeHtml(route.to)} Long-Distance Movers</a><a href="/${oppositeSlug}/">${escapeHtml(opposite)} Movers</a><a href="/long-distance-moving-cost-canada/">Moving Cost Guide</a><a href="/great-canadian-vanlines-agent/">Great Canadian Van Lines Agent</a><a href="/valuation-coverage-protection/">Declared Value Protection</a><a href="/contact/">Get a Written Estimate</a></div></section>
-      <section class="pcm-section pcm-closing-cta pcm-static-closing-cta"><h2>Ready to Move from ${escapeHtml(route.from)} to ${escapeHtml(route.to)}?</h2><p>Request a free, no-obligation written estimate for your Ontario move.</p><div class="pcm-links"><a href="/contact/">Get a Written Estimate</a><a href="tel:18774856683">Call 1-877-485-6683</a></div><p class="pcm-local-line">Or call our local line: <a href="tel:16045227222">604-522-7222</a></p></section>
+      <section class="pcm-step45-trust">Family-owned since 1991 · BBB Accredited business · Great Canadian Van Lines agent · Written estimates</section>
+      <section class="pcm-step45-main"><div class="container"><h2>Moving from ${escapeHtml(route.from)} to ${escapeHtml(route.to)}</h2><div class="pcm-step45-intro">${route.intro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>${routeGlance(route)}<h2>What Makes ${articleFor(route)} ${escapeHtml(routeDash(route))} Move Unique</h2><div class="pcm-step45-card-grid">${route.unique.map(card).join("")}</div><h2>Tips for Moving to ${escapeHtml(route.to)}</h2><div class="pcm-step45-card-grid">${route.tips.map(card).join("")}</div><h2>Why Choose Purely Canadian Movers</h2><ul class="pcm-step45-proof"><li>Family-owned since 1991 with more than 30 years of moving experience</li><li>Great Canadian Van Lines agent-network support with accountable route coordination</li><li>One accountable point of contact for Ontario corridor planning, documentation, and delivery coordination</li><li>Written estimates review inventory, access, packing, storage, timing, and protection choices</li><li>Carrier liability and Declared Value Protection choices are explained before moving day</li><li>Full or partial packing and storage options are available</li></ul><h2>How Your ${escapeHtml(routeDash(route))} Move Works</h2><div class="pcm-step45-process"><article><b>1</b><h3>Written estimate</h3><p>Tell us about the route, home size, inventory, access, services, and preferred moving date.</p></article><article><b>2</b><h3>Pack and load</h3><p>Confirm packing, loading, elevator, parking, stair, and long-carry details before pickup.</p></article><article><b>3</b><h3>Highway 401 corridor transit</h3><p>Your shipment is scheduled along the Ontario corridor with timing and services confirmed in writing.</p></article><article><b>4</b><h3>Delivery</h3><p>Delivery timing and destination access are coordinated in writing.</p></article></div></div></section>
+      <section class="pcm-section pcm-route-faq-static pcm-step45-faq"><h2>Frequently Asked Questions</h2><div class="pcm-faq-list">${route.faqs.map(card).join("")}</div></section>
+      <section class="pcm-section pcm-step45-related"><h2>Related Destinations and Resources</h2><div class="pcm-links"><a href="/${route.from.toLowerCase()}-long-distance-movers/">${escapeHtml(route.from)} Long-Distance Movers</a><a href="/${route.to.toLowerCase()}-long-distance-movers/">${escapeHtml(route.to)} Long-Distance Movers</a><a href="/${oppositeSlug}/">${escapeHtml(opposite)} Movers</a><a href="/long-distance-moving-cost-canada/">Moving Cost Guide</a><a href="/great-canadian-vanlines-agent/">Great Canadian Van Lines Agent</a><a href="/valuation-coverage-protection/">Declared Value Protection</a><a href="/contact/">Get a Written Estimate</a></div></section>
+      <section class="pcm-section pcm-closing-cta pcm-static-closing-cta pcm-step45-closing"><h2>Ready to Move from ${escapeHtml(route.from)} to ${escapeHtml(route.to)}?</h2><p>Request a free, no-obligation written estimate for your Ontario intercity move.</p><div class="pcm-links"><a href="/contact/">Get a Written Estimate</a><a href="tel:18774856683">Call 1-877-485-6683</a></div><p class="pcm-local-line">Or call our local line: <a href="tel:16045227222">604-522-7222</a></p></section>
     </main>`;
 }
 
@@ -266,7 +269,7 @@ function page(template, route) {
     .replace('href="/cross-country-movers/"', 'href="/long-distance/"')
     .replace(/Cross-Country Moves/gi, "Long-Distance Moves");
   return `${buildHead(template, route)}<body class="pcm-static-route-ready">
-  <div id="root" class="pcm-static-route pcm-static-route-ready">
+  <div id="root" class="pcm-static-route pcm-static-route-ready" data-pcm-static-route="${route.slug}">
     ${quotePanel(route)}
     ${pricingSection(route)}
     ${headerMatch[0]}
@@ -277,6 +280,8 @@ function page(template, route) {
   </div>
   <script defer src="/assets/conversion-boost.js"></script>
   <script defer src="/assets/static-nav.js"></script>
+  <script defer src="/assets/static-chat.js"></script>
+  <script defer src="/assets/step45-ottawa-toronto.js"></script>
   <div class="pcm-lead-boost pcm-sticky-cta"><a class="pcm-primary-button" href="/contact/">Get Estimate</a><a class="pcm-secondary-button" href="tel:18774856683">Call</a></div>
   <button type="button" class="pcm-chat-nudge is-visible" aria-label="Ask a moving question or get a quick price quote"><strong>Not ready for an estimate?</strong><span>Ask us a moving question or get a quick price quote</span></button>
 </body></html>`;
@@ -303,27 +308,15 @@ function ensureRoutePage(html, route) {
     throw new Error(`${route.slug}: unsupported province/cross-country wording remains`);
   }
   if (/\ba Ottawa\b|\bA Ottawa\b/i.test(main)) throw new Error(`${route.slug}: Ottawa article grammar remains`);
+  if (/<script\b[^>]*type=["']module["']/i.test(html)) throw new Error(`${route.slug}: static route contains a React module bootstrap`);
+  if (!html.includes(`/assets/step45-ottawa-toronto.css`) || !html.includes(`/assets/step45-ottawa-toronto.js`)) throw new Error(`${route.slug}: missing Step 45 route assets`);
+  if ((html.match(/<form\b/gi) ?? []).length !== 1 || (html.match(/<table\b/gi) ?? []).length !== 1 || (html.match(/"@type":"FAQPage"/g) ?? []).length !== 1) throw new Error(`${route.slug}: singular component contract failed`);
   for (const value of [distance, transit, "$800+", "$1,100+", "$1,500+", "$2,000+", "$2,800+"]) {
     if (!html.includes(value)) throw new Error(`${route.slug}: missing ${value}`);
   }
   for (const stale of ["$2,500–$4,500", "$7,000–$14,000", "$800-$1500", "2–4 days", "2-4 days", "Toronto, ON\" placeholder=\"Calgary, AB", "value=\"Calgary, AB\""]) {
     if (html.includes(stale)) throw new Error(`${route.slug}: stale value remains: ${stale}`);
   }
-  return html;
-}
-
-function appendTorontoHubRoute(html) {
-  if (html.includes('href="/toronto-to-ottawa-movers/"')) return html;
-  const pattern = /(<h3[^>]*>Routes From Toronto<\/h3><div[^>]*>)([\s\S]*?)(<\/div><\/div>)/i;
-  const match = html.match(pattern);
-  if (!match) throw new Error("Toronto hub Routes From Toronto block not found");
-  const link = '<a href="/toronto-to-ottawa-movers/" class="flex items-center gap-3 p-3 bg-white rounded border border-gray-200 hover:border-[#CC1A1A] hover:bg-red-50 transition-colors group"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right text-[#CC1A1A] shrink-0 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg><span class="font-body text-gray-700 group-hover:text-gray-900 font-semibold">Toronto → Ottawa</span></a>';
-  return html.replace(pattern, `$1${match[2]}${link}$3`);
-}
-
-function ensureOttawaHubRoute(html) {
-  const count = html.split('href="/ottawa-to-toronto-movers/"').length - 1;
-  if (count !== 1) throw new Error(`Ottawa hub must contain exactly one Ottawa → Toronto route link; found ${count}`);
   return html;
 }
 
@@ -352,12 +345,12 @@ for (const route of routes) {
 }
 
 const torontoHubPath = join(root, "toronto-long-distance-movers", "index.html");
-await writeFile(torontoHubPath, appendTorontoHubRoute(await readFile(torontoHubPath, "utf8")), "utf8");
+await writeFile(torontoHubPath, updateTorontoHubRoutes(await readFile(torontoHubPath, "utf8"), { requireExisting: true }), "utf8");
 console.log(`Checked ${torontoHubPath}`);
 
 const ottawaHubPath = join(root, "ottawa-long-distance-movers", "index.html");
-await writeFile(ottawaHubPath, ensureOttawaHubRoute(await readFile(ottawaHubPath, "utf8")), "utf8");
-console.log(`Checked ${ottawaHubPath}`);
+await writeFile(ottawaHubPath, updateOttawaHubRoutes(await readFile(ottawaHubPath, "utf8"), { requireExisting: true }), "utf8");
+console.log(`Updated ${ottawaHubPath}`);
 
 const costGuidePath = join(root, "long-distance-moving-cost-canada", "index.html");
 await writeFile(costGuidePath, appendCostGuidePopularRoute(await readFile(costGuidePath, "utf8")), "utf8");

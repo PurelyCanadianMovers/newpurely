@@ -1,8 +1,14 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { routePageOwnership } from "./route-page-ownership.mjs";
+import { requireLegacyRouteWriterOptIn } from "./route-ownership-guard.mjs";
 import { dirname, extname, join, posix } from "node:path";
 
 const startUrl = new URL(process.argv[2] ?? "https://purelycanadianmovers.com/");
 const outDir = process.argv[3] ?? "site-copy";
+if (resolve(outDir) === resolve("site-copy")) {
+  requireLegacyRouteWriterOptIn("mirror-site.mjs", routePageOwnership.map((entry) => entry.routeUrl));
+}
 const maxPages = Number(process.argv[4] ?? 80);
 const origin = startUrl.origin;
 

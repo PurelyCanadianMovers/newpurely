@@ -1,10 +1,58 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { dirname, join, posix } from "node:path";
 import { injectOpenAiAdsPixel } from "./openai-ads-pixel.mjs";
+import { isLongDistanceRouteUrl, routeOwnershipByUrl } from "./route-page-ownership.mjs";
 
 const outDir = process.argv[2] ?? "site-copy";
 const index = await readFile(join(outDir, "index.html"), "utf8");
-const bundle = await readFile(join(outDir, "assets", "index-CNBNs70h.js"), "utf8");
+const bundlePath = join(outDir, "assets", "index-CNBNs70h.js");
+let bundle = await readFile(bundlePath, "utf8");
+const routeTitleInputFixes = [
+  [
+    'title:"Montreal to Victoria & Nanaimo Movers | Purely Canadian Movers"',
+    'title:"Montreal to Victoria & Nanaimo Movers"',
+  ],
+  [
+    'title:"Ottawa to Victoria & Nanaimo Movers | Purely Canadian Movers"',
+    'title:"Ottawa to Victoria & Nanaimo Movers"',
+  ],
+];
+
+let normalizedBundle = bundle;
+for (const [duplicatingInput, normalizedInput] of routeTitleInputFixes) {
+  const duplicatingCount = normalizedBundle.split(duplicatingInput).length - 1;
+  const normalizedCount = normalizedBundle.split(normalizedInput).length - 1;
+  if (duplicatingCount === 1 && normalizedCount === 0) {
+    normalizedBundle = normalizedBundle.replace(duplicatingInput, normalizedInput);
+  } else if (duplicatingCount !== 0 || normalizedCount !== 1) {
+    throw new Error(`Unexpected route title input state for ${normalizedInput}`);
+  }
+}
+const bcWashingtonLegacyPricingHeading = "BC to Washington State Moving Cost Breakdown";
+const bcWashingtonCanonicalPricingHeading = "BC to Washington State Moving Costs";
+const bcWashingtonFaqTypographyStyle = `  <style data-pcm-bc-washington-faq-typography>
+    .pcm-route-faq-static summary {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+    }
+  </style>`;
+const bcWashingtonLegacyPricingCount = normalizedBundle.split(bcWashingtonLegacyPricingHeading).length - 1;
+const bcWashingtonCanonicalPricingCount = normalizedBundle.split(bcWashingtonCanonicalPricingHeading).length - 1;
+if (bcWashingtonLegacyPricingCount === 1 && bcWashingtonCanonicalPricingCount === 0) {
+  normalizedBundle = normalizedBundle.replace(
+    bcWashingtonLegacyPricingHeading,
+    bcWashingtonCanonicalPricingHeading,
+  );
+} else if (bcWashingtonLegacyPricingCount !== 0 || bcWashingtonCanonicalPricingCount !== 1) {
+  throw new Error("Unexpected BC to Washington pricing-heading source state");
+}
+if (normalizedBundle !== bundle) {
+  await writeFile(bundlePath, normalizedBundle, "utf8");
+  bundle = normalizedBundle;
+}
 const siteOrigin = "https://purelycanadianmovers.com";
 const privateRoutePrefixes = ["/admin/", "/404/"];
 const sitemapExcludedRoutes = new Set([
@@ -19,6 +67,15 @@ const sitemapExcludedRoutes = new Set([
   "/movers-vancouver-to-toronto/",
 ]);
 const manualPublicRoutes = [
+  // Step 35A: these canonical routes are hydration-free checked-in static
+  // sources. Keep them discoverable so the ownership guard records an explicit
+  // skip; the compiled router has no exact canonical registration for either.
+  "/calgary-to-edmonton-movers/",
+  "/edmonton-to-calgary-movers/",
+  // Step 37A: the exact compiled route falls back to the Vancouver homepage.
+  // Discovery must reach the ownership guard so the complete checked-in static
+  // document is preserved instead of receiving a generic SPA entry document.
+  "/edmonton-to-ottawa-movers/",
   // This route is served by a standalone static page because the recovered React
   // bundle has no matching client route and would otherwise replace it with /404.
   "/port-coquitlam/",
@@ -29,8 +86,14 @@ const manualPublicRoutes = [
   "/vancouver-to-seattle-movers/",
   "/seattle-to-vancouver-movers/",
   "/toronto-to-vancouver-movers/",
+  // Dedicated static route: include it in discovery/sitemap, then let the
+  // ownership guard below skip SPA output because the bundle has no route.
+  "/vancouver-to-edmonton-movers/",
   "/victoria-to-vancouver-movers/",
   "/victoria-to-toronto-movers/",
+  // Checked-in hydration-free route. The compiled SPA bundle does not register
+  // this path, so route discovery records an ownership skip and preserves it.
+  "/victoria-to-montreal-movers/",
   "/vancouver-to-montreal-movers/",
   "/vancouver-to-ottawa-movers/",
   "/vancouver-to-halifax-movers/",
@@ -46,7 +109,30 @@ const manualPublicRoutes = [
   "/toronto-to-ottawa-movers/",
   "/office-movers-coquitlam/",
 ];
+const aggregatePreservedRoutes = new Map([
+  // Preserve the checked-in About document. Rebuilding it from the generic SPA
+  // entry shell discards its route-specific metadata/content and needlessly
+  // opens the OneDrive-backed file during every aggregate route build.
+  ["/about/", "static page"],
+  // The checked-in Calgary hub is the authoritative document. Calgary-specific
+  // writers below the SPA stage own only its route-list block.
+  ["/calgary-long-distance-movers/", "static/hub page"],
+  // Preserve the checked-in Edmonton hub. Its route writer owns only the
+  // marked route-list block; unrelated shared-footer content must survive.
+  ["/edmonton-long-distance-movers/", "static/hub page"],
+  // The checked-in Toronto hub is also authoritative. Its route writer owns
+  // only the marked Routes From Toronto block.
+  ["/toronto-long-distance-movers/", "static/hub page"],
+  // The checked-in Ottawa hub is also authoritative. Ottawa-specific writers
+  // own only its marked canonical route-list block.
+  ["/ottawa-long-distance-movers/", "static/hub page"],
+  // The checked-in Victoria hub is also authoritative. The Victoria/Ottawa
+  // writer owns only its marked canonical route-list block.
+  ["/victoria-long-distance-movers/", "static/hub page"],
+]);
 const standaloneStaticRoutes = new Set([
+  "/calgary-to-edmonton-movers/",
+  "/edmonton-to-calgary-movers/",
   "/port-coquitlam/",
   "/long-distance-moving-cost-canada/",
   "/halifax-to-calgary-movers/",
@@ -69,6 +155,12 @@ const standaloneStaticRoutes = new Set([
   "/office-movers-coquitlam/",
 ]);
 const routeHeadOverrides = {
+  "/bc-to-washington-movers/": {
+    title: "BC to Washington State Movers | Overnight Service | Purely Canadian Movers",
+    description:
+      "BC to Washington movers with overnight service. Specializing in Amazon and Microsoft employee relocations. Cross-border experts. Free estimates.",
+    canonical: "https://purelycanadianmovers.com/bc-to-washington-movers/",
+  },
   "/local-movers-burnaby-bc/": {
     title: "Local Movers in Burnaby, BC | Purely Canadian Movers",
     description:
@@ -159,6 +251,10 @@ const routeHeadOverrides = {
   },
 };
 
+const routeTitleOverrides = {
+  "/montreal-to-victoria-movers/": "Montreal to Victoria & Nanaimo Movers | Purely Canadian Movers",
+};
+
 const routes = new Set(["/"]);
 const routePatterns = [
   /\bhref:"(\/[a-z0-9][a-z0-9/-]*\/)"/gi,
@@ -186,33 +282,46 @@ function escapeHtml(value) {
 }
 
 function applyHeadOverride(html, route) {
+  const titleOverride = routeTitleOverrides[route];
+  if (titleOverride) {
+    html = html
+      .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(titleOverride)}</title>`)
+      .replace(
+        /<meta property="og:title" content="[^"]*" \/>/,
+        `<meta property="og:title" content="${escapeHtml(titleOverride)}" />`,
+      )
+      .replace(
+        /<meta name="twitter:title" content="[^"]*" \/>/,
+        `<meta name="twitter:title" content="${escapeHtml(titleOverride)}" />`,
+      );
+  }
   const override = routeHeadOverrides[route];
   if (!override) return html;
 
   let next = html
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(override.title)}</title>`)
     .replace(
-      /<meta name="description" content="[^"]*" \/>/,
+      /<meta name="description" content="[^"]*"\s*\/?>/,
       `<meta name="description" content="${escapeHtml(override.description)}" />`,
     )
     .replace(
-      /<meta property="og:title" content="[^"]*" \/>/,
+      /<meta property="og:title" content="[^"]*"\s*\/?>/,
       `<meta property="og:title" content="${escapeHtml(override.title)}" />`,
     )
     .replace(
-      /<meta property="og:description" content="[^"]*" \/>/,
+      /<meta property="og:description" content="[^"]*"\s*\/?>/,
       `<meta property="og:description" content="${escapeHtml(override.description)}" />`,
     )
     .replace(
-      /<meta property="og:url" content="[^"]*" \/>/,
+      /<meta property="og:url" content="[^"]*"\s*\/?>/,
       `<meta property="og:url" content="${escapeHtml(override.canonical)}" />`,
     )
     .replace(
-      /<meta name="twitter:title" content="[^"]*" \/>/,
+      /<meta name="twitter:title" content="[^"]*"\s*\/?>/,
       `<meta name="twitter:title" content="${escapeHtml(override.title)}" />`,
     )
     .replace(
-      /<meta name="twitter:description" content="[^"]*" \/>/,
+      /<meta name="twitter:description" content="[^"]*"\s*\/?>/,
       `<meta name="twitter:description" content="${escapeHtml(override.description)}" />`,
     );
 
@@ -223,13 +332,19 @@ function applyHeadOverride(html, route) {
 
   if (override.canonical) {
     next = next.replace(
-      /<link rel="canonical" id="canonical-tag" href="[^"]*" \/>/,
+      /<link rel="canonical" id="canonical-tag" href="[^"]*"\s*\/?>/,
       `<link rel="canonical" id="canonical-tag" href="${escapeHtml(override.canonical)}" />`,
     );
     next = next.replace(
-      /<link rel="canonical" href="[^"]*" \/>/,
+      /<link rel="canonical" href="[^"]*"\s*\/?>/,
       `<link rel="canonical" href="${escapeHtml(override.canonical)}" />`,
     );
+  }
+
+  if (route === "/bc-to-washington-movers/") {
+    next = next
+      .replace(/[ \t]*<style data-pcm-bc-washington-faq-typography>[\s\S]*?<\/style>\r?\n?/g, "")
+      .replace("</head>", `${bcWashingtonFaqTypographyStyle}\n</head>`);
   }
 
   return next;
@@ -245,8 +360,35 @@ function depth(route) {
 }
 
 for (const route of routes) {
-  if (standaloneStaticRoutes.has(route)) continue;
   const file = routeFile(route);
+  const target = join(outDir, file);
+  if (isLongDistanceRouteUrl(route)) {
+    const ownership = routeOwnershipByUrl.get(route);
+    if (!ownership) throw new Error(`ERROR: ${route} has no declared full-page owner.`);
+    if (ownership.owner !== "generate-spa-routes.mjs") {
+      console.log(`Ownership skip: ${route} belongs to ${ownership.owner}.`);
+      continue;
+    }
+    // The recovered SPA has no server renderer: cloning the homepage entry
+    // document here overwrites route-specific raw HTML whenever unrelated
+    // homepage markup changes. Existing owned route outputs are therefore the
+    // authoritative static inputs to their registered, route-scoped
+    // finalizers. Generate the generic entry document only for a missing route.
+    if (existsSync(target)) {
+      if (route === "/bc-to-washington-movers/") {
+        const existingHtml = await readFile(target, "utf8");
+        const normalizedHtml = applyHeadOverride(existingHtml, route);
+        if (normalizedHtml !== existingHtml) await writeFile(target, normalizedHtml, "utf8");
+      }
+      console.log(`Preserve existing SPA-owned route output: ${route}`);
+      continue;
+    }
+  }
+  if (aggregatePreservedRoutes.has(route)) {
+    console.log(`Preserve existing ${aggregatePreservedRoutes.get(route)}: ${route}`);
+    continue;
+  }
+  if (standaloneStaticRoutes.has(route)) continue;
   const prefix = depth(route) === 0 ? "." : Array(depth(route)).fill("..").join("/");
   let html = index
     .replaceAll("./assets/", `${prefix}/assets/`)
@@ -262,7 +404,6 @@ for (const route of routes) {
   html = applyHeadOverride(html, route);
   html = injectOpenAiAdsPixel(html);
 
-  const target = join(outDir, file);
   await mkdir(dirname(target), { recursive: true });
   await writeFile(target, html);
 }

@@ -1,13 +1,18 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { ensureDedicatedPopularRoutes } from "./cost-guide-popular-routes.mjs";
+import { updateOttawaHubRoutes } from "./ottawa-hub-routes.mjs";
+import { assertRouteOwnership } from "./route-ownership-guard.mjs";
+import { updateVictoriaHubRoutes } from "./victoria-hub-routes.mjs";
+import { alignFaqSchemaToVisible, faqParityDifferences } from "./faq-parity.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
 const siteOrigin = "https://purelycanadianmovers.com";
 const slug = "victoria-to-ottawa-movers";
 const routeUrl = `${siteOrigin}/${slug}/`;
-const templatePath = join(root, "toronto-to-winnipeg-movers", "index.html");
+const templatePath = new URL("./templates/winnipeg-routes/toronto-to-winnipeg-movers.html", import.meta.url);
 const reverseRoutePath = join(root, "ottawa-to-victoria-movers", "index.html");
+const reverseTemplatePath = new URL("./templates/victoria-ottawa-routes/ottawa-to-victoria-movers.html", import.meta.url);
 const victoriaHubPath = join(root, "victoria-long-distance-movers", "index.html");
 const ottawaHubPath = join(root, "ottawa-long-distance-movers", "index.html");
 const costGuidePath = join(root, "long-distance-moving-cost-canada", "index.html");
@@ -24,6 +29,7 @@ const route = {
   metaDescription:
     "Victoria to Ottawa movers for long-distance relocations from Victoria, BC to Ottawa, ON. Compare ferry logistics, estimated costs, 10–22 day transit guidance, packing, storage, and written estimates from a direct moving company.",
 };
+assertRouteOwnership("rebuild-victoria-ottawa-route.mjs", [routeUrl, "/ottawa-to-victoria-movers/"]);
 
 const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   "&": "&amp;",
@@ -121,9 +127,9 @@ function buildHead(template) {
   const bodyStart = template.indexOf("<body");
   if (bodyStart < 0) throw new Error("Standardized route template has no body");
 
-  const title = "Victoria to Ottawa Movers | Long-Distance Moving";
+  const title = "Victoria to Ottawa Movers | Long-Distance Moving | Purely Canadian Movers";
   let head = template.slice(0, bodyStart)
-    .replace(/<title>[\s\S]*?<\/title>/i, `<title>${esc(title)}</title>`)
+    .replace(/<title\b[^>]*>[\s\S]*?<\/title>/i, `<title data-pcm-authoritative-route-title="${esc(title)}">${esc(title)}</title>`)
     .replace(/<link\s+rel="canonical"\s+href="[^"]+">/i, `<link rel="canonical" href="${routeUrl}">`)
     .replace(/<script\s+type="application\/ld\+json"[\s\S]*?<\/script>/gi, "");
 
@@ -285,6 +291,41 @@ function extract(template, pattern, label) {
   return match[0];
 }
 
+function routeMobileNavController() {
+  return `<script>
+  (function () {
+    "use strict";
+
+    function init() {
+      var trigger = document.querySelector('header button[aria-label="Open menu"]');
+      var panel = document.querySelector(".pcm-static-mobile");
+      if (!trigger || !panel || trigger.dataset.pcmRouteMenuReady === "true") return;
+      var close = panel.querySelector('button[aria-label="Close menu"]');
+
+      trigger.dataset.pcmRouteMenuReady = "true";
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.addEventListener("click", function () {
+        trigger.setAttribute("aria-expanded", String(panel.classList.contains("is-open")));
+      });
+      if (close) {
+        close.addEventListener("click", function () {
+          trigger.setAttribute("aria-expanded", "false");
+        });
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape" || !panel.classList.contains("is-open")) return;
+        panel.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.focus();
+      });
+    }
+
+    if (document.readyState === "complete") init();
+    else window.addEventListener("load", init, { once: true });
+  })();
+  </script>`;
+}
+
 function page(template) {
   const header = extract(template, /<header class="pcm-site-header">[\s\S]*?<\/header>/i, "site header");
   const footer = extract(template, /<footer class="pcm-footer">[\s\S]*?<\/footer>/i, "site footer");
@@ -303,13 +344,14 @@ ${buildHead(template)}
   </div>
   <script defer src="/assets/conversion-boost.js"></script>
   <script defer src="/assets/static-nav.js"></script>
+  ${routeMobileNavController()}
 </body>
 </html>`;
 }
 
 function ensureQuality(html) {
   const checks = [
-    [/<title>Victoria to Ottawa Movers \| Long-Distance Moving<\/title>/, "unique title"],
+    [/<title data-pcm-authoritative-route-title="Victoria to Ottawa Movers \| Long-Distance Moving \| Purely Canadian Movers">Victoria to Ottawa Movers \| Long-Distance Moving \| Purely Canadian Movers<\/title>/, "unique title"],
     [new RegExp(`<meta name="description" content="${route.metaDescription.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&")}">`), "unique description"],
     [html.includes(`rel="canonical" href="${routeUrl}"`), "self-referencing canonical"],
     [html.includes("<h1>Victoria to Ottawa Movers</h1>"), "route H1"],
@@ -329,26 +371,50 @@ function ensureQuality(html) {
   if (/Page Not Found|>\s*404\s*</i.test(html)) throw new Error("Generated route contains visible 404 content");
 }
 
-function appendOnce(html, marker, addition, label) {
-  if (html.includes(addition)) return html;
-  const index = html.indexOf(marker);
-  if (index < 0) throw new Error(`Cannot find ${label} marker`);
-  return html.slice(0, index) + addition + html.slice(index);
+function ensureReverseQuality(html) {
+  const checks = [
+    [/<title>Ottawa to Victoria &amp; Nanaimo Movers \| Purely Canadian Movers<\/title>/i.test(html), "route title"],
+    [html.includes('property="og:url" content="https://purelycanadianmovers.com/ottawa-to-victoria-movers/'), "route OG URL"],
+    [html.includes("https://purelycanadianmovers.com/ottawa-to-victoria-movers/"), "self-referencing canonical"],
+    [/<h1[^>]*>Ottawa to Victoria &amp; Nanaimo Movers<\/h1>/i.test(html), "route H1"],
+    [(html.match(/<h1\b/gi) || []).length === 1, "exactly one H1"],
+    [html.includes('name="from" value="Ottawa, ON"'), "Ottawa quote default"],
+    [html.includes('name="to" value="Victoria, BC"'), "Victoria quote default"],
+    [html.includes('data-pcm-route="ottawa-to-victoria"'), "stable route pricing marker"],
+    [html.includes("Route at a Glance"), "Route at a Glance"],
+    [html.includes("FAQPage"), "FAQ schema"],
+    [html.includes("~4,700+ km"), "distance"],
+    [html.includes("10–22 days"), "transit"],
+    [html.includes("$3,000+"), "minimum planning price"],
+    [html.includes("$16,000+"), "maximum planning price"],
+    [html.includes("Open chat assistant"), "chatbot"],
+    [(html.match(/Frequently Asked Questions/gi) || []).length === 1, "exactly one FAQ heading"],
+    [(html.match(/"@type"\s*:\s*"FAQPage"/g) || []).length === 1, "exactly one FAQ schema"],
+    [!/<section\b[^>]*class="[^"]*pcm-local-seo\b/i.test(html), "no local SEO contamination"],
+  ];
+  for (const [passed, label] of checks) if (!passed) throw new Error(`Generated Ottawa to Victoria route failed ${label}`);
+  if (/Professional Movers in Vancouver|Page Not Found|>\s*404\s*</i.test(html)) {
+    throw new Error("Generated Ottawa to Victoria route contains generic SPA or 404 content");
+  }
 }
 
-async function updateReverseRouteLink() {
-  let html = await readFile(reverseRoutePath, "utf8");
+async function rebuildReverseRoute() {
+  let html = await readFile(reverseTemplatePath, "utf8");
+  // The preserved SPA snapshot historically carried the homepage FAQ schema
+  // and post-footer local-SEO block in addition to the route's own FAQ. Strip
+  // those shell artifacts before applying route-owned quote/pricing updates.
+  html = html
+    .replace(/\s*<script\b(?=[^>]*\bid="pcm-faq-schema")[^>]*>[\s\S]*?<\/script>\s*/gi, "\n")
+    .replace(/\s*<section\b(?=[^>]*\bclass="[^"]*\bpcm-local-seo\b[^"]*")(?=[^>]*\bdata-pcm-static-local-seo="\/")[^>]*>[\s\S]*?<\/section>\s*/gi, "\n");
+  html = alignFaqSchemaToVisible(html);
+  if (faqParityDifferences(html).differences.length) throw new Error("FAQ parity repair failed for Ottawa to Victoria");
+  ensureReverseQuality(html);
   const quotePattern = /<section class="pcm-top-estimate-wrap pcm-lead-boost"[\s\S]*?<\/section>|<section class="pcm-lead-boost pcm-lead-panel"[\s\S]*?<\/section>/i;
   if (!quotePattern.test(html)) throw new Error("Ottawa to Victoria quote panel not found");
   html = html.replace(quotePattern, reverseQuotePanel());
   const modernPattern = /<section[^>]+data-pcm-route="ottawa-to-victoria"[\s\S]*?<\/section>/i;
-  if (modernPattern.test(html)) {
-    html = html.replace(modernPattern, ottawaVictoriaPricingSection());
-  } else {
-    const legacyPattern = /<h2[^>]*>Ottawa to Victoria\/Nanaimo Moving Cost Breakdown<\/h2>[\s\S]*?(?=<h2[^>]*>Moving Tips for Your Vancouver Island Arrival<\/h2>)/i;
-    if (!legacyPattern.test(html)) throw new Error("Ottawa to Victoria legacy pricing block not found");
-    html = html.replace(legacyPattern, `${ottawaVictoriaPricingSection()}\n`);
-  }
+  if (!modernPattern.test(html)) throw new Error("Ottawa to Victoria route template is missing its stable pricing marker");
+  html = html.replace(modernPattern, ottawaVictoriaPricingSection());
   const pricingMatch = html.match(modernPattern);
   if (!pricingMatch) throw new Error("Ottawa to Victoria pricing block not found");
   const pricingStart = pricingMatch.index;
@@ -386,28 +452,19 @@ async function updateReverseRouteLink() {
     html = html.slice(0, scriptsIndex) + `</div>\n    ${hydratedAddition}\n\n` + html.slice(scriptsIndex);
   }
   html = html.replace(/\s*<script defer src="\/assets\/victoria-ottawa-reverse-link\.js"><\/script>/g, "");
+  ensureReverseQuality(html);
+  await mkdir(join(root, "ottawa-to-victoria-movers"), { recursive: true });
   await writeFile(reverseRoutePath, html, "utf8");
 }
 
 async function updateVictoriaHub() {
-  let html = await readFile(victoriaHubPath, "utf8");
-  if (!html.includes("/victoria-to-ottawa-movers/")) {
-    const marker = "Moving From Other Canadian Cities?";
-    const markerIndex = html.indexOf(marker);
-    if (markerIndex < 0) throw new Error("Victoria hub route-links section not found");
-    const close = html.lastIndexOf("</div></div>", markerIndex);
-    if (close < 0) throw new Error("Victoria hub route-links container not found");
-    const link = '<a href="/victoria-to-ottawa-movers/" class="flex items-center gap-3 p-3 bg-white rounded border border-gray-200 hover:border-[#CC1A1A] hover:bg-red-50 transition-colors group"><span class="font-body text-gray-700 group-hover:text-gray-900 font-semibold">Victoria → Ottawa</span></a>';
-    html = html.slice(0, close) + link + html.slice(close);
-  }
-  await writeFile(victoriaHubPath, html, "utf8");
+  const html = await readFile(victoriaHubPath, "utf8");
+  await writeFile(victoriaHubPath, updateVictoriaHubRoutes(html, { requireExisting: true }), "utf8");
 }
 
 async function updateOttawaHub() {
-  let html = await readFile(ottawaHubPath, "utf8");
-  const addition = '<a href="/victoria-to-ottawa-movers/" class="text-[#CC1A1A] hover:underline font-semibold">Victoria to Ottawa Movers</a>';
-  html = appendOnce(html, "Ottawa → Victoria / Nanaimo", ` · ${addition}`, "Ottawa hub route list");
-  await writeFile(ottawaHubPath, html, "utf8");
+  const html = await readFile(ottawaHubPath, "utf8");
+  await writeFile(ottawaHubPath, updateOttawaHubRoutes(html, { requireExisting: true }), "utf8");
 }
 
 async function updateCostGuide() {
@@ -429,10 +486,11 @@ const output = page(template);
 ensureQuality(output);
 await mkdir(join(root, slug), { recursive: true });
 await writeFile(join(root, slug, "index.html"), output, "utf8");
-await updateReverseRouteLink();
+await rebuildReverseRoute();
 await updateVictoriaHub();
 await updateOttawaHub();
 await updateCostGuide();
 await updateSitemap();
 console.log(`Rebuilt /${slug}/ from the current standardized route template`);
-console.log("Updated reverse-route, Victoria, Ottawa, cost-guide, and sitemap links");
+console.log("Rebuilt /ottawa-to-victoria-movers/ from its explicit route template");
+console.log("Updated Victoria, Ottawa, cost-guide, and sitemap links");

@@ -5,6 +5,44 @@
   var GOOGLE_MAPS_ADDRESS_URL =
     "https://www.google.com/maps/search/?api=1&query=Unit%2016%2091%20Golden%20Dr%20Coquitlam%20BC%20V3K%206R2";
 
+  // One route-data source for both forms created by this runtime and forms
+  // already rendered by the SPA/static page. Keeping these paths together
+  // prevents an existing form from falling back to empty generic inputs while
+  // a newly-created form receives the correct directional defaults.
+  var ROUTE_FORM_DEFAULTS = {
+    "/bc-to-washington-movers/": ["British Columbia", "Washington State"],
+    "/calgary-to-toronto-movers/": ["Calgary, AB", "Toronto, ON"],
+    "/calgary-to-vancouver-movers/": ["Calgary, AB", "Vancouver, BC"],
+    "/montreal-to-calgary-movers/": ["Montreal, QC", "Calgary, AB"],
+    "/ottawa-to-edmonton-movers/": ["Ottawa, ON", "Edmonton, AB"],
+    "/toronto-to-vancouver-movers/": ["Toronto, ON", "Vancouver, BC"],
+    "/toronto-to-victoria-movers/": ["Toronto, ON", "Victoria, BC"],
+    "/vancouver-to-calgary-movers/": ["Vancouver, BC", "Calgary, AB"],
+    "/vancouver-to-halifax-movers/": ["Vancouver, BC", "Halifax, NS"],
+    "/vancouver-to-toronto-movers/": ["Vancouver, BC", "Toronto, ON"],
+    "/halifax-to-calgary-movers/": ["Halifax, NS", "Calgary, AB"],
+    "/calgary-to-halifax-movers/": ["Calgary, AB", "Halifax, NS"],
+    "/halifax-to-vancouver-movers/": ["Halifax, NS", "Vancouver, BC"],
+    "/edmonton-to-toronto-movers/": ["Edmonton, AB", "Toronto, ON"],
+    "/edmonton-to-vancouver-movers/": ["Edmonton, AB", "Vancouver, BC"],
+    "/vancouver-to-edmonton-movers/": ["Vancouver, BC", "Edmonton, AB"],
+    "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
+    "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
+    "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
+    "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
+    "/montreal-to-edmonton-movers/": ["Montreal, QC", "Edmonton, AB"],
+    "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
+    "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
+    "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
+    "/winnipeg-to-montreal-movers/": ["Winnipeg, MB", "Montreal, QC"],
+    "/montreal-to-winnipeg-movers/": ["Montreal, QC", "Winnipeg, MB"],
+    "/winnipeg-to-calgary-movers/": ["Winnipeg, MB", "Calgary, AB"],
+    "/calgary-to-winnipeg-movers/": ["Calgary, AB", "Winnipeg, MB"],
+    "/ottawa-to-toronto-movers/": ["Ottawa, ON", "Toronto, ON"],
+    "/toronto-to-ottawa-movers/": ["Toronto, ON", "Ottawa, ON"],
+    "/port-moody/": ["Port Moody, BC", ""],
+  };
+
   // Track only a confirmed successful final estimate request. The short estimate
   // form stores intent and navigates to /contact/; it does not call this endpoint.
   function installEstimateConversionTracking() {
@@ -308,7 +346,7 @@
     "/montreal-to-edmonton-movers/": "Montreal to Edmonton Moving Cost | Movers, Prices & Transit Time",
     "/montreal-to-toronto-movers/": "Montreal to Toronto Movers | Long-Distance Moving",
     "/montreal-to-vancouver-movers/": "Montreal to Vancouver Moving Cost | Movers, Prices & Transit Time",
-    "/montreal-to-victoria-movers/": "Montreal to Victoria Movers | Long-Distance Moving",
+    "/montreal-to-victoria-movers/": "Montreal to Victoria & Nanaimo Movers | Purely Canadian Movers",
     "/winnipeg-to-montreal-movers/": "Winnipeg to Montreal Movers | Cost, Transit Time & Estimate",
     "/montreal-to-winnipeg-movers/": "Montreal to Winnipeg Movers | Cost, Transit Time & Estimate",
     "/victoria-to-montreal-movers/": "Victoria to Montreal Movers | Long-Distance Moving",
@@ -331,7 +369,7 @@
     "/ottawa-to-toronto-movers/": "Ottawa to Toronto Movers | Cost, Transit Time & Estimate",
     "/toronto-to-ottawa-movers/": "Toronto to Ottawa Movers | Cost, Transit Time & Estimate",
     "/ottawa-to-vancouver-movers/": "Ottawa to Vancouver Moving Cost | Movers, Prices & Transit Time",
-    "/ottawa-to-victoria-movers/": "Ottawa to Victoria Movers | Long-Distance Moving",
+    "/ottawa-to-victoria-movers/": "Ottawa to Victoria & Nanaimo Movers | Purely Canadian Movers",
     "/our-network/": "Moving Network Across Canada | Purely Canadian Movers",
     "/overseas/": "Overseas Moving Services | International Movers Vancouver",
     "/packing-service-in-coquitlam-bc/": "Packing Services Coquitlam BC | Moving & Unpacking",
@@ -757,9 +795,9 @@
       h1: "Winnipeg to Calgary Moving Cost, Distance & Transit Time",
       title: "How much does it cost to move from Winnipeg to Calgary?",
       intro:
-        "A Winnipeg to Calgary move is about <strong>1,320 km</strong> by road. Planning figures are <strong>$2,300</strong> for a studio, <strong>$3,200</strong> for a 1-bedroom, <strong>$5,100</strong> for a 2-bedroom, <strong>$8,200</strong> for a 3-bedroom, and <strong>$12,000</strong> for a 4+ bedroom home, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+        "A Winnipeg to Calgary move is approximately <strong>1,320 km</strong> by road. Planning figures start at <strong>$2,300+</strong> for a studio, <strong>$3,200+</strong> for a 1-bedroom, <strong>$5,100+</strong> for a 2-bedroom, <strong>$8,200+</strong> for a 3-bedroom, and <strong>$12,000+</strong> for a 4+ bedroom home, depending on weight or volume, access, packing, storage, season, and Declared Value Protection.",
       note:
-        "Prices are planning ranges in CAD, not guaranteed quotes. Winnipeg to Calgary pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates. Typical transit planning is about 3-11 days.",
+        "Prices are planning ranges in CAD, not guaranteed quotes. Winnipeg to Calgary pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates. Typical transit planning is about 3–11 days.",
       links: [
         ["Full cost guide", "/long-distance-moving-cost-canada/"],
         ["Calgary movers", "/calgary-long-distance-movers/"],
@@ -767,11 +805,11 @@
         ["Get a written estimate", "/contact/"],
       ],
       rows: [
-        ["Studio", "$2,300", "Best for limited furniture or a partial shipment", "3-11 days"],
-        ["1-bedroom", "$3,200", "Depends on inventory weight or volume, access, and packing", "3-11 days"],
-        ["2-bedroom", "$5,100", "Common planning figure for apartment or condo moves", "3-11 days"],
-        ["3-bedroom", "$8,200", "Larger household shipment with more labour and space", "3-11 days"],
-        ["4+ bedroom", "$12,000", "Final quote depends heavily on inventory and services", "3-11 days"],
+        ["Studio", "$2,300+", "Best for limited furniture or a partial shipment", "3–11 days"],
+        ["1-bedroom", "$3,200+", "Depends on inventory weight or volume, access, and packing", "3–11 days"],
+        ["2-bedroom", "$5,100+", "Common planning figure for apartment or condo moves", "3–11 days"],
+        ["3-bedroom", "$8,200+", "Larger household shipment with more labour and space", "3–11 days"],
+        ["4+ bedroom", "$12,000+", "Final quote depends heavily on inventory and services", "3–11 days"],
       ],
     },
     "/calgary-to-winnipeg-movers/": {
@@ -780,9 +818,9 @@
       h1: "Calgary to Winnipeg Moving Cost, Distance & Transit Time",
       title: "How much does it cost to move from Calgary to Winnipeg?",
       intro:
-        "A Calgary to Winnipeg move is about <strong>1,320 km</strong> by road. Planning figures are <strong>$2,300</strong> for a studio, <strong>$3,200</strong> for a 1-bedroom, <strong>$5,100</strong> for a 2-bedroom, <strong>$8,200</strong> for a 3-bedroom, and <strong>$12,000</strong> for a 4+ bedroom home, depending on weight or volume, access, packing, storage, season, and valuation coverage.",
+        "A Calgary to Winnipeg move is approximately <strong>1,320 km</strong> by road. Planning figures start at <strong>$2,300+</strong> for a studio, <strong>$3,200+</strong> for a 1-bedroom, <strong>$5,100+</strong> for a 2-bedroom, <strong>$8,200+</strong> for a 3-bedroom, and <strong>$12,000+</strong> for a 4+ bedroom home, depending on weight or volume, access, packing, storage, season, and Declared Value Protection.",
       note:
-        "Prices are planning ranges in CAD, not guaranteed quotes. Calgary to Winnipeg pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates. Typical transit planning is about 3-11 days.",
+        "Prices are planning ranges in CAD, not guaranteed quotes. Calgary to Winnipeg pricing depends on inventory weight or volume, pickup and delivery access, stairs, elevators, packing, storage timing, specialty items, and service dates. Typical transit planning is about 3–11 days.",
       links: [
         ["Full cost guide", "/long-distance-moving-cost-canada/"],
         ["Calgary movers", "/calgary-long-distance-movers/"],
@@ -790,11 +828,11 @@
         ["Get a written estimate", "/contact/"],
       ],
       rows: [
-        ["Studio", "$2,300", "Best for limited furniture or a partial shipment", "3-11 days"],
-        ["1-bedroom", "$3,200", "Depends on inventory weight or volume, access, and packing", "3-11 days"],
-        ["2-bedroom", "$5,100", "Common planning figure for apartment or condo moves", "3-11 days"],
-        ["3-bedroom", "$8,200", "Larger household shipment with more labour and space", "3-11 days"],
-        ["4+ bedroom", "$12,000", "Final quote depends heavily on inventory and services", "3-11 days"],
+        ["Studio", "$2,300+", "Best for limited furniture or a partial shipment", "3–11 days"],
+        ["1-bedroom", "$3,200+", "Depends on inventory weight or volume, access, and packing", "3–11 days"],
+        ["2-bedroom", "$5,100+", "Common planning figure for apartment or condo moves", "3–11 days"],
+        ["3-bedroom", "$8,200+", "Larger household shipment with more labour and space", "3–11 days"],
+        ["4+ bedroom", "$12,000+", "Final quote depends heavily on inventory and services", "3–11 days"],
       ],
     },
     "/montreal-to-vancouver-movers/": {
@@ -1553,11 +1591,11 @@
     "/winnipeg-to-calgary-movers/": {
       title: "Winnipeg to Calgary moving cost, distance, and transit time",
       intro:
-        "A Winnipeg to Calgary move is about 1,320 km by road. Planning figures are $2,300 for a studio, $3,200 for a 1-bedroom, $5,100 for a 2-bedroom, $8,200 for a 3-bedroom, and $12,000 for a 4+ bedroom home, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+        "A Winnipeg to Calgary move is approximately 1,320 km by road. Planning figures start at $2,300+ for a studio, $3,200+ for a 1-bedroom, $5,100+ for a 2-bedroom, $8,200+ for a 3-bedroom, and $12,000+ for a 4+ bedroom home, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and Declared Value Protection.",
       highlights: [
         ["Route distance", "Winnipeg to Calgary is about 1,320 km by road, depending on the exact pickup and delivery addresses."],
-        ["Typical transit", "Winnipeg to Calgary long-distance moves are commonly planned around a 3-11 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+        ["Typical transit", "Winnipeg to Calgary long-distance moves are commonly planned around a 3–11 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, Declared Value Protection options, and direct moving accountability."],
       ],
       links: [
         ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
@@ -1565,26 +1603,26 @@
         ["Long-Distance Moving", "/long-distance/"],
         ["Packing Services", "/packing/"],
         ["Storage Services", "/storage/"],
-        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Declared Value Protection", "/valuation-coverage-protection/"],
         ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
         ["Get a Winnipeg to Calgary Estimate", "/contact/"],
       ],
       faqs: [
-        ["How much does it cost to move from Winnipeg to Calgary?", "Planning figures for Winnipeg to Calgary are $2,300 for a studio, $3,200 for a 1-bedroom, $5,100 for a 2-bedroom, $8,200 for a 3-bedroom, and $12,000 for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How much does it cost to move from Winnipeg to Calgary?", "Planning figures for Winnipeg to Calgary start at $2,300+ for a studio, $3,200+ for a 1-bedroom, $5,100+ for a 2-bedroom, $8,200+ for a 3-bedroom, and $12,000+ for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and Declared Value Protection."],
         ["How long does a Winnipeg to Calgary move take?", "A typical Winnipeg to Calgary moving transit window is about 3–11 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of a Winnipeg to Calgary move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Winnipeg to Calgary moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
-        ["Can packing or storage be included with a Winnipeg to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Winnipeg to Calgary moving estimate."],
+        ["Can packing or storage be included with a Winnipeg to Calgary move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and Declared Value Protection options can be included in a Winnipeg to Calgary moving estimate."],
       ],
     },
     "/calgary-to-winnipeg-movers/": {
       title: "Calgary to Winnipeg moving cost, distance, and transit time",
       intro:
-        "A Calgary to Winnipeg move is about 1,320 km by road. Planning figures are $2,300 for a studio, $3,200 for a 1-bedroom, $5,100 for a 2-bedroom, $8,200 for a 3-bedroom, and $12,000 for a 4+ bedroom home, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and valuation coverage.",
+        "A Calgary to Winnipeg move is approximately 1,320 km by road. Planning figures start at $2,300+ for a studio, $3,200+ for a 1-bedroom, $5,100+ for a 2-bedroom, $8,200+ for a 3-bedroom, and $12,000+ for a 4+ bedroom home, depending on shipment weight or volume, pickup access, delivery access, packing, storage, timing, and Declared Value Protection.",
       highlights: [
         ["Route distance", "Calgary to Winnipeg is about 1,320 km by road, depending on the exact pickup and delivery addresses."],
-        ["Typical transit", "Calgary to Winnipeg long-distance moves are commonly planned around a 3-11 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
-        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, valuation coverage options, and direct moving accountability."],
+        ["Typical transit", "Calgary to Winnipeg long-distance moves are commonly planned around a 3–11 day transit window, depending on shipment size, route planning, consolidation, scheduling, and access."],
+        ["Trust proof", "Family-owned since 1991, BBB Accredited, Great Canadian Van Lines agent support, Declared Value Protection options, and direct moving accountability."],
       ],
       links: [
         ["Full Moving Cost Guide", "/long-distance-moving-cost-canada/"],
@@ -1592,16 +1630,16 @@
         ["Long-Distance Moving", "/long-distance/"],
         ["Packing Services", "/packing/"],
         ["Storage Services", "/storage/"],
-        ["Valuation Coverage", "/valuation-coverage-protection/"],
+        ["Declared Value Protection", "/valuation-coverage-protection/"],
         ["Great Canadian Van Lines Agent", "/great-canadian-vanlines-agent/"],
         ["Get a Calgary to Winnipeg Estimate", "/contact/"],
       ],
       faqs: [
-        ["How much does it cost to move from Calgary to Winnipeg?", "Planning figures for Calgary to Winnipeg are $2,300 for a studio, $3,200 for a 1-bedroom, $5,100 for a 2-bedroom, $8,200 for a 3-bedroom, and $12,000 for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and valuation coverage."],
+        ["How much does it cost to move from Calgary to Winnipeg?", "Planning figures for Calgary to Winnipeg start at $2,300+ for a studio, $3,200+ for a 1-bedroom, $5,100+ for a 2-bedroom, $8,200+ for a 3-bedroom, and $12,000+ for a 4+ bedroom home. Final cost depends on weight or volume, access, packing, storage, timing, and Declared Value Protection."],
         ["How long does a Calgary to Winnipeg move take?", "A typical Calgary to Winnipeg moving transit window is about 3–11 days, depending on shipment size, scheduling, route planning, consolidation, weather, and access at pickup and delivery."],
         ["What affects the price of a Calgary to Winnipeg move?", "Shipment weight or volume, home size, stairs, elevators, parking, long carries, packing, storage, specialty items, season, and exact pickup and delivery addresses can all affect the final quote."],
         ["Is Calgary to Winnipeg moving pricing based on weight or volume?", "Long-distance moving estimates may be based on weight or volume depending on the shipment, route, and estimate process. Purely Canadian Movers reviews inventory details before preparing a written quote."],
-        ["Can packing or storage be included with a Calgary to Winnipeg move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and valuation coverage options can be included in a Calgary to Winnipeg moving estimate."],
+        ["Can packing or storage be included with a Calgary to Winnipeg move?", "Yes. Packing, unpacking, supplies, short-term storage, long-term storage, and Declared Value Protection options can be included in a Calgary to Winnipeg moving estimate."],
       ],
     },
     "/montreal-to-vancouver-movers/": {
@@ -1945,6 +1983,15 @@
     return input;
   }
 
+  function createRouteDefaultInput(name, value) {
+    var input = createInput(name, value);
+    if (value) {
+      input.value = value;
+      input.setAttribute("value", value);
+    }
+    return input;
+  }
+
   function cleanEstimateDetails(details) {
     var cleaned = {};
     ["from", "to", "homeSize", "moveDate", "sourcePage", "savedAt"].forEach(function (key) {
@@ -2149,32 +2196,9 @@
     mobileStart.textContent = "Begin here";
     form.appendChild(mobileStart);
 
-    var routeDefaults = {
-      "/calgary-to-toronto-movers/": ["Calgary, AB", "Toronto, ON"],
-      "/halifax-to-calgary-movers/": ["Halifax, NS", "Calgary, AB"],
-      "/calgary-to-halifax-movers/": ["Calgary, AB", "Halifax, NS"],
-      "/halifax-to-vancouver-movers/": ["Halifax, NS", "Vancouver, BC"],
-      "/edmonton-to-toronto-movers/": ["Edmonton, AB", "Toronto, ON"],
-      "/edmonton-to-vancouver-movers/": ["Edmonton, AB", "Vancouver, BC"],
-      "/vancouver-to-edmonton-movers/": ["Vancouver, BC", "Edmonton, AB"],
-      "/toronto-to-edmonton-movers/": ["Toronto, ON", "Edmonton, AB"],
-      "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
-      "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
-      "/edmonton-to-montreal-movers/": ["Edmonton, AB", "Montreal, QC"],
-      "/montreal-to-edmonton-movers/": ["Montreal, QC", "Edmonton, AB"],
-      "/edmonton-to-ottawa-movers/": ["Edmonton, AB", "Ottawa, ON"],
-      "/montreal-to-victoria-movers/": ["Montreal, QC", "Victoria, BC"],
-      "/victoria-to-montreal-movers/": ["Victoria, BC", "Montreal, QC"],
-      "/winnipeg-to-montreal-movers/": ["Winnipeg, MB", "Montreal, QC"],
-      "/montreal-to-winnipeg-movers/": ["Montreal, QC", "Winnipeg, MB"],
-      "/winnipeg-to-calgary-movers/": ["Winnipeg, MB", "Calgary, AB"],
-      "/calgary-to-winnipeg-movers/": ["Calgary, AB", "Winnipeg, MB"],
-      "/ottawa-to-toronto-movers/": ["Ottawa, ON", "Toronto, ON"],
-      "/toronto-to-ottawa-movers/": ["Toronto, ON", "Ottawa, ON"],
-      "/port-moody/": ["Port Moody, BC", ""],
-    }[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
-    form.appendChild(createField("Moving from", createInput("from", routeDefaults[0])));
-    form.appendChild(createField("Moving to", createInput("to", routeDefaults[1])));
+    var routeDefaults = ROUTE_FORM_DEFAULTS[normalizePath()] || ["Toronto, ON", "Calgary, AB"];
+    form.appendChild(createField("Moving from", createRouteDefaultInput("from", routeDefaults[0])));
+    form.appendChild(createField("Moving to", createRouteDefaultInput("to", routeDefaults[1])));
     form.appendChild(createField("Home size", createSizeSelect()));
     form.appendChild(createField("Move date", createInput("moveDate", "", "date")));
 
@@ -2413,15 +2437,7 @@
   }
 
   function enhanceExistingEstimateForms() {
-    var existingRouteDefaults = {
-      "/toronto-to-montreal-movers/": ["Toronto, ON", "Montreal, QC"],
-      "/montreal-to-toronto-movers/": ["Montreal, QC", "Toronto, ON"],
-      "/winnipeg-to-montreal-movers/": ["Winnipeg, MB", "Montreal, QC"],
-      "/montreal-to-winnipeg-movers/": ["Montreal, QC", "Winnipeg, MB"],
-      "/ottawa-to-toronto-movers/": ["Ottawa, ON", "Toronto, ON"],
-      "/toronto-to-ottawa-movers/": ["Toronto, ON", "Ottawa, ON"],
-      "/port-moody/": ["Port Moody, BC", ""],
-    }[normalizePath()];
+    var existingRouteDefaults = ROUTE_FORM_DEFAULTS[normalizePath()];
 
     Array.prototype.forEach.call(document.querySelectorAll("form"), function (form) {
       if (normalizePath() === "/port-moody/" && form.getAttribute("data-pcm-port-moody-defaults") !== "1") {
@@ -2447,10 +2463,8 @@
         ["from", "to"].forEach(function (name, index) {
           var input = form.querySelector('input[name="' + name + '"]');
           if (!input || input.value || !existingRouteDefaults[index]) return;
-          input.value = existingRouteDefaults[index];
+          setNativeValue(input, existingRouteDefaults[index]);
           input.setAttribute("value", existingRouteDefaults[index]);
-          input.dispatchEvent(new Event("input", { bubbles: true }));
-          input.dispatchEvent(new Event("change", { bubbles: true }));
         });
       }
       if (form.querySelector(".pcm-estimate-bonus")) return;
@@ -2769,14 +2783,75 @@
 
   function cleanupTitle(title) {
     if (!title) return "";
-    return title
-      .replace(/\s*\|\s*Purely Canadian Movers\s*\|\s*Purely Canadian Movers\s*$/i, " | Purely Canadian Movers")
-      .replace(/^Purely Canadian Movers\s*\|\s*Professional Moving Company Vancouver BC Since 1991$/i, "Vancouver Movers | Local & Long-Distance Moving")
-      .replace(/\s+/g, " ")
-      .trim();
+    var suffix = " | Purely Canadian Movers";
+    var value = String(title).replace(/\s+/g, " ").trim();
+    var suffixCount = 0;
+    while (value.toLowerCase().endsWith(suffix.toLowerCase())) {
+      suffixCount += 1;
+      value = value.slice(0, -suffix.length).trimEnd();
+    }
+    if (/^Purely Canadian Movers\s*\|\s*Professional Moving Company Vancouver BC Since 1991$/i.test(value)) {
+      return "Vancouver Movers | Local & Long-Distance Moving";
+    }
+    return value && suffixCount ? value + suffix : value;
+  }
+
+  function canonicalRouteTitle(title) {
+    var suffix = " | Purely Canadian Movers";
+    var value = cleanupTitle(title);
+    while (value.toLowerCase().endsWith(suffix.toLowerCase())) {
+      value = value.slice(0, -suffix.length).trimEnd();
+    }
+    return value ? value + suffix : "";
+  }
+
+  function isLongDistanceRoutePath(path) {
+    return /^\/[a-z0-9]+(?:-[a-z0-9]+)*-to-[a-z0-9]+(?:-[a-z0-9]+)*-movers\/$/.test(path);
+  }
+
+  function syncAuthoritativeRouteTitle() {
+    var titleElement = document.querySelector("title");
+    if (!titleElement) return "";
+    var source = titleElement.getAttribute("data-pcm-authoritative-route-title") || document.title;
+    var title = canonicalRouteTitle(source);
+    if (!title) return "";
+    if (document.title !== title) document.title = title;
+    var fields = [
+      ['meta[property="og:title"]', "property", "og:title"],
+      ['meta[name="twitter:title"]', "name", "twitter:title"],
+    ];
+    fields.forEach(function (field) {
+      var meta = document.querySelector(field[0]);
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute(field[1], field[2]);
+        document.head.appendChild(meta);
+      }
+      if (meta.getAttribute("content") !== title) meta.setAttribute("content", title);
+    });
+    return title;
+  }
+
+  function watchAuthoritativeRouteTitle() {
+    if (document.documentElement.hasAttribute("data-pcm-route-title-watch")) return;
+    document.documentElement.setAttribute("data-pcm-route-title-watch", "");
+    new MutationObserver(function () {
+      syncAuthoritativeRouteTitle();
+    }).observe(document.head, {
+      subtree: true,
+      childList: true,
+      characterData: true,
+      attributes: true,
+      attributeFilter: ["content"],
+    });
   }
 
   function applyTitleOverride(path) {
+    if (isLongDistanceRoutePath(path)) {
+      syncAuthoritativeRouteTitle();
+      watchAuthoritativeRouteTitle();
+      return;
+    }
     var title = TITLE_OVERRIDES[path] || cleanupTitle(document.title);
     var description = META_DESCRIPTION_OVERRIDES[path];
     if (title === document.title) title = "";
@@ -3237,6 +3312,7 @@
   }
 
   function insertLocalSeoBlock(path) {
+    if (path === "/montreal-to-edmonton-movers/") return;
     var config = LOCAL_SEO_BLOCKS[path];
     if (!config || document.querySelector(".pcm-local-seo")) return;
     var leadPanel = document.querySelector(".pcm-lead-panel");
@@ -3299,6 +3375,161 @@
         .replace(/8[–-]18 days/g, "7–19 days")
         .replace(/8[–-]20 days/g, "7–19 days");
     }
+
+    if (path !== "/montreal-to-edmonton-movers/") return;
+    var faqHeading = Array.prototype.find.call(root.querySelectorAll("h2"), function (heading) {
+      return (heading.textContent || "").trim() === "Frequently Asked Questions";
+    });
+    var faqSection = faqHeading && faqHeading.closest("section");
+    var faqSchema = document.getElementById("faq-schema");
+    if (!faqSection || !faqSchema) return;
+
+    try {
+      var schemaData = JSON.parse(faqSchema.textContent);
+      if (schemaData["@type"] !== "FAQPage") return;
+      schemaData.mainEntity = Array.prototype.map.call(faqSection.querySelectorAll("h3"), function (question) {
+        var card = question.parentElement;
+        var answer = card && card.querySelector("p");
+        return {
+          "@type": "Question",
+          name: (question.textContent || "").trim(),
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: answer ? (answer.textContent || "").trim() : "",
+          },
+        };
+      });
+      faqSchema.textContent = JSON.stringify(schemaData);
+    } catch (error) {
+      // Leave the existing FAQ schema unchanged if it is not valid JSON.
+    }
+  }
+
+  function syncOwnedRouteFaqSchema(path) {
+    if (!["/halifax-to-toronto-movers/", "/toronto-to-halifax-movers/", "/ottawa-to-victoria-movers/"].includes(path)) return;
+    var root = document.getElementById("root");
+    if (!root) return;
+    var faqHeading = Array.prototype.find.call(root.querySelectorAll("h2"), function (heading) {
+      return (heading.textContent || "").trim() === "Frequently Asked Questions";
+    });
+    var faqSection = faqHeading && faqHeading.closest("section");
+    if (!faqSection) return;
+    var entries = Array.prototype.map.call(faqSection.querySelectorAll("h3"), function (question) {
+      var card = question.parentElement;
+      var answer = card && card.querySelector("p");
+      return {
+        "@type": "Question",
+        name: (question.textContent || "").replace(/\s+/g, " ").trim(),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer ? (answer.textContent || "").replace(/\s+/g, " ").trim() : "",
+        },
+      };
+    });
+    if (!entries.length) return;
+
+    Array.prototype.forEach.call(document.querySelectorAll('script[type="application/ld+json"]'), function (script) {
+      try {
+        var data = JSON.parse(script.textContent);
+        var faq = data && data["@type"] === "FAQPage"
+          ? data
+          : data && Array.isArray(data["@graph"])
+            ? data["@graph"].find(function (node) { return node && node["@type"] === "FAQPage"; })
+            : null;
+        if (!faq) return;
+        faq.mainEntity = entries;
+        script.textContent = JSON.stringify(data);
+      } catch (error) {
+        // Preserve invalid or unrelated JSON-LD rather than changing it.
+      }
+    });
+  }
+
+  // Long-distance route FAQ contract: the single visible route FAQ is the
+  // source of truth. Older prerenders sometimes serialized the homepage SEO
+  // FAQ beside the route FAQ; remove only that explicitly marked generic block
+  // and keep route-scoped content intact.
+  function normalizeOwnedRouteFaqArchitecture(path) {
+    if (!isLongDistanceRoutePath(path)) return true;
+
+    var removedGeneric = false;
+    Array.prototype.forEach.call(document.querySelectorAll(".pcm-local-seo"), function (section) {
+      if (section.getAttribute("data-pcm-static-local-seo") === "/") {
+        section.remove();
+        removedGeneric = true;
+      } else {
+        section.classList.remove("pcm-local-seo");
+        section.classList.add("pcm-route-support");
+      }
+    });
+    if (removedGeneric) {
+      var genericSchema = document.getElementById("pcm-faq-schema");
+      if (genericSchema) genericSchema.remove();
+    }
+
+    var authoritativeStaticFaq = document.querySelector('[data-pcm-route-faq-static="1"]');
+    if (authoritativeStaticFaq) {
+      Array.prototype.forEach.call(document.querySelectorAll("h2"), function (heading) {
+        if (!/Frequently Asked Questions|Frequently asked questions|\bFAQ\b/i.test((heading.textContent || "").replace(/\s+/g, " ").trim())) return;
+        if (authoritativeStaticFaq.contains(heading)) return;
+        var duplicateSection = heading.closest("section");
+        if (duplicateSection) duplicateSection.remove();
+      });
+    }
+
+    var headings = Array.prototype.filter.call(document.querySelectorAll("h2"), function (heading) {
+      return /Frequently Asked Questions|Frequently asked questions|\bFAQ\b/i.test((heading.textContent || "").replace(/\s+/g, " ").trim());
+    });
+    if (headings.length !== 1) return false;
+    var faqSection = headings[0].closest("section");
+    var faqContainer = faqSection;
+    if (!faqSection || !faqContainer) return false;
+    var entries = Array.prototype.map.call(faqContainer.querySelectorAll("h3,h4,summary"), function (question) {
+      if (!(headings[0].compareDocumentPosition(question) & Node.DOCUMENT_POSITION_FOLLOWING)) return null;
+      var card = question.parentElement;
+      var answer = card && card.querySelector("p");
+      if (!answer) return null;
+      return {
+        "@type": "Question",
+        name: (question.textContent || "").replace(/\s+/g, " ").trim(),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: (answer.textContent || "").replace(/\s+/g, " ").trim(),
+        },
+      };
+    }).filter(Boolean);
+    if (!entries.length) return false;
+
+    var matches = [];
+    Array.prototype.forEach.call(document.querySelectorAll('script[type="application/ld+json"]'), function (script) {
+      try {
+        var data = JSON.parse(script.textContent);
+        var nodes = [];
+        var walk = function (value) {
+          if (!value || typeof value !== "object") return;
+          if (value["@type"] === "FAQPage") nodes.push(value);
+          if (Array.isArray(value)) value.forEach(walk);
+          else Object.keys(value).forEach(function (key) { walk(value[key]); });
+        };
+        walk(data);
+        nodes.forEach(function (node) { matches.push({ script: script, data: data, node: node }); });
+      } catch (error) {
+        // Preserve invalid and unrelated structured data.
+      }
+    });
+
+    if (!matches.length) {
+      var schema = document.createElement("script");
+      schema.type = "application/ld+json";
+      schema.id = "faq-schema";
+      schema.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: entries });
+      document.head.appendChild(schema);
+      return true;
+    }
+    if (matches.length !== 1) return false;
+    matches[0].node.mainEntity = entries;
+    matches[0].script.textContent = JSON.stringify(matches[0].data);
+    return true;
   }
 
   function removeRouteCostBreakdown(path) {
@@ -3321,7 +3552,7 @@
     if ((path === "/calgary-to-winnipeg-movers/" || path === "/winnipeg-to-calgary-movers/") && document.querySelector(".pcm-estimate")) {
       return true;
     }
-    if (path === "/vancouver-to-toronto-movers/" || path === "/toronto-to-vancouver-movers/" || path === "/vancouver-to-winnipeg-movers/" || path === "/winnipeg-to-vancouver-movers/" || path === "/toronto-to-winnipeg-movers/" || path === "/winnipeg-to-toronto-movers/") {
+    if (path === "/vancouver-to-winnipeg-movers/" || path === "/winnipeg-to-vancouver-movers/" || path === "/toronto-to-winnipeg-movers/" || path === "/winnipeg-to-toronto-movers/") {
       return true;
     }
 
@@ -3638,6 +3869,15 @@
     forceStaticBlogNavigation();
 
     var path = normalizePath();
+    normalizeOwnedRouteFaqArchitecture(path);
+    if (isLongDistanceRoutePath(path)) {
+      var faqAttempts = 0;
+      var faqTimer = window.setInterval(function () {
+        faqAttempts += 1;
+        var faqReady = normalizeOwnedRouteFaqArchitecture(path);
+        if ((faqReady && faqAttempts >= 20) || faqAttempts > 30) window.clearInterval(faqTimer);
+      }, 250);
+    }
 
     var config = getConfig(path);
     if (path === "/calgary-to-montreal-movers/") {
@@ -3649,6 +3889,7 @@
     }
     applyTitleOverride(path);
     normalizeLongDistanceTrustLanguage(path);
+    syncOwnedRouteFaqSchema(path);
     if (path === "/calgary-to-montreal-movers/") {
       var calgaryPricing = document.querySelector(".pcm-route-cost");
       var calgaryRoot = document.getElementById("root");
@@ -3658,9 +3899,7 @@
       }
       return; // Preserve the static Calgary-to-Montreal route structure.
     }
-    if (path === "/montreal-to-calgary-movers/") {
-      return; // Preserve the static Montreal-to-Calgary route structure.
-    }
+    // Montreal-to-Calgary proceeds through the bounded route retries after hydration.
 
     var footerAttempts = 0;
     var footerTimer = window.setInterval(function () {
@@ -3734,11 +3973,13 @@
       normalizeLongDistanceTrustLanguage(path);
       normalizeMontrealEdmontonRouteContent(path);
       var leadReady = insertLeadPanel(config);
+      syncOwnedRouteFaqSchema(path);
       var contentReady = ensurePortMoodyPageContent(path);
       if ((leadReady && contentReady && attempts >= 20) || attempts > 30) {
         enhanceExistingEstimateForms();
         removeRouteCostBreakdown(path);
         normalizeMontrealEdmontonRouteContent(path);
+        syncOwnedRouteFaqSchema(path);
         window.clearInterval(timer);
       }
     }, 250);

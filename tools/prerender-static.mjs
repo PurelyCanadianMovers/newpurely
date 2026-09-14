@@ -5,9 +5,15 @@ import { dirname, extname, join, normalize, resolve, sep } from "node:path";
 import { spawn } from "node:child_process";
 import { tmpdir } from "node:os";
 import { injectOpenAiAdsPixel } from "./openai-ads-pixel.mjs";
+import { routePageOwnership } from "./route-page-ownership.mjs";
+import { requireLegacyRouteWriterOptIn } from "./route-ownership-guard.mjs";
 
 const sourceRoot = resolve(process.argv[2] ?? "site-copy");
 const outputRoot = resolve(process.argv[3] ?? "outputs/prerender-test");
+if (outputRoot === sourceRoot) throw new Error("ERROR: prerender output must be separate from its source root.");
+if (outputRoot === resolve("site-copy")) {
+  requireLegacyRouteWriterOptIn("prerender-static.mjs", routePageOwnership.map((entry) => entry.routeUrl));
+}
 const port = Number(process.argv[4] ?? 4191);
 const limit = Number(process.env.PRERENDER_LIMIT ?? "0");
 

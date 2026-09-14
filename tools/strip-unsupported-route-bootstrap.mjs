@@ -1,23 +1,21 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { assertAllowedPostProcessor } from "./route-ownership-guard.mjs";
 
 const outDir = process.argv[2] ?? "site-copy";
 const routes = [
   "halifax-to-calgary-movers",
   "calgary-to-halifax-movers",
-  "halifax-to-vancouver-movers",
   "calgary-to-montreal-movers",
   "edmonton-to-montreal-movers",
-  "edmonton-to-ottawa-movers",
 ];
+assertAllowedPostProcessor("strip-unsupported-route-bootstrap.mjs", routes);
 
 const formDefaults = {
   "halifax-to-calgary-movers": ["Halifax, NS", "Calgary, AB"],
   "calgary-to-halifax-movers": ["Calgary, AB", "Halifax, NS"],
-  "halifax-to-vancouver-movers": ["Halifax, NS", "Vancouver, BC"],
   "calgary-to-montreal-movers": ["Calgary, AB", "Montreal, QC"],
   "edmonton-to-montreal-movers": ["Edmonton, AB", "Montreal, QC"],
-  "edmonton-to-ottawa-movers": ["Edmonton, AB", "Ottawa, ON"],
 };
 
 for (const route of routes) {

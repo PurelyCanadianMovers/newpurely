@@ -1,4 +1,7 @@
 import fs from "node:fs";
+import { assertAllowedPostProcessor } from "./route-ownership-guard.mjs";
+
+assertAllowedPostProcessor("fix-montreal-vancouver-route.mjs", ["montreal-to-vancouver-movers"]);
 
 const bundlePath = "site-copy/assets/index-CNBNs70h.js";
 let bundle = fs.readFileSync(bundlePath, "utf8");

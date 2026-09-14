@@ -1,0 +1,53 @@
+import { readFile, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+
+const root = resolve(process.argv[2] ?? "site-copy");
+const base = process.argv[3] ?? "http://127.0.0.1:4175";
+const output = resolve(process.argv[4] ?? "STEP_62_EDMONTON_MONTREAL_AUDIT.json");
+if (!process.env.PLAYWRIGHT_PATH) throw new Error("PLAYWRIGHT_PATH is required");
+const { chromium } = await import(process.env.PLAYWRIGHT_PATH);
+const browser = await chromium.launch({ executablePath: process.env.PCM_BROWSER_EXECUTABLE || undefined, headless: true });
+const routes = [
+  { path: "/edmonton-to-montreal-movers/", from: "Edmonton, AB", to: "Montreal, QC", title: "Edmonton to Montreal Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers" },
+  { path: "/montreal-to-edmonton-movers/", from: "Montreal, QC", to: "Edmonton, AB", title: "Montreal to Edmonton Movers | Purely Canadian Movers" },
+];
+const clean = (value) => String(value ?? "").replace(/<[^>]+>/g, " ").replaceAll("&amp;", "&").replaceAll("&#39;", "'").replaceAll("&quot;", '"').replace(/\s+/g, " ").trim();
+
+function faqSchemas(html) {
+  const found = [];
+  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try { const walk = (value) => { if (!value || typeof value !== "object") return; if (value["@type"] === "FAQPage") found.push(value); if (Array.isArray(value)) value.forEach(walk); else Object.values(value).forEach(walk); }; walk(JSON.parse(match[1])); } catch {}
+  }
+  return found;
+}
+
+function rawAudit(html) {
+  const visibleHtml = html.replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, "");
+  const heading = visibleHtml.indexOf("Frequently Asked Questions");
+  const start = visibleHtml.lastIndexOf("<section", heading);
+  const end = visibleHtml.indexOf("</section>", heading);
+  const faq = start >= 0 && end >= 0 ? visibleHtml.slice(start, end + 10) : "";
+  const entries = [...faq.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>[\s\S]*?<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map((x) => ({ question: clean(x[1]), answer: clean(x[2]) }));
+  const schemas = faqSchemas(html);
+  const schemaEntries = schemas[0]?.mainEntity?.map((x) => ({ question: clean(x.name), answer: clean(x.acceptedAnswer?.text) })) ?? [];
+  const attr = (re) => clean(html.match(re)?.[1]);
+  const form = visibleHtml.match(/<form\b[^>]*class="[^"]*pcm-estimate-form[^"]*"[^>]*>([\s\S]*?)<\/form>/i)?.[1] ?? "";
+  const value = (name) => clean(form.match(new RegExp(`<input(?=[^>]*name=["']${name}["'])[^>]*value=["']([^"']*)`, "i"))?.[1]);
+  return { title:attr(/<title[^>]*>([\s\S]*?)<\/title>/i), ogTitle:attr(/<meta property="og:title" content="([^"]*)"/i), twitterTitle:attr(/<meta name="twitter:title" content="([^"]*)"/i), description:attr(/<meta name="description" content="([^"]*)"/i), canonical:attr(/<link rel="canonical"[^>]*href="([^"]*)"/i), ogUrl:attr(/<meta property="og:url" content="([^"]*)"/i), form:{ from:value("from"), to:value("to") }, counts:{ h1:(visibleHtml.match(/<h1\b/gi)??[]).length, quote:(visibleHtml.match(/class="[^"]*pcm-lead-panel\b/gi)??[]).length, primaryForm:(visibleHtml.match(/<form\b[^>]*class="[^"]*pcm-estimate-form/gi)??[]).length, pricing:(visibleHtml.match(/class="[^"]*pcm-route-cost\b/gi)??[]).length, pricingTable:(visibleHtml.match(/<table\b/gi)??[]).length, glance:(visibleHtml.match(/Route at a Glance/gi)??[]).length, faqSection:faq?1:0, faqHeading:(faq.match(/Frequently Asked Questions/gi)??[]).length, visibleFaq:entries.length, faqPage:schemas.length, localSeo:(visibleHtml.match(/class="[^"]*pcm-local-seo/gi)??[]).length }, faqParity:schemas.length===1&&JSON.stringify(entries)===JSON.stringify(schemaEntries), undefinedVisible:/\bundefined\b/i.test(clean(visibleHtml)), staleTerminology:/\bfully insured\b|\bvaluation coverage\b/i.test(clean(visibleHtml)), legacyPricing:/Moving Cost Breakdown/i.test(clean(visibleHtml)) };
+}
+
+async function snapshot(page) {
+  return page.evaluate(() => {
+    const text=(v)=>String(v??"").replace(/\s+/g," ").trim();
+    const hs=[...document.querySelectorAll("h2")].filter((x)=>/^Frequently Asked Questions$/i.test(text(x.textContent))),faq=hs[0]?.closest("section"),visible=[...(faq?.querySelectorAll("h3")??[])].map((x)=>({question:text(x.textContent),answer:text(x.nextElementSibling?.textContent)}));
+    const schemas=[];const walk=(v)=>{if(!v||typeof v!=="object")return;if(v["@type"]==="FAQPage")schemas.push((v.mainEntity??[]).map((x)=>({question:text(x.name),answer:text(x.acceptedAnswer?.text)})));if(Array.isArray(v))v.forEach(walk);else Object.values(v).forEach(walk)};document.querySelectorAll('script[type="application/ld+json"]').forEach((x)=>{try{walk(JSON.parse(x.textContent))}catch{}});
+    const form=document.querySelector(".pcm-lead-panel form"),pricing=document.querySelector(".pcm-route-cost"),wrap=pricing?.querySelector(".pcm-route-cost__table-wrap")??pricing?.querySelector("[class*=overflow]"),glance=[...document.querySelectorAll("h2,h3")].find((x)=>/Route at a Glance/i.test(text(x.textContent)))?.closest("section,div"),h1=document.querySelector("h1"),style=(x)=>x?getComputedStyle(x):null,font=(x)=>style(x)?.fontFamily??"",bodyText=document.body.innerText,routeText=`${document.querySelector("main")?.innerText??""} ${document.querySelector(".pcm-lead-panel")?.innerText??""} ${pricing?.innerText??""}`;
+    return { title:document.title,ogTitle:document.querySelector('meta[property="og:title"]')?.content,twitterTitle:document.querySelector('meta[name="twitter:title"]')?.content,description:document.querySelector('meta[name="description"]')?.content,canonical:document.querySelector('link[rel="canonical"]')?.href,ogUrl:document.querySelector('meta[property="og:url"]')?.content,form:{from:form?.querySelector('[name="from"]')?.value,to:form?.querySelector('[name="to"]')?.value},counts:{h1:document.querySelectorAll("h1").length,quote:document.querySelectorAll(".pcm-lead-panel").length,primaryForm:document.querySelectorAll(".pcm-lead-panel form").length,pricing:document.querySelectorAll(".pcm-route-cost").length,pricingTable:pricing?.querySelectorAll("table").length??0,pricingRows:pricing?.querySelectorAll("tbody tr").length??0,glance:[...document.querySelectorAll("h2,h3")].filter((x)=>/Route at a Glance/i.test(text(x.textContent))).length,faqSection:new Set(hs.map((x)=>x.closest("section"))).size,faqHeading:hs.length,visibleFaq:visible.length,faqPage:schemas.length,localSeo:document.querySelectorAll(".pcm-local-seo").length,nav:document.querySelectorAll("header nav,nav").length,chat:document.querySelectorAll('button[aria-label="Open chat assistant"]').length},faqParity:schemas.length===1&&JSON.stringify(visible)===JSON.stringify(schemas[0]),fonts:{body:font(document.body),paragraph:font(document.querySelector("main p")),pricing:font(pricing?.querySelector("td")??pricing),faq:font(faq?.querySelector("p")),form:font(form?.querySelector("input")),button:font(form?.querySelector("button")),cta:font(document.querySelector('main a[href="/contact/"]'))},h1Style:h1?{family:font(h1),size:style(h1).fontSize,lineHeight:style(h1).lineHeight,weight:style(h1).fontWeight}:null,facts:{distance:/3,500 km/.test(`${routeText} ${faq?.innerText??""}`),transit:/7–19 days/.test(`${routeText} ${faq?.innerText??""}`),prices:["$2,500+","$4,700+","$6,300+","$10,000+","$15,000+"].every((x)=>`${routeText} ${faq?.innerText??""}`.includes(x)),range:/\$2,500[–-]\$15,000\+/.test(routeText)},overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth,pricingInternalScroll:Boolean(wrap&&wrap.scrollWidth>wrap.clientWidth),clippedControls:[...document.querySelectorAll("input,select,button")].filter((x)=>{const b=x.getBoundingClientRect();return b.width>0&&(b.left < -1||b.right>document.documentElement.clientWidth+1)}).length,undefinedVisible:/\bundefined\b/i.test(routeText),soft404:/Page Not Found/i.test(routeText),legacyPricing:/Moving Cost Breakdown/i.test(routeText),staleTerminology:/\bfully insured\b|\bvaluation coverage\b/i.test(routeText),glanceText:text(glance?.innerText),bodyText:text(bodyText)};
+  });
+}
+
+async function interactions(page,mobile){const result={};if(mobile){const t=page.locator('button[aria-label="Open menu"]');result.present=await t.count()===1&&await t.isVisible();if(result.present){result.before=await t.getAttribute("aria-expanded");await t.click();await page.waitForTimeout(100);result.open=await t.getAttribute("aria-expanded");await page.keyboard.press("Escape");await page.waitForTimeout(100);result.closed=await t.getAttribute("aria-expanded")}}else{const t=page.getByRole("button",{name:"Services",exact:true});result.present=await t.count()>0&&await t.first().isVisible();if(result.present){await t.first().click();await page.waitForTimeout(100);result.open=await page.locator('header a[href="/local/"]').first().isVisible();await page.keyboard.press("Escape")}}const chat=page.locator('button[aria-label="Open chat assistant"]');result.chatPresent=await chat.count()===1&&await chat.isVisible();if(result.chatPresent){await chat.click();await page.waitForTimeout(100);result.chatOpen=await page.locator('button[aria-label*="Close chat"]').count()>0}return result}
+
+const results=[];
+for(const route of routes){const html=await readFile(join(root,route.path.slice(1),"index.html"),"utf8"),page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];page.on("pageerror",(x)=>errors.push(x.message));page.on("console",(x)=>{if(x.type()==="error"&&!/ERR_|favicon/i.test(x.text()))errors.push(x.text())});await page.goto(new URL(route.path,base).href,{waitUntil:"domcontentloaded"});const initial=await snapshot(page);await page.waitForTimeout(1500);const oneToTwo=await snapshot(page);await page.waitForTimeout(4000);const fivePlus=await snapshot(page);const desktopInteractions=await interactions(page,false);await page.setViewportSize({width:390,height:844});await page.reload({waitUntil:"domcontentloaded"});await page.waitForTimeout(5500);const mobile=await snapshot(page),mobileInteractions=await interactions(page,true);results.push({route:route.path,expected:route,raw:rawAudit(html),lifecycle:{initial,oneToTwo,fivePlus},desktop:fivePlus,mobile,interactions:{desktop:desktopInteractions,mobile:mobileInteractions},errors:[...new Set(errors)]});await page.close()}
+await browser.close();await writeFile(output,JSON.stringify({generatedAt:new Date().toISOString(),results},null,2)+"\n");for(const x of results)console.log(`${x.route}: raw=${x.raw.counts.visibleFaq}/${x.raw.counts.faqPage} settled=${x.desktop.counts.visibleFaq}/${x.desktop.counts.faqPage} errors=${x.errors.length}`);
