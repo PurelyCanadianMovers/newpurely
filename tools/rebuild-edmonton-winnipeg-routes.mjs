@@ -35,7 +35,7 @@ function render(template, route) {
 }
 
 function costRows() {
-  return EDMONTON_WINNIPEG_ROUTES.map((route, index) => `<tr data-route="${route.slug}" class="border-b border-gray-200 ${index % 2 ? "bg-gray-50" : "bg-white"}"><td>${route.from} → ${route.to}</td>${route.prices.map((price) => `<td>${price.replace("+", "")}</td>`).join("")}</tr>`).join("");
+  return EDMONTON_WINNIPEG_ROUTES.map((route, index) => `<tr data-route="${route.slug}" class="border-b border-gray-200 ${index % 2 ? "bg-gray-50" : "bg-white"} hover:bg-red-50"><td class="py-3 px-4 font-body text-gray-900 font-semibold">${route.from} → ${route.to}</td>${route.prices.map((price) => `<td class="py-3 px-4 font-body text-gray-700">${price.replace("+", "")}</td>`).join("")}</tr>`).join("");
 }
 
 async function updateIntegrations() {
