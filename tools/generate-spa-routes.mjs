@@ -123,6 +123,8 @@ const aggregatePreservedRoutes = new Map([
   // The checked-in Toronto hub is also authoritative. Its route writer owns
   // only the marked Routes From Toronto block.
   ["/toronto-long-distance-movers/", "static/hub page"],
+  // The checked-in Winnipeg hub is owned by build-winnipeg-hub.mjs.
+  ["/winnipeg-long-distance-movers/", "static/hub page"],
   // The checked-in Ottawa hub is also authoritative. Ottawa-specific writers
   // own only its marked canonical route-list block.
   ["/ottawa-long-distance-movers/", "static/hub page"],

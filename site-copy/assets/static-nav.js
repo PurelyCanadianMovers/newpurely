@@ -43,6 +43,7 @@
       ["Ottawa Movers", "/ottawa-long-distance-movers/"],
       ["Calgary Movers", "/calgary-long-distance-movers/"],
       ["Edmonton Movers", "/edmonton-long-distance-movers/"],
+      ["Winnipeg Long-Distance Movers", "/winnipeg-long-distance-movers/"],
       ["Victoria Movers", "/victoria-long-distance-movers/"],
       ["Halifax Movers", "/halifax-long-distance-movers/"]
     ]
