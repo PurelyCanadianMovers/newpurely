@@ -1,0 +1,378 @@
+{
+  "generatedAt": "2026-09-15T19:40:36.471Z",
+  "results": [
+    {
+      "route": "/calgary-to-toronto-movers/",
+      "expected": {
+        "path": "/calgary-to-toronto-movers/",
+        "from": "Calgary, AB",
+        "to": "Toronto, ON",
+        "faqCount": 11
+      },
+      "raw": {
+        "owner": "rebuild-calgary-toronto-static-routes.mjs",
+        "rendering": "static",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "reactBootstrap": false,
+        "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+        "ogTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+        "twitterTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+        "description": "Calgary to Toronto movers. Professional long-distance moves with Declared Value Protection options. Family-owned since 1991. GCVL agents. Free estimates.",
+        "canonical": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+        "counts": {
+          "h1": 1,
+          "quote": 1,
+          "form": 1,
+          "pricing": 1,
+          "table": 1,
+          "glance": 1,
+          "faqSection": 1,
+          "faqHeading": 1,
+          "visibleFaq": 11,
+          "faqPage": 1,
+          "localSeo": 0
+        },
+        "faqParity": true,
+        "undefinedVisible": false,
+        "legacyPricing": false
+      },
+      "lifecycle": {
+        "initial": {
+          "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "description": "Calgary to Toronto movers. Professional long-distance moves with Declared Value Protection options. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "from": "Calgary, AB",
+          "to": "Toronto, ON",
+          "h1": "Calgary to Toronto Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 11,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        },
+        "oneToTwoSeconds": {
+          "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "description": "Calgary to Toronto movers. Professional long-distance moves with Declared Value Protection options. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "from": "Calgary, AB",
+          "to": "Toronto, ON",
+          "h1": "Calgary to Toronto Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 11,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        },
+        "fivePlusSeconds": {
+          "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "description": "Calgary to Toronto movers. Professional long-distance moves with Declared Value Protection options. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "from": "Calgary, AB",
+          "to": "Toronto, ON",
+          "h1": "Calgary to Toronto Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 11,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        }
+      },
+      "responsive": {
+        "desktop1280x900": {
+          "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "description": "Calgary to Toronto movers. Professional long-distance moves with Declared Value Protection options. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "from": "Calgary, AB",
+          "to": "Toronto, ON",
+          "h1": "Calgary to Toronto Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 11,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        },
+        "mobile390x844": {
+          "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Toronto Movers | Purely Canadian Movers",
+          "description": "Calgary to Toronto movers. Professional long-distance moves with Declared Value Protection options. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-toronto-movers/",
+          "from": "Calgary, AB",
+          "to": "Toronto, ON",
+          "h1": "Calgary to Toronto Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "36px",
+            "lineHeight": "45px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 11,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": true,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        }
+      },
+      "interactions": {
+        "desktop": {
+          "navTrigger": true,
+          "navOpened": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        },
+        "mobile": {
+          "navTrigger": true,
+          "navOpened": "true",
+          "navClosed": "false",
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        }
+      },
+      "consoleErrors": []
+    }
+  ]
+}

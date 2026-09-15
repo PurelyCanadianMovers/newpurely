@@ -22,11 +22,23 @@ import {
   assertWinnipegMontrealRouteData,
 } from "./winnipeg-montreal-route-data.mjs";
 import { validateOwnershipModel, validateRouteArchitecture } from "./validate-route-page-ownership.mjs";
+import { CALGARY_TORONTO_FACTS, CALGARY_TORONTO_ROUTES, assertCalgaryTorontoTemplate } from "./calgary-toronto-route-data.mjs";
 
 test("all 56 routes have one collision-free owner", () => {
   assert.equal(routePageOwnership.length, 56);
   assert.equal(new Set(routePageOwnership.map((entry) => entry.routeUrl)).size, 56);
   assert.deepEqual(validateOwnershipModel(routePageOwnership, routeWriterManifest), []);
+});
+
+test("Calgary-Toronto migration facts are frozen and complete", async () => {
+  assert.equal(CALGARY_TORONTO_FACTS.distance, "approximately 3,400 km");
+  assert.equal(CALGARY_TORONTO_FACTS.transit, "7–19 days");
+  assert.equal(CALGARY_TORONTO_FACTS.range, "$2,500–$15,000+");
+  assert.deepEqual(CALGARY_TORONTO_FACTS.pricing.map((row) => row[1]), ["$2,500+", "$3,800+", "$6,400+", "$10,000+", "$15,000+"]);
+  for (const route of CALGARY_TORONTO_ROUTES) {
+    const html = await readFile(resolve("tools/templates/calgary-toronto-static-routes", `${route.slug}.html`), "utf8");
+    assert.doesNotThrow(() => assertCalgaryTorontoTemplate(html, route));
+  }
 });
 
 test("Calgary-Winnipeg Step 44 facts are complete, frozen, and reject missing values", () => {
@@ -64,11 +76,14 @@ test("Winnipeg-Montreal facts are complete, frozen, and reject missing values", 
 });
 
 test("representative SPA, dedicated, conflict, finalizer, and ordinary routes are classified", () => {
-  assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").owner, "generate-spa-routes.mjs");
-  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").postProcessors, ["finalize-calgary-toronto-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").owner, "rebuild-calgary-toronto-static-routes.mjs");
+  assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").rendering, "static");
+  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-vancouver-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/vancouver-to-calgary-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").postProcessors, ["finalize-calgary-toronto-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.equal(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").owner, "rebuild-calgary-toronto-static-routes.mjs");
+  assert.equal(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").rendering, "static");
+  assert.deepEqual(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/victoria-to-montreal-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
@@ -241,7 +256,7 @@ test("SPA generation writes an owned route and preserves dedicated/static, About
     await mkdir(join(tempRoot, "assets"), { recursive: true });
     await copyFile(resolve("site-copy/index.html"), join(tempRoot, "index.html"));
     await copyFile(resolve("site-copy/assets/index-CNBNs70h.js"), join(tempRoot, "assets/index-CNBNs70h.js"));
-    const sentinels = ["about", "calgary-long-distance-movers", "toronto-long-distance-movers", "ottawa-long-distance-movers", "victoria-long-distance-movers", "calgary-to-edmonton-movers", "edmonton-to-calgary-movers", "edmonton-to-ottawa-movers", "vancouver-to-winnipeg-movers", "victoria-to-vancouver-movers", "victoria-to-montreal-movers", "vancouver-to-edmonton-movers", "vancouver-to-halifax-movers", "ottawa-to-victoria-movers"];
+    const sentinels = ["about", "calgary-long-distance-movers", "toronto-long-distance-movers", "ottawa-long-distance-movers", "victoria-long-distance-movers", "calgary-to-edmonton-movers", "calgary-to-toronto-movers", "toronto-to-calgary-movers", "edmonton-to-calgary-movers", "edmonton-to-ottawa-movers", "vancouver-to-winnipeg-movers", "victoria-to-vancouver-movers", "victoria-to-montreal-movers", "vancouver-to-edmonton-movers", "vancouver-to-halifax-movers", "ottawa-to-victoria-movers"];
     for (const slug of sentinels) {
       await mkdir(join(tempRoot, slug), { recursive: true });
       await writeFile(join(tempRoot, slug, "index.html"), `sentinel:${slug}`, "utf8");
@@ -256,10 +271,12 @@ test("SPA generation writes an owned route and preserves dedicated/static, About
     assert.match(run.stdout, /Ownership skip: \/ottawa-to-victoria-movers\/ belongs to rebuild-victoria-ottawa-route\.mjs/);
     assert.match(run.stdout, /Ownership skip: \/victoria-to-montreal-movers\/ belongs to checked-in-static-route-source/);
     assert.match(run.stdout, /Ownership skip: \/calgary-to-edmonton-movers\/ belongs to checked-in-static-route-source/);
+    assert.match(run.stdout, /Ownership skip: \/calgary-to-toronto-movers\/ belongs to rebuild-calgary-toronto-static-routes\.mjs/);
+    assert.match(run.stdout, /Ownership skip: \/toronto-to-calgary-movers\/ belongs to rebuild-calgary-toronto-static-routes\.mjs/);
     assert.match(run.stdout, /Ownership skip: \/edmonton-to-calgary-movers\/ belongs to checked-in-static-route-source/);
     assert.match(run.stdout, /Ownership skip: \/edmonton-to-ottawa-movers\/ belongs to checked-in-static-route-source/);
     assert.match(run.stdout, /Ownership skip: \/vancouver-to-halifax-movers\/ belongs to rebuild-halifax-vancouver-routes\.mjs/);
-    assert.match(await readFile(join(tempRoot, "calgary-to-toronto-movers/index.html"), "utf8"), /<html/i);
+    assert.match(await readFile(join(tempRoot, "bc-to-washington-movers/index.html"), "utf8"), /<html/i);
     for (const slug of sentinels) assert.equal(await readFile(join(tempRoot, slug, "index.html"), "utf8"), `sentinel:${slug}`);
   } finally {
     await rm(tempRoot, { recursive: true, force: true });

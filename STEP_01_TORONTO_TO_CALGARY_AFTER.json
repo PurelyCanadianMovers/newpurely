@@ -1,0 +1,378 @@
+{
+  "generatedAt": "2026-09-15T19:40:46.185Z",
+  "results": [
+    {
+      "route": "/toronto-to-calgary-movers/",
+      "expected": {
+        "path": "/toronto-to-calgary-movers/",
+        "from": "Toronto, ON",
+        "to": "Calgary, AB",
+        "faqCount": 9
+      },
+      "raw": {
+        "owner": "rebuild-calgary-toronto-static-routes.mjs",
+        "rendering": "static",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "reactBootstrap": false,
+        "title": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+        "ogTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+        "twitterTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+        "description": "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+        "canonical": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+        "counts": {
+          "h1": 1,
+          "quote": 1,
+          "form": 1,
+          "pricing": 1,
+          "table": 1,
+          "glance": 1,
+          "faqSection": 1,
+          "faqHeading": 1,
+          "visibleFaq": 9,
+          "faqPage": 1,
+          "localSeo": 0
+        },
+        "faqParity": true,
+        "undefinedVisible": false,
+        "legacyPricing": false
+      },
+      "lifecycle": {
+        "initial": {
+          "title": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "ogTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "twitterTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "description": "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+          "canonical": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "from": "Toronto, ON",
+          "to": "Calgary, AB",
+          "h1": "Toronto to Calgary Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        },
+        "oneToTwoSeconds": {
+          "title": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "ogTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "twitterTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "description": "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+          "canonical": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "from": "Toronto, ON",
+          "to": "Calgary, AB",
+          "h1": "Toronto to Calgary Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        },
+        "fivePlusSeconds": {
+          "title": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "ogTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "twitterTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "description": "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+          "canonical": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "from": "Toronto, ON",
+          "to": "Calgary, AB",
+          "h1": "Toronto to Calgary Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        }
+      },
+      "responsive": {
+        "desktop1280x900": {
+          "title": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "ogTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "twitterTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "description": "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+          "canonical": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "from": "Toronto, ON",
+          "to": "Calgary, AB",
+          "h1": "Toronto to Calgary Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        },
+        "mobile390x844": {
+          "title": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "ogTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "twitterTitle": "Toronto to Calgary Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+          "description": "Toronto to Calgary moving cost guide with estimated prices by home size, transit time, quote factors, packing, storage, valuation options, and direct movers.",
+          "canonical": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/toronto-to-calgary-movers/",
+          "from": "Toronto, ON",
+          "to": "Calgary, AB",
+          "h1": "Toronto to Calgary Moving Cost, Prices & Transit Time",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "36px",
+            "lineHeight": "45px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 2,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": true,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "contamination": {
+            "Vancouver": true,
+            "Winnipeg": false,
+            "Montreal": true,
+            "Edmonton": true,
+            "Ottawa": true,
+            "Halifax": true,
+            "Victoria": true,
+            "Seattle": false
+          }
+        }
+      },
+      "interactions": {
+        "desktop": {
+          "navTrigger": true,
+          "navOpened": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        },
+        "mobile": {
+          "navTrigger": true,
+          "navOpened": "true",
+          "navClosed": "false",
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        }
+      },
+      "consoleErrors": []
+    }
+  ]
+}

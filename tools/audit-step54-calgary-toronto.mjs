@@ -11,10 +11,11 @@ if (!playwrightPath) throw new Error("PLAYWRIGHT_PATH is required");
 const { chromium } = await import(playwrightPath.startsWith("file:") ? playwrightPath : pathToFileURL(playwrightPath).href);
 const browser = await chromium.launch({ executablePath: process.env.PCM_BROWSER_EXECUTABLE || undefined, headless: true });
 
+const routeFilter = process.argv[5];
 const routes = [
   { path: "/calgary-to-toronto-movers/", from: "Calgary, AB", to: "Toronto, ON", faqCount: 11 },
   { path: "/toronto-to-calgary-movers/", from: "Toronto, ON", to: "Calgary, AB", faqCount: 9 },
-];
+].filter((route) => !routeFilter || route.path.includes(routeFilter));
 const clean = (value) => String(value ?? "").replace(/<[^>]+>/g, " ").replaceAll("&amp;", "&").replaceAll("&#39;", "'").replace(/\s+/g, " ").trim();
 
 function faqNodes(value, nodes = []) {
@@ -105,11 +106,13 @@ const results=[];
 for (const route of routes) {
   const html=await readFile(join(root,route.path.slice(1),"index.html"),"utf8");
   const page=await browser.newPage({viewport:{width:1280,height:900}}); const consoleErrors=[];
+  page.setDefaultTimeout(5000);
   page.on("pageerror",(error)=>consoleErrors.push(`pageerror: ${error.message}`)); page.on("console",(message)=>{if(message.type()==="error")consoleErrors.push(`console: ${message.text()}`)});
-  await page.goto(new URL(route.path,baseUrl).href,{waitUntil:"domcontentloaded",timeout:30000});
-  const initial=await snapshot(page); await page.waitForTimeout(1500); const oneToTwoSeconds=await snapshot(page); await page.waitForTimeout(4000); const fivePlusSeconds=await snapshot(page);
+  await page.goto(new URL(route.path,baseUrl).href,{waitUntil:"commit",timeout:10000});
+  await page.waitForLoadState("domcontentloaded",{timeout:5000}).catch(()=>{});
+  const initial=await snapshot(page); await page.waitForTimeout(1200); const oneToTwoSeconds=await snapshot(page); await page.waitForTimeout(4000); const fivePlusSeconds=await snapshot(page);
   const desktopInteractions=await interactions(page,false);
-  await page.setViewportSize({width:390,height:844}); await page.reload({waitUntil:"domcontentloaded"}); await page.waitForTimeout(5500); const mobile=await snapshot(page); const mobileInteractions=await interactions(page,true);
+  await page.setViewportSize({width:390,height:844}); await page.reload({waitUntil:"commit",timeout:10000}); await page.waitForTimeout(1200); const mobile=await snapshot(page); const mobileInteractions=await interactions(page,true);
   results.push({route:route.path,expected:route,raw:rawAudit(html,route),lifecycle:{initial,oneToTwoSeconds,fivePlusSeconds},responsive:{desktop1280x900:fivePlusSeconds,mobile390x844:mobile},interactions:{desktop:desktopInteractions,mobile:mobileInteractions},consoleErrors:[...new Set(consoleErrors)]});
   await page.close();
 }

@@ -6,11 +6,11 @@ const FAQ_ARCHITECTURE_FINALIZER = "finalize-route-faq-architecture.mjs";
 const ROUTE_PROMO_FINALIZER = "finalize-route-promo.mjs";
 const VICTORIA_VANCOUVER_FINALIZER = "finalize-victoria-vancouver-route.mjs";
 const HALIFAX_VANCOUVER_STATIC_GENERATOR = "rebuild-halifax-vancouver-routes.mjs";
+const CALGARY_TORONTO_STATIC_GENERATOR = "rebuild-calgary-toronto-static-routes.mjs";
 
 const ownerGroups = {
   [SPA_GENERATOR]: [
     "bc-to-washington-movers",
-    "calgary-to-toronto-movers",
     "calgary-to-vancouver-movers",
     "edmonton-to-montreal-movers",
     "edmonton-to-toronto-movers",
@@ -20,13 +20,16 @@ const ownerGroups = {
     "montreal-to-toronto-movers",
     "montreal-to-victoria-movers",
     "ottawa-to-edmonton-movers",
-    "toronto-to-calgary-movers",
     "toronto-to-edmonton-movers",
     "toronto-to-montreal-movers",
     "toronto-to-vancouver-movers",
     "toronto-to-victoria-movers",
     "vancouver-to-calgary-movers",
     "vancouver-to-toronto-movers",
+  ],
+  [CALGARY_TORONTO_STATIC_GENERATOR]: [
+    "calgary-to-toronto-movers",
+    "toronto-to-calgary-movers",
   ],
   "generate-halifax-calgary-route-pages.mjs": [
     "calgary-to-halifax-movers",
@@ -99,6 +102,18 @@ const ownerGroups = {
 };
 
 const routeRuntimeEnhancers = {
+  "calgary-to-toronto-movers": [
+    "site-copy/assets/conversion-boost.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/step01-calgary-toronto-static.js",
+    "site-copy/assets/static-chat.js",
+  ],
+  "toronto-to-calgary-movers": [
+    "site-copy/assets/conversion-boost.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/step01-calgary-toronto-static.js",
+    "site-copy/assets/static-chat.js",
+  ],
   "victoria-to-vancouver-movers": [
     "site-copy/assets/conversion-boost.js",
     "site-copy/assets/step50-victoria-vancouver.js",
@@ -269,6 +284,16 @@ const routeRuntimeEnhancers = {
 };
 
 const routeRuntimeStyles = {
+  "calgary-to-toronto-movers": [
+    "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/static-nav.css",
+    "site-copy/assets/static-chat.css",
+  ],
+  "toronto-to-calgary-movers": [
+    "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/static-nav.css",
+    "site-copy/assets/static-chat.css",
+  ],
   "victoria-to-vancouver-movers": [
     "site-copy/assets/step50-victoria-vancouver.css",
     "site-copy/assets/static-nav.css",
@@ -444,7 +469,6 @@ const routePostProcessors = {
   "vancouver-to-seattle-movers": ["finalize-seattle-vancouver-routes.mjs"],
   "calgary-to-edmonton-movers": ["finalize-calgary-edmonton-routes.mjs"],
   "calgary-to-vancouver-movers": ["standardize-calgary-vancouver-routes.mjs"],
-  "calgary-to-toronto-movers": ["finalize-calgary-toronto-routes.mjs"],
   "edmonton-to-toronto-movers": ["finalize-toronto-edmonton-routes.mjs"],
   "edmonton-to-calgary-movers": ["finalize-calgary-edmonton-routes.mjs"],
   "edmonton-to-vancouver-movers": ["finalize-vancouver-edmonton-routes.mjs"],
@@ -452,7 +476,6 @@ const routePostProcessors = {
   "montreal-to-victoria-movers": ["finalize-montreal-victoria-routes.mjs"],
   "toronto-to-montreal-movers": ["finalize-montreal-toronto-routes.mjs"],
   "toronto-to-edmonton-movers": ["finalize-toronto-edmonton-routes.mjs"],
-  "toronto-to-calgary-movers": ["finalize-calgary-toronto-routes.mjs"],
   "toronto-to-vancouver-movers": ["finalize-toronto-vancouver-routes.mjs"],
   "toronto-to-victoria-movers": ["finalize-toronto-victoria-routes.mjs"],
   "victoria-to-montreal-movers": ["finalize-montreal-victoria-routes.mjs"],
@@ -499,6 +522,7 @@ const staticOwners = new Set([
   CHECKED_IN_STATIC_SOURCE,
   "generate-halifax-calgary-route-pages.mjs",
   HALIFAX_VANCOUVER_STATIC_GENERATOR,
+  CALGARY_TORONTO_STATIC_GENERATOR,
   VANCOUVER_EDMONTON_STATIC_FINALIZER,
   "fix-winnipeg-static-routes.mjs",
   "rebuild-calgary-ottawa-routes.mjs",
