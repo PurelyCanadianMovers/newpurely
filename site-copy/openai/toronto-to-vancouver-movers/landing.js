@@ -116,11 +116,47 @@
         status.setAttribute("data-state", "error");
         status.innerHTML = 'We could not send your request. Please call <a href="tel:18774856683">1-877-485-6683</a> or try again.';
         button.disabled = false;
-        button.textContent = "Get My Free Estimate & Save $100+";
+        button.textContent = "Get My Free Estimate & Save a Minimum of $100";
       }
     });
   }
 
+  function installChatbotSafety() {
+    var observed = false;
+    function overlaps(a, b) {
+      return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+    }
+    function update() {
+      var launcher = document.querySelector(".pcm-static-chat-button");
+      if (!launcher) return;
+      var launcherRect = launcher.getBoundingClientRect();
+      var controls = document.querySelectorAll("#estimate-form input:not([type=hidden]), #estimate-form select, #estimate-form textarea, #estimate-form button");
+      var collides = Array.prototype.some.call(controls, function (control) {
+        var style = window.getComputedStyle(control);
+        return style.display !== "none" && style.visibility !== "hidden" && overlaps(launcherRect, control.getBoundingClientRect());
+      });
+      if (collides) {
+        var panel = document.querySelector(".pcm-static-chat-panel");
+        var close = panel && panel.querySelector(".pcm-static-chat-close");
+        if (panel && !panel.hidden && close) close.click();
+      }
+      launcher.style.visibility = collides ? "hidden" : "visible";
+      launcher.setAttribute("aria-hidden", collides ? "true" : "false");
+      launcher.tabIndex = collides ? -1 : 0;
+    }
+    function observe() {
+      if (observed) return;
+      observed = true;
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      new MutationObserver(update).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
+      update();
+    }
+    if (document.body) observe();
+    else document.addEventListener("DOMContentLoaded", observe, { once: true });
+  }
+
   prefillRouteFields();
   preserveCampaignLinks();
+  installChatbotSafety();
 }());
