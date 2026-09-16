@@ -1,0 +1,26 @@
+html.pcm-static-route body { overflow-x: hidden; }
+.pcm-step22-glance {
+  margin: 40px 0;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+.pcm-step22-glance h3 { margin: 0 0 16px; font: 700 20px/28px "Playfair Display", Georgia, serif; }
+.pcm-step22-glance__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pcm-step22-glance__item { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
+.pcm-step22-glance__icon { display: none; }
+.pcm-step22-glance__item::before { color: #cc1a1a; font: 700 20px/28px Arial, sans-serif; flex: 0 0 auto; }
+.pcm-step22-glance__item:nth-child(1)::before { content: "↔"; }
+.pcm-step22-glance__item:nth-child(2)::before { content: "◷"; }
+.pcm-step22-glance__item:nth-child(3)::before { content: "$"; }
+.pcm-step22-glance__item > div { min-width: 0; }
+.pcm-step22-glance__label,
+.pcm-step22-glance__value,
+.pcm-step22-glance__qualifier { display: block; margin: 0; }
+.pcm-step22-glance__label { margin-bottom: 2px; color: #6b7280; font: 400 12px/16px Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.pcm-step22-glance__value { color: #111827; font: 700 18px/28px "Playfair Display", Georgia, serif; }
+.pcm-step22-glance__qualifier { color: #6b7280; font: 400 14px/20px Arial, sans-serif; }
+@media (max-width: 639px) {
+  .pcm-step22-glance__grid { grid-template-columns: 1fr; }
+}

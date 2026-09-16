@@ -286,11 +286,13 @@ const routeRuntimeEnhancers = {
 const routeRuntimeStyles = {
   "calgary-to-toronto-movers": [
     "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/step01-calgary-toronto-static.css",
     "site-copy/assets/static-nav.css",
     "site-copy/assets/static-chat.css",
   ],
   "toronto-to-calgary-movers": [
     "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/step01-calgary-toronto-static.css",
     "site-copy/assets/static-nav.css",
     "site-copy/assets/static-chat.css",
   ],
