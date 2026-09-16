@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-09-16T22:26:29.808Z",
+  "results": [
+    {
+      "path": "/ottawa-to-edmonton-movers/",
+      "raw": {
+        "module": false,
+        "step37": false,
+        "faqSchema": 1,
+        "staticAssets": 4
+      },
+      "snap": {
+        "title": "Ottawa to Edmonton Movers | Purely Canadian Movers",
+        "h1": "Ottawa to Edmonton Movers",
+        "from": "Ottawa, ON",
+        "to": "Edmonton, AB",
+        "counts": {
+          "forms": 2,
+          "pricing": 1,
+          "glance": 1,
+          "faq": 12,
+          "faqSchema": 1,
+          "footer": 1,
+          "chat": 1
+        },
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "layout": {
+          "overflow": false,
+          "h1": [
+            "48px",
+            "60px"
+          ]
+        },
+        "bad": []
+      }
+    },
+    {
+      "path": "/edmonton-to-ottawa-movers/",
+      "raw": {
+        "module": false,
+        "step37": true,
+        "faqSchema": 1,
+        "staticAssets": 4
+      },
+      "snap": {
+        "title": "Edmonton to Ottawa Movers | Long-Distance Moving | Purely Canadian Movers",
+        "h1": "Edmonton to Ottawa Movers",
+        "from": "Edmonton, AB",
+        "to": "Ottawa, ON",
+        "counts": {
+          "forms": 2,
+          "pricing": 1,
+          "glance": 1,
+          "faq": 0,
+          "faqSchema": 1,
+          "footer": 1,
+          "chat": 1
+        },
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "layout": {
+          "overflow": false,
+          "h1": [
+            "48px",
+            "60px"
+          ]
+        },
+        "bad": []
+      }
+    }
+  ]
+}

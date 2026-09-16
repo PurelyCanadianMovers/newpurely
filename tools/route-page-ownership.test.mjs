@@ -262,15 +262,16 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   assert.equal(edmontonOttawa.postProcessors[0], "finalize-edmonton-ottawa-routes.mjs");
   assert.ok(!edmontonOttawa.postProcessors.includes("strip-unsupported-route-bootstrap.mjs"));
   const ottawaEdmonton = routeOwnershipByUrl.get("/ottawa-to-edmonton-movers/");
-  assert.equal(ottawaEdmonton.owner, "generate-spa-routes.mjs");
-  assert.equal(ottawaEdmonton.rendering, "react-spa");
+  assert.equal(ottawaEdmonton.owner, "rebuild-ottawa-edmonton-static-route.mjs");
+  assert.equal(ottawaEdmonton.rendering, "static");
   assert.deepEqual(ottawaEdmonton.runtimeEnhancers, [
     "site-copy/assets/conversion-boost.js",
-    "site-copy/assets/step37-edmonton-ottawa.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/static-chat.js",
   ]);
-  assert.deepEqual(ottawaEdmonton.runtimeStyles, ["site-copy/assets/step37-edmonton-ottawa.css"]);
-  assert.equal(ottawaEdmonton.postProcessors[0], "finalize-edmonton-ottawa-routes.mjs");
-  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-edmonton-ottawa-routes.mjs", ["edmonton-to-ottawa-movers", "ottawa-to-edmonton-movers"]));
+  assert.deepEqual(ottawaEdmonton.runtimeStyles, ["site-copy/assets/conversion-boost.css", "site-copy/assets/static-nav.css", "site-copy/assets/static-chat.css"]);
+  assert.deepEqual(ottawaEdmonton.postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-edmonton-ottawa-routes.mjs", ["edmonton-to-ottawa-movers"]));
   assert.doesNotThrow(() => assertRouteOwnership("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["edmonton-to-vancouver-movers"]));
   assert.throws(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
@@ -279,7 +280,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
 });
 
 test("architecture validation rejects React/static runtime contradictions", () => {
-  const react = routeOwnershipByUrl.get("/ottawa-to-edmonton-movers/");
+  const react = routeOwnershipByUrl.get("/bc-to-washington-movers/");
   const staticRoute = routeOwnershipByUrl.get("/edmonton-to-ottawa-movers/");
   assert.deepEqual(validateRouteArchitecture(react, '<script type="module" src="../assets/index.js"></script>'), []);
   assert.match(validateRouteArchitecture(react, '<script defer src="/assets/static-nav.js"></script>')[0], /declared react-spa but has no module bootstrap/);
@@ -574,7 +575,7 @@ test("an allowed finalizer runs against temp copies without touching source page
   }
 });
 
-test("the Step 37 Edmonton-Ottawa finalizer is deterministic and preserves mixed rendering", async () => {
+test("the Step 37 Edmonton-Ottawa finalizer remains reverse-route-only and deterministic", async () => {
   const tempRoot = await mkdtemp(join(tmpdir(), "pcm-step37-finalizer-"));
   const slugs = ["edmonton-to-ottawa-movers", "ottawa-to-edmonton-movers"];
   try {
@@ -590,19 +591,17 @@ test("the Step 37 Edmonton-Ottawa finalizer is deterministic and preserves mixed
     assert.equal(second.status, 0, second.stderr);
     const twice = await Promise.all(slugs.map((slug) => readFile(join(tempRoot, slug, "index.html"), "utf8")));
     assert.deepEqual(twice, once);
-    for (const html of twice) {
-      assert.equal((html.match(/data-pcm-step37-faq="1"/g) ?? []).length, 1);
-      assert.equal((html.match(/id="pcm-step37-faq-schema"/g) ?? []).length, 1);
-      assert.match(html, new RegExp(edmontonOttawaFacts.transit));
-      for (const [, price] of edmontonOttawaFacts.rows) assert.ok(html.includes(price));
-    }
+    assert.equal((twice[0].match(/data-pcm-step37-faq="1"/g) ?? []).length, 1);
+    assert.equal((twice[0].match(/id="pcm-step37-faq-schema"/g) ?? []).length, 1);
+    assert.match(twice[0], new RegExp(edmontonOttawaFacts.transit));
+    for (const [, price] of edmontonOttawaFacts.rows) assert.ok(twice[0].includes(price));
     assert.doesNotMatch(twice[0], /<script\b[^>]*type=["']module["']/i);
-    assert.match(twice[1], /<script\b[^>]*type=["']module["']/i);
+    assert.doesNotMatch(twice[1], /data-pcm-step37/);
+    assert.doesNotMatch(twice[1], /<script\b[^>]*type=["']module["']/i);
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }
 });
-
 test("the Step 39 Toronto-Victoria finalizer is deterministic and preserves mixed rendering", async () => {
   const tempRoot = await mkdtemp(join(tmpdir(), "pcm-step39-finalizer-"));
   const slugs = ["toronto-to-victoria-movers", "victoria-to-toronto-movers"];

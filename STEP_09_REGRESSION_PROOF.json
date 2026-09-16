@@ -1,0 +1,15 @@
+{
+  "target": "ottawa-to-edmonton-movers",
+  "reverse": "edmonton-to-ottawa-movers",
+  "neighborStep7": "montreal-to-edmonton-movers",
+  "neighborStep8": "montreal-to-victoria-movers",
+  "expected": {
+    "C": 13,
+    "D": 0,
+    "total": 56,
+    "B": 3,
+    "A": 40
+  },
+  "scope": "Step 9 only",
+  "deployment": "not performed"
+}

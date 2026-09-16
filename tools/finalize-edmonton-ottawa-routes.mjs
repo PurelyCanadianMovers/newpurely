@@ -4,7 +4,7 @@ import { assertAllowedPostProcessor } from "./route-ownership-guard.mjs";
 import { edmontonOttawaFacts, edmontonOttawaRoutes } from "./edmonton-ottawa-route-data.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
-const routeUrls = Object.keys(edmontonOttawaRoutes);
+const routeUrls = ["/edmonton-to-ottawa-movers/"];
 assertAllowedPostProcessor("finalize-edmonton-ottawa-routes.mjs", routeUrls.map((route) => route.slice(1, -1)));
 const styleTag = '    <link rel="stylesheet" href="/assets/step37-edmonton-ottawa.css" data-pcm-step37="edmonton-ottawa">';
 const scriptTag = '    <script defer src="/assets/step37-edmonton-ottawa.js" data-pcm-step37="edmonton-ottawa"></script>';
@@ -59,13 +59,12 @@ function applyContentCorrections(html, route) {
       .replace("Ottawa has the largest urban park system in North America along the North Saskatchewan River. If you're choosing a neighbourhood, proximity to the river valley is a major quality-of-life factor.", "Ottawa neighbourhoods vary from dense central streets to suburban homes. Confirm truck access, parking restrictions, elevator bookings, and loading windows before delivery.")
       .replace("You have 90 days after establishing Ontario residency to register your vehicle and get an Ontario driver's licence. Visit an Ontario registry agent to complete the transfer.", "Review Ontario vehicle-registration and driver-licensing requirements promptly after establishing residency, using current ServiceOntario guidance.")
       .replace(/>your move is coordinated/g, ">Your move is coordinated");
-  } else {
-    next = next.replace("Your move is handled by our own crew - not a subcontractor - from the moment we arrive at your Ottawa home to the moment we deliver in Edmonton.", "Your move is coordinated through Purely Canadian Movers and the Great Canadian Van Lines agent network, with clear documentation and no broker-style handoff to unknown movers.");
   }
   return next;
 }
 
-for (const [route, config] of Object.entries(edmontonOttawaRoutes)) {
+for (const route of routeUrls) {
+  const config = edmontonOttawaRoutes[route];
   const file = join(root, route.slice(1), "index.html");
   let html = await readFile(file, "utf8");
   html = setMeta(html, "title", config.title);
@@ -84,8 +83,6 @@ for (const [route, config] of Object.entries(edmontonOttawaRoutes)) {
   html = html.replace(/<section\b[^>]*data-pcm-step37-faq="1"[^>]*>[\s\S]*?<\/section>\s*/gi, "");
   if (route === "/edmonton-to-ottawa-movers/") {
     html = html.replace(/<section data-loc="client\/src\/pages\/services\/EdmontonToOttawaMovers\.tsx:298"[\s\S]*?<\/section>(?=<section data-loc="client\/src\/pages\/services\/EdmontonToOttawaMovers\.tsx:313")/i, "");
-  } else {
-    html = html.replace(/<section\b[^>]*data-pcm-route-faq-static="1"[^>]*>[\s\S]*?<\/section>\s*/gi, "");
   }
   html = html.replace("</head>", `${faqSchema(config)}\n</head>`);
   html = html.replace("</body>", `${faqSection(config)}\n</body>`);
@@ -94,7 +91,6 @@ for (const [route, config] of Object.entries(edmontonOttawaRoutes)) {
   if ((html.match(/data-pcm-step37-faq="1"/g) ?? []).length !== 1) throw new Error(`${route}: invalid Step 37 FAQ section`);
   if ((html.match(/id="pcm-step37-faq-schema"/g) ?? []).length !== 1) throw new Error(`${route}: invalid Step 37 FAQ schema`);
   if (route === "/edmonton-to-ottawa-movers/" && /<script\b[^>]*type=["']module["']/i.test(html)) throw new Error(`${route}: static route gained React bootstrap`);
-  if (route === "/ottawa-to-edmonton-movers/" && !/<script\b[^>]*type=["']module["']/i.test(html)) throw new Error(`${route}: React bootstrap missing`);
   await writeFile(file, html, "utf8");
   console.log(`Finalized Step 37 route: ${route}`);
 }

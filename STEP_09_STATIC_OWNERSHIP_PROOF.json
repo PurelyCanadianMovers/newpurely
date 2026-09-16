@@ -1,0 +1,16 @@
+{
+  "route": "/ottawa-to-edmonton-movers/",
+  "owner": "rebuild-ottawa-edmonton-static-route.mjs",
+  "rendering": "static",
+  "module": false,
+  "step37": false,
+  "staticNav": true,
+  "staticChat": true,
+  "faqSchema": 1,
+  "facts": {
+    "range": true,
+    "prices": true,
+    "distance": true,
+    "transit": true
+  }
+}

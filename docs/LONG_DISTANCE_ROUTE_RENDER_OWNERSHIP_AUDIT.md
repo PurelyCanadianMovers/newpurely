@@ -40,7 +40,7 @@ Scope: the repository's existing 56-route inventory in `tools/route-page-ownersh
 | `/montreal-to-victoria-movers/` | `site-copy/montreal-to-victoria-movers/index.html` | No | Yes (`_he`, dormant) | Montreal to Victoria Moving Cost, Prices & Transit Time | Montreal to Victoria Moving Cost, Prices & Transit Time | A — Static Safe | Yes | Migration Step 8 moved final ownership to `rebuild-montreal-victoria-static-route.mjs`; the page is static HTML with only conversion/navigation/chat enhancements. Direct edits survive initial, delayed, cache-busted, and hard-refresh renders. |
 | `/montreal-to-winnipeg-movers/` | `site-copy/montreal-to-winnipeg-movers/index.html` | No | No | Montreal to Winnipeg Movers | Montreal to Winnipeg Movers | A — Static Safe | Yes | Direct site-copy HTML edits survive final render. |
 | `/ottawa-to-calgary-movers/` | `site-copy/ottawa-to-calgary-movers/index.html` | No | Yes (`Khe`) | Ottawa to Calgary Movers | Ottawa to Calgary Movers | A — Static Safe | Yes | Bundle contains a route registration, but the page does not load the React bundle. Direct site-copy HTML edits survive final render. |
-| `/ottawa-to-edmonton-movers/` | `site-copy/ottawa-to-edmonton-movers/index.html` | Yes | Yes (`Whe`) | Professional Movers in Vancouver & the Lower Mainland Since 1991 | Ottawa to Edmonton Movers | B — React Owned | No | React component `Whe` owns final route content. Direct site-copy HTML edits can be overwritten after React mount. |
+| `/ottawa-to-edmonton-movers/` | `site-copy/ottawa-to-edmonton-movers/index.html` | No | Yes (`Whe`, dormant) | Ottawa to Edmonton Movers | Ottawa to Edmonton Movers | A — Static Safe | Yes | Migration Step 9 moved final ownership to `rebuild-ottawa-edmonton-static-route.mjs`; the page is static HTML with shared conversion/navigation/chat enhancements and direct edits survive final render. |
 | `/ottawa-to-toronto-movers/` | `site-copy/ottawa-to-toronto-movers/index.html` | No | Yes (`Ihe`) | Ottawa to Toronto Movers | Ottawa to Toronto Movers | A — Static Safe | Yes | Bundle contains a route registration, but the page does not load the React bundle. Direct site-copy HTML edits survive final render. |
 | `/ottawa-to-vancouver-movers/` | `site-copy/ottawa-to-vancouver-movers/index.html` | No | Yes (`Hhe`) | Ottawa to Vancouver Moving Cost, Prices & Transit Time | Ottawa to Vancouver Moving Cost, Prices & Transit Time | A — Static Safe | Yes | Bundle contains a route registration, but the page does not load the React bundle. Direct site-copy HTML edits survive final render. |
 | `/ottawa-to-victoria-movers/` | `site-copy/ottawa-to-victoria-movers/index.html` | Yes | Yes (`sge`) | Ottawa to Victoria & Nanaimo Movers | Ottawa to Victoria & Nanaimo Movers | C — Hybrid | Case-by-case | Documented static-owner exception retains the module bundle and mapped route while the dedicated static shell remains final. |
@@ -76,12 +76,12 @@ Scope: the repository's existing 56-route inventory in `tools/route-page-ownersh
 ## Summary counts
 
 - Total route pages audited: **56**
-- A — Static Safe: **39**
-- B — React Owned: **4**
+- A — Static Safe: **40**
+- B — React Owned: **3**
 - C — Hybrid: **13**
 - D — Other / Unknown: **0**
-- React-owned pages: **5**
-- Static-safe pages: **38**
+- React-owned pages: **4**
+- Static-safe pages: **39**
 
 ## STATIC SAFE PAGES
 
@@ -89,6 +89,7 @@ The complete A list is:
 
 - `/montreal-to-edmonton-movers/` (Migration Step 7)
 - `/montreal-to-victoria-movers/` (Migration Step 8)
+- `/ottawa-to-edmonton-movers/` (Migration Step 9)
 
 - `/calgary-to-edmonton-movers/`
 - `/calgary-to-halifax-movers/`
@@ -130,7 +131,7 @@ For every page in this list: **Direct site-copy HTML edits survive final render.
 
 ## REACT OWNED PAGES
 
-`/bc-to-washington-movers/`, `/edmonton-to-vancouver-movers/`, `/ottawa-to-edmonton-movers/`, and `/toronto-to-victoria-movers/`.
+`/bc-to-washington-movers/`, `/edmonton-to-vancouver-movers/`, and `/toronto-to-victoria-movers/`.
 
 For every page in this list: **Direct site-copy HTML edits can be overwritten after React mount.**
 
