@@ -24,6 +24,7 @@ import {
 import { validateOwnershipModel, validateRouteArchitecture } from "./validate-route-page-ownership.mjs";
 import { CALGARY_TORONTO_FACTS, CALGARY_TORONTO_ROUTES, assertCalgaryTorontoTemplate } from "./calgary-toronto-route-data.mjs";
 import { CALGARY_VANCOUVER_FACTS, CALGARY_VANCOUVER_ROUTES, assertCalgaryVancouverTemplate } from "./calgary-vancouver-route-data.mjs";
+import { assertTorontoVancouverStaticTemplate, torontoVancouverFacts, torontoVancouverRoutes } from "./toronto-vancouver-static-route-data.mjs";
 
 test("all 56 routes have one collision-free owner", () => {
   assert.equal(routePageOwnership.length, 56);
@@ -87,6 +88,31 @@ test("Winnipeg-Montreal facts are complete, frozen, and reject missing values", 
   );
 });
 
+test("Toronto-Vancouver Step 5 routes are static-safe and fact-complete", async () => {
+  assert.equal(torontoVancouverFacts.distance, "~4,400 km");
+  assert.equal(torontoVancouverFacts.transit, "9–22 days");
+  assert.equal(torontoVancouverFacts.range, "$2,500–$15,000+");
+  assert.deepEqual(torontoVancouverFacts.rows.map((row) => row[1]), ["$2,500+", "$4,700+", "$6,500+", "$10,000+", "$15,000+"]);
+  for (const [routePath, config] of Object.entries(torontoVancouverRoutes)) {
+    const entry = routeOwnershipByUrl.get(routePath);
+    assert.equal(entry.owner, "rebuild-toronto-vancouver-static-routes.mjs");
+    assert.equal(entry.rendering, "static");
+    assert.deepEqual(entry.runtimeEnhancers, [
+      "site-copy/assets/conversion-boost.js",
+      "site-copy/assets/static-nav.js",
+      "site-copy/assets/static-chat.js",
+    ]);
+    assert.deepEqual(entry.runtimeStyles, [
+      "site-copy/assets/conversion-boost.css",
+      "site-copy/assets/step38-toronto-vancouver.css",
+      "site-copy/assets/static-nav.css",
+      "site-copy/assets/static-chat.css",
+    ]);
+    assert.deepEqual(entry.postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+    const html = await readFile(resolve("tools/templates/toronto-vancouver-static-routes", `${routePath.slice(1, -1)}.html`), "utf8");
+    assert.doesNotThrow(() => assertTorontoVancouverStaticTemplate(html, { ...config, slug: routePath.slice(1, -1) }));
+  }
+});
 test("representative SPA, dedicated, conflict, finalizer, and ordinary routes are classified", () => {
   assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").owner, "rebuild-calgary-toronto-static-routes.mjs");
   assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").rendering, "static");

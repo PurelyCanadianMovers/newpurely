@@ -1,0 +1,587 @@
+{
+  "generatedAt": "2026-09-16T18:54:39.831Z",
+  "results": [
+    {
+      "route": "/toronto-to-vancouver-movers/",
+      "expected": {
+        "origin": "Toronto",
+        "originValue": "Toronto, ON",
+        "destination": "Vancouver",
+        "destinationValue": "Vancouver, BC",
+        "routeLabel": "Toronto to Vancouver",
+        "pairLabel": "Toronto–Vancouver",
+        "description": "Plan a Toronto to Vancouver move with a family-owned Canadian mover. Review typical 9–22 day transit, route pricing, packing, and delivery considerations.",
+        "pickupCopy": "Toronto pickups require careful building-access planning, especially for downtown condos, elevator reservations, loading docks, and restricted curb space. Ontario origin details are confirmed before moving day.",
+        "corridorCopy": "Westbound service crosses several provinces and weather systems. Shipment scheduling, inventory accuracy, seasonal conditions, and the Great Canadian Van Lines agent network all shape the delivery window.",
+        "deliveryCopy": "Vancouver deliveries often involve strata rules, elevator bookings, loading-zone limits, and wet-weather protection. We coordinate access details before the shipment reaches the Lower Mainland.",
+        "reverseRoute": "/vancouver-to-toronto-movers/",
+        "reverseLabel": "Vancouver to Toronto moves",
+        "facts": {
+          "distance": "~4,400 km",
+          "transit": "9–22 days",
+          "range": "$2,500–$15,000+",
+          "rows": [
+            [
+              "Studio",
+              "$2,500+",
+              "Typical smaller shipment",
+              "9–22 days"
+            ],
+            [
+              "1-bedroom",
+              "$4,700+",
+              "Typical apartment shipment",
+              "9–22 days"
+            ],
+            [
+              "2-bedroom",
+              "$6,500+",
+              "Typical mid-size household",
+              "9–22 days"
+            ],
+            [
+              "3-bedroom",
+              "$10,000+",
+              "Typical larger household",
+              "9–22 days"
+            ],
+            [
+              "4+ bedroom",
+              "$15,000+",
+              "Large household; estimate required",
+              "9–22 days"
+            ]
+          ]
+        }
+      },
+      "raw": {
+        "owner": "rebuild-toronto-vancouver-static-routes.mjs",
+        "rendering": "static",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "reactBootstrap": false,
+        "step38Runtime": false,
+        "staticDependencies": true,
+        "title": "Toronto to Vancouver Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/toronto-to-vancouver-movers/",
+        "h1": 1,
+        "formCount": 1,
+        "pricing": 1,
+        "tables": 1,
+        "glance": 1,
+        "faqSection": 1,
+        "faqPage": 1,
+        "visibleFaq": 9,
+        "faqParity": true,
+        "footer": 1,
+        "localSeo": 0,
+        "legacyPricing": false,
+        "undefined": false,
+        "from": "Toronto, ON",
+        "to": "Vancouver, BC",
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "relatedReverse": true,
+        "directionalCopy": true
+      },
+      "initial": {
+        "title": "Toronto to Vancouver Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/toronto-to-vancouver-movers/",
+        "h1": "Toronto to Vancouver Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "from": "Toronto, ON",
+        "to": "Vancouver, BC",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "250px 250px 250px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "delayed": {
+        "title": "Toronto to Vancouver Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/toronto-to-vancouver-movers/",
+        "h1": "Toronto to Vancouver Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "from": "Toronto, ON",
+        "to": "Vancouver, BC",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "250px 250px 250px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "settled": {
+        "title": "Toronto to Vancouver Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/toronto-to-vancouver-movers/",
+        "h1": "Toronto to Vancouver Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "from": "Toronto, ON",
+        "to": "Vancouver, BC",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "250px 250px 250px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "mobile": {
+        "title": "Toronto to Vancouver Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/toronto-to-vancouver-movers/",
+        "h1": "Toronto to Vancouver Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "36px",
+          "45px",
+          "700"
+        ],
+        "from": "Toronto, ON",
+        "to": "Vancouver, BC",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "308px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "interactions": {
+        "desktop": {
+          "dropdownOpened": true,
+          "aria": "true"
+        },
+        "chat": {
+          "opened": true,
+          "closed": true
+        },
+        "mobile": {
+          "initial": true,
+          "opened": true,
+          "toggleClosed": true,
+          "escaped": true,
+          "chatOpened": true,
+          "chatClosed": true,
+          "overflow": true
+        }
+      },
+      "errors": []
+    },
+    {
+      "route": "/vancouver-to-toronto-movers/",
+      "expected": {
+        "origin": "Vancouver",
+        "originValue": "Vancouver, BC",
+        "destination": "Toronto",
+        "destinationValue": "Toronto, ON",
+        "routeLabel": "Vancouver to Toronto",
+        "pairLabel": "Vancouver–Toronto",
+        "description": "Plan a Vancouver to Toronto move with a family-owned Canadian mover. Review typical 9–22 day transit, route pricing, packing, and delivery considerations.",
+        "pickupCopy": "Vancouver pickups often require strata approval, elevator reservations, loading-zone planning, and protection from wet weather. BC origin access details are confirmed before moving day.",
+        "corridorCopy": "Eastbound service crosses several provinces and weather systems. Shipment scheduling, inventory accuracy, seasonal conditions, and the Great Canadian Van Lines agent network all shape the delivery window.",
+        "deliveryCopy": "Toronto deliveries can involve condo elevator bookings, loading docks, tight urban access, and winter restrictions. We coordinate destination access before the shipment reaches the GTA.",
+        "reverseRoute": "/toronto-to-vancouver-movers/",
+        "reverseLabel": "Toronto to Vancouver moves",
+        "facts": {
+          "distance": "~4,400 km",
+          "transit": "9–22 days",
+          "range": "$2,500–$15,000+",
+          "rows": [
+            [
+              "Studio",
+              "$2,500+",
+              "Typical smaller shipment",
+              "9–22 days"
+            ],
+            [
+              "1-bedroom",
+              "$4,700+",
+              "Typical apartment shipment",
+              "9–22 days"
+            ],
+            [
+              "2-bedroom",
+              "$6,500+",
+              "Typical mid-size household",
+              "9–22 days"
+            ],
+            [
+              "3-bedroom",
+              "$10,000+",
+              "Typical larger household",
+              "9–22 days"
+            ],
+            [
+              "4+ bedroom",
+              "$15,000+",
+              "Large household; estimate required",
+              "9–22 days"
+            ]
+          ]
+        }
+      },
+      "raw": {
+        "owner": "rebuild-toronto-vancouver-static-routes.mjs",
+        "rendering": "static",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "reactBootstrap": false,
+        "step38Runtime": false,
+        "staticDependencies": true,
+        "title": "Vancouver to Toronto Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-toronto-movers/",
+        "h1": 1,
+        "formCount": 1,
+        "pricing": 1,
+        "tables": 1,
+        "glance": 1,
+        "faqSection": 1,
+        "faqPage": 1,
+        "visibleFaq": 9,
+        "faqParity": true,
+        "footer": 1,
+        "localSeo": 0,
+        "legacyPricing": false,
+        "undefined": false,
+        "from": "Vancouver, BC",
+        "to": "Toronto, ON",
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "relatedReverse": true,
+        "directionalCopy": true
+      },
+      "initial": {
+        "title": "Vancouver to Toronto Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-toronto-movers/",
+        "h1": "Vancouver to Toronto Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "from": "Vancouver, BC",
+        "to": "Toronto, ON",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "250px 250px 250px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "delayed": {
+        "title": "Vancouver to Toronto Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-toronto-movers/",
+        "h1": "Vancouver to Toronto Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "from": "Vancouver, BC",
+        "to": "Toronto, ON",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "250px 250px 250px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "settled": {
+        "title": "Vancouver to Toronto Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-toronto-movers/",
+        "h1": "Vancouver to Toronto Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "from": "Vancouver, BC",
+        "to": "Toronto, ON",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "250px 250px 250px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "mobile": {
+        "title": "Vancouver to Toronto Movers | Purely Canadian Movers",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-toronto-movers/",
+        "h1": "Vancouver to Toronto Movers",
+        "h1Style": [
+          "\"Playfair Display\", Georgia, serif",
+          "36px",
+          "45px",
+          "700"
+        ],
+        "from": "Vancouver, BC",
+        "to": "Toronto, ON",
+        "counts": {
+          "h1": 1,
+          "form": 1,
+          "pricing": 1,
+          "tables": 1,
+          "glance": 1,
+          "faq": 1,
+          "faqSchema": 1,
+          "visibleFaq": 9,
+          "footer": 1,
+          "nav": 2,
+          "chat": 1
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true
+        },
+        "glanceStyle": {
+          "border": "1px solid",
+          "background": "rgb(249, 250, 251)",
+          "radius": "12px"
+        },
+        "glanceGrid": "308px",
+        "pageOverflow": false,
+        "noUndefined": true,
+        "noSoft404": true,
+        "routeBody": true,
+        "staticNavCssLoaded": true,
+        "staticChatCssLoaded": true,
+        "reactBundleRequested": false
+      },
+      "interactions": {
+        "desktop": {
+          "dropdownOpened": true,
+          "aria": "true"
+        },
+        "chat": {
+          "opened": true,
+          "closed": true
+        },
+        "mobile": {
+          "initial": true,
+          "opened": true,
+          "toggleClosed": true,
+          "escaped": true,
+          "chatOpened": true,
+          "chatClosed": true,
+          "overflow": true
+        }
+      },
+      "errors": []
+    }
+  ]
+}

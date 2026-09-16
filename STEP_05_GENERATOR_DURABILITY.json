@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-09-16T18:50:55.2316641Z",
+  "generator": "tools/rebuild-toronto-vancouver-static-routes.mjs",
+  "first": {
+    "site-copy/vancouver-to-toronto-movers/index.html": "CA47D2C118A1A22C4CD11F86AC431B5B6F6AEBA5D815A3AE747AFC16C3CA4D5C",
+    "site-copy/toronto-to-vancouver-movers/index.html": "E20450BB018B9C2EFE99ED083E10FB8C9227DAC81077032295A28BB3390D45F2"
+  },
+  "second": {
+    "site-copy/vancouver-to-toronto-movers/index.html": "CA47D2C118A1A22C4CD11F86AC431B5B6F6AEBA5D815A3AE747AFC16C3CA4D5C",
+    "site-copy/toronto-to-vancouver-movers/index.html": "E20450BB018B9C2EFE99ED083E10FB8C9227DAC81077032295A28BB3390D45F2"
+  },
+  "third": {
+    "site-copy/vancouver-to-toronto-movers/index.html": "CA47D2C118A1A22C4CD11F86AC431B5B6F6AEBA5D815A3AE747AFC16C3CA4D5C",
+    "site-copy/toronto-to-vancouver-movers/index.html": "E20450BB018B9C2EFE99ED083E10FB8C9227DAC81077032295A28BB3390D45F2"
+  },
+  "stable": true
+}
