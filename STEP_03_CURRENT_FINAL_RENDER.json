@@ -1,0 +1,88 @@
+[
+  {
+    "route": "/edmonton-to-toronto-movers/",
+    "classification": "A — Static Safe",
+    "ownership": {
+      "routeUrl": "/edmonton-to-toronto-movers/",
+      "owner": "rebuild-edmonton-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator",
+      "postProcessors": [
+        "finalize-route-promo.mjs",
+        "finalize-route-faq-architecture.mjs",
+        "normalize-route-title-metadata.mjs"
+      ],
+      "runtimeEnhancers": [
+        "site-copy/assets/conversion-boost.js",
+        "site-copy/assets/static-nav.js",
+        "site-copy/assets/static-chat.js"
+      ],
+      "runtimeStyles": [],
+      "architectureExceptions": [],
+      "rendering": "static",
+      "status": "active"
+    },
+    "state": {
+      "h1": "Edmonton to Toronto Moving Cost, Prices & Transit Time",
+      "title": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+      "from": "Edmonton, AB",
+      "to": "Toronto, ON",
+      "h1Count": 1,
+      "quoteFormCount": 1,
+      "pricingCount": 1,
+      "tableCount": 1,
+      "faqCount": 1,
+      "faqSchemaCount": 1,
+      "navCount": 1,
+      "footerCount": 1,
+      "chatCount": 1,
+      "undefinedVisible": false,
+      "soft404": false,
+      "directionCorrect": true
+    },
+    "consoleErrors": [],
+    "issues": []
+  },
+  {
+    "route": "/toronto-to-edmonton-movers/",
+    "classification": "A — Static Safe",
+    "ownership": {
+      "routeUrl": "/toronto-to-edmonton-movers/",
+      "owner": "rebuild-edmonton-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator",
+      "postProcessors": [
+        "finalize-route-promo.mjs",
+        "finalize-route-faq-architecture.mjs",
+        "normalize-route-title-metadata.mjs"
+      ],
+      "runtimeEnhancers": [
+        "site-copy/assets/conversion-boost.js",
+        "site-copy/assets/static-nav.js",
+        "site-copy/assets/static-chat.js"
+      ],
+      "runtimeStyles": [],
+      "architectureExceptions": [],
+      "rendering": "static",
+      "status": "active"
+    },
+    "state": {
+      "h1": "Toronto to Edmonton Moving Cost, Prices & Transit Time",
+      "title": "Toronto to Edmonton Movers | Long-Distance Moving | Purely Canadian Movers",
+      "from": "Toronto, ON",
+      "to": "Edmonton, AB",
+      "h1Count": 1,
+      "quoteFormCount": 1,
+      "pricingCount": 1,
+      "tableCount": 1,
+      "faqCount": 1,
+      "faqSchemaCount": 1,
+      "navCount": 1,
+      "footerCount": 1,
+      "chatCount": 1,
+      "undefinedVisible": false,
+      "soft404": false,
+      "directionCorrect": true
+    },
+    "consoleErrors": [],
+    "issues": []
+  }
+]

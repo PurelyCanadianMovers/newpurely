@@ -29,7 +29,7 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 | `/edmonton-to-calgary-movers/` | A | Checked-in static HTML | `site-copy/edmonton-to-calgary-movers/index.html` | Bundle; unrelated generators | No; aggregate preserves checked-in source | No | No meaningful route replacement | Step 35 checked-in static pair | A + content |
 | `/edmonton-to-montreal-movers/` | C | Static HTML plus inline Step 62 route runtime | `site-copy/edmonton-to-montreal-movers/index.html`; inline runtime only when the controlled section requires it | React bundle assumption; generated bundle | Run `npm run routes` only when registered finalizers are intentionally reapplied | No bundle mount | Yes: pricing, glance, FAQ, metadata, and static chat/presentation | Documented mixed exception | C + content/render |
 | `/edmonton-to-ottawa-movers/` | A | Checked-in static HTML and `tools/edmonton-ottawa-route-data.mjs` | Static HTML for copy; route data for fact changes | React bundle; patch scripts as durable source | No for direct copy; run registered owner/finalizers for data changes | No | No meaningful route replacement | Mixed pair: Ottawa→Edmonton is B | A + pair regression |
-| `/edmonton-to-toronto-movers/` | B | React component `Rhe` in compiled route map | Upstream React source for Edmonton/Toronto page | Static HTML; compiled bundle | React build required | Yes | React owns main content | React route finalizer | B + content/render |
+| `/edmonton-to-toronto-movers/` | A | `tools/rebuild-edmonton-toronto-static-routes.mjs` | Pair generator, `tools/edmonton-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-edmonton-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 3 static pair owner | A + content/render |
 | `/edmonton-to-vancouver-movers/` | B | React component `Vhe` in compiled route map | Upstream React source for Edmonton/Vancouver page | Static HTML; compiled bundle | React build required | Yes | React owns main content | Reverse pair has documented static-owner handling | B + content/render |
 | `/edmonton-to-winnipeg-movers/` | C | `tools/rebuild-edmonton-winnipeg-routes.mjs` and explicit templates | Rebuild script/template/data | Route HTML output | `node tools/rebuild-edmonton-winnipeg-routes.mjs site-copy` or `npm run routes` | No | Static prairie content plus route-specific runtime/presentation | Shared static nav/chat and Step 34 assets | C + content/render |
 | `/halifax-to-calgary-movers/` | A | `tools/generate-halifax-calgary-route-pages.mjs` | Generator/template/data | Route HTML output | `node tools/generate-halifax-calgary-route-pages.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
@@ -49,7 +49,7 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 | `/ottawa-to-winnipeg-movers/` | A | `tools/fix-winnipeg-static-routes.mjs` | Guarded owner script and route data/template | Route HTML output; unguarded legacy writer | `npm run routes`; use legacy flag only if explicitly required | No | No meaningful route replacement | Ottawa↔Winnipeg guarded legacy scope | A + ownership |
 | `/seattle-to-vancouver-movers/` | C | Checked-in static HTML plus `tools/finalize-seattle-vancouver-routes.mjs` and route data | Static source, pair data, finalizer | Route HTML; bundle | `npm run routes` | No | Step 49 presentation runtime and static chat/nav alter shell | Cross-border static family | C + content/render |
 | `/toronto-to-calgary-movers/` | A | `tools/rebuild-calgary-toronto-static-routes.mjs` | Pair generator, `tools/calgary-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-calgary-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 1 static pair owner | A + content/render |
-| `/toronto-to-edmonton-movers/` | B | React component `Yme` in compiled route map | Upstream React source for Toronto/Edmonton page | Static HTML; compiled bundle | React build required | Yes | React owns main content | React route finalizer | B + content/render |
+| `/toronto-to-edmonton-movers/` | A | `tools/rebuild-edmonton-toronto-static-routes.mjs` | Pair generator, `tools/edmonton-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-edmonton-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 3 static pair owner | A + content/render |
 | `/toronto-to-halifax-movers/` | C | `tools/update-halifax-toronto-routes.mjs` and pair templates/data | Pair owner/template/data | Route HTML output; bundle | `npm run routes` | No | Static estimate/content/chat with Step 47 presentation | Hybrid pair | C + content/render |
 | `/toronto-to-montreal-movers/` | B | React component `$me` in compiled route map | Upstream React source for Toronto/Montreal page | Static HTML; compiled bundle | React build required | Yes | React owns main content | React route finalizer | B + content/render |
 | `/toronto-to-ottawa-movers/` | A | `tools/rebuild-ottawa-toronto-routes.mjs` | Rebuild script, data/template, hub block | Route HTML output | `npm run routes` | No | No meaningful route replacement | Static pair owner | A + related routes |
@@ -144,7 +144,7 @@ For React and hybrid routes, source inspection alone is insufficient: QA must in
 - Loading the React bundle alone does **not** establish React ownership.
 - Edmonton → Montreal is hybrid even though it is React-related because it does not load the React bundle and inline JavaScript affects the page.
 - Ottawa → Victoria is hybrid because it loads/maps React while retaining its dedicated static shell.
-- The completed ownership audit covered 56 routes: **26 Static Safe, 17 React Owned, 13 Hybrid, 0 Unknown**.
+- The completed ownership audit covered 56 routes: **32 Static Safe, 11 React Owned, 13 Hybrid, 0 Unknown**.
 - The ownership validator passed with 56 routes and zero collisions.
 
 ## Future Codex Rule
@@ -155,7 +155,7 @@ If the playbook and current repository architecture ever disagree, stop before e
 
 ## Coverage and limitations
 
-The route table contains exactly one row for each route in the completed 56-route audit. The exact final owner is established for every route. After Migration Step 2, 13 routes remain B-owned. Their exact upstream editable React source is not present in this repository; the compiled component mapping is known, but the upstream React source/build location must be resolved before a B-route edit. No ownership collision or contradiction was discovered by the completed audit or validator.
+The route table contains exactly one row for each route in the completed 56-route audit. The exact final owner is established for every route. After Migration Step 3, 11 routes remain B-owned. Their exact upstream editable React source is not present in this repository; the compiled component mapping is known, but the upstream React source/build location must be resolved before a B-route edit. No ownership collision or contradiction was discovered by the completed audit or validator.
 
 ## Verified B-route source trace
 
@@ -164,14 +164,12 @@ The React source investigation is recorded in `docs/REACT_ROUTE_SOURCE_TRACE_AUD
 | B route | Bundle component | Verified source-location marker | Current editing instruction |
 |---|---|---|---|
 | `/bc-to-washington-movers/` | `gge` | `client/src/pages/services/BCToWashingtonMovers.tsx` | Locate the upstream checkout containing this file; do not edit generated HTML/bundle. |
-| `/edmonton-to-toronto-movers/` | `Rhe` | `client/src/pages/services/EdmontonToTorontoMovers.tsx` | Locate upstream source before editing. |
 | `/edmonton-to-vancouver-movers/` | `Vhe` | `client/src/pages/services/EdmontonToVancouverMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-calgary-movers/` | `whe` | `client/src/pages/services/MontrealToCalgaryMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-edmonton-movers/` | `Ehe` | `client/src/pages/services/MontrealToEdmontonMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-toronto-movers/` | `mhe` | `client/src/pages/services/MontrealToTorontoMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-victoria-movers/` | `_he` | `client/src/pages/services/MontrealToVictoriaMovers.tsx` | Locate upstream source before editing. |
 | `/ottawa-to-edmonton-movers/` | `Whe` | `client/src/pages/services/OttawaToEdmontonMovers.tsx` | Locate upstream source before editing. |
-| `/toronto-to-edmonton-movers/` | `Yme` | `client/src/pages/services/TorontoToEdmontonMovers.tsx` | Locate upstream source before editing. |
 | `/toronto-to-montreal-movers/` | `$me` | `client/src/pages/services/TorontoToMontrealMovers.tsx` | Locate upstream source before editing. |
 | `/toronto-to-vancouver-movers/` | `Fme` | `client/src/pages/services/TorontoToVancouverMovers.tsx` | Locate upstream source before editing. |
 | `/toronto-to-victoria-movers/` | `uge` | `client/src/pages/services/TorontoToVictoriaMovers.tsx` | Locate upstream source before editing. |
