@@ -61,3 +61,7 @@ The generator reuses the established static shell/template as structural precede
 None for Step 7 local scope.
 
 No other route was migrated. Nothing was committed. Nothing was deployed. Migration Step 8 was not started.
+
+## Step 7 dependency repair
+
+The first deployment of commit `30e3345` was rolled back because the generated route referenced `/assets/step36-edmonton-montreal.css`, which returned 404 in production. The reference came from the template's `step36-calgary-montreal.css` link after the generator's direction swap; the cleanup handled only the opposite filename order. No `step36-edmonton-montreal.css` exists in the repository or Git history. The generator now removes transformed Step 36 stylesheet links and inserts exactly one existing canonical `/assets/step36-montreal-calgary.css` dependency. `tools/validate-step07-local-assets.mjs` fails on any missing local CSS or JavaScript reference and explicitly rejects the invalid filename.

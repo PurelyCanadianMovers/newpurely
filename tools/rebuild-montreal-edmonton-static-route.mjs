@@ -84,7 +84,8 @@ html = html.replace(/Calgary/g, "Edmonton").replace(/calgary/g, "edmonton")
   .replace(/Calgary neighbourhoods such as Downtown, Beltline, Mission, Kensington, and Bridgeland/g, "Edmonton neighbourhoods such as Downtown, Oliver, Strathcona, Westmount, and Windermere")
   .replace(/3,600/g, "3,500").replace(/3,400/g, "3,500")
   .replace(/\.pcm-local-seo/gi, "pcm-local-seo-retired")
-  .replace(/step36-montreal-edmonton\.css/g, "step36-montreal-calgary.css")
+  .replace(/<link rel="stylesheet" href="\/assets\/step36-[^"]+\.css"[^>]*>\s*/gi, "")
+  .replace(/(<link rel="stylesheet" href="\/assets\/conversion-boost\.css">)/i, "$1<link rel=\"stylesheet\" href=\"/assets/step36-montreal-calgary.css\">")
   .replace(/class="pcm-step36-montreal-edmonton"/g, `class="pcm-step36-montreal-calgary pcm-step36-montreal-edmonton"`);
 
 html = replaceFaqSection(html);
