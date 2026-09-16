@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-09-16T19:37:12.068Z",
+  "results": [
+    {
+      "route": {
+        "path": "/montreal-to-calgary-movers/",
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "react": false
+      },
+      "raw": {
+        "title": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "module": false,
+        "faqPage": 1,
+        "localSeo": 0
+      },
+      "early": {
+        "title": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "og": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "twitter": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "description": "Plan a Montreal to Calgary long-distance move with route-specific pricing, approximately 3,600 km distance, 7–19 day transit guidance, packing, storage, and written estimates.",
+        "canonical": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "h1": [
+          "Montreal to Calgary Movers"
+        ],
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "counts": {
+          "quote": 1,
+          "pricing": 1,
+          "table": 1,
+          "rows": 5,
+          "glance": 1,
+          "faq": 1,
+          "faqHeading": 1,
+          "faqPage": 1,
+          "localSeo": 0,
+          "footer": 1,
+          "launcher": 1,
+          "trust": 7,
+          "module": 0
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "bad": false
+      },
+      "settled": {
+        "title": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "og": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "twitter": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "description": "Plan a Montreal to Calgary long-distance move with route-specific pricing, approximately 3,600 km distance, 7–19 day transit guidance, packing, storage, and written estimates.",
+        "canonical": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "h1": [
+          "Montreal to Calgary Movers"
+        ],
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "counts": {
+          "quote": 1,
+          "pricing": 1,
+          "table": 1,
+          "rows": 5,
+          "glance": 1,
+          "faq": 1,
+          "faqHeading": 1,
+          "faqPage": 1,
+          "localSeo": 0,
+          "footer": 1,
+          "launcher": 1,
+          "trust": 7,
+          "module": 0
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "bad": false
+      },
+      "desktop": {
+        "viewport": [
+          1280,
+          900
+        ],
+        "overflow": false,
+        "broken": 0,
+        "h1": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "quoteColumns": "565.984px 410px",
+        "glanceColumns": "207.328px 207.328px 207.328px",
+        "tableMin": "760px",
+        "tableScroll": false
+      },
+      "mobile": {
+        "viewport": [
+          390,
+          844
+        ],
+        "overflow": false,
+        "broken": 0,
+        "h1": [
+          "\"Playfair Display\", Georgia, serif",
+          "36px",
+          "45px",
+          "700"
+        ],
+        "quoteColumns": "324px",
+        "glanceColumns": "308px",
+        "tableMin": "760px",
+        "tableScroll": true
+      },
+      "interactions": {
+        "desktop": {
+          "dropdown": true,
+          "dropdownOpened": true,
+          "chat": true,
+          "chatOpened": true
+        },
+        "mobile": {
+          "menu": true,
+          "ariaBefore": "false",
+          "ariaOpen": "true",
+          "ariaClosed": "false",
+          "chat": true,
+          "chatOpened": true
+        }
+      },
+      "logs": []
+    }
+  ]
+}

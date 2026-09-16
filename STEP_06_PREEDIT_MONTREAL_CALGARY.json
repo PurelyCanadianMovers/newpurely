@@ -1,0 +1,283 @@
+{
+  "generatedAt": "2026-09-16T19:14:46.387Z",
+  "results": [
+    {
+      "route": {
+        "path": "/montreal-to-calgary-movers/",
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "react": true
+      },
+      "raw": {
+        "title": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "module": false,
+        "faqPage": 1,
+        "localSeo": 0
+      },
+      "early": {
+        "title": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "og": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "twitter": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "description": "Plan a Montreal to Calgary long-distance move with route-specific pricing, approximately 3,600 km distance, 7–19 day transit guidance, packing, storage, and written estimates.",
+        "canonical": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "h1": [
+          "Montreal to Calgary Movers"
+        ],
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "counts": {
+          "quote": 1,
+          "pricing": 1,
+          "table": 1,
+          "rows": 5,
+          "glance": 1,
+          "faq": 0,
+          "faqHeading": 1,
+          "faqPage": 1,
+          "localSeo": 0,
+          "footer": 1,
+          "launcher": 1,
+          "trust": 7,
+          "module": 0
+        },
+        "faqParity": false,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "bad": false
+      },
+      "settled": {
+        "title": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "og": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "twitter": "Montreal to Calgary Movers | Purely Canadian Movers",
+        "description": "Plan a Montreal to Calgary long-distance move with route-specific pricing, approximately 3,600 km distance, 7–19 day transit guidance, packing, storage, and written estimates.",
+        "canonical": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/montreal-to-calgary-movers/",
+        "h1": [
+          "Montreal to Calgary Movers"
+        ],
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "counts": {
+          "quote": 2,
+          "pricing": 1,
+          "table": 1,
+          "rows": 5,
+          "glance": 1,
+          "faq": 0,
+          "faqHeading": 1,
+          "faqPage": 1,
+          "localSeo": 0,
+          "footer": 1,
+          "launcher": 1,
+          "trust": 13,
+          "module": 0
+        },
+        "faqParity": false,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "bad": false
+      },
+      "desktop": {
+        "viewport": [
+          1280,
+          900
+        ],
+        "overflow": false,
+        "broken": 0,
+        "h1": [
+          "Georgia, \"Times New Roman\", serif",
+          "51.2px",
+          "55.296px",
+          "700"
+        ],
+        "quoteColumns": "565.984px 410px",
+        "glanceColumns": "none",
+        "tableMin": "760px",
+        "tableScroll": false
+      },
+      "mobile": {
+        "viewport": [
+          390,
+          844
+        ],
+        "overflow": true,
+        "broken": 0,
+        "h1": [
+          "Georgia, \"Times New Roman\", serif",
+          "36px",
+          "38.88px",
+          "700"
+        ],
+        "quoteColumns": "324px",
+        "glanceColumns": "none",
+        "tableMin": "760px",
+        "tableScroll": false
+      },
+      "interactions": {
+        "desktop": {
+          "dropdown": true,
+          "dropdownOpened": true,
+          "chat": true,
+          "chatOpened": false
+        },
+        "mobile": {
+          "menu": true,
+          "ariaBefore": "false",
+          "ariaOpen": "true",
+          "ariaClosed": "false",
+          "chat": true,
+          "chatOpened": false
+        }
+      },
+      "logs": []
+    },
+    {
+      "route": {
+        "path": "/calgary-to-montreal-movers/",
+        "from": "Calgary, AB",
+        "to": "Montreal, QC",
+        "react": false
+      },
+      "raw": {
+        "title": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "module": false,
+        "faqPage": 1,
+        "localSeo": 0
+      },
+      "early": {
+        "title": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "og": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "twitter": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "description": "Plan a Calgary to Montreal long-distance move with route-specific pricing, approximately 3,600 km distance, 7–19 day transit guidance, packing, storage, and written estimates.",
+        "canonical": "https://purelycanadianmovers.com/calgary-to-montreal-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/calgary-to-montreal-movers/",
+        "h1": [
+          "Calgary to Montreal Movers"
+        ],
+        "from": "Calgary, AB",
+        "to": "Montreal, QC",
+        "counts": {
+          "quote": 1,
+          "pricing": 1,
+          "table": 1,
+          "rows": 5,
+          "glance": 1,
+          "faq": 1,
+          "faqHeading": 1,
+          "faqPage": 1,
+          "localSeo": 0,
+          "footer": 1,
+          "launcher": 1,
+          "trust": 6,
+          "module": 0
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "bad": false
+      },
+      "settled": {
+        "title": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "og": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "twitter": "Calgary to Montreal Movers | Purely Canadian Movers",
+        "description": "Plan a Calgary to Montreal long-distance move with route-specific pricing, approximately 3,600 km distance, 7–19 day transit guidance, packing, storage, and written estimates.",
+        "canonical": "https://purelycanadianmovers.com/calgary-to-montreal-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/calgary-to-montreal-movers/",
+        "h1": [
+          "Calgary to Montreal Movers"
+        ],
+        "from": "Calgary, AB",
+        "to": "Montreal, QC",
+        "counts": {
+          "quote": 1,
+          "pricing": 1,
+          "table": 1,
+          "rows": 5,
+          "glance": 1,
+          "faq": 1,
+          "faqHeading": 1,
+          "faqPage": 1,
+          "localSeo": 0,
+          "footer": 1,
+          "launcher": 1,
+          "trust": 6,
+          "module": 0
+        },
+        "faqParity": true,
+        "facts": {
+          "distance": true,
+          "transit": true,
+          "range": true,
+          "prices": true
+        },
+        "bad": false
+      },
+      "desktop": {
+        "viewport": [
+          1280,
+          900
+        ],
+        "overflow": false,
+        "broken": 0,
+        "h1": [
+          "\"Playfair Display\", Georgia, serif",
+          "48px",
+          "60px",
+          "700"
+        ],
+        "quoteColumns": "565.984px 410px",
+        "glanceColumns": "250px 250px 250px",
+        "tableMin": "760px",
+        "tableScroll": false
+      },
+      "mobile": {
+        "viewport": [
+          390,
+          844
+        ],
+        "overflow": false,
+        "broken": 0,
+        "h1": [
+          "\"Playfair Display\", Georgia, serif",
+          "36px",
+          "45px",
+          "700"
+        ],
+        "quoteColumns": "324px",
+        "glanceColumns": "308px",
+        "tableMin": "760px",
+        "tableScroll": true
+      },
+      "interactions": {
+        "desktop": {
+          "dropdown": true,
+          "dropdownOpened": true,
+          "chat": true,
+          "chatOpened": false
+        },
+        "mobile": {
+          "menu": true,
+          "ariaBefore": "false",
+          "ariaOpen": "true",
+          "ariaClosed": "false",
+          "chat": true,
+          "chatOpened": false
+        }
+      },
+      "logs": []
+    }
+  ]
+}
