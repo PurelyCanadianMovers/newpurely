@@ -39,7 +39,7 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 | `/montreal-to-edmonton-movers/` | A | `tools/rebuild-montreal-edmonton-static-route.mjs` | Established static shell template plus reconciled Montreal–Edmonton facts | Route HTML output; compiled bundle and Step 62 finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-edmonton-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 7 static owner; Edmonton → Montreal remains hybrid and unchanged | A + content/render |
 | `/montreal-to-toronto-movers/` | A | `tools/rebuild-montreal-toronto-static-routes.mjs` | Pair generator, `tools/montreal-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-montreal-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 4 static pair owner | A + content/render |
 | `/montreal-to-vancouver-movers/` | A | `tools/standardize-montreal-vancouver-routes.mjs` and pair data/templates | Standardizer, pair data/template | Route HTML output; bundle | `npm run routes` | No | No meaningful route replacement | Static side of four-route owner | A + pair regression |
-| `/montreal-to-victoria-movers/` | B | React component `_he` in compiled route map | Upstream React source for Montreal/Victoria page | Static HTML; compiled bundle | React build required | Yes | React owns main content | Reverse pair is static/hybrid | B + content/render |
+| `/montreal-to-victoria-movers/` | A | `tools/rebuild-montreal-victoria-static-route.mjs` | `tools/montreal-victoria-static-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and legacy finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-victoria-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 8 static owner; Victoria → Montreal remains unchanged static comparison page | A + content/render |
 | `/montreal-to-winnipeg-movers/` | A | `tools/rebuild-winnipeg-montreal-routes.mjs` and pair data/template | Rebuild script/data/template | Route HTML output | `node tools/rebuild-winnipeg-montreal-routes.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
 | `/ottawa-to-calgary-movers/` | A | `tools/rebuild-calgary-ottawa-routes.mjs` | Rebuild script, data/template, hub block | Route HTML output | `node tools/rebuild-calgary-ottawa-routes.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Bundle maps it but page does not load bundle | A + pair regression |
 | `/ottawa-to-edmonton-movers/` | B | React component `Whe` in compiled route map | Upstream React source for Ottawa/Edmonton page | Static HTML; compiled bundle | React build required | Yes | React owns main content | Mixed pair with static Edmonton→Ottawa | B + content/render |
@@ -155,7 +155,7 @@ If the playbook and current repository architecture ever disagree, stop before e
 
 ## Coverage and limitations
 
-After Migration Step 7, 5 routes remain B-owned.
+After Migration Step 8, 4 routes remain B-owned.
 
 ## Verified B-route source trace
 
@@ -166,7 +166,6 @@ The React source investigation is recorded in `docs/REACT_ROUTE_SOURCE_TRACE_AUD
 | `/bc-to-washington-movers/` | `gge` | `client/src/pages/services/BCToWashingtonMovers.tsx` | Locate the upstream checkout containing this file; do not edit generated HTML/bundle. |
 | `/edmonton-to-vancouver-movers/` | `Vhe` | `client/src/pages/services/EdmontonToVancouverMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary → Montreal remains an unchanged comparison page | A + content/render |
-| `/montreal-to-victoria-movers/` | `_he` | `client/src/pages/services/MontrealToVictoriaMovers.tsx` | Locate upstream source before editing. |
 | `/ottawa-to-edmonton-movers/` | `Whe` | `client/src/pages/services/OttawaToEdmontonMovers.tsx` | Locate upstream source before editing. |
 | `/toronto-to-victoria-movers/` | `uge` | `client/src/pages/services/TorontoToVictoriaMovers.tsx` | Locate upstream source before editing. |
 

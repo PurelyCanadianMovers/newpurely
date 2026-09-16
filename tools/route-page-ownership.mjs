@@ -13,13 +13,13 @@ const MONTREAL_TORONTO_STATIC_GENERATOR = "rebuild-montreal-toronto-static-route
 const TORONTO_VANCOUVER_STATIC_GENERATOR = "rebuild-toronto-vancouver-static-routes.mjs";
 const MONTREAL_CALGARY_STATIC_GENERATOR = "rebuild-montreal-calgary-static-routes.mjs";
 const MONTREAL_EDMONTON_STATIC_GENERATOR = "rebuild-montreal-edmonton-static-route.mjs";
+const MONTREAL_VICTORIA_STATIC_GENERATOR = "rebuild-montreal-victoria-static-route.mjs";
 
 const ownerGroups = {
   [SPA_GENERATOR]: [
     "bc-to-washington-movers",
     "edmonton-to-montreal-movers",
     "edmonton-to-vancouver-movers",
-    "montreal-to-victoria-movers",
     "ottawa-to-edmonton-movers",
     "toronto-to-victoria-movers",
   ],
@@ -48,6 +48,9 @@ const ownerGroups = {
   ],
   [MONTREAL_EDMONTON_STATIC_GENERATOR]: [
     "montreal-to-edmonton-movers",
+  ],
+  [MONTREAL_VICTORIA_STATIC_GENERATOR]: [
+    "montreal-to-victoria-movers",
   ],
   "generate-halifax-calgary-route-pages.mjs": [
     "calgary-to-halifax-movers",
@@ -313,6 +316,11 @@ const routeRuntimeEnhancers = {
     "site-copy/assets/static-nav.js",
     "site-copy/assets/static-chat.js",
   ],
+  "montreal-to-victoria-movers": [
+    "site-copy/assets/conversion-boost.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/static-chat.js",
+  ],
   "victoria-to-montreal-movers": [
     "site-copy/assets/conversion-boost.js",
     "site-copy/assets/static-nav.js",
@@ -536,6 +544,11 @@ const routeRuntimeStyles = {
     "site-copy/assets/static-nav.css",
     "site-copy/assets/static-chat.css",
   ],
+  "montreal-to-victoria-movers": [
+    "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/static-nav.css",
+    "site-copy/assets/static-chat.css",
+  ],
   "victoria-to-montreal-movers": [
     "site-copy/assets/conversion-boost.css",
     "site-copy/assets/static-nav.css",
@@ -574,7 +587,7 @@ const routePostProcessors = {
   "calgary-to-edmonton-movers": ["finalize-calgary-edmonton-routes.mjs"],
   "edmonton-to-calgary-movers": ["finalize-calgary-edmonton-routes.mjs"],
   "edmonton-to-vancouver-movers": ["finalize-vancouver-edmonton-routes.mjs"],
-  "montreal-to-victoria-movers": ["finalize-montreal-victoria-routes.mjs"],
+  "montreal-to-victoria-movers": [],
   "toronto-to-victoria-movers": ["finalize-toronto-victoria-routes.mjs"],
   "victoria-to-montreal-movers": ["finalize-montreal-victoria-routes.mjs"],
   "victoria-to-toronto-movers": ["finalize-toronto-victoria-routes.mjs"],
@@ -633,6 +646,7 @@ const staticOwners = new Set([
   TORONTO_VANCOUVER_STATIC_GENERATOR,
   MONTREAL_CALGARY_STATIC_GENERATOR,
   MONTREAL_EDMONTON_STATIC_GENERATOR,
+  MONTREAL_VICTORIA_STATIC_GENERATOR,
   "rebuild-winnipeg-montreal-routes.mjs",
   "standardize-montreal-vancouver-routes.mjs",
   "update-halifax-toronto-routes.mjs",

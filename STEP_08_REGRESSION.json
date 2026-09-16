@@ -1,0 +1,152 @@
+{
+  "generatedAt": "2026-09-16T21:30:53.743Z",
+  "results": [
+    {
+      "path": "/montreal-to-victoria-movers/",
+      "expectedOwner": "rebuild-montreal-victoria-static-route.mjs",
+      "actualOwner": "rebuild-montreal-victoria-static-route.mjs",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Montreal, QC",
+        "to": "Victoria, BC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/victoria-to-montreal-movers/",
+      "expectedOwner": "checked-in-static-route-source",
+      "actualOwner": "checked-in-static-route-source",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Victoria, BC",
+        "to": "Montreal, QC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/montreal-to-edmonton-movers/",
+      "expectedOwner": "rebuild-montreal-edmonton-static-route.mjs",
+      "actualOwner": "rebuild-montreal-edmonton-static-route.mjs",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Montreal, QC",
+        "to": "Edmonton, AB",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/edmonton-to-vancouver-movers/",
+      "expectedOwner": "generate-spa-routes.mjs",
+      "actualOwner": "generate-spa-routes.mjs",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Edmonton, AB",
+        "to": "Vancouver, BC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/calgary-to-winnipeg-movers/",
+      "expectedOwner": "rebuild-calgary-winnipeg-routes.mjs",
+      "actualOwner": "rebuild-calgary-winnipeg-routes.mjs",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Calgary, AB",
+        "to": "Winnipeg, MB",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/calgary-to-montreal-movers/",
+      "expectedOwner": "checked-in-static-route-source",
+      "actualOwner": "checked-in-static-route-source",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Calgary, AB",
+        "to": "Montreal, QC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/montreal-to-calgary-movers/",
+      "expectedOwner": "rebuild-montreal-calgary-static-routes.mjs",
+      "actualOwner": "rebuild-montreal-calgary-static-routes.mjs",
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Montreal, QC",
+        "to": "Calgary, AB",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "legacy": false,
+        "direction": true
+      },
+      "errors": [],
+      "issues": []
+    }
+  ]
+}

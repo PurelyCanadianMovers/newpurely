@@ -160,7 +160,9 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   assert.equal(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").owner, "rebuild-calgary-toronto-static-routes.mjs");
   assert.equal(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").rendering, "static");
   assert.deepEqual(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  assert.equal(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").owner, "rebuild-montreal-victoria-static-route.mjs");
+  assert.equal(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").rendering, "static");
+  assert.deepEqual(routeOwnershipByUrl.get("/montreal-to-victoria-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/victoria-to-montreal-movers/").postProcessors, ["finalize-montreal-victoria-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.equal(routeOwnershipByUrl.get("/calgary-to-winnipeg-movers/").owner, "rebuild-calgary-winnipeg-routes.mjs");
@@ -273,7 +275,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["edmonton-to-vancouver-movers"]));
   assert.throws(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-edmonton-routes.mjs", ["edmonton-to-montreal-movers"]));
-  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-victoria-routes.mjs", ["montreal-to-victoria-movers", "victoria-to-montreal-movers"]));
+  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-victoria-routes.mjs", ["victoria-to-montreal-movers"]));
 });
 
 test("architecture validation rejects React/static runtime contradictions", () => {

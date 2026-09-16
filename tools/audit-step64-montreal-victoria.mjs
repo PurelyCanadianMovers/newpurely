@@ -7,7 +7,7 @@ const output = resolve(process.argv[4] ?? "STEP_64_MONTREAL_VICTORIA_AUDIT.json"
 const { chromium } = await import(process.env.PLAYWRIGHT_PATH);
 const browser = await chromium.launch({ executablePath: process.env.PCM_BROWSER_EXECUTABLE || undefined, headless: true });
 const routes = [
-  { path: "/montreal-to-victoria-movers/", from: "Montreal, QC", to: "Victoria, BC", title: "Montreal to Victoria & Nanaimo Movers | Purely Canadian Movers", rendering: "react-spa" },
+  { path: "/montreal-to-victoria-movers/", from: "Montreal, QC", to: "Victoria, BC", title: "Montreal to Victoria & Nanaimo Movers | Purely Canadian Movers", rendering: "static" },
   { path: "/victoria-to-montreal-movers/", from: "Victoria, BC", to: "Montreal, QC", title: "Victoria to Montreal Movers | Purely Canadian Movers", rendering: "static" },
 ];
 

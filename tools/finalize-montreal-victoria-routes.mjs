@@ -47,7 +47,7 @@ const routes = [
   },
 ];
 
-assertAllowedPostProcessor(writer, routes.map(({ slug }) => slug));
+assertAllowedPostProcessor(writer, routes.filter(({ slug }) => slug === "victoria-to-montreal-movers").map(({ slug }) => slug));
 
 const markerStart = "<!-- STEP23_MONTREAL_VICTORIA_START -->";
 const markerEnd = "<!-- STEP23_MONTREAL_VICTORIA_END -->";
@@ -154,7 +154,7 @@ function runtime(config) {
 ${markerEnd}`;
 }
 
-for (const config of routes) {
+for (const config of routes.filter(({ slug }) => slug === "victoria-to-montreal-movers")) {
   const file = join(outDir, config.slug, "index.html");
   let html = await readFile(file, "utf8");
   if (config.title) {
