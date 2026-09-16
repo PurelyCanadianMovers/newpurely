@@ -23,6 +23,7 @@ import {
 } from "./winnipeg-montreal-route-data.mjs";
 import { validateOwnershipModel, validateRouteArchitecture } from "./validate-route-page-ownership.mjs";
 import { CALGARY_TORONTO_FACTS, CALGARY_TORONTO_ROUTES, assertCalgaryTorontoTemplate } from "./calgary-toronto-route-data.mjs";
+import { CALGARY_VANCOUVER_FACTS, CALGARY_VANCOUVER_ROUTES, assertCalgaryVancouverTemplate } from "./calgary-vancouver-route-data.mjs";
 
 test("all 56 routes have one collision-free owner", () => {
   assert.equal(routePageOwnership.length, 56);
@@ -38,6 +39,17 @@ test("Calgary-Toronto migration facts are frozen and complete", async () => {
   for (const route of CALGARY_TORONTO_ROUTES) {
     const html = await readFile(resolve("tools/templates/calgary-toronto-static-routes", `${route.slug}.html`), "utf8");
     assert.doesNotThrow(() => assertCalgaryTorontoTemplate(html, route));
+  }
+});
+
+test("Calgary-Vancouver migration facts are frozen and complete", async () => {
+  assert.equal(CALGARY_VANCOUVER_FACTS.distance, "approximately 1,000 km");
+  assert.equal(CALGARY_VANCOUVER_FACTS.transit, "4–13 days");
+  assert.deepEqual(CALGARY_VANCOUVER_FACTS.pricing.map((row) => row[1]), ["$2,000+", "$2,600+", "$3,500+", "$4,800+", "$6,500+"]);
+  assert.deepEqual(CALGARY_VANCOUVER_ROUTES.map((route) => route.range), ["$1,800–$13,000+", "$1,800–$14,000+"]);
+  for (const route of CALGARY_VANCOUVER_ROUTES) {
+    const html = await readFile(resolve("tools/templates/calgary-vancouver-static-routes", `${route.slug}.html`), "utf8");
+    assert.doesNotThrow(() => assertCalgaryVancouverTemplate(html, route));
   }
 });
 
@@ -79,8 +91,24 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").owner, "rebuild-calgary-toronto-static-routes.mjs");
   assert.equal(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").rendering, "static");
   assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-toronto-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/calgary-to-vancouver-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
-  assert.deepEqual(routeOwnershipByUrl.get("/vancouver-to-calgary-movers/").postProcessors, ["standardize-calgary-vancouver-routes.mjs", "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+  for (const route of ["/calgary-to-vancouver-movers/", "/vancouver-to-calgary-movers/"]) {
+    const entry = routeOwnershipByUrl.get(route);
+    assert.equal(entry.owner, "rebuild-calgary-vancouver-static-routes.mjs");
+    assert.equal(entry.rendering, "static");
+    assert.deepEqual(entry.postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+    assert.deepEqual(entry.runtimeEnhancers, [
+      "site-copy/assets/conversion-boost.js",
+      "site-copy/assets/static-nav.js",
+      "site-copy/assets/step02-calgary-vancouver-static.js",
+      "site-copy/assets/static-chat.js",
+    ]);
+    assert.deepEqual(entry.runtimeStyles, [
+      "site-copy/assets/conversion-boost.css",
+      "site-copy/assets/step33-calgary-vancouver.css",
+      "site-copy/assets/static-nav.css",
+      "site-copy/assets/static-chat.css",
+    ]);
+  }
   assert.equal(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").owner, "rebuild-calgary-toronto-static-routes.mjs");
   assert.equal(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").rendering, "static");
   assert.deepEqual(routeOwnershipByUrl.get("/toronto-to-calgary-movers/").postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);

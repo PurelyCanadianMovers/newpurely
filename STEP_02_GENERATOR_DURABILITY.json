@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-09-16T13:25:35.064Z",
+  "directFirst": {
+    "calgary-to-vancouver-movers": "9eb52b975cf69bc716fd72a3be95a7b022c5c439c7341f1d92f035e612f2e9da",
+    "vancouver-to-calgary-movers": "fefa7e27946ab53b5e3930864856f89bbe7850e2c4e9ed485c8f1f00e8fd440a"
+  },
+  "directSecond": {
+    "calgary-to-vancouver-movers": "9eb52b975cf69bc716fd72a3be95a7b022c5c439c7341f1d92f035e612f2e9da",
+    "vancouver-to-calgary-movers": "fefa7e27946ab53b5e3930864856f89bbe7850e2c4e9ed485c8f1f00e8fd440a"
+  },
+  "aggregateFirst": {
+    "calgary-to-vancouver-movers": "9eb52b975cf69bc716fd72a3be95a7b022c5c439c7341f1d92f035e612f2e9da",
+    "vancouver-to-calgary-movers": "fefa7e27946ab53b5e3930864856f89bbe7850e2c4e9ed485c8f1f00e8fd440a"
+  },
+  "aggregateSecond": {
+    "calgary-to-vancouver-movers": "9eb52b975cf69bc716fd72a3be95a7b022c5c439c7341f1d92f035e612f2e9da",
+    "vancouver-to-calgary-movers": "fefa7e27946ab53b5e3930864856f89bbe7850e2c4e9ed485c8f1f00e8fd440a"
+  },
+  "directIdempotent": true,
+  "aggregateIdempotent": true,
+  "aggregateMatchesOwner": true
+}

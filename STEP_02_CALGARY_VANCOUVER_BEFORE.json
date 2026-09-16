@@ -1,0 +1,783 @@
+{
+  "generatedAt": "2026-09-15T20:19:01.430Z",
+  "results": [
+    {
+      "route": "/calgary-to-vancouver-movers/",
+      "expected": {
+        "route": "/calgary-to-vancouver-movers/",
+        "h1": "Calgary to Vancouver Movers",
+        "from": "Calgary, AB",
+        "to": "Vancouver, BC",
+        "range": "$1,800–$13,000+"
+      },
+      "raw": {
+        "owner": "generate-spa-routes.mjs",
+        "rendering": "react-spa",
+        "reactBootstrapCount": 1,
+        "exactCompiledRoute": true,
+        "h1": [
+          "Professional Movers in Vancouver &amp; the Lower Mainland Since 1991"
+        ],
+        "routeSentinel": false,
+        "title": "Calgary to Vancouver Movers | Purely Canadian Movers",
+        "ogTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+        "twitterTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+        "description": "Plan a Calgary to Vancouver move with a family-owned Canadian mover. Review typical 4–13 day transit, route pricing, packing, and delivery considerations.",
+        "canonical": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+        "localSeoCount": 0
+      },
+      "lifecycle": {
+        "direct": {
+          "ready": null,
+          "h1": [
+            "Calgary to Vancouver Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": null,
+            "to": null
+          },
+          "title": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "description": "Calgary to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "componentOrder": [
+            "",
+            "Calgary to Vancouver Movers"
+          ],
+          "mainOrder": [
+            "Calgary to Vancouver Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Calgary to Vancouver?",
+            "Calgary–Vancouver Route at a Glance",
+            "Calgary to Vancouver Moving Cost Breakdown",
+            "What Makes a Calgary–Vancouver Move Unique",
+            "Tips for Moving to Vancouver",
+            "Why Choose Purely Canadian Movers",
+            "How Your Calgary–Vancouver Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Calgary to Vancouver?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 0,
+            "primaryForm": 0,
+            "pricing": 0,
+            "pricingTable": 0,
+            "pricingRows": 0,
+            "glance": 0,
+            "faqSection": 1,
+            "faqHeading": 2,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "",
+          "pricingText": "",
+          "glanceText": "",
+          "faqParity": false,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        },
+        "hydrated": {
+          "ready": "1",
+          "h1": [
+            "Calgary to Vancouver Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": "Calgary, AB",
+            "to": "Vancouver, BC"
+          },
+          "title": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "description": "Calgary to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "componentOrder": [
+            "",
+            "Request a Calgary to Vancouver moving quote",
+            "How much does it cost to move from Calgary to Vancouver?",
+            "Calgary to Vancouver Movers"
+          ],
+          "mainOrder": [
+            "Calgary to Vancouver Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Calgary to Vancouver?",
+            "Frequently Asked Questions",
+            "Related Destinations",
+            "Ready to Move from Calgary to Vancouver?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 1,
+            "primaryForm": 1,
+            "pricing": 1,
+            "pricingTable": 1,
+            "pricingRows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "How much does it cost to move from Calgary to Vancouver?",
+          "pricingText": "Calgary to Vancouver moving costHow much does it cost to move from Calgary to Vancouver?A Calgary to Vancouver move typically falls within an overall planning range of $1,800–$13,000+. Shipment size, actual weight or volume, access, packing, storage, season, and protection choices affect the final written estimate.Home sizeEstimated costNotesTypical transitStudio$2,000+Typical 1,000–2,500 lb shipment4–13 days1-bedroom$2,600+Typical 2,500–4,500 lb shipment4–13 days2-bedroom$3,500+Typical 4,500–7,500 lb shipment4–13 days3-bedroom$4,800+Typical 7,500–12,000 lb shipment4–13 days4+ bedroom$6,500+Typical shipment of 12,000+ lb4–13 daysThese figures are planning ranges, not guaranteed quotes. Final pricing depends on shipment weight or volume, access, packing, storage, season, and the selected Declared Value Protection option.Long-Distance Moving Cost GuideDeclared Value Protection",
+          "glanceText": "Calgary–Vancouver Route at a Glance↔Distance~1,000 kmCalgary to Vancouver◷Estimated transit time4–13 daysDepending on shipment size$Typical cost range$1,800–$13,000+Studio to 4+ bedroom home",
+          "faqParity": true,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        },
+        "retries": {
+          "ready": "1",
+          "h1": [
+            "Calgary to Vancouver Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": "Calgary, AB",
+            "to": "Vancouver, BC"
+          },
+          "title": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "description": "Calgary to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "componentOrder": [
+            "",
+            "Request a Calgary to Vancouver moving quote",
+            "How much does it cost to move from Calgary to Vancouver?",
+            "Calgary to Vancouver Movers"
+          ],
+          "mainOrder": [
+            "Calgary to Vancouver Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Calgary to Vancouver?",
+            "Frequently Asked Questions",
+            "Related Destinations",
+            "Ready to Move from Calgary to Vancouver?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 1,
+            "primaryForm": 1,
+            "pricing": 1,
+            "pricingTable": 1,
+            "pricingRows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "How much does it cost to move from Calgary to Vancouver?",
+          "pricingText": "Calgary to Vancouver moving costHow much does it cost to move from Calgary to Vancouver?A Calgary to Vancouver move typically falls within an overall planning range of $1,800–$13,000+. Shipment size, actual weight or volume, access, packing, storage, season, and protection choices affect the final written estimate.Home sizeEstimated costNotesTypical transitStudio$2,000+Typical 1,000–2,500 lb shipment4–13 days1-bedroom$2,600+Typical 2,500–4,500 lb shipment4–13 days2-bedroom$3,500+Typical 4,500–7,500 lb shipment4–13 days3-bedroom$4,800+Typical 7,500–12,000 lb shipment4–13 days4+ bedroom$6,500+Typical shipment of 12,000+ lb4–13 daysThese figures are planning ranges, not guaranteed quotes. Final pricing depends on shipment weight or volume, access, packing, storage, season, and the selected Declared Value Protection option.Long-Distance Moving Cost GuideDeclared Value Protection",
+          "glanceText": "Calgary–Vancouver Route at a Glance↔Distance~1,000 kmCalgary to Vancouver◷Estimated transit time4–13 daysDepending on shipment size$Typical cost range$1,800–$13,000+Studio to 4+ bedroom home",
+          "faqParity": true,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        },
+        "settled": {
+          "ready": "1",
+          "h1": [
+            "Calgary to Vancouver Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": "Calgary, AB",
+            "to": "Vancouver, BC"
+          },
+          "title": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "ogTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "twitterTitle": "Calgary to Vancouver Movers | Purely Canadian Movers",
+          "description": "Calgary to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/calgary-to-vancouver-movers/",
+          "componentOrder": [
+            "",
+            "Request a Calgary to Vancouver moving quote",
+            "How much does it cost to move from Calgary to Vancouver?",
+            "Calgary to Vancouver Movers"
+          ],
+          "mainOrder": [
+            "Calgary to Vancouver Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Calgary to Vancouver?",
+            "Frequently Asked Questions",
+            "Related Destinations",
+            "Ready to Move from Calgary to Vancouver?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 1,
+            "primaryForm": 1,
+            "pricing": 1,
+            "pricingTable": 1,
+            "pricingRows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "How much does it cost to move from Calgary to Vancouver?",
+          "pricingText": "Calgary to Vancouver moving costHow much does it cost to move from Calgary to Vancouver?A Calgary to Vancouver move typically falls within an overall planning range of $1,800–$13,000+. Shipment size, actual weight or volume, access, packing, storage, season, and protection choices affect the final written estimate.Home sizeEstimated costNotesTypical transitStudio$2,000+Typical 1,000–2,500 lb shipment4–13 days1-bedroom$2,600+Typical 2,500–4,500 lb shipment4–13 days2-bedroom$3,500+Typical 4,500–7,500 lb shipment4–13 days3-bedroom$4,800+Typical 7,500–12,000 lb shipment4–13 days4+ bedroom$6,500+Typical shipment of 12,000+ lb4–13 daysThese figures are planning ranges, not guaranteed quotes. Final pricing depends on shipment weight or volume, access, packing, storage, season, and the selected Declared Value Protection option.Long-Distance Moving Cost GuideDeclared Value Protection",
+          "glanceText": "Calgary–Vancouver Route at a Glance↔Distance~1,000 kmCalgary to Vancouver◷Estimated transit time4–13 daysDepending on shipment size$Typical cost range$1,800–$13,000+Studio to 4+ bedroom home",
+          "faqParity": true,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        }
+      },
+      "desktop": {
+        "viewport": [
+          1280,
+          900
+        ],
+        "documentWidth": 1280,
+        "overflow": false,
+        "h1": {
+          "display": "block",
+          "fontFamily": "\"Playfair Display\", Georgia, serif",
+          "fontSize": "48px",
+          "lineHeight": "60px",
+          "fontWeight": "700",
+          "gridTemplateColumns": "none",
+          "overflowX": "visible"
+        },
+        "quote": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "582px 420px",
+          "overflowX": "visible"
+        },
+        "form": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "205px 205px",
+          "overflowX": "visible"
+        },
+        "glance": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "250px 250px 250px",
+          "overflowX": "visible"
+        },
+        "pricingWrap": {
+          "display": "block",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "none",
+          "overflowX": "auto"
+        },
+        "pricingInternalScroll": false,
+        "tableMinWidth": "760px",
+        "mainWidth": 896,
+        "quoteWidth": 1120,
+        "brokenImages": []
+      },
+      "mobile": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "overflow": false,
+        "h1": {
+          "display": "block",
+          "fontFamily": "\"Playfair Display\", Georgia, serif",
+          "fontSize": "36px",
+          "lineHeight": "45px",
+          "fontWeight": "700",
+          "gridTemplateColumns": "none",
+          "overflowX": "visible"
+        },
+        "quote": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "320px",
+          "overflowX": "visible"
+        },
+        "form": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "320px",
+          "overflowX": "visible"
+        },
+        "glance": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "308px",
+          "overflowX": "visible"
+        },
+        "pricingWrap": {
+          "display": "block",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "none",
+          "overflowX": "auto"
+        },
+        "pricingInternalScroll": true,
+        "tableMinWidth": "760px",
+        "mainWidth": 390,
+        "quoteWidth": 390,
+        "brokenImages": []
+      },
+      "interactions": {
+        "desktop": {
+          "desktopServicesTrigger": true,
+          "desktopDropdownOpened": true,
+          "desktopDropdownClosed": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        },
+        "mobile": {
+          "mobileTrigger": true,
+          "mobileOpened": true,
+          "mobileClosed": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        }
+      },
+      "consoleErrors": []
+    },
+    {
+      "route": "/vancouver-to-calgary-movers/",
+      "expected": {
+        "route": "/vancouver-to-calgary-movers/",
+        "h1": "Vancouver to Calgary Movers",
+        "from": "Vancouver, BC",
+        "to": "Calgary, AB",
+        "range": "$1,800–$14,000+"
+      },
+      "raw": {
+        "owner": "generate-spa-routes.mjs",
+        "rendering": "react-spa",
+        "reactBootstrapCount": 1,
+        "exactCompiledRoute": true,
+        "h1": [
+          "Professional Movers in Vancouver &amp; the Lower Mainland Since 1991"
+        ],
+        "routeSentinel": false,
+        "title": "Vancouver to Calgary Movers | Purely Canadian Movers",
+        "ogTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+        "twitterTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+        "description": "Plan a Vancouver to Calgary move with a family-owned Canadian mover. Review typical 4–13 day transit, route pricing, packing, and delivery considerations.",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+        "localSeoCount": 0
+      },
+      "lifecycle": {
+        "direct": {
+          "ready": null,
+          "h1": [
+            "Vancouver to Calgary Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": null,
+            "to": null
+          },
+          "title": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "description": "Vancouver to Calgary movers. Professional, fully insured long-distance moves through the Rockies. Family-owned since 1991. GCVL agents. Free estimates — call 1-877-485-6683.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "componentOrder": [
+            "",
+            "Vancouver to Calgary Movers"
+          ],
+          "mainOrder": [
+            "Vancouver to Calgary Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Vancouver to Calgary?",
+            "Vancouver–Calgary Route at a Glance",
+            "Vancouver to Calgary Moving Cost Breakdown",
+            "What Makes a Vancouver–Calgary Move Unique",
+            "Tips for Moving to Calgary",
+            "Why Choose Purely Canadian Movers",
+            "How Your Vancouver–Calgary Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Calgary?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 0,
+            "primaryForm": 0,
+            "pricing": 0,
+            "pricingTable": 0,
+            "pricingRows": 0,
+            "glance": 0,
+            "faqSection": 1,
+            "faqHeading": 2,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "",
+          "pricingText": "",
+          "glanceText": "",
+          "faqParity": false,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        },
+        "hydrated": {
+          "ready": "1",
+          "h1": [
+            "Vancouver to Calgary Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": "Vancouver, BC",
+            "to": "Calgary, AB"
+          },
+          "title": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "description": "Vancouver to Calgary movers. Professional, fully insured long-distance moves through the Rockies. Family-owned since 1991. GCVL agents. Free estimates — call 1-877-485-6683.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "componentOrder": [
+            "",
+            "Request a Vancouver to Calgary moving quote",
+            "How much does it cost to move from Vancouver to Calgary?",
+            "Vancouver to Calgary Movers"
+          ],
+          "mainOrder": [
+            "Vancouver to Calgary Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Vancouver to Calgary?",
+            "Frequently Asked Questions",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Calgary?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 1,
+            "primaryForm": 1,
+            "pricing": 1,
+            "pricingTable": 1,
+            "pricingRows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "How much does it cost to move from Vancouver to Calgary?",
+          "pricingText": "Vancouver to Calgary moving costHow much does it cost to move from Vancouver to Calgary?A Vancouver to Calgary move typically falls within an overall planning range of $1,800–$14,000+. Shipment size, actual weight or volume, access, packing, storage, season, and protection choices affect the final written estimate.Home sizeEstimated costNotesTypical transitStudio$2,000+Typical 1,000–2,500 lb shipment4–13 days1-bedroom$2,600+Typical 2,500–4,500 lb shipment4–13 days2-bedroom$3,500+Typical 4,500–7,500 lb shipment4–13 days3-bedroom$4,800+Typical 7,500–12,000 lb shipment4–13 days4+ bedroom$6,500+Typical shipment of 12,000+ lb4–13 daysThese figures are planning ranges, not guaranteed quotes. Final pricing depends on shipment weight or volume, access, packing, storage, season, and the selected Declared Value Protection option.Long-Distance Moving Cost GuideDeclared Value Protection",
+          "glanceText": "Vancouver–Calgary Route at a Glance↔Distance~1,000 kmVancouver to Calgary◷Estimated transit time4–13 daysDepending on shipment size$Typical cost range$1,800–$14,000+Studio to 4+ bedroom home",
+          "faqParity": true,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        },
+        "retries": {
+          "ready": "1",
+          "h1": [
+            "Vancouver to Calgary Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": "Vancouver, BC",
+            "to": "Calgary, AB"
+          },
+          "title": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "description": "Vancouver to Calgary movers. Professional, fully insured long-distance moves through the Rockies. Family-owned since 1991. GCVL agents. Free estimates — call 1-877-485-6683.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "componentOrder": [
+            "",
+            "Request a Vancouver to Calgary moving quote",
+            "How much does it cost to move from Vancouver to Calgary?",
+            "Vancouver to Calgary Movers"
+          ],
+          "mainOrder": [
+            "Vancouver to Calgary Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Vancouver to Calgary?",
+            "Frequently Asked Questions",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Calgary?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 1,
+            "primaryForm": 1,
+            "pricing": 1,
+            "pricingTable": 1,
+            "pricingRows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "How much does it cost to move from Vancouver to Calgary?",
+          "pricingText": "Vancouver to Calgary moving costHow much does it cost to move from Vancouver to Calgary?A Vancouver to Calgary move typically falls within an overall planning range of $1,800–$14,000+. Shipment size, actual weight or volume, access, packing, storage, season, and protection choices affect the final written estimate.Home sizeEstimated costNotesTypical transitStudio$2,000+Typical 1,000–2,500 lb shipment4–13 days1-bedroom$2,600+Typical 2,500–4,500 lb shipment4–13 days2-bedroom$3,500+Typical 4,500–7,500 lb shipment4–13 days3-bedroom$4,800+Typical 7,500–12,000 lb shipment4–13 days4+ bedroom$6,500+Typical shipment of 12,000+ lb4–13 daysThese figures are planning ranges, not guaranteed quotes. Final pricing depends on shipment weight or volume, access, packing, storage, season, and the selected Declared Value Protection option.Long-Distance Moving Cost GuideDeclared Value Protection",
+          "glanceText": "Vancouver–Calgary Route at a Glance↔Distance~1,000 kmVancouver to Calgary◷Estimated transit time4–13 daysDepending on shipment size$Typical cost range$1,800–$14,000+Studio to 4+ bedroom home",
+          "faqParity": true,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        },
+        "settled": {
+          "ready": "1",
+          "h1": [
+            "Vancouver to Calgary Movers"
+          ],
+          "routeSentinel": true,
+          "form": {
+            "from": "Vancouver, BC",
+            "to": "Calgary, AB"
+          },
+          "title": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Calgary Movers | Purely Canadian Movers",
+          "description": "Vancouver to Calgary movers. Professional, fully insured long-distance moves through the Rockies. Family-owned since 1991. GCVL agents. Free estimates — call 1-877-485-6683.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-calgary-movers/",
+          "componentOrder": [
+            "",
+            "Request a Vancouver to Calgary moving quote",
+            "How much does it cost to move from Vancouver to Calgary?",
+            "Vancouver to Calgary Movers"
+          ],
+          "mainOrder": [
+            "Vancouver to Calgary Movers",
+            "bg-[#CC1A1A] text-white py-3",
+            "Moving from Vancouver to Calgary?",
+            "Frequently Asked Questions",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Calgary?"
+          ],
+          "counts": {
+            "h1": 1,
+            "quotePanel": 1,
+            "primaryForm": 1,
+            "pricing": 1,
+            "pricingTable": 1,
+            "pricingRows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "faqSchema": 1,
+            "related": 1,
+            "closingCta": 1,
+            "footer": 1,
+            "localSeo": 0,
+            "chatLauncher": 1
+          },
+          "pricingHeading": "How much does it cost to move from Vancouver to Calgary?",
+          "pricingText": "Vancouver to Calgary moving costHow much does it cost to move from Vancouver to Calgary?A Vancouver to Calgary move typically falls within an overall planning range of $1,800–$14,000+. Shipment size, actual weight or volume, access, packing, storage, season, and protection choices affect the final written estimate.Home sizeEstimated costNotesTypical transitStudio$2,000+Typical 1,000–2,500 lb shipment4–13 days1-bedroom$2,600+Typical 2,500–4,500 lb shipment4–13 days2-bedroom$3,500+Typical 4,500–7,500 lb shipment4–13 days3-bedroom$4,800+Typical 7,500–12,000 lb shipment4–13 days4+ bedroom$6,500+Typical shipment of 12,000+ lb4–13 daysThese figures are planning ranges, not guaranteed quotes. Final pricing depends on shipment weight or volume, access, packing, storage, season, and the selected Declared Value Protection option.Long-Distance Moving Cost GuideDeclared Value Protection",
+          "glanceText": "Vancouver–Calgary Route at a Glance↔Distance~1,000 kmVancouver to Calgary◷Estimated transit time4–13 daysDepending on shipment size$Typical cost range$1,800–$14,000+Studio to 4+ bedroom home",
+          "faqParity": true,
+          "undefinedCount": 0,
+          "homepageReplacement": false,
+          "soft404": false
+        }
+      },
+      "desktop": {
+        "viewport": [
+          1280,
+          900
+        ],
+        "documentWidth": 1280,
+        "overflow": false,
+        "h1": {
+          "display": "block",
+          "fontFamily": "\"Playfair Display\", Georgia, serif",
+          "fontSize": "48px",
+          "lineHeight": "60px",
+          "fontWeight": "700",
+          "gridTemplateColumns": "none",
+          "overflowX": "visible"
+        },
+        "quote": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "582px 420px",
+          "overflowX": "visible"
+        },
+        "form": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "205px 205px",
+          "overflowX": "visible"
+        },
+        "glance": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "250px 250px 250px",
+          "overflowX": "visible"
+        },
+        "pricingWrap": {
+          "display": "block",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "none",
+          "overflowX": "auto"
+        },
+        "pricingInternalScroll": false,
+        "tableMinWidth": "760px",
+        "mainWidth": 896,
+        "quoteWidth": 1120,
+        "brokenImages": []
+      },
+      "mobile": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "overflow": false,
+        "h1": {
+          "display": "block",
+          "fontFamily": "\"Playfair Display\", Georgia, serif",
+          "fontSize": "36px",
+          "lineHeight": "45px",
+          "fontWeight": "700",
+          "gridTemplateColumns": "none",
+          "overflowX": "visible"
+        },
+        "quote": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "320px",
+          "overflowX": "visible"
+        },
+        "form": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "320px",
+          "overflowX": "visible"
+        },
+        "glance": {
+          "display": "grid",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "308px",
+          "overflowX": "visible"
+        },
+        "pricingWrap": {
+          "display": "block",
+          "fontFamily": "\"Source Sans 3\", Arial, sans-serif",
+          "fontSize": "16px",
+          "lineHeight": "25.6px",
+          "fontWeight": "400",
+          "gridTemplateColumns": "none",
+          "overflowX": "auto"
+        },
+        "pricingInternalScroll": true,
+        "tableMinWidth": "760px",
+        "mainWidth": 390,
+        "quoteWidth": 390,
+        "brokenImages": []
+      },
+      "interactions": {
+        "desktop": {
+          "desktopServicesTrigger": true,
+          "desktopDropdownOpened": true,
+          "desktopDropdownClosed": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        },
+        "mobile": {
+          "mobileTrigger": true,
+          "mobileOpened": true,
+          "mobileClosed": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        }
+      },
+      "consoleErrors": []
+    }
+  ]
+}

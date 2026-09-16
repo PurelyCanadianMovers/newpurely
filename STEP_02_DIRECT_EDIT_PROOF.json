@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-09-16T13:27:42.136Z",
+  "results": [
+    {
+      "route": "/calgary-to-vancouver-movers/",
+      "initial": true,
+      "delayed": true,
+      "normalReload": true,
+      "cacheBusted": true,
+      "hardRefresh": true,
+      "reactBootstrap": false
+    },
+    {
+      "route": "/vancouver-to-calgary-movers/",
+      "initial": true,
+      "delayed": true,
+      "normalReload": true,
+      "cacheBusted": true,
+      "hardRefresh": true,
+      "reactBootstrap": false
+    }
+  ]
+}

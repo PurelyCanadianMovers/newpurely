@@ -6,12 +6,10 @@ import { alignFaqSchemaToVisible, extractVisibleFaqs } from "./faq-parity.mjs";
 const root = resolve(process.argv[2] ?? "site-copy");
 const staticFaqFallbackRoutes = new Set([
   "/bc-to-washington-movers/",
-  "/calgary-to-vancouver-movers/",
   "/montreal-to-calgary-movers/",
   "/ottawa-to-edmonton-movers/",
   "/toronto-to-vancouver-movers/",
   "/toronto-to-victoria-movers/",
-  "/vancouver-to-calgary-movers/",
   "/vancouver-to-halifax-movers/",
   "/vancouver-to-toronto-movers/",
 ]);

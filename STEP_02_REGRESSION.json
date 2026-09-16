@@ -1,0 +1,237 @@
+{
+  "generatedAt": "2026-09-16T13:27:39.053Z",
+  "results": [
+    {
+      "route": "/edmonton-to-toronto-movers/",
+      "classification": "B — React Owned",
+      "ownership": {
+        "routeUrl": "/edmonton-to-toronto-movers/",
+        "owner": "generate-spa-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-toronto-edmonton-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js"
+        ],
+        "runtimeStyles": [],
+        "architectureExceptions": [],
+        "rendering": "react-spa",
+        "status": "active"
+      },
+      "state": {
+        "h1": "Edmonton to Toronto Moving Cost, Prices & Transit Time",
+        "title": "Edmonton to Toronto Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers",
+        "from": "Edmonton, AB",
+        "to": "Toronto, ON",
+        "h1Count": 1,
+        "quoteFormCount": 1,
+        "pricingCount": 1,
+        "tableCount": 1,
+        "faqCount": 1,
+        "faqSchemaCount": 1,
+        "navCount": 1,
+        "footerCount": 1,
+        "chatCount": 1,
+        "undefinedVisible": false,
+        "soft404": false,
+        "directionCorrect": true
+      },
+      "consoleErrors": [],
+      "issues": []
+    },
+    {
+      "route": "/calgary-to-winnipeg-movers/",
+      "classification": "C — Hybrid",
+      "ownership": {
+        "routeUrl": "/calgary-to-winnipeg-movers/",
+        "owner": "rebuild-calgary-winnipeg-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/step44-calgary-winnipeg.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step44-calgary-winnipeg.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "state": {
+        "h1": "Calgary to Winnipeg Movers",
+        "title": "Calgary to Winnipeg Movers | Cost, Transit Time & Estimate | Purely Canadian Movers",
+        "from": "Calgary, AB",
+        "to": "Winnipeg, MB",
+        "h1Count": 1,
+        "quoteFormCount": 1,
+        "pricingCount": 1,
+        "tableCount": 1,
+        "faqCount": 1,
+        "faqSchemaCount": 1,
+        "navCount": 1,
+        "footerCount": 1,
+        "chatCount": 1,
+        "undefinedVisible": false,
+        "soft404": false,
+        "directionCorrect": true
+      },
+      "consoleErrors": [],
+      "issues": []
+    },
+    {
+      "route": "/calgary-to-edmonton-movers/",
+      "classification": "A — Static Safe",
+      "ownership": {
+        "routeUrl": "/calgary-to-edmonton-movers/",
+        "owner": "checked-in-static-route-source",
+        "ownerType": "checked-in-static-source",
+        "postProcessors": [
+          "finalize-calgary-edmonton-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/step35-calgary-edmonton.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step35-calgary-edmonton.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "state": {
+        "h1": "Calgary to Edmonton Moving Cost, Prices & Transit Time",
+        "title": "Calgary to Edmonton Movers | Purely Canadian Movers",
+        "from": "Calgary, AB",
+        "to": "Edmonton, AB",
+        "h1Count": 1,
+        "quoteFormCount": 1,
+        "pricingCount": 0,
+        "tableCount": 1,
+        "faqCount": 1,
+        "faqSchemaCount": 1,
+        "navCount": 1,
+        "footerCount": 1,
+        "chatCount": 1,
+        "undefinedVisible": false,
+        "soft404": false,
+        "directionCorrect": true
+      },
+      "consoleErrors": [],
+      "issues": []
+    },
+    {
+      "route": "/montreal-to-edmonton-movers/",
+      "classification": "B — React Owned reference",
+      "ownership": {
+        "routeUrl": "/montreal-to-edmonton-movers/",
+        "owner": "generate-spa-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-montreal-edmonton-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js"
+        ],
+        "runtimeStyles": [],
+        "architectureExceptions": [],
+        "rendering": "react-spa",
+        "status": "active"
+      },
+      "state": {
+        "h1": "Montreal to Edmonton Movers",
+        "title": "Montreal to Edmonton Movers | Purely Canadian Movers",
+        "from": "Montreal, QC",
+        "to": "Edmonton, AB",
+        "h1Count": 1,
+        "quoteFormCount": 1,
+        "pricingCount": 1,
+        "tableCount": 1,
+        "faqCount": 1,
+        "faqSchemaCount": 1,
+        "navCount": 1,
+        "footerCount": 1,
+        "chatCount": 1,
+        "undefinedVisible": false,
+        "soft404": false,
+        "directionCorrect": true
+      },
+      "consoleErrors": [],
+      "issues": []
+    },
+    {
+      "route": "/calgary-to-toronto-movers/",
+      "classification": "A — Migration Step 1",
+      "ownership": {
+        "routeUrl": "/calgary-to-toronto-movers/",
+        "owner": "rebuild-calgary-toronto-static-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/step01-calgary-toronto-static.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step01-calgary-toronto-static.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "state": {
+        "h1": "Calgary to Toronto Moving Cost, Prices & Transit Time",
+        "title": "Calgary to Toronto Movers | Purely Canadian Movers",
+        "from": "Calgary, AB",
+        "to": "Toronto, ON",
+        "h1Count": 1,
+        "quoteFormCount": 1,
+        "pricingCount": 1,
+        "tableCount": 1,
+        "faqCount": 1,
+        "faqSchemaCount": 1,
+        "navCount": 1,
+        "footerCount": 1,
+        "chatCount": 1,
+        "undefinedVisible": false,
+        "soft404": false,
+        "directionCorrect": true
+      },
+      "consoleErrors": [],
+      "issues": []
+    }
+  ]
+}
