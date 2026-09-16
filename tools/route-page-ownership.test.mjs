@@ -109,7 +109,18 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
       "site-copy/assets/static-chat.css",
     ]);
   }
-for (const route of ["/edmonton-to-toronto-movers/", "/toronto-to-edmonton-movers/"]) {
+  for (const route of ["/montreal-to-toronto-movers/", "/toronto-to-montreal-movers/"]) {
+    const entry = routeOwnershipByUrl.get(route);
+    assert.equal(entry.owner, "rebuild-montreal-toronto-static-routes.mjs");
+    assert.equal(entry.rendering, "static");
+    assert.deepEqual(entry.postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
+    assert.deepEqual(entry.runtimeStyles, [
+      "site-copy/assets/conversion-boost.css",
+      "site-copy/assets/static-nav.css",
+      "site-copy/assets/static-chat.css",
+    ]);
+  }
+  for (const route of ["/edmonton-to-toronto-movers/", "/toronto-to-edmonton-movers/"]) {
     const entry = routeOwnershipByUrl.get(route);
     assert.equal(entry.owner, "rebuild-edmonton-toronto-static-routes.mjs");
     assert.equal(entry.rendering, "static");

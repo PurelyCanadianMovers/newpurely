@@ -1,0 +1,405 @@
+{
+  "generatedAt": "2026-09-16T15:09:10.465Z",
+  "results": [
+    {
+      "path": "/montreal-to-toronto-movers/",
+      "owner": "rebuild-montreal-toronto-static-routes.mjs",
+      "ownership": {
+        "routeUrl": "/montreal-to-toronto-movers/",
+        "owner": "rebuild-montreal-toronto-static-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Montreal, QC",
+        "to": "Toronto, ON",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": {
+        "css": true,
+        "before": true,
+        "opened": true,
+        "toggledClosed": true,
+        "escaped": true,
+        "overflow": false
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/toronto-to-montreal-movers/",
+      "owner": "rebuild-montreal-toronto-static-routes.mjs",
+      "ownership": {
+        "routeUrl": "/toronto-to-montreal-movers/",
+        "owner": "rebuild-montreal-toronto-static-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Toronto, ON",
+        "to": "Montreal, QC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": {
+        "css": true,
+        "before": true,
+        "opened": true,
+        "toggledClosed": true,
+        "escaped": true,
+        "overflow": false
+      },
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/toronto-to-vancouver-movers/",
+      "owner": "generate-spa-routes.mjs",
+      "ownership": {
+        "routeUrl": "/toronto-to-vancouver-movers/",
+        "owner": "generate-spa-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-toronto-vancouver-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js"
+        ],
+        "runtimeStyles": [],
+        "architectureExceptions": [],
+        "rendering": "react-spa",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Toronto, ON",
+        "to": "Vancouver, BC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/calgary-to-winnipeg-movers/",
+      "owner": "rebuild-calgary-winnipeg-routes.mjs",
+      "ownership": {
+        "routeUrl": "/calgary-to-winnipeg-movers/",
+        "owner": "rebuild-calgary-winnipeg-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/step44-calgary-winnipeg.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step44-calgary-winnipeg.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Calgary, AB",
+        "to": "Winnipeg, MB",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/calgary-to-edmonton-movers/",
+      "owner": "checked-in-static-route-source",
+      "ownership": {
+        "routeUrl": "/calgary-to-edmonton-movers/",
+        "owner": "checked-in-static-route-source",
+        "ownerType": "checked-in-static-source",
+        "postProcessors": [
+          "finalize-calgary-edmonton-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/step35-calgary-edmonton.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step35-calgary-edmonton.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Calgary, AB",
+        "to": "Edmonton, AB",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/montreal-to-edmonton-movers/",
+      "owner": "generate-spa-routes.mjs",
+      "ownership": {
+        "routeUrl": "/montreal-to-edmonton-movers/",
+        "owner": "generate-spa-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-montreal-edmonton-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js"
+        ],
+        "runtimeStyles": [],
+        "architectureExceptions": [],
+        "rendering": "react-spa",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Montreal, QC",
+        "to": "Edmonton, AB",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/calgary-to-toronto-movers/",
+      "owner": "rebuild-calgary-toronto-static-routes.mjs",
+      "ownership": {
+        "routeUrl": "/calgary-to-toronto-movers/",
+        "owner": "rebuild-calgary-toronto-static-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/step01-calgary-toronto-static.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step01-calgary-toronto-static.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Calgary, AB",
+        "to": "Toronto, ON",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/calgary-to-vancouver-movers/",
+      "owner": "rebuild-calgary-vancouver-static-routes.mjs",
+      "ownership": {
+        "routeUrl": "/calgary-to-vancouver-movers/",
+        "owner": "rebuild-calgary-vancouver-static-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/step02-calgary-vancouver-static.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/step33-calgary-vancouver.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Calgary, AB",
+        "to": "Vancouver, BC",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    },
+    {
+      "path": "/edmonton-to-toronto-movers/",
+      "owner": "rebuild-edmonton-toronto-static-routes.mjs",
+      "ownership": {
+        "routeUrl": "/edmonton-to-toronto-movers/",
+        "owner": "rebuild-edmonton-toronto-static-routes.mjs",
+        "ownerType": "full-page-generator",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "runtimeEnhancers": [
+          "site-copy/assets/conversion-boost.js",
+          "site-copy/assets/static-nav.js",
+          "site-copy/assets/static-chat.js"
+        ],
+        "runtimeStyles": [
+          "site-copy/assets/conversion-boost.css",
+          "site-copy/assets/static-nav.css",
+          "site-copy/assets/static-chat.css"
+        ],
+        "architectureExceptions": [],
+        "rendering": "static",
+        "status": "active"
+      },
+      "desktop": {
+        "h1": 1,
+        "forms": 1,
+        "tables": 1,
+        "faq": 1,
+        "schema": 1,
+        "from": "Edmonton, AB",
+        "to": "Toronto, ON",
+        "overflow": false,
+        "undefined": false,
+        "soft404": false,
+        "direction": true
+      },
+      "mobile": null,
+      "errors": [],
+      "issues": []
+    }
+  ]
+}

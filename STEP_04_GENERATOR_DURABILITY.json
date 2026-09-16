@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-09-16T15:07:47.8606672Z",
+  "generator": "tools/rebuild-montreal-toronto-static-routes.mjs",
+  "routes": {
+    "montrealToToronto": {
+      "first": "6C9E1DD99D18F886BA75CE093B03658949069C9E000EAE264E4E9399021C0483",
+      "second": "6C9E1DD99D18F886BA75CE093B03658949069C9E000EAE264E4E9399021C0483"
+    },
+    "torontoToMontreal": {
+      "first": "9892C472C604071878D99574E4C3CD52E5CA8CC8CF128F41D276461830B7957A",
+      "second": "9892C472C604071878D99574E4C3CD52E5CA8CC8CF128F41D276461830B7957A"
+    }
+  },
+  "stable": true
+}

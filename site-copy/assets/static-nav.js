@@ -115,13 +115,22 @@
       panel.appendChild(group);
     });
     root.body.appendChild(panel);
+    function closeMobile() {
+      panel.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.focus();
+    }
     trigger.addEventListener("click", function (event) {
       event.preventDefault();
+      if (panel.classList.contains("is-open")) { closeMobile(); return; }
       panel.classList.add("is-open");
       trigger.setAttribute("aria-expanded", "true");
       close.focus();
     });
-    close.addEventListener("click", function () { panel.classList.remove("is-open"); trigger.setAttribute("aria-expanded", "false"); trigger.focus(); });
+    close.addEventListener("click", closeMobile);
+    root.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && panel.classList.contains("is-open")) closeMobile();
+    });
   }
 
   function init() {
