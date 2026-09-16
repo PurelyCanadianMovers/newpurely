@@ -34,7 +34,7 @@ Scope: the repository's existing 56-route inventory in `tools/route-page-ownersh
 | `/halifax-to-toronto-movers/` | `site-copy/halifax-to-toronto-movers/index.html` | No | Yes (`rge`) | Halifax to Toronto Movers | Halifax to Toronto Movers | C — Hybrid | Case-by-case | React-style header/footer plus static estimate/content/chat; `step47-halifax-toronto.js` modifies route presentation. |
 | `/halifax-to-vancouver-movers/` | `site-copy/halifax-to-vancouver-movers/index.html` | No | No | Halifax to Vancouver Movers | Halifax to Vancouver Movers | C — Hybrid | Case-by-case | React-style header/footer plus static route content/chat; route-specific runtime changes the rendered shell. |
 | `/montreal-to-calgary-movers/` | `site-copy/montreal-to-calgary-movers/index.html` | No | Yes (`whe`, dormant) | Montreal to Calgary Movers | Montreal to Calgary Movers | A — Static Safe | Yes | Migration Step 6 moved final ownership to `rebuild-montreal-calgary-static-routes.mjs`; the page is static-owned, uses only static shell/conversion enhancements, and direct HTML edits survive initial, delayed, cache-busted, and hard-refresh renders. |
-| `/montreal-to-edmonton-movers/` | `site-copy/montreal-to-edmonton-movers/index.html` | Yes | Yes (`Ehe`) | Professional Movers in Vancouver & the Lower Mainland Since 1991 | Montreal to Edmonton Movers | B — React Owned | No | React component `Ehe` owns final route content. Direct site-copy HTML edits can be overwritten after React mount. |
+| `/montreal-to-edmonton-movers/` | `site-copy/montreal-to-edmonton-movers/index.html` | No | Yes (`Ehe`, dormant) | Montreal to Edmonton Movers | Montreal to Edmonton Movers | A — Static Safe | Yes | Migration Step 7 moved final ownership to `rebuild-montreal-edmonton-static-route.mjs`; final route content is static HTML with only static shell/conversion enhancements. Direct edits survive initial, delayed, normal, cache-busted, and hard-refresh renders. |
 | `/montreal-to-toronto-movers/` | `site-copy/montreal-to-toronto-movers/index.html` | No | Yes (`mhe`, dormant) | Montreal to Toronto Movers | Montreal to Toronto Movers | A — Static Safe | Yes | Migration Step 4 moved final ownership to `rebuild-montreal-toronto-static-routes.mjs`; the page does not load the React bundle. Direct HTML edits survive initial, delayed, normal, cache-busted, and hard-refresh renders. |
 | `/montreal-to-vancouver-movers/` | `site-copy/montreal-to-vancouver-movers/index.html` | No | Yes (`phe`) | Montreal to Vancouver Moving Cost, Prices & Transit Time | Montreal to Vancouver Moving Cost, Prices & Transit Time | A — Static Safe | Yes | Bundle contains a route registration, but the page does not load the React bundle. Direct site-copy HTML edits survive final render. |
 | `/montreal-to-victoria-movers/` | `site-copy/montreal-to-victoria-movers/index.html` | Yes | Yes (`_he`) | Professional Movers in Vancouver & the Lower Mainland Since 1991 | Montreal to Victoria Moving Cost, Prices & Transit Time | B — React Owned | No | React component `_he` owns final route content. Direct site-copy HTML edits can be overwritten after React mount. |
@@ -76,16 +76,18 @@ Scope: the repository's existing 56-route inventory in `tools/route-page-ownersh
 ## Summary counts
 
 - Total route pages audited: **56**
-- A — Static Safe: **37**
-- B — React Owned: **6**
+- A — Static Safe: **38**
+- B — React Owned: **5**
 - C — Hybrid: **13**
 - D — Other / Unknown: **0**
-- React-owned pages: **6**
-- Static-safe pages: **37**
+- React-owned pages: **5**
+- Static-safe pages: **38**
 
 ## STATIC SAFE PAGES
 
 The complete A list is:
+
+- `/montreal-to-edmonton-movers/` (Migration Step 7)
 
 - `/calgary-to-edmonton-movers/`
 - `/calgary-to-halifax-movers/`
@@ -127,7 +129,7 @@ For every page in this list: **Direct site-copy HTML edits survive final render.
 
 ## REACT OWNED PAGES
 
-`/bc-to-washington-movers/`, `/edmonton-to-vancouver-movers/`, `/montreal-to-edmonton-movers/`, `/montreal-to-victoria-movers/`, `/ottawa-to-edmonton-movers/`, and `/toronto-to-victoria-movers/`.
+`/bc-to-washington-movers/`, `/edmonton-to-vancouver-movers/`, `/montreal-to-victoria-movers/`, `/ottawa-to-edmonton-movers/`, and `/toronto-to-victoria-movers/`.
 
 For every page in this list: **Direct site-copy HTML edits can be overwritten after React mount.**
 

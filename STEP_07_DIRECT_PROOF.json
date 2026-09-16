@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-09-16T20:31:52.035Z",
+  "results": [
+    {
+      "route": "/montreal-to-edmonton-movers/",
+      "initial": true,
+      "delayed": true,
+      "normalReload": true,
+      "cacheBusted": true,
+      "hardRefresh": true,
+      "reactBootstrap": false
+    }
+  ]
+}

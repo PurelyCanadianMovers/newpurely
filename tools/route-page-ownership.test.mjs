@@ -272,7 +272,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   assert.doesNotThrow(() => assertRouteOwnership("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["edmonton-to-vancouver-movers"]));
   assert.throws(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
-  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-edmonton-routes.mjs", ["montreal-to-edmonton-movers"]));
+  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-edmonton-routes.mjs", ["edmonton-to-montreal-movers"]));
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-victoria-routes.mjs", ["montreal-to-victoria-movers", "victoria-to-montreal-movers"]));
 });
 

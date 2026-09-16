@@ -8,7 +8,7 @@ const markerStart = "<!-- STEP62_MONTREAL_EDMONTON_START -->";
 const markerEnd = "<!-- STEP62_MONTREAL_EDMONTON_END -->";
 const inclusion = "These estimated moving costs include in-home pickup and delivery, fuel surcharge, Declared Value Protection, and zero deductible. ";
 const routes = [
-  { slug: "montreal-to-edmonton-movers", from: "Montreal", fromProvince: "QC", to: "Edmonton", toProvince: "AB", title: "Montreal to Edmonton Movers | Purely Canadian Movers", description: "Montreal to Edmonton movers with cross-country planning, transparent moving-cost ranges, packing and storage options, and free written estimates." },
+
   { slug: "edmonton-to-montreal-movers", from: "Edmonton", fromProvince: "AB", to: "Montreal", toProvince: "QC", title: "Edmonton to Montreal Moving Cost | Movers, Prices & Transit Time | Purely Canadian Movers", description: "Edmonton to Montreal moving costs, transit times, packing and storage options from Purely Canadian Movers. Family-owned since 1991. Free estimates." },
 ];
 assertAllowedPostProcessor(writer, routes.map(({ slug }) => slug));

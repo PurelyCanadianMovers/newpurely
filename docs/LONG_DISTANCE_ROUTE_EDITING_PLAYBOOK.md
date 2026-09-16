@@ -36,7 +36,7 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 | `/halifax-to-toronto-movers/` | C | `tools/update-halifax-toronto-routes.mjs` and pair templates/data | Pair owner/template/data | Route HTML output; bundle | `node tools/update-halifax-toronto-routes.mjs site-copy` or `npm run routes` | No | Static estimate/content/chat with route presentation runtime | Step 47 hybrid family | C + content/render |
 | `/halifax-to-vancouver-movers/` | C | `tools/rebuild-halifax-vancouver-routes.mjs` and route source | Rebuild script/template/data | Route HTML output | `npm run routes` | No | Static route content with React-style shell/runtime | Static pair owner | C + content/render |
 | `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary → Montreal remains an unchanged comparison page | A + content/render |
-| `/montreal-to-edmonton-movers/` | B | React component `Ehe` in compiled route map | Upstream React source for Montreal/Edmonton page | Static HTML; compiled bundle | React build required | Yes | React owns main content | Step 62 pair finalizer | B + content/render |
+| `/montreal-to-edmonton-movers/` | A | `tools/rebuild-montreal-edmonton-static-route.mjs` | Established static shell template plus reconciled Montreal–Edmonton facts | Route HTML output; compiled bundle and Step 62 finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-edmonton-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 7 static owner; Edmonton → Montreal remains hybrid and unchanged | A + content/render |
 | `/montreal-to-toronto-movers/` | A | `tools/rebuild-montreal-toronto-static-routes.mjs` | Pair generator, `tools/montreal-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-montreal-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 4 static pair owner | A + content/render |
 | `/montreal-to-vancouver-movers/` | A | `tools/standardize-montreal-vancouver-routes.mjs` and pair data/templates | Standardizer, pair data/template | Route HTML output; bundle | `npm run routes` | No | No meaningful route replacement | Static side of four-route owner | A + pair regression |
 | `/montreal-to-victoria-movers/` | B | React component `_he` in compiled route map | Upstream React source for Montreal/Victoria page | Static HTML; compiled bundle | React build required | Yes | React owns main content | Reverse pair is static/hybrid | B + content/render |
@@ -144,7 +144,7 @@ For React and hybrid routes, source inspection alone is insufficient: QA must in
 - Loading the React bundle alone does **not** establish React ownership.
 - Edmonton → Montreal is hybrid even though it is React-related because it does not load the React bundle and inline JavaScript affects the page.
 - Ottawa → Victoria is hybrid because it loads/maps React while retaining its dedicated static shell.
-- The completed ownership audit covered 56 routes: **37 Static Safe, 6 React Owned, 13 Hybrid, 0 Unknown**.
+ - The completed ownership audit covered 56 routes: **38 Static Safe, 5 React Owned, 13 Hybrid, 0 Unknown**.
 - The ownership validator passed with 56 routes and zero collisions.
 
 ## Future Codex Rule
@@ -155,7 +155,7 @@ If the playbook and current repository architecture ever disagree, stop before e
 
 ## Coverage and limitations
 
-The route table contains exactly one row for each route in the completed 56-route audit. The exact final owner is established for every route. After Migration Step 6, 6 routes remain B-owned. Their exact upstream editable React source is not present in this repository; the compiled component mapping is known, but the upstream React source/build location must be resolved before a B-route edit. No ownership collision or contradiction was discovered by the completed audit or validator.
+After Migration Step 7, 5 routes remain B-owned.
 
 ## Verified B-route source trace
 
@@ -166,7 +166,6 @@ The React source investigation is recorded in `docs/REACT_ROUTE_SOURCE_TRACE_AUD
 | `/bc-to-washington-movers/` | `gge` | `client/src/pages/services/BCToWashingtonMovers.tsx` | Locate the upstream checkout containing this file; do not edit generated HTML/bundle. |
 | `/edmonton-to-vancouver-movers/` | `Vhe` | `client/src/pages/services/EdmontonToVancouverMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary → Montreal remains an unchanged comparison page | A + content/render |
-| `/montreal-to-edmonton-movers/` | `Ehe` | `client/src/pages/services/MontrealToEdmontonMovers.tsx` | Locate upstream source before editing. |
 | `/montreal-to-victoria-movers/` | `_he` | `client/src/pages/services/MontrealToVictoriaMovers.tsx` | Locate upstream source before editing. |
 | `/ottawa-to-edmonton-movers/` | `Whe` | `client/src/pages/services/OttawaToEdmontonMovers.tsx` | Locate upstream source before editing. |
 | `/toronto-to-victoria-movers/` | `uge` | `client/src/pages/services/TorontoToVictoriaMovers.tsx` | Locate upstream source before editing. |

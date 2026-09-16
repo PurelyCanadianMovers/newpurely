@@ -27,7 +27,8 @@ export const routeWriterManifest = Object.freeze([
   { script: "checked-in-static-route-source", classification: "Checked-in static full-page source", routes: routesOwnedBy("checked-in-static-route-source"), runsInRoutes: false, mode: "authoritative", risk: "Low: no generator exists; aggregate build preserves these files byte-for-byte and validates their declared runtime dependencies. Calgary/Edmonton facts are separately frozen in calgary-edmonton-route-data.mjs for Step 35; Edmonton to Ottawa is preserved as the proven hydration-free Step 37A source." },
 
   { script: "finalize-calgary-edmonton-routes.mjs", classification: "Step 35 static pair finalizer", routes: ["/calgary-to-edmonton-movers/", "/edmonton-to-calgary-movers/"], runsInRoutes: true, mode: "post-processor", risk: "Low: replaces only the pair-owned main content, pricing, FAQ/schema, route metadata, and pair-scoped stylesheet while consuming the frozen route-data authority." },
-  { script: "finalize-montreal-edmonton-routes.mjs", classification: "Finalizer", routes: ["/montreal-to-edmonton-movers/", "/edmonton-to-montreal-movers/"], runsInRoutes: true, mode: "post-processor", risk: "Medium: allowed only after its SPA owner output exists." },
+  { script: "rebuild-montreal-edmonton-static-route.mjs", classification: "Migration Step 7 dedicated static route generator", routes: ["/montreal-to-edmonton-movers/"], runsInRoutes: true, mode: "authoritative", risk: "Low: writes only Montreal to Edmonton from the maintained static shell and reconciled route facts; leaves the reverse route untouched." },
+  { script: "finalize-montreal-edmonton-routes.mjs", classification: "Legacy pre-migration finalizer", routes: ["/edmonton-to-montreal-movers/"], runsInRoutes: true, mode: "post-processor", risk: "Historical reverse-route evidence only; it no longer runs against Montreal to Edmonton after Step 7 static ownership." },
   { script: "finalize-calgary-toronto-routes.mjs", classification: "Legacy pre-migration finalizer", routes: [], runsInRoutes: false, mode: "post-processor", risk: "Retained only as historical fact/render evidence; it no longer runs after the pair became statically owned." },
   { script: "finalize-montreal-toronto-routes.mjs", classification: "Legacy pre-migration finalizer", routes: [], runsInRoutes: false, mode: "post-processor", risk: "Retained only as historical fact/render evidence; it no longer runs after the pair became statically owned." },
   { script: "finalize-montreal-victoria-routes.mjs", classification: "Finalizer", routes: ["/montreal-to-victoria-movers/", "/victoria-to-montreal-movers/"], runsInRoutes: true, mode: "post-processor", risk: "Low: Step 23 route-scoped FAQ/schema, local-SEO, and pricing-note normalization across the declared SPA/static architectures." },
@@ -70,6 +71,7 @@ export const aggregateRouteBuildOrder = Object.freeze([
   "rebuild-montreal-toronto-static-routes.mjs",
   "rebuild-toronto-vancouver-static-routes.mjs",
   "rebuild-montreal-calgary-static-routes.mjs",
+  "rebuild-montreal-edmonton-static-route.mjs",
   "repair-step32-react-runtime.mjs",
   "rebuild-halifax-vancouver-routes.mjs",
   "standardize-montreal-vancouver-routes.mjs",

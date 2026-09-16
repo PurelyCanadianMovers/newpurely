@@ -1,0 +1,12 @@
+{
+  "notes": "Generator was run twice; output was byte-identical. Reverse route was not rewritten.",
+  "generatedAt": "2026-09-16T20:39:57.4796648Z",
+  "targetStable": true,
+  "aggregateDryRun": "PASS: generator is #8 in authoritative order",
+  "targetSecondRunHash": "B9DADA8200054D78E50A4C103C4C1721C3B7022C2216CA7509B4E8C030BEA0DC",
+  "reverseUnchanged": true,
+  "reverseBeforeHash": "B9F22C5B820F996EFFC0364DE58EDFCAC820C7CA95F35F1776CEEF68EA03EA55",
+  "targetFirstRunHash": "B9DADA8200054D78E50A4C103C4C1721C3B7022C2216CA7509B4E8C030BEA0DC",
+  "targetHash": "B9DADA8200054D78E50A4C103C4C1721C3B7022C2216CA7509B4E8C030BEA0DC",
+  "reverseAfterHash": "B9F22C5B820F996EFFC0364DE58EDFCAC820C7CA95F35F1776CEEF68EA03EA55"
+}
