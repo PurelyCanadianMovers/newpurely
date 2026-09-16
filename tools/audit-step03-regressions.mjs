@@ -61,13 +61,35 @@ async function inspect(route) {
       directionCorrect: form?.querySelector('[name="from"]')?.value === from && form?.querySelector('[name="to"]')?.value === to,
     };
   }, route);
-  const ownership = routeOwnershipByUrl.get(route.path);
+  let mobileState = null;
+  if (route.class === "A — Static Safe" && route.owner === "rebuild-edmonton-toronto-static-routes.mjs") {
+    const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    const mobileErrors = [];
+    mobilePage.on("pageerror", (error) => mobileErrors.push(error.message));
+    await mobilePage.goto(new URL(route.path, baseUrl).href, { waitUntil: "networkidle", timeout: 30000 });
+    await mobilePage.waitForTimeout(1500);
+    mobileState = await mobilePage.evaluate(() => {
+      const trigger = document.querySelector('header button[aria-label="Open menu"]');
+      const panel = document.querySelector(".pcm-static-mobile");
+      const css = [...document.styleSheets].some((sheet) => sheet.href?.includes("static-nav.css"));
+      const hiddenBefore = panel ? getComputedStyle(panel).display === "none" : false;
+      trigger?.click();
+      const opened = panel ? panel.classList.contains("is-open") && trigger?.getAttribute("aria-expanded") === "true" && getComputedStyle(panel).display !== "none" : false;
+      trigger?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+      panel?.querySelector('button[aria-label="Close menu"]')?.click();
+      const closed = panel ? !panel.classList.contains("is-open") && trigger?.getAttribute("aria-expanded") === "false" && getComputedStyle(panel).display === "none" : false;
+      return { css, hiddenBefore, opened, closed, overflow: document.documentElement.scrollWidth > innerWidth };
+    });
+    mobileState.errors = mobileErrors;
+    await mobilePage.close();
+  }  const ownership = routeOwnershipByUrl.get(route.path);
   const issues = [];
   if (ownership?.owner !== route.owner) issues.push(`owner ${ownership?.owner}`);
   if (state.h1Count !== 1 || state.quoteFormCount !== 1 || !state.directionCorrect || state.navCount !== 1 || state.footerCount !== 1 || state.chatCount !== 1 || state.faqCount !== 1 || state.faqSchemaCount !== 1 || state.tableCount !== 1 || state.undefinedVisible || state.soft404) issues.push("page contract");
-  if (consoleErrors.length) issues.push("console errors");
+  if (mobileState && (!mobileState.css || !mobileState.hiddenBefore || !mobileState.opened || !mobileState.closed || mobileState.overflow)) issues.push("mobile navigation");
+  if (consoleErrors.length || mobileState?.errors?.length) issues.push("console errors");
   await page.close();
-  return { route: route.path, classification: route.class, ownership, state, consoleErrors, issues };
+  return { route: route.path, classification: route.class, ownership, state, mobileState, consoleErrors, issues };
 }
 
 const results = await Promise.all(routes.map(inspect));

@@ -9,7 +9,7 @@ export const EDMONTON_TORONTO_ROUTES = Object.freeze([
   Object.freeze({ slug: "toronto-to-edmonton-movers", from: "Toronto, ON", to: "Edmonton, AB", title: "Toronto to Edmonton Movers | Long-Distance Moving | Purely Canadian Movers", description: "Toronto to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.", faqCount: 12 }),
 ]);
 export function assertEdmontonTorontoTemplate(html, route) {
-  const required = [route.from, route.to, route.title, route.description, EDMONTON_TORONTO_FACTS.displayedDistance, EDMONTON_TORONTO_FACTS.transit, EDMONTON_TORONTO_FACTS.range, "Declared Value Protection", ...EDMONTON_TORONTO_FACTS.pricing.flat()];
+  const required = [route.from, route.to, route.title, route.description, EDMONTON_TORONTO_FACTS.displayedDistance, EDMONTON_TORONTO_FACTS.transit, EDMONTON_TORONTO_FACTS.range, "Declared Value Protection", "href=\"/assets/static-nav.css\"", "href=\"/assets/static-chat.css\"", ...EDMONTON_TORONTO_FACTS.pricing.flat()];
   for (const value of required) if (!html.includes(value.replaceAll("&", "&amp;")) && !html.includes(value)) throw new Error(route.slug + ": missing authoritative value " + value);
   const count = (pattern) => (html.match(pattern) ?? []).length;
   if (count(/<h1\b/gi) !== 1) throw new Error(route.slug + ": expected one H1");

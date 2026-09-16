@@ -118,9 +118,10 @@
     trigger.addEventListener("click", function (event) {
       event.preventDefault();
       panel.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
       close.focus();
     });
-    close.addEventListener("click", function () { panel.classList.remove("is-open"); trigger.focus(); });
+    close.addEventListener("click", function () { panel.classList.remove("is-open"); trigger.setAttribute("aria-expanded", "false"); trigger.focus(); });
   }
 
   function init() {

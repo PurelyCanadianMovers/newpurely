@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-09-16T14:30:36.260Z",
+  "results": [
+    {
+      "route": "/edmonton-to-toronto-movers/",
+      "initial": true,
+      "delayed": true,
+      "normalReload": true,
+      "cacheBusted": true,
+      "hardRefresh": true,
+      "reactBootstrap": false
+    },
+    {
+      "route": "/toronto-to-edmonton-movers/",
+      "initial": true,
+      "delayed": true,
+      "normalReload": true,
+      "cacheBusted": true,
+      "hardRefresh": true,
+      "reactBootstrap": false
+    }
+  ]
+}
