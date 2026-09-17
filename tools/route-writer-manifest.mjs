@@ -1,6 +1,6 @@
-import { routePageOwnership, routesOwnedBy } from "./route-page-ownership.mjs";
+import { isLongDistanceRouteUrl, routePageOwnership, routesOwnedBy } from "./route-page-ownership.mjs";
 
-const allRoutes = routePageOwnership.map((entry) => entry.routeUrl);
+const allRoutes = routePageOwnership.filter((entry) => isLongDistanceRouteUrl(entry.routeUrl)).map((entry) => entry.routeUrl);
 
 export const routeWriterManifest = Object.freeze([
   { script: "rebuild-calgary-toronto-static-routes.mjs", classification: "Migration Step 1 deterministic static pair generator", routes: routesOwnedBy("rebuild-calgary-toronto-static-routes.mjs"), runsInRoutes: true, mode: "authoritative", risk: "Low: reproduces only the Calgary/Toronto reciprocal pair from pair-owned static templates and frozen authoritative facts without React bootstrap." },

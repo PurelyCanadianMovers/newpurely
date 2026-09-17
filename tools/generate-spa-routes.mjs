@@ -66,6 +66,29 @@ const sitemapExcludedRoutes = new Set([
   "/movers-vancouver-to-halifax/",
   "/movers-vancouver-to-toronto/",
 ]);
+// These legacy route aliases are handled by site-copy/_redirects. They must
+// never be materialized as homepage-derived SPA documents when absent.
+const legacyRedirectOnlyRoutes = new Set([
+  "/movers-calgary-to-edmonton/",
+  "/movers-calgary-to-toronto/",
+  "/movers-calgary-to-vancouver/",
+  "/movers-edmonton-to-calgary/",
+  "/movers-edmonton-to-toronto/",
+  "/movers-edmonton-to-vancouver/",
+  "/movers-montreal-to-calgary/",
+  "/movers-montreal-to-vancouver/",
+  "/movers-ottawa-to-calgary/",
+  "/movers-ottawa-to-toronto/",
+  "/movers-ottawa-to-vancouver/",
+  "/movers-toronto-to-calgary/",
+  "/movers-toronto-to-edmonton/",
+  "/movers-toronto-to-montreal/",
+  "/movers-toronto-to-vancouver/",
+  "/movers-vancouver-to-calgary/",
+  "/movers-vancouver-to-halifax/",
+  "/movers-vancouver-to-montreal/",
+  "/movers-vancouver-to-toronto/",
+]);
 const manualPublicRoutes = [
   // Step 35A: these canonical routes are hydration-free checked-in static
   // sources. Keep them discoverable so the ownership guard records an explicit
@@ -362,6 +385,10 @@ function depth(route) {
 }
 
 for (const route of routes) {
+  if (legacyRedirectOnlyRoutes.has(route)) {
+    console.log(`Redirect-only legacy route skipped: ${route}`);
+    continue;
+  }
   const file = routeFile(route);
   const target = join(outDir, file);
   const ownership = routeOwnershipByUrl.get(route);
