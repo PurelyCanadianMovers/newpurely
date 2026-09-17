@@ -56,6 +56,7 @@ const main = `<main class="flex-1">
 </main>`;
 
 const runtimeGuard = `<script id="pcm-maple-ridge-form-defaults">(function(){function setDefaults(){document.querySelectorAll('script#faq-schema').forEach(function(script){script.remove()});document.querySelectorAll('input[name="from"]').forEach(function(input){input.placeholder='Maple Ridge, BC';if(!input.value||/Toronto\\s*,?\\s*ON/i.test(input.value)){var setter=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set;setter.call(input,'Maple Ridge, BC');input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}))}});document.querySelectorAll('input[name="to"]').forEach(function(input){input.placeholder='City or province';if(/Calgary\\s*,?\\s*AB/i.test(input.value)){var setter=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set;setter.call(input,'');input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}))}})}window.addEventListener('DOMContentLoaded',setDefaults);window.addEventListener('load',function(){setDefaults();setTimeout(setDefaults,500)});new MutationObserver(setDefaults).observe(document.documentElement,{childList:true,subtree:true})})();</script>`;
+const staticEnhancers = `<link rel="stylesheet" href="/assets/static-nav.css"><link rel="stylesheet" href="/assets/static-chat.css"><script defer src="/assets/static-nav.js"></script><script defer src="/assets/static-chat.js"></script>`;
 
 let html = readFileSync(pagePath, "utf8");
 html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
@@ -75,6 +76,13 @@ html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
   .replace(/<script type="application\/ld\+json" id="faq-schema">[\s\S]*?<\/script>/, "")
   .replace(/<script id="pcm-maple-ridge-form-defaults">[\s\S]*?<\/script>/, "");
 html = html.replace('</body></html>', `${runtimeGuard}</body></html>`);
+html = html.replace(/<meta name="pcm-static-page"[^>]*>\s*/i, '')
+  .replace(/<meta name="pcm-static-schema"[^>]*>\s*/i, '')
+  .replace(/<link rel="stylesheet" href="\/assets\/static-(?:nav|chat)\.css">/gi, '')
+  .replace(/<script defer src="\/assets\/static-(?:nav|chat)\.js"><\/script>/gi, '')
+  .replace('</head>', '<meta name="pcm-static-page" content="1">\n    <meta name="pcm-static-schema" content="1">\n  </head>')
+  .replace(staticEnhancers + runtimeGuard, '')
+  .replace('</body></html>', `${staticEnhancers}${runtimeGuard}</body></html>`);
 writeFileSync(pagePath, html);
 let bundle = readFileSync(bundlePath, "utf8");
 const bundleConfig = 'mapleRidge:{localPricing:null,neighborhoods:["Town Centre","East Central","Silver Valley","Albion","Hammond","West Maple Ridge","Kanaka Creek","Cottonwood","Thornhill","Whonnock","Websters Corners","Ruskin"],localTips:["Town Centre and East Central: Condo and apartment moves may require elevator bookings, loading access, parking coordination, and scheduled move windows where applicable.","Silver Valley and Albion: Newer homes and townhouses may involve builder possession dates, multi-level layouts, driveway planning, and larger family inventories.","Whonnock, Websters Corners and Ruskin: Rural and acreage moves require advance review of truck access, driveway length and width, overhead clearance, turnaround space, and loading logistics where relevant.","Hammond, West Maple Ridge and Kanaka Creek: Established homes and townhouses benefit from residential street-access planning, including moves toward Pitt Meadows and the Tri-Cities."],faqs:' + JSON.stringify(faqs.map(([question, answer]) => ({ question, answer }))) + '},pittMeadows:';

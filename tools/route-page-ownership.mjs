@@ -126,6 +126,7 @@ const ownerGroups = {
     "vancouver-to-halifax-movers",
   ],
   [CHECKED_IN_STATIC_SOURCE]: [
+    "maple-ridge",
     "langley",
     "local-movers-langley-bc",
     "calgary-to-edmonton-movers",
@@ -141,6 +142,11 @@ const ownerGroups = {
 };
 
 const routeRuntimeEnhancers = {
+  "maple-ridge": [
+    "site-copy/assets/conversion-boost.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/static-chat.js",
+  ],
   "toronto-to-vancouver-movers": [
     "site-copy/assets/conversion-boost.js",
     "site-copy/assets/static-nav.js",
