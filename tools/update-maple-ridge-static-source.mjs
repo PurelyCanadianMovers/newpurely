@@ -44,6 +44,30 @@ const breadcrumbSchema = {
   ],
 };
 
+const legacySchemaIds = [
+  "local-business-schema",
+  "website-schema",
+  "aggregate-rating-schema",
+  "service-schema--maple-ridge-",
+  "breadcrumb-schema",
+  "faq-schema",
+];
+const schemaScript = (id, schema) => `<script type="application/ld+json" id="${id}">${JSON.stringify(schema)}</script>`;
+const removeSchemaScripts = (html, ids) => ids.reduce(
+  (result, id) => result.replace(new RegExp(`<script type="application/ld\\+json" id="${id}">[\\s\\S]*?<\\/script>`, "g"), ""),
+  html,
+);
+const upsertSingleSchema = (html, id, schema) => {
+  let retained = false;
+  const pattern = new RegExp(`<script type="application/ld\\+json" id="${id}">[\\s\\S]*?<\\/script>`, "g");
+  const updated = html.replace(pattern, () => {
+    if (retained) return "";
+    retained = true;
+    return schemaScript(id, schema);
+  });
+  return retained ? updated : updated.replace("</head>", `${schemaScript(id, schema)}</head>`);
+};
+
 const main = `<main class="flex-1">
   <section class="relative overflow-hidden bg-gradient-to-r from-slate-900 to-slate-800 pt-32 pb-20 px-4"><div class="max-w-5xl mx-auto"><p class="text-sm uppercase tracking-widest text-red-200 mb-4">Local and long-distance moving</p><h1 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6">Movers in Maple Ridge, BC</h1><p class="text-xl text-gray-200 mb-8 max-w-3xl">Purely Canadian Movers provides local and long-distance moving services in Maple Ridge, BC from our nearby Coquitlam home base. Family-owned since 1991, we move houses, condos, apartments, townhouses and rural properties throughout Maple Ridge, with packing and storage available.</p><a href="/contact/" class="inline-block bg-[#CC1A1A] text-white font-bold py-3 px-8 rounded">Get a Free Estimate</a></div></section>
   <section class="py-16 px-4 bg-white"><div class="max-w-3xl mx-auto"><h2 class="text-4xl font-serif font-bold mb-6 text-slate-900">Moving services for Maple Ridge homes and businesses</h2><p class="text-lg text-gray-700 mb-4">Maple Ridge is served from our Coquitlam headquarters. Our own trained crews handle local residential moves, including houses, condos, apartments, townhouses, new-construction move-ins, and rural or acreage properties. Packing, unpacking, storage, and office or commercial moving are available where supported.</p><p class="text-lg text-gray-700">For long-distance moves from Maple Ridge across Canada, we coordinate route planning and written estimates through our Great Canadian Van Lines agent network. Local moves stay with our own trained crews; our established company wording is no brokers or subcontractors.</p></div></section>
@@ -59,6 +83,7 @@ const runtimeGuard = `<script id="pcm-maple-ridge-form-defaults">(function(){fun
 const staticEnhancers = `<link rel="stylesheet" href="/assets/static-nav.css"><link rel="stylesheet" href="/assets/static-chat.css"><script defer src="/assets/static-nav.js"></script><script defer src="/assets/static-chat.js"></script>`;
 
 let html = readFileSync(pagePath, "utf8");
+html = removeSchemaScripts(html, legacySchemaIds);
 html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
   .replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${description}">`)
   .replace(/<meta property="og:title" content=".*?">/, `<meta property="og:title" content="${title}">`)
@@ -70,11 +95,11 @@ html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
   .replace(/<input name="from"[^>]*>/g, '<input name="from" value="Maple Ridge, BC" type="text">')
   .replace(/<input name="to"[^>]*>/g, '<input name="to" placeholder="City or province" type="text">')
   .replace(/<main[\s\S]*?<\/main>/, main)
-  .replace(/<script type="application\/ld\+json" id="pcm-service-schema">[\s\S]*?<\/script>/, `<script type="application/ld+json" id="pcm-service-schema">${JSON.stringify(serviceSchema)}</script>`)
-  .replace(/<script type="application\/ld\+json" id="pcm-breadcrumb-schema">[\s\S]*?<\/script>/, `<script type="application/ld+json" id="pcm-breadcrumb-schema">${JSON.stringify(breadcrumbSchema)}</script>`)
-  .replace(/<script type="application\/ld\+json" id="pcm-faq-schema">[\s\S]*?<\/script>/, `<script type="application/ld+json" id="pcm-faq-schema">${JSON.stringify(faqSchema)}</script>`)
-  .replace(/<script type="application\/ld\+json" id="faq-schema">[\s\S]*?<\/script>/, "")
-  .replace(/<script id="pcm-maple-ridge-form-defaults">[\s\S]*?<\/script>/, "");
+  .replace(/<script id="pcm-maple-ridge-form-defaults">[\s\S]*?<\/script>/g, "");
+html = upsertSingleSchema(html, "pcm-service-schema", serviceSchema);
+html = upsertSingleSchema(html, "pcm-breadcrumb-schema", breadcrumbSchema);
+html = upsertSingleSchema(html, "pcm-faq-schema", faqSchema);
+html = html.replace(/<script id="pcm-maple-ridge-form-defaults">[\s\S]*?<\/script>/g, "");
 html = html.replace('</body></html>', `${runtimeGuard}</body></html>`);
 html = html.replace(/<meta name="pcm-static-page"[^>]*>\s*/i, '')
   .replace(/<meta name="pcm-static-schema"[^>]*>\s*/i, '')
@@ -82,6 +107,7 @@ html = html.replace(/<meta name="pcm-static-page"[^>]*>\s*/i, '')
   .replace(/<script defer src="\/assets\/static-(?:nav|chat)\.js"><\/script>/gi, '')
   .replace('</head>', '<meta name="pcm-static-page" content="1">\n    <meta name="pcm-static-schema" content="1">\n  </head>')
   .replace(staticEnhancers + runtimeGuard, '')
+  .replace(runtimeGuard, '')
   .replace('</body></html>', `${staticEnhancers}${runtimeGuard}</body></html>`);
 writeFileSync(pagePath, html);
 let bundle = readFileSync(bundlePath, "utf8");
