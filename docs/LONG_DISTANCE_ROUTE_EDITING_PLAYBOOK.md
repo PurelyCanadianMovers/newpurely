@@ -6,9 +6,9 @@ This playbook covers the 56 canonical route pages registered by `tools/route-pag
 
 ## Operating rules
 
-- **A — Static Safe:** edit the authoritative static source or its owner generator. Direct site-copy HTML edits survive final render.
-- **B — React Owned:** edit the upstream React source for the mapped component, then rebuild the bundle through the site's normal React build outside this repository. Never treat the visible prerendered `site-copy` HTML or compiled bundle as the primary editable source.
-- **C — Hybrid:** identify the exact static and JavaScript-owned sections first. Edit only the controlling layer for the requested section, then verify the final browser DOM.
+- **A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe:** edit the authoritative static source or its owner generator. Direct site-copy HTML edits survive final render.
+- **B ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â React Owned:** edit the upstream React source for the mapped component, then rebuild the bundle through the site's normal React build outside this repository. Never treat the visible prerendered `site-copy` HTML or compiled bundle as the primary editable source.
+- **C ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Hybrid:** identify the exact static and JavaScript-owned sections first. Edit only the controlling layer for the requested section, then verify the final browser DOM.
 - The compiled bundle is generated output. `site-copy/assets/index-CNBNs70h.js` may be inspected for route/component mapping but must not be edited directly.
 - The repository currently contains no checked-in React page source for the mapped B components; only the compiled bundle and a minimal `src/index.js` are present. For B changes, the upstream React application/source must be located before editing. If it cannot be located, stop and report that blocker.
 
@@ -28,25 +28,25 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 | `/calgary-to-winnipeg-movers/` | C | `tools/rebuild-calgary-winnipeg-routes.mjs` and pair template/data | Rebuild script/template/data | Route HTML output | `node tools/rebuild-calgary-winnipeg-routes.mjs site-copy` or `npm run routes` | No | Step 44/static shell modifies presentation; React-style header/footer remains | Hybrid static content with shared nav/chat | C + content/render |
 | `/edmonton-to-calgary-movers/` | A | Checked-in static HTML | `site-copy/edmonton-to-calgary-movers/index.html` | Bundle; unrelated generators | No; aggregate preserves checked-in source | No | No meaningful route replacement | Step 35 checked-in static pair | A + content |
 | `/edmonton-to-montreal-movers/` | C | Static HTML plus inline Step 62 route runtime | `site-copy/edmonton-to-montreal-movers/index.html`; inline runtime only when the controlled section requires it | React bundle assumption; generated bundle | Run `npm run routes` only when registered finalizers are intentionally reapplied | No bundle mount | Yes: pricing, glance, FAQ, metadata, and static chat/presentation | Documented mixed exception | C + content/render |
-| `/edmonton-to-ottawa-movers/` | A | Checked-in static HTML and `tools/edmonton-ottawa-route-data.mjs` | Static HTML for copy; route data for fact changes | React bundle; patch scripts as durable source | No for direct copy; run registered owner/finalizers for data changes | No | No meaningful route replacement | Mixed pair: Ottawa→Edmonton is B | A + pair regression |
+| `/edmonton-to-ottawa-movers/` | A | Checked-in static HTML and `tools/edmonton-ottawa-route-data.mjs` | Static HTML for copy; route data for fact changes | React bundle; patch scripts as durable source | No for direct copy; run registered owner/finalizers for data changes | No | No meaningful route replacement | Mixed pair: OttawaÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢Edmonton is B | A + pair regression |
 | `/edmonton-to-toronto-movers/` | A | `tools/rebuild-edmonton-toronto-static-routes.mjs` | Pair generator, `tools/edmonton-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-edmonton-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 3 static pair owner | A + content/render |
-| `/edmonton-to-vancouver-movers/` | B | React component `Vhe` in compiled route map | Upstream React source for Edmonton/Vancouver page | Static HTML; compiled bundle | React build required | Yes | React owns main content | Reverse pair has documented static-owner handling | B + content/render |
+| /edmonton-to-vancouver-movers/ | A | rebuild-edmonton-vancouver-static-route.mjs plus edmonton-vancouver-static-route-data.mjs and maintained settled template | Generator/data/template; generated HTML is final | Compiled bundle; reverse finalizer | Run the Step 10 generator or npm run routes | No | Static route content is final; shared static shell only | Migration Step 10 static owner; Vancouver to Edmonton remains the reverse static-finalizer route | A + content/render |
 | `/edmonton-to-winnipeg-movers/` | C | `tools/rebuild-edmonton-winnipeg-routes.mjs` and explicit templates | Rebuild script/template/data | Route HTML output | `node tools/rebuild-edmonton-winnipeg-routes.mjs site-copy` or `npm run routes` | No | Static prairie content plus route-specific runtime/presentation | Shared static nav/chat and Step 34 assets | C + content/render |
 | `/halifax-to-calgary-movers/` | A | `tools/generate-halifax-calgary-route-pages.mjs` | Generator/template/data | Route HTML output | `node tools/generate-halifax-calgary-route-pages.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
 | `/halifax-to-toronto-movers/` | C | `tools/update-halifax-toronto-routes.mjs` and pair templates/data | Pair owner/template/data | Route HTML output; bundle | `node tools/update-halifax-toronto-routes.mjs site-copy` or `npm run routes` | No | Static estimate/content/chat with route presentation runtime | Step 47 hybrid family | C + content/render |
 | `/halifax-to-vancouver-movers/` | C | `tools/rebuild-halifax-vancouver-routes.mjs` and route source | Rebuild script/template/data | Route HTML output | `npm run routes` | No | Static route content with React-style shell/runtime | Static pair owner | C + content/render |
-| `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary → Montreal remains an unchanged comparison page | A + content/render |
-| `/montreal-to-edmonton-movers/` | A | `tools/rebuild-montreal-edmonton-static-route.mjs` | Established static shell template plus reconciled Montreal–Edmonton facts | Route HTML output; compiled bundle and Step 62 finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-edmonton-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 7 static owner; Edmonton → Montreal remains hybrid and unchanged | A + content/render |
+| `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Montreal remains an unchanged comparison page | A + content/render |
+| `/montreal-to-edmonton-movers/` | A | `tools/rebuild-montreal-edmonton-static-route.mjs` | Established static shell template plus reconciled MontrealÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“Edmonton facts | Route HTML output; compiled bundle and Step 62 finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-edmonton-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 7 static owner; Edmonton ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Montreal remains hybrid and unchanged | A + content/render |
 | `/montreal-to-toronto-movers/` | A | `tools/rebuild-montreal-toronto-static-routes.mjs` | Pair generator, `tools/montreal-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-montreal-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 4 static pair owner | A + content/render |
 | `/montreal-to-vancouver-movers/` | A | `tools/standardize-montreal-vancouver-routes.mjs` and pair data/templates | Standardizer, pair data/template | Route HTML output; bundle | `npm run routes` | No | No meaningful route replacement | Static side of four-route owner | A + pair regression |
-| `/montreal-to-victoria-movers/` | A | `tools/rebuild-montreal-victoria-static-route.mjs` | `tools/montreal-victoria-static-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and legacy finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-victoria-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 8 static owner; Victoria → Montreal remains unchanged static comparison page | A + content/render |
+| `/montreal-to-victoria-movers/` | A | `tools/rebuild-montreal-victoria-static-route.mjs` | `tools/montreal-victoria-static-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and legacy finalizer are historical/reverse-route evidence only | `node tools/rebuild-montreal-victoria-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 8 static owner; Victoria ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Montreal remains unchanged static comparison page | A + content/render |
 | `/montreal-to-winnipeg-movers/` | A | `tools/rebuild-winnipeg-montreal-routes.mjs` and pair data/template | Rebuild script/data/template | Route HTML output | `node tools/rebuild-winnipeg-montreal-routes.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
 | `/ottawa-to-calgary-movers/` | A | `tools/rebuild-calgary-ottawa-routes.mjs` | Rebuild script, data/template, hub block | Route HTML output | `node tools/rebuild-calgary-ottawa-routes.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Bundle maps it but page does not load bundle | A + pair regression |
-| `/ottawa-to-edmonton-movers/` | A | `rebuild-ottawa-edmonton-static-route.mjs` | `tools/ottawa-edmonton-static-route-data.mjs` and maintained static template | Static HTML; shared static shell assets | Run the Step 9 generator or edit the generated route with care | No | Static route content is final; no React mount or route-specific legacy patch chain | Dedicated Step 9 static owner; Edmonton → Ottawa remains the untouched reverse-route comparison | A + content/render |
+| `/ottawa-to-edmonton-movers/` | A | `rebuild-ottawa-edmonton-static-route.mjs` | `tools/ottawa-edmonton-static-route-data.mjs` and maintained static template | Static HTML; shared static shell assets | Run the Step 9 generator or edit the generated route with care | No | Static route content is final; no React mount or route-specific legacy patch chain | Dedicated Step 9 static owner; Edmonton ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Ottawa remains the untouched reverse-route comparison | A + content/render |
 | `/ottawa-to-toronto-movers/` | A | `tools/rebuild-ottawa-toronto-routes.mjs` | Rebuild script, data/template, hub block | Route HTML output | `node tools/rebuild-ottawa-toronto-routes.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Toronto/Ottawa hub block | A + related routes |
 | `/ottawa-to-vancouver-movers/` | A | `tools/standardize-montreal-vancouver-routes.mjs` and pair data/templates | Standardizer, pair data/template | Route HTML output; bundle | `npm run routes` | No | No meaningful route replacement | Bundle maps it but page does not load bundle | A + pair regression |
 | `/ottawa-to-victoria-movers/` | C | `tools/rebuild-victoria-ottawa-route.mjs` and dedicated template | Dedicated rebuild/template | Route HTML; compiled bundle as generated output | `node tools/rebuild-victoria-ottawa-route.mjs site-copy` or `npm run routes` | Module loads/maps, but static shell remains final | Documented exception; module coexists with static shell | Do not convert to B based on bundle alone | C + content/render |
-| `/ottawa-to-winnipeg-movers/` | A | `tools/fix-winnipeg-static-routes.mjs` | Guarded owner script and route data/template | Route HTML output; unguarded legacy writer | `npm run routes`; use legacy flag only if explicitly required | No | No meaningful route replacement | Ottawa↔Winnipeg guarded legacy scope | A + ownership |
+| `/ottawa-to-winnipeg-movers/` | A | `tools/fix-winnipeg-static-routes.mjs` | Guarded owner script and route data/template | Route HTML output; unguarded legacy writer | `npm run routes`; use legacy flag only if explicitly required | No | No meaningful route replacement | OttawaÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬ÂWinnipeg guarded legacy scope | A + ownership |
 | `/seattle-to-vancouver-movers/` | C | Checked-in static HTML plus `tools/finalize-seattle-vancouver-routes.mjs` and route data | Static source, pair data, finalizer | Route HTML; bundle | `npm run routes` | No | Step 49 presentation runtime and static chat/nav alter shell | Cross-border static family | C + content/render |
 | `/toronto-to-calgary-movers/` | A | `tools/rebuild-calgary-toronto-static-routes.mjs` | Pair generator, `tools/calgary-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-calgary-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 1 static pair owner | A + content/render |
 | `/toronto-to-edmonton-movers/` | A | `tools/rebuild-edmonton-toronto-static-routes.mjs` | Pair generator, `tools/edmonton-toronto-route-data.mjs`, and pair templates | Compiled bundle; legacy finalizer | `node tools/rebuild-edmonton-toronto-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat only; no route-content replacement | Migration Step 3 static pair owner | A + content/render |
@@ -71,7 +71,7 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 | `/winnipeg-to-calgary-movers/` | C | `tools/rebuild-calgary-winnipeg-routes.mjs` and pair template/data | Rebuild script/template/data | Route HTML output | `npm run routes` | No | Step 44/static shell and React-style header/footer presentation | Hybrid static family | C + content/render |
 | `/winnipeg-to-edmonton-movers/` | C | `tools/rebuild-edmonton-winnipeg-routes.mjs` and explicit templates | Rebuild script/template/data | Route HTML output | `npm run routes` | No | Static prairie content plus route-specific runtime/presentation | Hybrid static family | C + content/render |
 | `/winnipeg-to-montreal-movers/` | A | `tools/rebuild-winnipeg-montreal-routes.mjs` and pair data/template | Rebuild script/data/template | Route HTML output | `node tools/rebuild-winnipeg-montreal-routes.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
-| `/winnipeg-to-ottawa-movers/` | A | `tools/fix-winnipeg-static-routes.mjs` | Guarded owner script and route data/template | Route HTML output; unguarded legacy writer | `npm run routes` | No | No meaningful route replacement | Ottawa↔Winnipeg guarded legacy scope | A + ownership |
+| `/winnipeg-to-ottawa-movers/` | A | `tools/fix-winnipeg-static-routes.mjs` | Guarded owner script and route data/template | Route HTML output; unguarded legacy writer | `npm run routes` | No | No meaningful route replacement | OttawaÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬ÂWinnipeg guarded legacy scope | A + ownership |
 | `/winnipeg-to-toronto-movers/` | A | `tools/rebuild-toronto-winnipeg-routes.mjs` and explicit templates | Rebuild script/template/data | Route HTML output | `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
 | `/winnipeg-to-vancouver-movers/` | A | `tools/rebuild-winnipeg-modern-routes.mjs` and explicit templates | Rebuild script/template/data | Route HTML output | `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
 
@@ -91,7 +91,7 @@ Before Codex edits any long-distance route page:
 
 If this playbook and the current repository architecture disagree, stop before editing. Report the discrepancy and update the audit/playbook rather than guessing.
 
-## A — Static Safe procedure
+## A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe procedure
 
 1. Confirm the route is A and identify whether its primary source is checked-in HTML or an owner generator/template/data file.
 2. For a checked-in source, edit only the route's HTML (and the documented route data/finalizer when the requested facts are generated). For a generated route, edit the owner script/template/data, never the generated output as the durable fix.
@@ -100,9 +100,9 @@ If this playbook and the current repository architecture disagree, stop before e
 5. Inspect raw HTML and run a browser render check. Confirm one H1, correct title/meta, main route content, one pricing section, Route at a Glance, FAQ and FAQPage schema, quote form, navigation, chatbot, related routes, and CTA.
 6. Check `git diff` for only the intended route/asset changes and confirm no other route changed unexpectedly.
 
-Static-safe does not mean “skip QA”; it means **Direct site-copy HTML edits survive final render.**
+Static-safe does not mean ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œskip QAÃƒÂ¢Ã¢â€šÂ¬Ã‚Â; it means **Direct site-copy HTML edits survive final render.**
 
-## B — React Owned procedure
+## B ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â React Owned procedure
 
 1. Confirm the exact compiled route mapping and component name in `site-copy/assets/index-CNBNs70h.js`, then locate the upstream React source. The bundle is evidence and generated output, not the editable source.
 2. If the upstream React source/build is not available, stop and report the blocker. Do not patch the static prerender or bundle as a substitute.
@@ -113,7 +113,7 @@ Static-safe does not mean “skip QA”; it means **Direct site-copy HTML edits 
 
 For every B route: **Direct site-copy HTML edits can be overwritten after React mount.**
 
-## C — Hybrid procedure
+## C ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Hybrid procedure
 
 1. Identify the exact section requested and trace it to static HTML, a generator/template, the inline route runtime, a route-specific asset, React markup, or a shared script.
 2. Do not classify the whole page from bundle loading. Loading the React bundle alone does not establish React ownership.
@@ -142,8 +142,8 @@ For React and hybrid routes, source inspection alone is insufficient: QA must in
 ## Audit findings encoded as rules
 
 - Loading the React bundle alone does **not** establish React ownership.
-- Edmonton → Montreal is hybrid even though it is React-related because it does not load the React bundle and inline JavaScript affects the page.
-- Ottawa → Victoria is hybrid because it loads/maps React while retaining its dedicated static shell.
+- Edmonton ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Montreal is hybrid even though it is React-related because it does not load the React bundle and inline JavaScript affects the page.
+- Ottawa ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Victoria is hybrid because it loads/maps React while retaining its dedicated static shell.
  - The completed ownership audit covered 56 routes: **38 Static Safe, 5 React Owned, 13 Hybrid, 0 Unknown**.
 - The ownership validator passed with 56 routes and zero collisions.
 
@@ -155,7 +155,7 @@ If the playbook and current repository architecture ever disagree, stop before e
 
 ## Coverage and limitations
 
-After Migration Step 9, 3 routes remain B-owned.
+After Migration Step 10, 2 routes remain B-owned.
 
 ## Verified B-route source trace
 
@@ -164,8 +164,7 @@ The React source investigation is recorded in `docs/REACT_ROUTE_SOURCE_TRACE_AUD
 | B route | Bundle component | Verified source-location marker | Current editing instruction |
 |---|---|---|---|
 | `/bc-to-washington-movers/` | `gge` | `client/src/pages/services/BCToWashingtonMovers.tsx` | Locate the upstream checkout containing this file; do not edit generated HTML/bundle. |
-| `/edmonton-to-vancouver-movers/` | `Vhe` | `client/src/pages/services/EdmontonToVancouverMovers.tsx` | Locate upstream source before editing. |
-| `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary → Montreal remains an unchanged comparison page | A + content/render |
+| `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Montreal remains an unchanged comparison page | A + content/render |
 | `/toronto-to-victoria-movers/` | `uge` | `client/src/pages/services/TorontoToVictoriaMovers.tsx` | Locate upstream source before editing. |
 
 The verified historical rebuild path is the root React project's `npm run build` / `pnpm build`, using its historical `vite.config.ts` (`client` root, `dist/public` output). That React project is not present in the current repository checkout. Until the upstream checkout is located, the B-route stop rule remains mandatory.

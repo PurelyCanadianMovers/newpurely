@@ -242,7 +242,8 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
     "finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs",
     "normalize-route-title-metadata.mjs",
   ]);
-  assert.equal(routeOwnershipByUrl.get("/edmonton-to-vancouver-movers/").owner, "generate-spa-routes.mjs");
+  assert.equal(routeOwnershipByUrl.get("/edmonton-to-vancouver-movers/").owner, "rebuild-edmonton-vancouver-static-route.mjs");
+  assert.equal(routeOwnershipByUrl.get("/edmonton-to-vancouver-movers/").rendering, "static");
   const edmontonOttawa = routeOwnershipByUrl.get("/edmonton-to-ottawa-movers/");
   assert.equal(edmontonOttawa.owner, "checked-in-static-route-source");
   assert.equal(edmontonOttawa.ownerType, "checked-in-static-source");
@@ -273,7 +274,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
   assert.deepEqual(ottawaEdmonton.postProcessors, ["finalize-route-promo.mjs", "finalize-route-faq-architecture.mjs", "normalize-route-title-metadata.mjs"]);
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-edmonton-ottawa-routes.mjs", ["edmonton-to-ottawa-movers"]));
   assert.doesNotThrow(() => assertRouteOwnership("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
-  assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["edmonton-to-vancouver-movers"]));
+  assert.throws(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["edmonton-to-vancouver-movers"]));
   assert.throws(() => assertAllowedPostProcessor("finalize-vancouver-edmonton-routes.mjs", ["vancouver-to-edmonton-movers"]));
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-edmonton-routes.mjs", ["edmonton-to-montreal-movers"]));
   assert.doesNotThrow(() => assertAllowedPostProcessor("finalize-montreal-victoria-routes.mjs", ["victoria-to-montreal-movers"]));

@@ -1,0 +1,845 @@
+{
+  "generatedAt": "2026-09-16T22:53:32.679Z",
+  "results": [
+    {
+      "route": "/edmonton-to-vancouver-movers/",
+      "expected": {
+        "path": "/edmonton-to-vancouver-movers/",
+        "from": "Edmonton, AB",
+        "to": "Vancouver, BC",
+        "faqCount": 9
+      },
+      "raw": {
+        "owner": "generate-spa-routes.mjs",
+        "rendering": "react-spa",
+        "postProcessors": [
+          "finalize-vancouver-edmonton-routes.mjs",
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "reactBootstrap": true,
+        "conversionRuntime": true,
+        "title": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+        "ogTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+        "twitterTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+        "description": "Edmonton to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+        "canonical": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+        "formValues": {
+          "from": "",
+          "to": ""
+        },
+        "counts": {
+          "h1": 1,
+          "quote": 1,
+          "form": 1,
+          "pricing": 0,
+          "table": 0,
+          "glance": 0,
+          "faqSection": 1,
+          "faqHeading": 1,
+          "visibleFaq": 9,
+          "faqPage": 1,
+          "localSeo": 0
+        },
+        "faqParity": true,
+        "undefinedVisible": false,
+        "legacyPricing": false,
+        "staleTerminology": false
+      },
+      "lifecycle": {
+        "initial": {
+          "title": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "ogTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "twitterTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "description": "Edmonton to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "h1": "Edmonton to Vancouver Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "",
+            "button": "",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 0,
+            "form": 0,
+            "pricing": 0,
+            "table": 0,
+            "rows": 0,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "",
+            "Edmonton to Vancouver Movers",
+            "Moving from Edmonton to Vancouver?",
+            "What Makes an Edmonton–Vancouver Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Edmonton–Vancouver Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Edmonton to Vancouver?"
+          ]
+        },
+        "oneToTwoSeconds": {
+          "title": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "ogTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "twitterTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "description": "Edmonton to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "from": "Edmonton, AB",
+          "to": "Vancouver, BC",
+          "h1": "Edmonton to Vancouver Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "",
+            "Get an Edmonton to Vancouver quote.",
+            "How much does it cost to move from Edmonton to Vancouver?",
+            "Edmonton to Vancouver Movers",
+            "Moving from Edmonton to Vancouver?",
+            "What Makes an Edmonton–Vancouver Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Edmonton–Vancouver Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Edmonton to Vancouver?"
+          ]
+        },
+        "fivePlusSeconds": {
+          "title": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "ogTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "twitterTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "description": "Edmonton to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "from": "Edmonton, AB",
+          "to": "Vancouver, BC",
+          "h1": "Edmonton to Vancouver Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "",
+            "Get an Edmonton to Vancouver quote.",
+            "How much does it cost to move from Edmonton to Vancouver?",
+            "Edmonton to Vancouver Movers",
+            "Moving from Edmonton to Vancouver?",
+            "What Makes an Edmonton–Vancouver Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Edmonton–Vancouver Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Edmonton to Vancouver?"
+          ]
+        }
+      },
+      "responsive": {
+        "desktop1280x900": {
+          "title": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "ogTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "twitterTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "description": "Edmonton to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "from": "Edmonton, AB",
+          "to": "Vancouver, BC",
+          "h1": "Edmonton to Vancouver Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "",
+            "Get an Edmonton to Vancouver quote.",
+            "How much does it cost to move from Edmonton to Vancouver?",
+            "Edmonton to Vancouver Movers",
+            "Moving from Edmonton to Vancouver?",
+            "What Makes an Edmonton–Vancouver Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Edmonton–Vancouver Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Edmonton to Vancouver?"
+          ]
+        },
+        "mobile390x844": {
+          "title": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "ogTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "twitterTitle": "Edmonton to Vancouver Movers | Alberta to BC Moving | Purely Canadian Movers",
+          "description": "Edmonton to Vancouver movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/edmonton-to-vancouver-movers/",
+          "from": "Edmonton, AB",
+          "to": "Vancouver, BC",
+          "h1": "Edmonton to Vancouver Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "36px",
+            "lineHeight": "45px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": true,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "",
+            "Get an Edmonton to Vancouver quote.",
+            "How much does it cost to move from Edmonton to Vancouver?",
+            "Edmonton to Vancouver Movers",
+            "Moving from Edmonton to Vancouver?",
+            "What Makes an Edmonton–Vancouver Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Edmonton–Vancouver Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Edmonton to Vancouver?"
+          ]
+        }
+      },
+      "interactions": {
+        "desktop": {
+          "navTrigger": true,
+          "navOpened": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        },
+        "mobile": {
+          "navTrigger": true,
+          "navOpened": "true",
+          "navClosed": "false",
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        }
+      },
+      "applicationErrors": [
+        "requestfailed: https://bzr.openai.com/v1/sdk/events?pid=VoQRj1i5cYmiok3DbhBcb5&st=oaiq-web&sv=0.1.41&t=1789599186546&ec=2 (net::ERR_ABORTED)",
+        "requestfailed: https://d2xsxph8kpxj0f.cloudfront.net/310519663508689911/FhisZ7WXCdcqNnJdX5VyAC/PCM042_4a5c0d20.jpg (net::ERR_BLOCKED_BY_ORB)",
+        "requestfailed: https://analytics.google.com/g/collect?v=2&tid=G-V391NLDX70&gtm=45je69f3v9208608107za200zd9208608107&_p=1789599185057&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACAC&cid=1589140059.1789599187&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=15&sr=1280x900&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B153.0.8010.37%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.37&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789599186&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fedmonton-to-vancouver-movers%2F&dt=Edmonton%20to%20Vancouver%20Movers%20%7C%20Alberta%20to%20BC%20Moving%20%7C%20Purely%20Canadian%20Movers&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1645 (net::ERR_ABORTED)",
+        "requestfailed: https://analytics.google.com/g/collect?v=2&tid=G-V391NLDX70&gtm=45je69f3v9208608107za200zd9208608107&_p=1789599192784&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=1589140059.1789599187&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B153.0.8010.37%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.37&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120412528~120469145~120469153&sid=1789599186&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fedmonton-to-vancouver-movers%2F&dt=Edmonton%20to%20Vancouver%20Movers%20%7C%20Alberta%20to%20BC%20Moving%20%7C%20Purely%20Canadian%20Movers&en=page_view&_ee=1&tfd=203 (net::ERR_ABORTED)",
+        "requestfailed: https://bzr.openai.com/v1/sdk/events?pid=VoQRj1i5cYmiok3DbhBcb5&st=oaiq-web&sv=0.1.41&t=1789599194067&ec=2 (net::ERR_ABORTED)",
+        "requestfailed: https://analytics.google.com/g/collect?v=2&tid=G-V391NLDX70&gtm=45je69f3v9208608107za200zd9208608107&_p=1789599192784&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEEAACQC&ae=a&cid=1589140059.1789599187&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B153.0.8010.37%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.37&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=2&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120412528~120469145~120469153&sid=1789599186&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fedmonton-to-vancouver-movers%2F&dt=Edmonton%20to%20Vancouver%20Movers%20%7C%20Alberta%20to%20BC%20Moving%20%7C%20Purely%20Canadian%20Movers&en=form_start&ep.form_id=&ep.form_destination=http%3A%2F%2F127.0.0.1%3A4175%2Fcontact%2F&epn.form_length=5&ep.first_field_id=&ep.first_field_name=from&ep.first_field_type=text&epn.first_field_position=1&_et=31&tfd=5217 (net::ERR_ABORTED)"
+      ]
+    },
+    {
+      "route": "/vancouver-to-edmonton-movers/",
+      "expected": {
+        "path": "/vancouver-to-edmonton-movers/",
+        "from": "Vancouver, BC",
+        "to": "Edmonton, AB",
+        "faqCount": 9
+      },
+      "raw": {
+        "owner": "finalize-vancouver-edmonton-routes.mjs",
+        "rendering": "static",
+        "postProcessors": [
+          "finalize-route-promo.mjs",
+          "finalize-route-faq-architecture.mjs",
+          "normalize-route-title-metadata.mjs"
+        ],
+        "reactBootstrap": false,
+        "conversionRuntime": true,
+        "title": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+        "ogTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+        "twitterTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+        "description": "Vancouver to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+        "canonical": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+        "ogUrl": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+        "formValues": {
+          "from": "",
+          "to": ""
+        },
+        "counts": {
+          "h1": 1,
+          "quote": 0,
+          "form": 0,
+          "pricing": 0,
+          "table": 0,
+          "glance": 1,
+          "faqSection": 1,
+          "faqHeading": 1,
+          "visibleFaq": 9,
+          "faqPage": 1,
+          "localSeo": 0
+        },
+        "faqParity": true,
+        "undefinedVisible": false,
+        "legacyPricing": false,
+        "staleTerminology": false
+      },
+      "lifecycle": {
+        "initial": {
+          "title": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "description": "Vancouver to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "h1": "Vancouver to Edmonton Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "",
+            "pricing": "",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "",
+            "button": "",
+            "cta": ""
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 0,
+            "form": 0,
+            "pricing": 0,
+            "table": 0,
+            "rows": 0,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "Vancouver to Edmonton Movers",
+            "Moving from Vancouver to Edmonton?",
+            "What Makes a Vancouver–Edmonton Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Vancouver–Edmonton Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Edmonton?"
+          ]
+        },
+        "oneToTwoSeconds": {
+          "title": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "description": "Vancouver to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "from": "Vancouver, BC",
+          "to": "Edmonton, AB",
+          "h1": "Vancouver to Edmonton Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "Get a Vancouver to Edmonton quote.",
+            "A direct Vancouver to Edmonton mover — not a broker",
+            "How much does it cost to move from Vancouver to Edmonton?",
+            "Vancouver to Edmonton Movers",
+            "Moving from Vancouver to Edmonton?",
+            "What Makes a Vancouver–Edmonton Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Vancouver–Edmonton Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Edmonton?"
+          ]
+        },
+        "fivePlusSeconds": {
+          "title": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "description": "Vancouver to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "from": "Vancouver, BC",
+          "to": "Edmonton, AB",
+          "h1": "Vancouver to Edmonton Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "Get a Vancouver to Edmonton quote.",
+            "How much does it cost to move from Vancouver to Edmonton?",
+            "Vancouver to Edmonton Movers",
+            "Moving from Vancouver to Edmonton?",
+            "What Makes a Vancouver–Edmonton Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Vancouver–Edmonton Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Edmonton?"
+          ]
+        }
+      },
+      "responsive": {
+        "desktop1280x900": {
+          "title": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "description": "Vancouver to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "from": "Vancouver, BC",
+          "to": "Edmonton, AB",
+          "h1": "Vancouver to Edmonton Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "48px",
+            "lineHeight": "60px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": false,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "Get a Vancouver to Edmonton quote.",
+            "How much does it cost to move from Vancouver to Edmonton?",
+            "Vancouver to Edmonton Movers",
+            "Moving from Vancouver to Edmonton?",
+            "What Makes a Vancouver–Edmonton Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Vancouver–Edmonton Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Edmonton?"
+          ]
+        },
+        "mobile390x844": {
+          "title": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "ogTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "twitterTitle": "Vancouver to Edmonton Movers | Purely Canadian Movers",
+          "description": "Vancouver to Edmonton movers. Professional, fully insured long-distance moves. Family-owned since 1991. GCVL agents. Free estimates.",
+          "canonical": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "ogUrl": "https://purelycanadianmovers.com/vancouver-to-edmonton-movers/",
+          "from": "Vancouver, BC",
+          "to": "Edmonton, AB",
+          "h1": "Vancouver to Edmonton Movers",
+          "h1Style": {
+            "family": "\"Playfair Display\", serif",
+            "size": "36px",
+            "lineHeight": "45px",
+            "weight": "700"
+          },
+          "fonts": {
+            "body": "\"Source Sans 3\", sans-serif",
+            "paragraph": "\"Source Sans 3\", sans-serif",
+            "pricing": "\"Source Sans 3\", Arial, sans-serif",
+            "faq": "\"Source Sans 3\", sans-serif",
+            "form": "\"Source Sans 3\", Arial, sans-serif",
+            "button": "\"Source Sans 3\", Arial, sans-serif",
+            "cta": "\"Source Sans 3\", sans-serif"
+          },
+          "counts": {
+            "h1": 1,
+            "quote": 1,
+            "form": 1,
+            "pricing": 1,
+            "table": 1,
+            "rows": 5,
+            "glance": 1,
+            "faqSection": 1,
+            "faqHeading": 1,
+            "visibleFaq": 9,
+            "faqPage": 1,
+            "localSeo": 0,
+            "nav": 1,
+            "chat": 1
+          },
+          "faqParity": true,
+          "facts": {
+            "distance": true,
+            "transit": true,
+            "prices": true,
+            "range": true
+          },
+          "pageOverflow": false,
+          "pricingInternalScroll": true,
+          "clippedControls": 0,
+          "undefinedVisible": false,
+          "soft404": false,
+          "legacyPricing": false,
+          "staleTerminology": false,
+          "order": [
+            "Get a Vancouver to Edmonton quote.",
+            "How much does it cost to move from Vancouver to Edmonton?",
+            "Vancouver to Edmonton Movers",
+            "Moving from Vancouver to Edmonton?",
+            "What Makes a Vancouver–Edmonton Move Unique",
+            "Why Choose Purely Canadian Movers",
+            "How Your Vancouver–Edmonton Move Works",
+            "Frequently Asked Questions",
+            "py-16 bg-white",
+            "Related Destinations",
+            "Ready to Move from Vancouver to Edmonton?"
+          ]
+        }
+      },
+      "interactions": {
+        "desktop": {
+          "navTrigger": true,
+          "navOpened": true,
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        },
+        "mobile": {
+          "navTrigger": true,
+          "navOpened": "true",
+          "navClosed": "false",
+          "chatLauncher": true,
+          "chatOpened": true,
+          "chatClosed": true
+        }
+      },
+      "applicationErrors": [
+        "requestfailed: https://d2xsxph8kpxj0f.cloudfront.net/310519663508689911/FhisZ7WXCdcqNnJdX5VyAC/PCM042_4a5c0d20.jpg (net::ERR_BLOCKED_BY_ORB)",
+        "requestfailed: https://analytics.google.com/g/collect?v=2&tid=G-V391NLDX70&gtm=45je69f3v9208608107za200zd9208608107&_p=1789599199674&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACAC&cid=834839370.1789599200&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=4&sr=1280x900&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B153.0.8010.37%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.37&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~120591196&sid=1789599199&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fvancouver-to-edmonton-movers%2F&dt=Vancouver%20to%20Edmonton%20Movers%20%7C%20Purely%20Canadian%20Movers&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=350 (net::ERR_ABORTED)",
+        "requestfailed: https://bzr.openai.com/v1/sdk/events?pid=VoQRj1i5cYmiok3DbhBcb5&st=oaiq-web&sv=0.1.41&t=1789599201016&ec=2 (net::ERR_ABORTED)",
+        "requestfailed: https://bzr.openai.com/v1/sdk/events?pid=VoQRj1i5cYmiok3DbhBcb5&st=oaiq-web&sv=0.1.41&t=1789599207416&ec=2 (net::ERR_ABORTED)",
+        "requestfailed: https://analytics.google.com/g/collect?v=2&tid=G-V391NLDX70&gtm=45je69f3v9208608107za200zd9208608107&_p=1789599206147&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AAAAACQC&cid=834839370.1789599200&frm=0&ibt=1&ngs=1&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Google%2520Chrome%3B153.0.8010.37%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.37&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938468~118897920~118897930~120213116~120385423~120469145~120469153~120591196&sid=1789599199&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fvancouver-to-edmonton-movers%2F&dt=Vancouver%20to%20Edmonton%20Movers%20%7C%20Purely%20Canadian%20Movers&en=page_view&_ee=1&tfd=5117 (net::ERR_ABORTED)"
+      ]
+    }
+  ]
+}
