@@ -40,6 +40,8 @@ function render(source, route) {
     .replaceAll("HalifaxHalifax", "EdmontonHalifax");
   const title = `${name} Movers | ${route.fromProvinceName} to ${route.toProvinceName} Moving | Purely Canadian Movers`;
   const description = `${name} moving cost guide with estimated prices by home size, 8–20 day transit time, route logistics, packing, storage, Declared Value Protection, and direct movers.`;
+  const originValue = `${route.from}, ${route.fromProvince}`;
+  html = html.replace(/(<label>Moving from\s*<input\b[^>]*\bname="from"[^>]*)(>)/i, (_, attrs, close) => `${attrs.replace(/\bplaceholder="[^"]*"/i, `placeholder="${esc(originValue)}"`).replace(/\bvalue="[^"]*"/i, `value="${esc(originValue)}"`)}${close}`);
   html = html.replace(/<title\b[^>]*>[\s\S]*?<\/title>/i, `<title data-pcm-authoritative-route-title="${esc(title)}">${esc(title)}</title>`)
     .replace(/(<meta\b[^>]*name="description"[^>]*content=")[^"]*(")/i, `$1${esc(description)}$2`)
     .replace(/(<meta\b[^>]*property="og:title"[^>]*content=")[^"]*(")/i, `$1${esc(title)}$2`)
