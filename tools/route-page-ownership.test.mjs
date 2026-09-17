@@ -26,9 +26,9 @@ import { CALGARY_TORONTO_FACTS, CALGARY_TORONTO_ROUTES, assertCalgaryTorontoTemp
 import { CALGARY_VANCOUVER_FACTS, CALGARY_VANCOUVER_ROUTES, assertCalgaryVancouverTemplate } from "./calgary-vancouver-route-data.mjs";
 import { assertTorontoVancouverStaticTemplate, torontoVancouverFacts, torontoVancouverRoutes } from "./toronto-vancouver-static-route-data.mjs";
 
-test("all 56 routes have one collision-free owner", () => {
-  assert.equal(routePageOwnership.length, 56);
-  assert.equal(new Set(routePageOwnership.map((entry) => entry.routeUrl)).size, 56);
+test("all 58 routes have one collision-free owner", () => {
+  assert.equal(routePageOwnership.length, 58);
+  assert.equal(new Set(routePageOwnership.map((entry) => entry.routeUrl)).size, 58);
   assert.deepEqual(validateOwnershipModel(routePageOwnership, routeWriterManifest), []);
 });
 

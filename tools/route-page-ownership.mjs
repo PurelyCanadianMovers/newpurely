@@ -68,6 +68,10 @@ const ownerGroups = {
     "calgary-to-halifax-movers",
     "halifax-to-calgary-movers",
   ],
+  "rebuild-halifax-edmonton-routes.mjs": [
+    "edmonton-to-halifax-movers",
+    "halifax-to-edmonton-movers",
+  ],
   "fix-winnipeg-static-routes.mjs": [
     "ottawa-to-winnipeg-movers",
     "winnipeg-to-ottawa-movers",
@@ -365,6 +369,16 @@ const routeRuntimeEnhancers = {
     "site-copy/assets/static-nav.js",
     "site-copy/assets/static-chat.js",
   ],
+  "halifax-to-edmonton-movers": [
+    "site-copy/assets/conversion-boost.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/static-chat.js",
+  ],
+  "edmonton-to-halifax-movers": [
+    "site-copy/assets/conversion-boost.js",
+    "site-copy/assets/static-nav.js",
+    "site-copy/assets/static-chat.js",
+  ],
 };
 
 const routeRuntimeStyles = {
@@ -603,6 +617,16 @@ const routeRuntimeStyles = {
     "site-copy/assets/static-nav.css",
     "site-copy/assets/static-chat.css",
   ],
+  "halifax-to-edmonton-movers": [
+    "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/static-nav.css",
+    "site-copy/assets/static-chat.css",
+  ],
+  "edmonton-to-halifax-movers": [
+    "site-copy/assets/conversion-boost.css",
+    "site-copy/assets/static-nav.css",
+    "site-copy/assets/static-chat.css",
+  ],
 };
 
 const routePostProcessors = {
@@ -645,6 +669,7 @@ const routeArchitectureExceptions = {
 const staticOwners = new Set([
   CHECKED_IN_STATIC_SOURCE,
   "generate-halifax-calgary-route-pages.mjs",
+  "rebuild-halifax-edmonton-routes.mjs",
   HALIFAX_VANCOUVER_STATIC_GENERATOR,
   CALGARY_TORONTO_STATIC_GENERATOR,
   CALGARY_VANCOUVER_STATIC_GENERATOR,

@@ -13,7 +13,7 @@ export function validateOwnershipModel(entries, writers, inventory = entries.map
     else owners.set(entry.routeUrl, entry.owner);
   }
   for (const routeUrl of inventory) if (!owners.has(routeUrl)) errors.push(`${routeUrl} has no declared full-page owner.`);
-  for (const routeUrl of owners.keys()) if (!inventory.includes(routeUrl)) errors.push(`${routeUrl} is registered but is not in the 56-route inventory.`);
+  for (const routeUrl of owners.keys()) if (!inventory.includes(routeUrl)) errors.push(`${routeUrl} is registered but is not in the 58-route inventory.`);
 
   for (const writer of writers.filter((item) => item.mode === "authoritative")) {
     for (const routeUrl of writer.routes) {
@@ -62,7 +62,7 @@ export function validateRepository(root = "site-copy") {
   const resolvedRoot = resolve(root);
   const inventory = routeInventory(resolvedRoot);
   const errors = validateOwnershipModel(routePageOwnership, routeWriterManifest, inventory);
-  if (inventory.length !== 56) errors.push(`Expected 56 route directories, found ${inventory.length}.`);
+  if (inventory.length !== 58) errors.push(`Expected 58 route directories, found ${inventory.length}.`);
   for (const entry of routePageOwnership) {
     const routeFile = join(resolvedRoot, entry.routeUrl.slice(1), "index.html");
     if (!existsSync(routeFile)) errors.push(`${entry.routeUrl} owner input/output page is missing.`);
