@@ -16,7 +16,7 @@ Scope: the repository's existing 56-route inventory in `tools/route-page-ownersh
 
 | Route | Static file | React bundle loaded | React route mapped | Raw H1 | Final H1 | Classification | Safe to edit static HTML? | Notes |
 |---|---|---:|---:|---|---|---|---|---|
-| `/bc-to-washington-movers/` | `site-copy/bc-to-washington-movers/index.html` | Yes | Yes (`gge`) | Professional Movers in Vancouver & the Lower Mainland Since 1991 | BC to Washington State Movers | B ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â React Owned | No | Cross-border React component owns the final route body. Direct site-copy HTML edits can be overwritten after React mount. |
+| `/bc-to-washington-movers/` | `site-copy/bc-to-washington-movers/index.html` | No | Yes (`gge`, dormant) | BC to Washington State Movers | BC to Washington State Movers | A - Static Safe | Yes | Migration Step 12 moved final ownership to `rebuild-bc-washington-static-route.mjs`; captured settled hub is final static HTML with shared conversion/navigation/chat enhancements. |
 | `/calgary-to-edmonton-movers/` | `site-copy/calgary-to-edmonton-movers/index.html` | No | No | Calgary to Edmonton Moving Cost, Prices & Transit Time | Calgary to Edmonton Moving Cost, Prices & Transit Time | A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe | Yes | Direct site-copy HTML edits survive final render. |
 | `/calgary-to-halifax-movers/` | `site-copy/calgary-to-halifax-movers/index.html` | No | No | Calgary to Halifax Moving Cost, Prices & Transit Time | Calgary to Halifax Moving Cost, Prices & Transit Time | A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe | Yes | Only static cleanup/enhancement runtime; no route-content replacement. Direct site-copy HTML edits survive final render. |
 | `/calgary-to-montreal-movers/` | `site-copy/calgary-to-montreal-movers/index.html` | No | No | Calgary to Montreal Movers | Calgary to Montreal Movers | A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe | Yes | Direct site-copy HTML edits survive final render. |
@@ -76,12 +76,12 @@ Scope: the repository's existing 56-route inventory in `tools/route-page-ownersh
 ## Summary counts
 
 - Total route pages audited: **56**
-- A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe: **42**
-- B ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â React Owned: **1**
+- A ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static Safe: **43**
+- B ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â React Owned: **0**
 - C ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Hybrid: **13**
 - D ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Other / Unknown: **0**
-- React-owned pages: **1**
-- Static-safe pages: **42**
+- React-owned pages: **0**
+- Static-safe pages: **43**
 
 ## STATIC SAFE PAGES
 
@@ -90,6 +90,7 @@ The complete A list is:
 - `/montreal-to-edmonton-movers/` (Migration Step 7)
 - `/montreal-to-victoria-movers/` (Migration Step 8)
 - `/ottawa-to-edmonton-movers/` (Migration Step 9)
+- `/bc-to-washington-movers/` (Migration Step 12)
 
 - `/calgary-to-edmonton-movers/`
 - `/calgary-to-halifax-movers/`
@@ -131,9 +132,9 @@ For every page in this list: **Direct site-copy HTML edits survive final render.
 
 ## REACT OWNED PAGES
 
- /bc-to-washington-movers/.
+None.
 
-For every page in this list: **Direct site-copy HTML edits can be overwritten after React mount.**
+No route remains in this category.
 
 ## HYBRID PAGES
 

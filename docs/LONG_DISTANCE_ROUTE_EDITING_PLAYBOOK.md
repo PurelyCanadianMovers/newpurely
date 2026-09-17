@@ -18,7 +18,7 @@ Legend: **Owner** is the authoritative full-page owner. **QA** means run the own
 
 | Route | Class | Primary source of truth | Edit normally | Do not edit directly | Rebuild / overwrite risk | React mount | Inline visible JS | Shared / special handling | Mandatory QA |
 |---|---|---|---|---|---|---|---|---|---|
-| `/bc-to-washington-movers/` | B | React component `gge` in compiled route map | Upstream React source for BC/Washington page | Static HTML; compiled bundle | React build required | Yes | Route presentation follows React | Cross-border component | B + content/render |
+| `/bc-to-washington-movers/` | A | `tools/rebuild-bc-washington-static-route.mjs` | `tools/bc-washington-static-route-data.mjs` and `tools/templates/bc-washington-static-route.html` | Compiled bundle; historical React source marker | `node tools/rebuild-bc-washington-static-route.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only | Migration Step 12 static cross-border hub owner | A + content/render |
 | `/calgary-to-edmonton-movers/` | A | Checked-in static HTML | `site-copy/calgary-to-edmonton-movers/index.html` | Bundle; unrelated generators | No; aggregate preserves checked-in source | No | No meaningful route replacement | Checked-in static source; Step 35 facts/finalizer | A + content |
 | `/calgary-to-halifax-movers/` | A | `tools/generate-halifax-calgary-route-pages.mjs` and its templates/data | Generator/template/data | Route HTML output | `node tools/generate-halifax-calgary-route-pages.mjs site-copy` or `npm run routes` | No | No meaningful route replacement | Static pair owner | A + content |
 | `/calgary-to-montreal-movers/` | A | Checked-in static HTML plus registered finalizer | `site-copy/calgary-to-montreal-movers/index.html`; pair facts in `tools/montreal-calgary-route-data.mjs` when applicable | Bundle; generated output from unrelated owner | Run `npm run routes` if finalizers must be reapplied | No | No meaningful route replacement | Static side of mixed pair; Step 36 finalizer | A + content |
@@ -111,7 +111,7 @@ Static-safe does not mean ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œskip QAÃƒÂ¢Ã¢
 5. Run the ownership validator and a JavaScript-enabled browser/render check after React mount. Compare raw HTML with final DOM and verify the changed H1/main content/pricing/glance/FAQ/form/CTA survives mount.
 6. Check for route contamination, wrong-direction content, duplicate sections, and unintended bundle or route changes.
 
-For every B route: **Direct site-copy HTML edits can be overwritten after React mount.**
+No B routes remain after Migration Step 12.
 
 ## C ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Hybrid procedure
 
@@ -155,16 +155,10 @@ If the playbook and current repository architecture ever disagree, stop before e
 
 ## Coverage and limitations
 
-After Migration Step 11, 1 route remains B-owned.
+After Migration Step 12, 0 routes remain B-owned.
 
-## Verified B-route source trace
+## Historical B-route trace
 
-The React source investigation is recorded in `docs/REACT_ROUTE_SOURCE_TRACE_AUDIT.md`. The compiled bundle's `data-loc` markers and historical project files verify one historical React/Vite source system, but none of the 17 route-specific source modules is present in the current tree or reachable Git history. The paths below are verified historical source-location markers, not currently editable files.
+The former BC-to-Washington mapping (`gge`, `client/src/pages/services/BCToWashingtonMovers.tsx`) is historical evidence only. Edit `tools/rebuild-bc-washington-static-route.mjs`, its route data, and its maintained template instead.
 
-| B route | Bundle component | Verified source-location marker | Current editing instruction |
-|---|---|---|---|
-| `/bc-to-washington-movers/` | `gge` | `client/src/pages/services/BCToWashingtonMovers.tsx` | Locate the upstream checkout containing this file; do not edit generated HTML/bundle. |
-| `/montreal-to-calgary-movers/` | A | `tools/rebuild-montreal-calgary-static-routes.mjs` | `tools/montreal-calgary-route-data.mjs` and maintained static template | Route HTML output; compiled bundle and Step 36 finalizer are historical evidence only | `node tools/rebuild-montreal-calgary-static-routes.mjs site-copy` or `npm run routes` | No | Static navigation/chat and conversion enhancement only; no route-content replacement | Migration Step 6 static owner; Calgary ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Montreal remains an unchanged comparison page | A + content/render |
-| Historical B-route trace (completed in Step 11) | `uge` | `client/src/pages/services/TorontoToVictoriaMovers.tsx` | Historical source marker only; edit the Step 11 static generator and data/template inputs instead. |
-
-The verified historical rebuild path is the root React project's `npm run build` / `pnpm build`, using its historical `vite.config.ts` (`client` root, `dist/public` output). That React project is not present in the current repository checkout. Until the upstream checkout is located, the B-route stop rule remains mandatory.
+The former React build path is retained as historical evidence only; it is not the editing path for any current route.

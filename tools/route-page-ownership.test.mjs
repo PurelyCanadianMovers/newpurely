@@ -281,7 +281,7 @@ test("representative SPA, dedicated, conflict, finalizer, and ordinary routes ar
 });
 
 test("architecture validation rejects React/static runtime contradictions", () => {
-  const react = routeOwnershipByUrl.get("/bc-to-washington-movers/");
+  const react = { ...routeOwnershipByUrl.get("/edmonton-to-montreal-movers/"), architectureExceptions: [] };
   const staticRoute = routeOwnershipByUrl.get("/edmonton-to-ottawa-movers/");
   assert.deepEqual(validateRouteArchitecture(react, '<script type="module" src="../assets/index.js"></script>'), []);
   assert.match(validateRouteArchitecture(react, '<script defer src="/assets/static-nav.js"></script>')[0], /declared react-spa but has no module bootstrap/);
@@ -356,50 +356,34 @@ test("SPA generation writes an owned route and preserves dedicated/static, About
     assert.match(run.stdout, /Ownership skip: \/edmonton-to-calgary-movers\/ belongs to checked-in-static-route-source/);
     assert.match(run.stdout, /Ownership skip: \/edmonton-to-ottawa-movers\/ belongs to checked-in-static-route-source/);
     assert.match(run.stdout, /Ownership skip: \/vancouver-to-halifax-movers\/ belongs to rebuild-halifax-vancouver-routes\.mjs/);
-    assert.match(await readFile(join(tempRoot, "bc-to-washington-movers/index.html"), "utf8"), /<html/i);
     for (const slug of sentinels) assert.equal(await readFile(join(tempRoot, slug, "index.html"), "utf8"), `sentinel:${slug}`);
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }
 });
 
-test("BC to Washington SPA owner normalizes only its durable pricing heading and raw route metadata", async () => {
-  const tempRoot = await mkdtemp(join(tmpdir(), "pcm-step68-bc-washington-"));
+test("BC to Washington dedicated generator writes static, canonical, and form-safe output", async () => {
+  const tempRoot = await mkdtemp(join(tmpdir(), "pcm-step12-bc-washington-"));
   try {
-    await mkdir(join(tempRoot, "assets"), { recursive: true });
     await mkdir(join(tempRoot, "bc-to-washington-movers"), { recursive: true });
-    await copyFile(resolve("site-copy/index.html"), join(tempRoot, "index.html"));
-    const currentBundle = await readFile(resolve("site-copy/assets/index-CNBNs70h.js"), "utf8");
-    await writeFile(
-      join(tempRoot, "assets/index-CNBNs70h.js"),
-      currentBundle.replace("BC to Washington State Moving Costs", "BC to Washington State Moving Cost Breakdown"),
-      "utf8",
-    );
-    const currentHtml = await readFile(resolve("site-copy/bc-to-washington-movers/index.html"), "utf8");
-    const legacyHtml = currentHtml
-      .replaceAll("https://purelycanadianmovers.com/bc-to-washington-movers/", "https://purelycanadianmovers.com/")
-      .replace(/<meta name="description" content="[^"]*"\s*\/?>/, '<meta name="description" content="generic" />');
-    await writeFile(join(tempRoot, "bc-to-washington-movers/index.html"), legacyHtml, "utf8");
-
-    const first = spawnSync(process.execPath, [resolve("tools/generate-spa-routes.mjs"), tempRoot], { encoding: "utf8" });
+    const first = spawnSync(process.execPath, [resolve("tools/rebuild-bc-washington-static-route.mjs"), tempRoot], { encoding: "utf8" });
     assert.equal(first.status, 0, first.stderr);
     const afterFirstHtml = await readFile(join(tempRoot, "bc-to-washington-movers/index.html"), "utf8");
-    const afterFirstBundle = await readFile(join(tempRoot, "assets/index-CNBNs70h.js"), "utf8");
     assert.match(afterFirstHtml, /<link rel="canonical" id="canonical-tag" href="https:\/\/purelycanadianmovers\.com\/bc-to-washington-movers\/"/);
     assert.match(afterFirstHtml, /<meta property="og:url" content="https:\/\/purelycanadianmovers\.com\/bc-to-washington-movers\/"/);
-    assert.match(afterFirstHtml, /<meta name="description" content="BC to Washington movers with overnight service\./);
-    assert.doesNotMatch(afterFirstBundle, /BC to Washington State Moving Cost Breakdown/);
-    assert.match(afterFirstBundle, /BC to Washington State Moving Costs/);
+    assert.match(afterFirstHtml, /value="British Columbia"/);
+    assert.match(afterFirstHtml, /value="Washington State"/);
+    assert.doesNotMatch(afterFirstHtml, /type="module"|index-CNBNs70h\.js/);
+    assert.match(afterFirstHtml, /~250 km/);
+    assert.match(afterFirstHtml, /Redmond/);
 
-    const second = spawnSync(process.execPath, [resolve("tools/generate-spa-routes.mjs"), tempRoot], { encoding: "utf8" });
+    const second = spawnSync(process.execPath, [resolve("tools/rebuild-bc-washington-static-route.mjs"), tempRoot], { encoding: "utf8" });
     assert.equal(second.status, 0, second.stderr);
     assert.equal(await readFile(join(tempRoot, "bc-to-washington-movers/index.html"), "utf8"), afterFirstHtml);
-    assert.equal(await readFile(join(tempRoot, "assets/index-CNBNs70h.js"), "utf8"), afterFirstBundle);
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }
 });
-
 test("Calgary-Edmonton Step 35 facts are symmetric and frozen", () => {
   assert.equal(calgaryEdmontonRouteFacts.distance, "approximately 300 km");
   assert.equal(calgaryEdmontonRouteFacts.transit, "2–4 days");

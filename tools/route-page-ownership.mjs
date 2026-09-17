@@ -16,11 +16,11 @@ const MONTREAL_EDMONTON_STATIC_GENERATOR = "rebuild-montreal-edmonton-static-rou
 const MONTREAL_VICTORIA_STATIC_GENERATOR = "rebuild-montreal-victoria-static-route.mjs";
 const OTTAWA_EDMONTON_STATIC_GENERATOR = "rebuild-ottawa-edmonton-static-route.mjs";
 const EDMONTON_VANCOUVER_STATIC_GENERATOR = "rebuild-edmonton-vancouver-static-route.mjs";
+const BC_WASHINGTON_STATIC_GENERATOR = "rebuild-bc-washington-static-route.mjs";
 const TORONTO_VICTORIA_STATIC_GENERATOR = "rebuild-toronto-victoria-static-route.mjs";
 
 const ownerGroups = {
   [SPA_GENERATOR]: [
-    "bc-to-washington-movers",
     "edmonton-to-montreal-movers",
   ],
   [CALGARY_TORONTO_STATIC_GENERATOR]: [
@@ -57,6 +57,9 @@ const ownerGroups = {
   ],
   [EDMONTON_VANCOUVER_STATIC_GENERATOR]: [
     "edmonton-to-vancouver-movers",
+  ],
+  [BC_WASHINGTON_STATIC_GENERATOR]: [
+    "bc-to-washington-movers",
   ],
   [TORONTO_VICTORIA_STATIC_GENERATOR]: [
     "toronto-to-victoria-movers",
@@ -662,6 +665,7 @@ const staticOwners = new Set([
   MONTREAL_VICTORIA_STATIC_GENERATOR,
   OTTAWA_EDMONTON_STATIC_GENERATOR,
   EDMONTON_VANCOUVER_STATIC_GENERATOR,
+  BC_WASHINGTON_STATIC_GENERATOR,
   TORONTO_VICTORIA_STATIC_GENERATOR,
   "rebuild-winnipeg-montreal-routes.mjs",
   "standardize-montreal-vancouver-routes.mjs",
