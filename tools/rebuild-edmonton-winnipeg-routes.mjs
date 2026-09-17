@@ -52,8 +52,12 @@ async function updateIntegrations() {
 
   const hub = join(root, "edmonton-long-distance-movers", "index.html");
   html = await readFile(hub, "utf8");
-  if (!html.includes("data-pcm-edmonton-winnipeg-routes")) {
-    const block = '<section class="py-12 bg-gray-50" data-pcm-edmonton-winnipeg-routes="1"><div class="container max-w-4xl"><h2 class="font-heading text-3xl font-bold text-gray-900 mb-6">Routes From Edmonton</h2><a href="/edmonton-to-winnipeg-movers/" class="text-[#CC1A1A] font-semibold">Edmonton to Winnipeg Movers</a></div></section>';
+  const block = "<section class=\"py-12 bg-gray-50\" data-pcm-edmonton-winnipeg-routes=\"1\"><div class=\"container max-w-4xl\"><h2 class=\"font-heading text-3xl font-bold text-gray-900 mb-6\">Routes From Edmonton</h2><div class=\"grid grid-cols-1 sm:grid-cols-2 gap-4\"><a href=\"/edmonton-to-toronto-movers/\" class=\"text-[#CC1A1A] font-semibold\">Edmonton → Toronto</a><a href=\"/edmonton-to-vancouver-movers/\" class=\"text-[#CC1A1A] font-semibold\">Edmonton → Vancouver</a><a href=\"/edmonton-to-ottawa-movers/\" class=\"text-[#CC1A1A] font-semibold\">Edmonton → Ottawa</a><a href=\"/edmonton-to-montreal-movers/\" class=\"text-[#CC1A1A] font-semibold\">Edmonton → Montreal</a><a href=\"/edmonton-to-winnipeg-movers/\" class=\"text-[#CC1A1A] font-semibold\">Edmonton → Winnipeg</a></div></div></section>";
+  const section = /<section\b[^>]*data-pcm-edmonton-winnipeg-routes="1"[\s\S]*?<\/section>/i;
+  if (section.test(html)) {
+    html = html.replace(section, block);
+    await writeFile(hub, html, "utf8");
+  } else {
     const at = html.indexOf("</main>");
     if (at < 0) throw new Error("Could not locate Edmonton hub main element.");
     await writeFile(hub, html.slice(0, at) + block + html.slice(at), "utf8");
