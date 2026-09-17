@@ -126,6 +126,8 @@ const ownerGroups = {
     "vancouver-to-halifax-movers",
   ],
   [CHECKED_IN_STATIC_SOURCE]: [
+    "langley",
+    "local-movers-langley-bc",
     "calgary-to-edmonton-movers",
     "calgary-to-montreal-movers",
     "edmonton-to-calgary-movers",
@@ -707,11 +709,15 @@ export const routePageOwnership = Object.freeze(
         : owner === VANCOUVER_EDMONTON_STATIC_FINALIZER
           ? "static-finalizer"
           : "full-page-generator",
-      postProcessors: Object.freeze([...(routePostProcessors[slug] ?? []), ROUTE_PROMO_FINALIZER, FAQ_ARCHITECTURE_FINALIZER, TITLE_METADATA_NORMALIZER]),
+      postProcessors: Object.freeze(isLongDistanceRouteUrl(`/${slug}/`)
+        ? [...(routePostProcessors[slug] ?? []), ROUTE_PROMO_FINALIZER, FAQ_ARCHITECTURE_FINALIZER, TITLE_METADATA_NORMALIZER]
+        : []),
       runtimeEnhancers: Object.freeze(routeRuntimeEnhancers[slug] ?? ["site-copy/assets/conversion-boost.js"]),
       runtimeStyles: Object.freeze(routeRuntimeStyles[slug] ?? []),
       architectureExceptions: Object.freeze(routeArchitectureExceptions[slug] ?? []),
-      rendering: staticOwners.has(owner) ? "static" : "react-spa",
+      rendering: isLongDistanceRouteUrl(`/${slug}/`)
+        ? (staticOwners.has(owner) ? "static" : "react-spa")
+        : "hybrid",
       status: "active",
     })))
     .sort((a, b) => a.routeUrl.localeCompare(b.routeUrl)),

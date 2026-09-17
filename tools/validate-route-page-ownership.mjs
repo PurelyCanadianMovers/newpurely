@@ -30,7 +30,10 @@ export function validateOwnershipModel(entries, writers, inventory = entries.map
 
 export function routeInventory(root) {
   return readdirSync(root, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory() && /^[a-z0-9]+(?:-[a-z0-9]+)*-to-[a-z0-9]+(?:-[a-z0-9]+)*-movers$/.test(entry.name))
+    .filter((entry) => entry.isDirectory() && (
+      /^[a-z0-9]+(?:-[a-z0-9]+)*-to-[a-z0-9]+(?:-[a-z0-9]+)*-movers$/.test(entry.name)
+      || routePageOwnership.some((owner) => owner.routeUrl === `/${entry.name}/`)
+    ))
     .map((entry) => `/${entry.name}/`)
     .sort();
 }
@@ -62,7 +65,7 @@ export function validateRepository(root = "site-copy") {
   const resolvedRoot = resolve(root);
   const inventory = routeInventory(resolvedRoot);
   const errors = validateOwnershipModel(routePageOwnership, routeWriterManifest, inventory);
-  if (inventory.length !== 58) errors.push(`Expected 58 route directories, found ${inventory.length}.`);
+  if (inventory.length !== routePageOwnership.length) errors.push(`Expected ${routePageOwnership.length} registered route directories, found ${inventory.length}.`);
   for (const entry of routePageOwnership) {
     const routeFile = join(resolvedRoot, entry.routeUrl.slice(1), "index.html");
     if (!existsSync(routeFile)) errors.push(`${entry.routeUrl} owner input/output page is missing.`);
@@ -70,9 +73,9 @@ export function validateRepository(root = "site-copy") {
       const html = readFileSync(routeFile, "utf8");
       errors.push(...validateRouteArchitecture(entry, html));
       const hasMaterializedEstimateForm = /<form\b[^>]*(?:pcm-estimate|pcm-lead-panel|pcm-estimate-form)[^>]*>[\s\S]*?(?:moving from|homeSize|home size)[\s\S]*?<\/form>/i.test(html);
-      if (hasMaterializedEstimateForm) {
+      if (hasMaterializedEstimateForm && entry.postProcessors.includes("finalize-route-promo.mjs")) {
         try { validateRoutePromo(html, entry.routeUrl); } catch (error) { errors.push(error.message); }
-      } else if (!/\/assets\/conversion-boost\.js/i.test(html)) {
+      } else if (entry.postProcessors.includes("finalize-route-promo.mjs") && !/\/assets\/conversion-boost\.js/i.test(html)) {
         errors.push(`${entry.routeUrl} has neither a materialized promo form nor the shared promo runtime.`);
       }
     }

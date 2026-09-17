@@ -364,6 +364,11 @@ function depth(route) {
 for (const route of routes) {
   const file = routeFile(route);
   const target = join(outDir, file);
+  const ownership = routeOwnershipByUrl.get(route);
+  if (ownership && ownership.owner !== "generate-spa-routes.mjs" && !isLongDistanceRouteUrl(route)) {
+    console.log(`Ownership skip: ${route} belongs to ${ownership.owner}.`);
+    continue;
+  }
   if (isLongDistanceRouteUrl(route)) {
     const ownership = routeOwnershipByUrl.get(route);
     if (!ownership) throw new Error(`ERROR: ${route} has no declared full-page owner.`);
