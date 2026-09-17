@@ -603,7 +603,7 @@ test("the Step 37 Edmonton-Ottawa finalizer remains reverse-route-only and deter
     await rm(tempRoot, { recursive: true, force: true });
   }
 });
-test("the Step 39 Toronto-Victoria finalizer is deterministic and preserves mixed rendering", async () => {
+test("the Step 39 Toronto-Victoria finalizer is reverse-route-only and deterministic", async () => {
   const tempRoot = await mkdtemp(join(tmpdir(), "pcm-step39-finalizer-"));
   const slugs = ["toronto-to-victoria-movers", "victoria-to-toronto-movers"];
   try {
@@ -611,6 +611,7 @@ test("the Step 39 Toronto-Victoria finalizer is deterministic and preserves mixe
       await mkdir(join(tempRoot, slug), { recursive: true });
       await copyFile(resolve("site-copy", slug, "index.html"), join(tempRoot, slug, "index.html"));
     }
+    const beforeTarget = await readFile(join(tempRoot, slugs[0], "index.html"), "utf8");
     const run = () => spawnSync(process.execPath, [resolve("tools/finalize-toronto-victoria-routes.mjs"), tempRoot], { encoding: "utf8" });
     const first = run();
     assert.equal(first.status, 0, first.stderr);
@@ -619,20 +620,17 @@ test("the Step 39 Toronto-Victoria finalizer is deterministic and preserves mixe
     assert.equal(second.status, 0, second.stderr);
     const twice = await Promise.all(slugs.map((slug) => readFile(join(tempRoot, slug, "index.html"), "utf8")));
     assert.deepEqual(twice, once);
-    for (const html of twice) {
-      assert.equal((html.match(/data-pcm-step39-pricing="1"/g) ?? []).length, 1);
-      assert.equal((html.match(/data-pcm-step39-faq="1"/g) ?? []).length, 1);
-      assert.equal((html.match(/id="pcm-step39-faq-schema"/g) ?? []).length, 1);
-      assert.match(html, new RegExp(torontoVictoriaFacts.transit));
-      for (const [, price] of torontoVictoriaFacts.rows) assert.ok(html.includes(price));
-    }
-    assert.match(twice[0], /<script\b[^>]*type=["']module["']/i);
+    assert.equal(twice[0], beforeTarget);
+    assert.equal((twice[1].match(/data-pcm-step39-pricing="1"/g) ?? []).length, 1);
+    assert.equal((twice[1].match(/data-pcm-step39-faq="1"/g) ?? []).length, 1);
+    assert.equal((twice[1].match(/id="pcm-step39-faq-schema"/g) ?? []).length, 1);
+    assert.match(twice[1], new RegExp(torontoVictoriaFacts.transit));
+    for (const [, price] of torontoVictoriaFacts.rows) assert.ok(twice[1].includes(price));
     assert.doesNotMatch(twice[1], /<script\b[^>]*type=["']module["']/i);
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }
 });
-
 test("the Step 49 Seattle-Vancouver finalizer is deterministic and preserves static cross-border identity", async () => {
   const tempRoot = await mkdtemp(join(tmpdir(), "pcm-step49-finalizer-"));
   const slugs = ["vancouver-to-seattle-movers", "seattle-to-vancouver-movers"];

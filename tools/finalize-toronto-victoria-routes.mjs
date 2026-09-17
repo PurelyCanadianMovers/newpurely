@@ -4,7 +4,7 @@ import { assertAllowedPostProcessor } from "./route-ownership-guard.mjs";
 import { torontoVictoriaFacts, torontoVictoriaRoutes } from "./toronto-victoria-route-data.mjs";
 
 const root = resolve(process.argv[2] ?? "site-copy");
-const routeUrls = Object.keys(torontoVictoriaRoutes);
+const routeUrls = ["/victoria-to-toronto-movers/"];
 assertAllowedPostProcessor("finalize-toronto-victoria-routes.mjs", routeUrls.map((route) => route.slice(1, -1)));
 const styleTag = '    <link rel="stylesheet" href="/assets/step39-toronto-victoria.css" data-pcm-step39="toronto-victoria">';
 const scriptTag = '    <script defer src="/assets/step39-toronto-victoria.js" data-pcm-step39="toronto-victoria"></script>';
@@ -59,7 +59,7 @@ function pricingSection(config) {
 function setMeta(html, selector, value) {
   const valueEscaped = esc(value);
   if (selector === "title") return html.replace(/<title\b[^>]*>[\s\S]*?<\/title>/i, `<title data-pcm-authoritative-route-title="${valueEscaped}">${valueEscaped}</title>`);
-  const attribute = selector.startsWith("og:") ? `property="${selector}"` : `name="${selector}"`;
+  const attribute = selector.startsWith("og:") ? 'property="' + selector + '"' : 'name="' + selector + '"';
   return html.replace(new RegExp(`<meta\\s+${attribute}\\s+content="[^"]*"\\s*\\/?>`, "i"), `<meta ${attribute} content="${valueEscaped}">`);
 }
 
@@ -94,7 +94,8 @@ function insertAfterFirstQuote(html, markup) {
   throw new Error("Unbalanced quote section");
 }
 
-for (const [route, config] of Object.entries(torontoVictoriaRoutes)) {
+for (const route of routeUrls) {
+  const config = torontoVictoriaRoutes[route];
   const file = join(root, route.slice(1), "index.html");
   const canonical = `https://purelycanadianmovers.com${route}`;
   let html = await readFile(file, "utf8");
@@ -131,7 +132,6 @@ for (const [route, config] of Object.entries(torontoVictoriaRoutes)) {
   html = html.replace(/<\/body>/i, `${faqSection(config)}\n</body>`);
 
   const moduleBootstrap = /<script\b[^>]*type=["']module["']/i.test(html);
-  if (route === "/toronto-to-victoria-movers/" && !moduleBootstrap) throw new Error(`${route}: React bootstrap missing`);
   if (route === "/victoria-to-toronto-movers/" && moduleBootstrap) throw new Error(`${route}: static route gained React bootstrap`);
   if ((html.match(/data-pcm-step39="toronto-victoria"/g) ?? []).length !== 2) throw new Error(`${route}: invalid Step 39 asset registration`);
   if ((html.match(/data-pcm-step39-pricing="1"/g) ?? []).length !== 1) throw new Error(`${route}: invalid Step 39 pricing`);
