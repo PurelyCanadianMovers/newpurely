@@ -1,0 +1,53 @@
+name: PCM deployment credential-free dry run
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/pcm-deployment-dry-run.yml
+      - tools/deployment-preflight/**
+  workflow_dispatch:
+    inputs:
+      mock_only:
+        description: Confirm that every deployment action is mocked
+        type: choice
+        required: true
+        options: ['true']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pcm-deployment-dry-run-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  approval-and-transfer-tests:
+    if: ${{ github.event_name == 'pull_request' || (github.ref == 'refs/heads/main' && inputs.mock_only == 'true') }}
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the reviewed default-branch code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Install locked test dependencies in runner checkout
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $testRoot = Join-Path $env:GITHUB_WORKSPACE 'tools/deployment-preflight'
+          npm ci --prefix $testRoot --ignore-scripts
+          if ($LASTEXITCODE -ne 0) { throw 'Test-only dependency installation failed.' }
+          $playwrightPath = Join-Path $testRoot 'node_modules/playwright/index.mjs'
+          if (-not (Test-Path -LiteralPath $playwrightPath)) { throw 'Test-only Playwright module is missing.' }
+          "PLAYWRIGHT_PATH=$playwrightPath" >> $env:GITHUB_ENV
+          'PCM_BROWSER_EXECUTABLE=C:/Program Files/Google/Chrome/Application/chrome.exe' >> $env:GITHUB_ENV
+      - name: Run mocked approval, transfer, and browser-loopback tests
+        shell: pwsh
+        run: >-
+          node --test --test-reporter=spec
+          tools/deployment-preflight/github-environment-approval.test.mjs
+          tools/deployment-preflight/github-hosted-deployment-adapter.test.mjs
+          tools/deployment-preflight/stage-github-candidate.test.mjs
+          tools/deployment-preflight/collect-preview-evidence.test.mjs
