@@ -1,0 +1,325 @@
+{
+  "schema": "pcm-deployment-route-ownership-snapshot/v1",
+  "source": {
+    "commit": "a006c458fe4d72d6ce59e7dc543692d7b1f67a1f",
+    "registryPath": "tools/route-page-ownership.mjs",
+    "registryBlobObjectId": "93bee42cd7c5b71dea42923e6e08d5f30046b6bf"
+  },
+  "routes": [
+    {
+      "route": "/bc-to-washington-movers/",
+      "owner": "rebuild-bc-washington-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/calgary-to-edmonton-movers/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/calgary-to-halifax-movers/",
+      "owner": "generate-halifax-calgary-route-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/calgary-to-montreal-movers/",
+      "owner": "build-calgary-montreal-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/calgary-to-ottawa-movers/",
+      "owner": "rebuild-calgary-ottawa-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/calgary-to-toronto-movers/",
+      "owner": "rebuild-calgary-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/calgary-to-vancouver-movers/",
+      "owner": "rebuild-calgary-vancouver-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/calgary-to-winnipeg-movers/",
+      "owner": "rebuild-calgary-winnipeg-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/edmonton-to-calgary-movers/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/edmonton-to-halifax-movers/",
+      "owner": "rebuild-halifax-edmonton-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/edmonton-to-montreal-movers/",
+      "owner": "generate-spa-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/edmonton-to-ottawa-movers/",
+      "owner": "build-edmonton-ottawa-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/edmonton-to-toronto-movers/",
+      "owner": "rebuild-edmonton-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/edmonton-to-vancouver-movers/",
+      "owner": "rebuild-edmonton-vancouver-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/edmonton-to-winnipeg-movers/",
+      "owner": "rebuild-edmonton-winnipeg-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/halifax-to-calgary-movers/",
+      "owner": "generate-halifax-calgary-route-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/halifax-to-edmonton-movers/",
+      "owner": "rebuild-halifax-edmonton-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/halifax-to-toronto-movers/",
+      "owner": "update-halifax-toronto-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/halifax-to-vancouver-movers/",
+      "owner": "rebuild-halifax-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/langley/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/local-movers-langley-bc/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/long-distance-moving-cost-canada/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/maple-ridge/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/montreal-to-calgary-movers/",
+      "owner": "build-calgary-montreal-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/montreal-to-edmonton-movers/",
+      "owner": "rebuild-montreal-edmonton-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/montreal-to-toronto-movers/",
+      "owner": "rebuild-montreal-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/montreal-to-vancouver-movers/",
+      "owner": "standardize-montreal-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/montreal-to-victoria-movers/",
+      "owner": "rebuild-montreal-victoria-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/montreal-to-winnipeg-movers/",
+      "owner": "rebuild-winnipeg-montreal-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/ottawa-to-calgary-movers/",
+      "owner": "rebuild-calgary-ottawa-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/ottawa-to-edmonton-movers/",
+      "owner": "build-edmonton-ottawa-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/ottawa-to-toronto-movers/",
+      "owner": "rebuild-ottawa-toronto-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/ottawa-to-vancouver-movers/",
+      "owner": "standardize-montreal-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/ottawa-to-victoria-movers/",
+      "owner": "rebuild-victoria-ottawa-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/ottawa-to-winnipeg-movers/",
+      "owner": "rebuild-winnipeg-ottawa-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/seattle-to-vancouver-movers/",
+      "owner": "rebuild-seattle-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-calgary-movers/",
+      "owner": "rebuild-calgary-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-edmonton-movers/",
+      "owner": "rebuild-edmonton-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-halifax-movers/",
+      "owner": "update-halifax-toronto-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-montreal-movers/",
+      "owner": "rebuild-montreal-toronto-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-ottawa-movers/",
+      "owner": "rebuild-ottawa-toronto-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-vancouver-movers/",
+      "owner": "rebuild-toronto-vancouver-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-victoria-movers/",
+      "owner": "build-toronto-victoria-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/toronto-to-winnipeg-movers/",
+      "owner": "rebuild-toronto-winnipeg-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-bellevue-movers/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/vancouver-to-calgary-movers/",
+      "owner": "rebuild-calgary-vancouver-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-edmonton-movers/",
+      "owner": "finalize-vancouver-edmonton-routes.mjs",
+      "ownerType": "static-finalizer"
+    },
+    {
+      "route": "/vancouver-to-halifax-movers/",
+      "owner": "rebuild-halifax-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-montreal-movers/",
+      "owner": "standardize-montreal-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-ottawa-movers/",
+      "owner": "standardize-montreal-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-seattle-movers/",
+      "owner": "rebuild-seattle-vancouver-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-toronto-movers/",
+      "owner": "rebuild-toronto-vancouver-static-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/vancouver-to-winnipeg-movers/",
+      "owner": "rebuild-winnipeg-modern-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/victoria-to-montreal-movers/",
+      "owner": "rebuild-montreal-victoria-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/victoria-to-ottawa-movers/",
+      "owner": "rebuild-victoria-ottawa-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/victoria-to-toronto-movers/",
+      "owner": "build-toronto-victoria-pages.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/victoria-to-vancouver-movers/",
+      "owner": "checked-in-static-route-source",
+      "ownerType": "checked-in-static-source"
+    },
+    {
+      "route": "/winnipeg-to-calgary-movers/",
+      "owner": "rebuild-calgary-winnipeg-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/winnipeg-to-edmonton-movers/",
+      "owner": "rebuild-edmonton-winnipeg-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/winnipeg-to-montreal-movers/",
+      "owner": "rebuild-winnipeg-montreal-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/winnipeg-to-ottawa-movers/",
+      "owner": "rebuild-winnipeg-ottawa-static-route.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/winnipeg-to-toronto-movers/",
+      "owner": "rebuild-toronto-winnipeg-routes.mjs",
+      "ownerType": "full-page-generator"
+    },
+    {
+      "route": "/winnipeg-to-vancouver-movers/",
+      "owner": "rebuild-winnipeg-modern-routes.mjs",
+      "ownerType": "full-page-generator"
+    }
+  ]
+}

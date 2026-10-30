@@ -1,0 +1,11 @@
+{
+  "name": "pcm-deployment-preflight-tools",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "parse5": "8.0.1"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
